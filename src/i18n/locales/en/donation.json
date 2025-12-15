@@ -1,0 +1,7 @@
+{
+  "donate_title": "Support Natly",
+  "donate_description": "Your donations help keep this website free and allow our team to continue working on this project.",
+  "donate_button": "Donate",
+  "donors_wall_title": "Donors Wall",
+  "donation_amounts": ["$1", "$5", "$10", "$20", "$50", "$100"]
+}

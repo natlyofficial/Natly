@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "show_answer": "Show answer",
+    "hide_answer": "Hide answer",
+    "hint": "Hint",
+    "next": "Next",
+    "previous": "Previous"
+  },
+
+  "labels": {
+    "question": "Question",
+    "language_es": "Spanish",
+    "language_en": "English",
+    "language_both": "Both"
+  },
+
+  "titles": {
+    "correct_answer": "Correct Answer"
+  }
+}

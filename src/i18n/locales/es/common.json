@@ -1,0 +1,56 @@
+{
+  "messages": {
+    "audio_unavailable": "La reproducción de audio estará disponible muy pronto. ¡Gracias por tu paciencia!",
+    "feature_unavailable": "Esta función aún no está habilitada.",
+    "coming_soon": "Próximamente.",
+    "under_construction": "Estamos trabajando en esta sección. ¡Estará lista muy pronto!"
+  },
+
+  "titles": {
+    "audio_popup_title": "Función no habilitada",
+    "filters_title": "Filtros",
+    "search_question_title": "Buscar pregunta"
+  },
+
+  "buttons": {
+    "understood": "Entendido",
+    "close": "Cerrar",
+    "continue": "Continuar",
+    "apply": "Aplicar",
+    "reset": "Restablecer",
+    "donate": "Apoyar con una donación"
+  },
+
+  "donation": {
+    "message": "Tu apoyo ayuda a miles de inmigrantes a lograr su sueño de convertirse en ciudadanos. Cada donación, grande o pequeña, nos acerca a completar esta plataforma y la app que cambiarán vidas.",
+    "thank_you": "¡Gracias por tu apoyo!"
+  },
+
+  "actions": {
+    "search_question": "Buscar pregunta...",
+    "filters": "Filtros",
+    "show_answer": "Mostrar respuesta",
+    "hide_answer": "Ocultar respuesta",
+    "hint": "Pista",
+    "like": "Ya me la sé",
+    "dislike": "Me cuesta",
+    "favorite": "Favorita",
+    "clear_all_statuses": "Borrar todos los estados",
+    "clear_search_question": "Limpiar"
+  },
+
+  "filters": {
+    "categories": "Categorías",
+    "status": "Estado",
+    "range": "Rango de preguntas",
+
+    "category_all": "Todas las categorías",
+    "category_american_government": "Gobierno de América",
+    "category_american_history": "Historia de América",
+    "category_symbols_and_holidays": "Símbolos y Feriados",
+
+    "status_known": "Ya me la sé",
+    "status_hard": "Me cuesta",
+    "status_favorite": "Favoritas"
+  }
+}

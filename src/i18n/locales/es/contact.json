@@ -1,0 +1,29 @@
+{
+  "title": "Contáctanos",
+  "subtitle": "¿Tienes preguntas, sugerencias o quieres colaborar con Natly? Escríbenos.",
+  "form_title": "Envíanos un mensaje",
+
+  "name": "Nombre",
+  "name_placeholder": "Escribe tu nombre",
+
+  "email": "Correo electrónico",
+  "email_placeholder": "tu@email.com",
+
+  "message": "Mensaje",
+  "message_placeholder": "Escribe tu mensaje",
+
+  "send": "Enviar mensaje",
+  "sending": "Enviando...",
+  "success_message": "¡Gracias! Tu mensaje fue enviado correctamente.",
+
+  "error_name": "El nombre es obligatorio.",
+  "error_email": "El correo electrónico es obligatorio.",
+  "error_email_invalid": "Ingresa un correo electrónico válido.",
+  "error_message": "El mensaje no puede estar vacío.",
+
+  "other_ways_title": "Otras formas de contacto",
+  "other_ways_desc": "También puedes encontrarnos en nuestras redes sociales o apoyarnos a través de donaciones.",
+
+  "community_note_title": "Natly es un proyecto comunitario",
+  "community_note_text": "Cada mensaje nos ayuda a mejorar la plataforma y apoyar a más familias inmigrantes."
+}

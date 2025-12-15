@@ -1,0 +1,56 @@
+{
+  "messages": {
+    "audio_unavailable": "Audio playback will be available very soon. Thank you for your patience!",
+    "feature_unavailable": "This feature is not enabled yet.",
+    "coming_soon": "Coming soon.",
+    "under_construction": "We are working on this section. It will be ready very soon!"
+  },
+
+  "titles": {
+    "audio_popup_title": "Feature Not Enabled",
+    "filters_title": "Filters",
+    "search_question_title": "Search Question"
+  },
+
+  "buttons": {
+    "understood": "Got it",
+    "close": "Close",
+    "continue": "Continue",
+    "apply": "Apply",
+    "reset": "Reset",
+    "donate": "Support with a donation"
+  },
+
+  "donation": {
+    "message": "Your support helps thousands of immigrants achieve their dream of becoming citizens. Every donation, big or small, brings us closer to completing this platform and the app that will change lives.",
+    "thank_you": "Thank you for your support!"
+  },
+
+  "actions": {
+    "search_question": "Search question...",
+    "filters": "Filters",
+    "show_answer": "Show answer",
+    "hide_answer": "Hide answer",
+    "hint": "Hint",
+    "like": "I know this",
+    "dislike": "Hard for me",
+    "favorite": "Favorite",
+    "clear_all_statuses": "Clear All Statuses",
+    "clear_search_question": "Clear"
+  },
+
+  "filters": {
+    "categories": "Categories",
+    "status": "Status",
+    "range": "Question range",
+    
+    "category_all": "All categories",
+    "category_american_government": "America Government",
+    "category_american_history": "American History",
+    "category_symbols_and_holidays": "Symbols and Holidays",
+
+    "status_known": "I know this",
+    "status_hard": "Hard for me",
+    "status_favorite": "Favorites"
+  }
+}

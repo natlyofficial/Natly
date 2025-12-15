@@ -1,0 +1,15 @@
+export { default as IconPlay } from "./Play";
+export { default as IconChecklist } from "./Checklist";
+export { default as IconGrowth } from "./Growth";
+export { default as IconRightArrow } from "./RightArrow";
+export { default as IconLeftArrow } from "./LeftArrow";
+export { default as IconShowAnswer } from "./ShowAnswer";
+export { default as IconHideAnswer } from "./HideAnswer";
+export { default as IconHint } from "./Hint";
+export { default as IconThumbUp } from "./ThumbUp";
+export { default as IconThumbDown } from "./ThumbDown";
+export { default as IconAudio } from "./Audio";
+export { default as IconSearch } from "./Search";
+export { default as IconFilter } from "./Filter";
+export { default as IconClose } from "./Close";
+export { default as IconMenu } from "./Menu";
