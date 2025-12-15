@@ -81,13 +81,19 @@ export default function Donate() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="flex justify-center mb-12"
       >
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-12 py-4 rounded-2xl text-xl bg-orange-500 hover:bg-orange-600 text-white font-bold shadow-lg transition"
+        <a
+            href="https://gofund.me/1e5a55d5e"
+            target="_blank"
+            rel="noopener noreferrer"
         >
-          {t("donate_button")}
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+            className="px-12 py-4 rounded-2xl text-xl bg-orange-500 hover:bg-orange-600 text-white font-bold shadow-lg transition"
+          >
+            {t("donate_button")}
+          </motion.button>
+        </a>
       </motion.div>
 
       {/* Donors Wall */}

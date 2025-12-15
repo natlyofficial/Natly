@@ -1,3 +1,16 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# env files
+.env
+.env.local
+.env.development
+.env.production
+.env.qa
+
 # Logs
 logs
 *.log
@@ -22,3 +35,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

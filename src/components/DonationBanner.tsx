@@ -22,22 +22,28 @@ export default function DonationBanner() {
         </p>
 
         {/* Botón */}
-        <button
-          className="
-            px-10 py-4 
-            bg-natly-teal 
-            text-white 
-            text-lg md:text-xl 
-            font-semibold 
-            rounded-full 
-            shadow-md 
-            hover:bg-natly-teal-dark 
-            transition-transform 
-            hover:scale-105
-          "
+        <a
+            href="https://gofund.me/1e5a55d5e"
+            target="_blank"
+            rel="noopener noreferrer"
         >
-          {t("buttons.donate")}
-        </button>
+          <button
+            className="
+              px-10 py-4 
+              bg-natly-teal 
+              text-white 
+              text-lg md:text-xl 
+              font-semibold 
+              rounded-full 
+              shadow-md 
+              hover:bg-natly-teal-dark 
+              transition-transform 
+              hover:scale-105
+            "
+          >
+            {t("buttons.donate")}
+          </button>
+        </a>
       </div>
     </div>
   );

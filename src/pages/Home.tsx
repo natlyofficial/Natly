@@ -12,6 +12,26 @@ import { motion } from "framer-motion";
 export default function Home() {
   const { t } = useTranslation("home");
   const navigate = useNavigate();
+  const exploreItems = [
+    {
+      img: flashcard,
+      titleKey: "feature_cards_title",
+      descKey: "feature_cards_desc",
+      size: "w-80 sm:w-66"
+    },
+    {
+      img: officialquestion,
+      titleKey: "feature_questions_title",
+      descKey: "feature_questions_desc",
+      size: "w-24 sm:w-30"
+    },
+    {
+      img: quiz,
+      titleKey: "feature_quiz_title",
+      descKey: "feature_quiz_desc",
+      size: "w-24 sm:w-30"
+    },
+  ];
 
   return (
     <div className="mt-8">
@@ -165,7 +185,7 @@ export default function Home() {
             variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
           >
-            {[flashcard, officialquestion, quiz].map((img, i) => (
+            {exploreItems.map((item, i) => (
               <motion.div
                 key={i}
                 variants={{
@@ -173,11 +193,22 @@ export default function Home() {
                   visible: { opacity: 1, y: 0 },
                 }}
                 whileHover={{ y: -8 }}
-                className="group bg-white rounded-3xl p-6 border-4 border-natly-yellow shadow-sm hover:shadow-lg transition"
+                className="group bg-white rounded-3xl p-6 border-4 border-natly-yellow shadow-sm hover:shadow-lg transition text-center flex flex-col items-center"
               >
-                <div className="mb-5 flex justify-center">
-                  <img src={img} className="w-24 h-auto" />
+                <div className="mb-5 flex justify-center items-center h-36">
+                  <img
+                    src={item.img}
+                    className={`h-auto ${item.size}`}
+                  />
                 </div>
+
+                <h3 className="text-lg font-semibold text-natly-blue mb-2">
+                  {t(item.titleKey)}
+                </h3>
+
+                <p className="text-sm text-natly-gray">
+                  {t(item.descKey)}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -210,13 +241,19 @@ export default function Home() {
             {t("community_desc")}
           </p>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            className="text-white px-8 py-4 rounded-xl font-semibold bg-orange-500 hover:bg-orange-600 transition shadow-sm"
+          <a
+            href="https://gofund.me/1e5a55d5e"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {t("cta_support_natly")}
-          </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              className="text-white px-8 py-4 rounded-xl font-semibold bg-orange-500 hover:bg-orange-600 transition shadow-sm"
+            >
+              {t("cta_support_natly")}
+            </motion.button>
+          </a>
 
           <p className="text-sm text-natly-gray mt-4">
             {t("donation_note")}
