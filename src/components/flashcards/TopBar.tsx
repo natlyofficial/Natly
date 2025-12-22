@@ -49,9 +49,7 @@ export default function TopBar({
         )}
       </div>
 
-
-
-      {/* ⚙ MOBILE FILTER BUTTON */}
+      {/* MOBILE FILTER BUTTON */}
       <button
         className="md:hidden flex items-center gap-2 bg-white border border-natly-teal rounded-full px-4 py-2 shadow-sm"
         onClick={openFiltersMobile}

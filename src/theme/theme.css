@@ -14,4 +14,12 @@
   --color-natly-known: #9DD6AD;
   --color-natly-hard: #F4B5B0;
   --color-natly-favorite: #F7E7A4;
+  --color-natly-known-soft: #E6F4EA;
+  --color-natly-hard-soft: #FBE9E7;
+  --color-natly-favorite-soft: #FFF3E0;
+  --color-natly-teal-soft: #EEF6F5;
+
+  /* Texts */
+  --color-natly-known-text: #1F6F73;
+  --color-natly-hard-text: #9C3A3A;
 }

@@ -5,14 +5,14 @@ import {
   IconHideAnswer,
   IconHint,
   IconThumbUp,
-  IconThumbDown,
+  IconThumbDown
 } from "../../natly-icons";
-import IconFavorite from "../../natly-icons/Favorite";
 
 interface FlashcardFooterProps {
   index: number;
   total: number;
   showAnswer: boolean;
+  showHint: boolean;
   onPrev: () => void;
   onNext: () => void;
   onToggleAnswer: () => void;
@@ -22,16 +22,17 @@ interface FlashcardFooterProps {
   cardStatus: {
     known?: boolean;
     hard?: boolean;
-    favorite?: boolean;
+    save?: boolean;
   };
 
-  toggleStatus: (status: "known" | "hard" | "favorite") => void;
+  toggleStatus: (status: "known" | "hard" | "save") => void;
 }
 
 export default function FlashcardFooter({
   index,
   total,
   showAnswer,
+  showHint,
   onPrev,
   onNext,
   onToggleAnswer,
@@ -40,7 +41,7 @@ export default function FlashcardFooter({
   tCommon,
   cardStatus,
   toggleStatus,
-}: FlashcardFooterProps) {
+}: FlashcardFooterProps) {  
   return (
     <div className="mt-10 px-2 flex items-center justify-between">
 
@@ -66,21 +67,19 @@ export default function FlashcardFooter({
         {/* Mostrar respuesta */}
         <button
           onClick={onToggleAnswer}
-          className="
-            flex items-center gap-2
-            px-4 py-2 md:px-6 md:py-2 rounded-full 
-            bg-natly-teal text-white 
-            font-semibold text-sm sm:text-base md:text-lg 
-            shadow-md hover:bg-natly-teal-dark transition
-          "
-        >
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all       
+            ${showAnswer
+              ? "bg-natly-teal text-white border-natly-teal" 
+              : "bg-white text-natly-teal-dark border-natly-teal"}
+          `}
+        >          
           {showAnswer ? (
-            <IconHideAnswer size={22} className="md:size-8" />
+            <IconHideAnswer size={35} className="md:size-8" color="#FFFFFF" />
           ) : (
-            <IconShowAnswer size={22} className="md:size-8" />
+            <IconShowAnswer size={35} className="md:size-8" color="#1F6F73" />
           )}
 
-          <span className="hidden sm:inline">
+          <span className="hidden sm:inline font-semibold text-sm sm:text-base md:text-lg">
             {showAnswer ? t("actions.hide_answer") : t("actions.show_answer")}
           </span>
         </button>
@@ -88,51 +87,56 @@ export default function FlashcardFooter({
         {/* Hint */}
         <button
           onClick={onHint}
-          className="
-            flex items-center gap-2
-            px-4 py-2 md:px-6 md:py-2 rounded-full 
-            bg-natly-teal text-white 
-            font-semibold text-sm sm:text-base md:text-lg 
-            shadow-md hover:bg-natly-teal-dark transition
-          "
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all       
+            ${showHint
+              ? "bg-natly-yellow text-white border-natly-yellow" 
+              : "bg-white text-natly-yellow border-natly-yellow"}
+          `}
         >
-          <IconHint size={20} className="md:size-8" />
-          <span className="hidden sm:inline">{t("actions.hint")}</span>
+          <IconHint 
+            size={35} 
+            className="md:size-8"
+            color={showHint ? "#FFFFFF" : "#f5af00"} 
+          />
+          <span className="hidden sm:inline font-semibold text-sm sm:text-base md:text-lg">{t("actions.hint")}</span>
         </button>
 
         {/* Ya me la sé */}
         <button
           onClick={() => toggleStatus("known")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full
-             
-            ${cardStatus.known ? "bg-natly-known text-white" : "bg-natly-teal text-white"}
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all       
+            ${cardStatus.known 
+              ? "bg-natly-known-soft text-natly-known-text border-natly-known" 
+              : "bg-white text-natly-known-text border-natly-known"}
           `}
         >
-          <IconThumbUp size={20} className="md:size-8" />
+          <IconThumbUp 
+            size={35} 
+            className="md:size-8" 
+            color={cardStatus.known ? "#1F6F73" : "#1F6F73"}
+          />
           <span className="hidden sm:inline font-semibold text-sm sm:text-base md:text-lg">{tCommon("actions.like")}</span>
         </button>
-
 
         {/* Me cuesta */}
         <button
           onClick={() => toggleStatus("hard")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full 
-            ${cardStatus.hard ? "bg-natly-hard text-white" : "bg-natly-teal text-white"}
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all
+            ${
+              cardStatus.hard
+                ? "bg-natly-hard-soft text-natly-hard-text border-natly-hard"
+                : "bg-white text-natly-hard-text border-natly-hard"
+            }
           `}
         >
-          <IconThumbDown size={20} className="md:size-8" />
-          <span className="hidden sm:inline font-semibold text-sm sm:text-base md:text-lg">{tCommon("actions.dislike")}</span>
-        </button>
-
-        {/* Favorito */}
-        <button
-          onClick={() => toggleStatus("favorite")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-full 
-            ${cardStatus.favorite ? "bg-natly-favorite text-white" : "bg-natly-teal text-white"}
-          `}
-        >
-          <IconFavorite size={20} className="md:size-8" />
-          <span className="hidden sm:inline font-semibold text-sm sm:text-base md:text-lg">{tCommon("actions.favorite")}</span>
+          <IconThumbDown
+            size={35}
+            className="md:size-8"
+            color={cardStatus.hard ? "#9C3A3A" : "#9C3A3A"}
+          />
+          <span className="hidden sm:inline font-semibold text-sm sm:text-base md:text-lg">
+            {tCommon("actions.dislike")}
+          </span>
         </button>
       </div>
 
@@ -153,7 +157,7 @@ export default function FlashcardFooter({
           }
         `}
       >
-        <IconRightArrow size={20} className="md:size-24" />
+        <IconRightArrow size={20} className="md:size-24" />        
       </button>
     </div>
   );

@@ -9,7 +9,7 @@ interface FiltersDesktopPanelProps {
 
   cardStatus: Record<
     number,
-    { known: boolean; hard: boolean; favorite: boolean }
+    { known: boolean; hard: boolean; save: boolean }
   >;
 
   clearAllStatuses: () => void;
@@ -32,7 +32,7 @@ export default function FiltersDesktopPanel({
 }: FiltersDesktopPanelProps) {
   const knownCount = Object.values(cardStatus).filter((s) => s.known).length;
   const hardCount = Object.values(cardStatus).filter((s) => s.hard).length;
-  const favoriteCount = Object.values(cardStatus).filter((s) => s.favorite).length;
+  const saveCount = Object.values(cardStatus).filter((s) => s.save).length;
   return (
     <div
       className="
@@ -101,16 +101,16 @@ export default function FiltersDesktopPanel({
         <label className="flex items-center gap-2 text-natly-teal cursor-pointer">
           <input
             type="checkbox"
-            checked={statusFilters.favorite}
+            checked={statusFilters.save}
             onChange={() =>
               setStatusFilters({
                 ...statusFilters,
-                favorite: !statusFilters.favorite,
+                save: !statusFilters.save,
               })
             }
           />
-          {tCommon("filters.status_favorite")}
-          <span className="font-bold">({favoriteCount})</span>
+          {tCommon("filters.status_saved")}
+          <span className="font-bold">({saveCount})</span>
         </label>
 
         <button

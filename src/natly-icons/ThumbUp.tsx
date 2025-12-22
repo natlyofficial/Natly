@@ -2,9 +2,14 @@ import * as React from "react";
 
 type IconThumbUpProps = React.SVGProps<SVGSVGElement> & {
   size?: number;
+  color?: string;
 };
 
-const IconThumbUp: React.FC<IconThumbUpProps> = ({ size = 120, ...props }) => {
+const IconThumbUp: React.FC<IconThumbUpProps> = ({
+  size = 120,
+  color = "#FFFFFF", // default white (Natly standard)
+  ...props
+}) => {
   return (
     <svg
       width={size}
@@ -30,7 +35,7 @@ const IconThumbUp: React.FC<IconThumbUpProps> = ({ size = 120, ...props }) => {
           L40 64
           Z
         "
-        stroke="white"
+        stroke={color}
         strokeWidth="12"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -43,7 +48,7 @@ const IconThumbUp: React.FC<IconThumbUpProps> = ({ size = 120, ...props }) => {
         width="20"
         height="36"
         rx="6"
-        fill="white"
+        fill={color}
       />
     </svg>
   );

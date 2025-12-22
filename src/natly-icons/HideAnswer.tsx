@@ -3,9 +3,14 @@ import * as React from "react";
 type IconHideAnswerProps = React.SVGProps<SVGSVGElement> & {
   /** Size in px (width = height) */
   size?: number;
+  color?: string;
 };
 
-const IconHideAnswer: React.FC<IconHideAnswerProps> = ({ size = 120, ...props }) => {
+const IconHideAnswer: React.FC<IconHideAnswerProps> = ({
+  size = 120,
+  color = "#FFFFFF", // default white
+  ...props
+}) => {
   return (
     <svg
       width={size}
@@ -15,34 +20,43 @@ const IconHideAnswer: React.FC<IconHideAnswerProps> = ({ size = 120, ...props })
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      {/* Closed eye outline */}
+      {/* Eye outline */}
       <path
-        d="
-          M20 60
-          C35 35, 85 35, 100 60
-          C85 85, 35 85, 20 60
-        "
-        stroke="white"
+        d="M20 60 C35 35, 85 35, 100 60 C85 85, 35 85, 20 60 Z"
+        stroke={color}
         strokeWidth="12"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
 
-      {/* Eyelid line (closed eye) */}
+      {/* Iris */}
+      <circle
+        cx="60"
+        cy="60"
+        r="18"
+        stroke={color}
+        strokeWidth="12"
+        fill="none"
+      />
+
+      {/* Pupil */}
+      <circle
+        cx="60"
+        cy="60"
+        r="8"
+        fill={color}
+      />
+
+      {/* Diagonal slash (hidden) */}
       <line
-        x1="30"
-        y1="60"
-        x2="90"
-        y2="60"
-        stroke="white"
+        x1="28"
+        y1="92"
+        x2="92"
+        y2="28"
+        stroke={color}
         strokeWidth="12"
         strokeLinecap="round"
       />
-
-      {/* Eyelashes */}
-      <line x1="40" y1="30" x2="40" y2="20" stroke="white" strokeWidth="10" strokeLinecap="round" />
-      <line x1="60" y1="28" x2="60" y2="18" stroke="white" strokeWidth="10" strokeLinecap="round" />
-      <line x1="80" y1="30" x2="80" y2="20" stroke="white" strokeWidth="10" strokeLinecap="round" />
     </svg>
   );
 };

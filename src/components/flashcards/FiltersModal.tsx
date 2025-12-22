@@ -13,7 +13,7 @@ interface FiltersModalProps {
   statusFilters: {
     known: boolean;
     hard: boolean;
-    favorite: boolean;
+    save: boolean;
   };
   setStatusFilters: (value: any) => void;
 
@@ -23,7 +23,7 @@ interface FiltersModalProps {
 
   cardStatus: Record<
     number,
-    { known: boolean; hard: boolean; favorite: boolean }
+    { known: boolean; hard: boolean; save: boolean }
   >;
 
   tCommon: (key: string) => string;
@@ -46,7 +46,7 @@ export default function FiltersModal({
   // Counters
   const knownCount = Object.values(cardStatus).filter((s) => s.known).length;
   const hardCount = Object.values(cardStatus).filter((s) => s.hard).length;
-  const favoriteCount = Object.values(cardStatus).filter((s) => s.favorite).length;
+  const saveCount = Object.values(cardStatus).filter((s) => s.save).length;
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-end justify-center z-50">
@@ -129,23 +129,23 @@ export default function FiltersModal({
             <span className="font-bold">({hardCount})</span>
           </label>
 
-          {/* Favorite */}
+          {/* Save */}
           <label className="flex justify-between items-center cursor-pointer">
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
-                checked={statusFilters.favorite}
+                checked={statusFilters.save}
                 onChange={() =>
                   setStatusFilters({
                     ...statusFilters,
-                    favorite: !statusFilters.favorite,
+                    save: !statusFilters.save,
                   })
                 }
               />
-              {tCommon("filters.status_favorite")}
+              {tCommon("filters.status_saved")}
             </div>
 
-            <span className="font-bold">({favoriteCount})</span>
+            <span className="font-bold">({saveCount})</span>
           </label>
 
           <button onClick={clearAllStatuses}
@@ -195,7 +195,7 @@ export default function FiltersModal({
               setStatusFilters({
                 known: false,
                 hard: false,
-                favorite: false,
+                save: false,
               });
             }}
             className="text-natly-teal underline"

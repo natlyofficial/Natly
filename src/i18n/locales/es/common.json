@@ -35,6 +35,9 @@
     "like": "Ya me la sé",
     "dislike": "Me cuesta",
     "favorite": "Favorita",
+    "save": "Guardar",
+    "next_question": "Siguiente",
+    "previous_question": "Pregunta",
     "clear_all_statuses": "Borrar todos los estados",
     "clear_search_question": "Limpiar"
   },
@@ -51,6 +54,7 @@
 
     "status_known": "Ya me la sé",
     "status_hard": "Me cuesta",
-    "status_favorite": "Favoritas"
+    "status_favorite": "Favoritas",
+    "status_saved": "Guardadas"
   }
 }

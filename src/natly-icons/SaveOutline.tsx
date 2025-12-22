@@ -1,14 +1,14 @@
 import * as React from "react";
 
-type IconFavoriteProps = React.SVGProps<SVGSVGElement> & {
+type IconSaveOutlineProps = React.SVGProps<SVGSVGElement> & {
   /** Size in px (width = height) */
   size?: number;
   color?: string;
 };
 
-const IconFavorite: React.FC<IconFavoriteProps> = ({
+const IconSaveOutline: React.FC<IconSaveOutlineProps> = ({
   size = 120,
-  color = "#FFFFFF",
+  color = "#0D5C63", // Natly teal / default stroke
   ...props
 }) => {
   return (
@@ -22,25 +22,23 @@ const IconFavorite: React.FC<IconFavoriteProps> = ({
     >
       <path
         d="
-          M60 16
-          L70.8 42.4
-          L99 45.5
-          L77 64.4
-          L82.6 92.5
-          L60 78.2
-          L37.4 92.5
-          L43 64.4
-          L21 45.5
-          L49.2 42.4
+          M36 20
+          H84
+          C88.4 20 92 23.6 92 28
+          V100
+          L60 78
+          L28 100
+          V28
+          C28 23.6 31.6 20 36 20
           Z
         "
-        fill={color}
+        fill="none"
         stroke={color}
-        strokeWidth="4"
+        strokeWidth="10"
         strokeLinejoin="round"
       />
     </svg>
   );
 };
 
-export default IconFavorite;
+export default IconSaveOutline;

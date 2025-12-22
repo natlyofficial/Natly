@@ -63,75 +63,75 @@ export function useFlashcardsLogic() {
   const [statusFilters, setStatusFilters] = useState({
     known: false,
     hard: false,
-    favorite: false,
+    save: false,
   });
+
+  // 🔑 NEW: reset control
+  const [isResetting, setIsResetting] = useState(false);
 
   const card = filteredCards[index];
   const total = filteredCards.length;
 
   const [cardStatus, setCardStatus] = useState<Record<
     number,
-    { known: boolean; hard: boolean; favorite: boolean }
+    { known: boolean; hard: boolean; save: boolean }
   >>(() => {
     const saved = localStorage.getItem("natly-card-status");
     return saved ? JSON.parse(saved) : {};
   });
 
+  // Persist card status
   useEffect(() => {
     localStorage.setItem("natly-card-status", JSON.stringify(cardStatus));
   }, [cardStatus]);
 
+  // Toggle known / hard / save
   const toggleStatus = (
     id: number,
-    status: "known" | "hard" | "favorite"
+    status: "known" | "hard" | "save"
   ) => {
     setCardStatus((prev) => {
       const current = prev[id] || {
         known: false,
         hard: false,
-        favorite: false,
+        save: false,
       };
 
+      // Mutual exclusion
       if (status === "known") current.hard = false;
       if (status === "hard") current.known = false;
 
-      return {
-        ...prev,
-        [id]: {
-          ...current,
-          [status]: !current[status],
-        },
+      const nextValue = !current[status];
+
+      const nextStatus = {
+        ...current,
+        [status]: nextValue,
       };
+
+      const nextCardStatus = {
+        ...prev,
+        [id]: nextStatus,
+      };
+
+      // Auto-disable filter only if no cards remain with that status
+      if (!nextValue && statusFilters[status]) {
+        const stillExists = Object.values(nextCardStatus).some(
+          (s) => s[status]
+        );
+
+        if (!stillExists) {
+          setStatusFilters((prevFilters) => ({
+            ...prevFilters,
+            [status]: false,
+          }));
+        }
+      }
+
+      return nextCardStatus;
     });
   };
 
-  // Remove a card when it stops matching a status filter
-  useEffect(() => {
-    const filteringByStatus =
-      statusFilters.known || statusFilters.hard || statusFilters.favorite;
-
-    if (!filteringByStatus) return;
-
-    const current = filteredCards[index];
-    if (!current) return;
-
-    const status = cardStatus[current.id] || {
-      known: false,
-      hard: false,
-      favorite: false,
-    };
-
-    const stillValid =
-      (statusFilters.known && status.known) ||
-      (statusFilters.hard && status.hard) ||
-      (statusFilters.favorite && status.favorite);
-
-    if (!stillValid) {
-      setFilteredCards((prev) => prev.filter((c) => c.id !== current.id));
-      setIndex((prev) => (prev > 0 ? prev - 1 : 0));
-    }
-  }, [cardStatus, statusFilters, filteredCards, index]);
-
+  // Language logic
   const fallbackLang: AvailableLang = "en";
   const systemLang = i18n.language;
 
@@ -147,18 +147,21 @@ export function useFlashcardsLogic() {
     }
   }, [i18n.language]);
 
+  // Reset transient UI on card change
   useEffect(() => {
     setShowHint(false);
     setHintIndex(0);
     setShowAnswer(false);
   }, [index]);
 
-  const illustrationFile = card.illustration || "";
+  // Image resolution
+  const illustrationFile = card?.illustration || "";
   const imgMatch = Object.values(illustrations).find((p) =>
     p.endsWith(illustrationFile)
   );
   const imgPath = imgMatch || defaultImg;
 
+  // Hint handler
   const handleHint = () => {
     const totalHints = card.languages[primaryLang].hints.length;
 
@@ -176,7 +179,7 @@ export function useFlashcardsLogic() {
     }
   };
 
-  // Reset everything when category changes
+  // Reset when category changes
   useEffect(() => {
     setFilters((prev) => ({
       ...prev,
@@ -184,21 +187,15 @@ export function useFlashcardsLogic() {
     }));
 
     setSearchQuery("");
-
-    setStatusFilters({
-      known: false,
-      hard: false,
-      favorite: false,
-    });
-
+    setStatusFilters({ known: false, hard: false, save: false });
     setIndex(0);
   }, [filters.category]);
 
-  // Central filtering engine
+  // 🔥 CENTRAL FILTERING ENGINE (FINAL + SAFE)
   useEffect(() => {
     let list = [...flashcards];
 
-    if (searchQuery.trim() !== "") {
+    if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       list = list.filter(
         (c) =>
@@ -219,21 +216,18 @@ export function useFlashcardsLogic() {
       (c) => c.order >= filters.range.min && c.order <= filters.range.max
     );
 
-    const anyStatus =
-      statusFilters.known || statusFilters.hard || statusFilters.favorite;
-
-    if (anyStatus) {
+    if (statusFilters.known || statusFilters.hard || statusFilters.save) {
       list = list.filter((c) => {
         const status = cardStatus[c.id] || {
           known: false,
           hard: false,
-          favorite: false,
+          save: false,
         };
 
         return (
           (statusFilters.known && status.known) ||
           (statusFilters.hard && status.hard) ||
-          (statusFilters.favorite && status.favorite)
+          (statusFilters.save && status.save)
         );
       });
     }
@@ -241,12 +235,28 @@ export function useFlashcardsLogic() {
     if (list.length === 0) {
       setFilteredCards([NO_RESULTS_CARD]);
       setIndex(0);
+      setIsResetting(false);
       return;
     }
 
     setFilteredCards(list);
-    setIndex(0);
-  }, [searchQuery, filters.range, filters.category, statusFilters]);
+
+    // ✅ FIX: force index = 0 only on reset
+    setIndex((prev) => {
+      if (isResetting) return 0;
+      if (prev < list.length) return prev;
+      return Math.max(list.length - 1, 0);
+    });
+
+    setIsResetting(false);
+  }, [
+    searchQuery,
+    filters.category,
+    filters.range,
+    statusFilters,
+    cardStatus,
+    isResetting,
+  ]);
 
   const filtersActive =
     filters.category !== "all" ||
@@ -255,7 +265,7 @@ export function useFlashcardsLogic() {
     searchQuery.trim() !== "" ||
     statusFilters.known ||
     statusFilters.hard ||
-    statusFilters.favorite;
+    statusFilters.save;
 
   const dynamicCategories = [
     { id: "all", labelKey: "filters.category_all" },
@@ -278,31 +288,28 @@ export function useFlashcardsLogic() {
   const audioSrc =
     langMode === "es"
       ? card.languages.es.audioQuestion
-      : langMode === "en"
-      ? card.languages.en.audioQuestion
       : card.languages.en.audioQuestion;
 
   const [showAudioPopup, setShowAudioPopup] = useState(false);
 
-  // FULLY FUNCTIONAL CLEAR ALL STATUSES
+  // 🔄 FULL RESET (DESKTOP + MOBILE)
   const clearAllStatuses = () => {
-    // Clear React state (all statuses)
-    setCardStatus({});
+    setIsResetting(true);
 
-    // Clear localStorage
+    setCardStatus({});
     localStorage.removeItem("natly-card-status");
 
-    // Turn off status filters
-    setStatusFilters({
-      known: false,
-      hard: false,
-      favorite: false,
+    setStatusFilters({ known: false, hard: false, save: false });
+    setSearchQuery("");
+    setFilters({
+      category: "all",
+      range: { min: 1, max: flashcards.length },
     });
+
+    setIndex(0);
   };
 
-  const clearSearch = () => {
-    setSearchQuery("");
-  };
+  const clearSearch = () => setSearchQuery("");
 
   return {
     card,
@@ -338,6 +345,7 @@ export function useFlashcardsLogic() {
     prevCard,
 
     showHint,
+    setShowHint,
     hintIndex,
     handleHint,
     showAnswer,

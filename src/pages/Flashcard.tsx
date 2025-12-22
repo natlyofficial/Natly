@@ -153,11 +153,12 @@ export default function FlashcardsPage() {
         langMode={langMode}
         primaryLang={primaryLang}
         t={t}
-        tCommon={tCommon}
         progress={progress}
         audioSrc={audioSrc}
         setShowAudioPopup={setShowAudioPopup}
         filtersActive={filtersActive}
+        cardStatus={cardStatus[card.id]}
+        toggleStatus={toggleStatus}
       />
 
       {/* FOOTER */}
@@ -165,6 +166,7 @@ export default function FlashcardsPage() {
         index={index}
         total={total}
         showAnswer={showAnswer}
+        showHint={showHint}
         onPrev={prevCard}
         onNext={nextCard}
         onToggleAnswer={() => setShowAnswer((v) => !v)}

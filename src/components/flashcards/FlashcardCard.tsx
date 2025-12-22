@@ -1,33 +1,44 @@
 import { type Dispatch, type SetStateAction } from "react";
-import { IconAudio } from "../../natly-icons";
+import { IconAudio, IconSaveFilled, IconSaveOutline } from "../../natly-icons";
 import IconCheck from "./Check";
 
 interface FlashcardCardProps {
-  card: any;
+  card: {
+    id: number;
+    order: number;
+    languages: any;
+  };
   total: number;
   imgPath: string;
 
-  // Estados y lógica
+  // UI state
   showHint: boolean;
   hintIndex: number;
   showAnswer: boolean;
 
-  // Lenguaje
+  // Language
   langMode: "es" | "en" | "both";
   primaryLang: "es" | "en";
 
-  // Traducciones
+  // Translations
   t: any;
-  tCommon?: any;
 
-  // Progreso
+  // Progress
   progress: number;
 
-  // Audio (aún no usado pero necesario)
+  // Audio
   audioSrc?: string;
   setShowAudioPopup: Dispatch<SetStateAction<boolean>>;
 
+  // Filters
   filtersActive: boolean;
+
+  // Save state
+  cardStatus?: {
+    save?: boolean;
+  };
+
+  toggleStatus: (id: number, status: "save") => void;
 }
 
 export default function FlashcardCard({
@@ -44,6 +55,8 @@ export default function FlashcardCard({
   audioSrc,
   setShowAudioPopup,
   filtersActive,
+  cardStatus,
+  toggleStatus,
 }: FlashcardCardProps) {
   return (
     <div className="relative flex justify-center">
@@ -55,41 +68,68 @@ export default function FlashcardCard({
           relative border-4 border-natly-teal
         "
       >
-        {/* ---------- Número de pregunta ---------- */}
-        <p className="absolute top-4 right-11 text-natly-gray text-sm md:text-lg">
-          {t("labels.question")} {card.order} {!filtersActive && ` / ${total}`}
-        </p>
+        {/* ---------- Question number + Save action ---------- */}
+        <div className="absolute top-4 right-4 flex items-center gap-3">
 
-        {/* ---------- Barra de progreso ---------- */}
-        <div className="mt-4 mb-6 md:mb-8">
+          {/* Question index */}
+          <p className="text-natly-gray text-sm md:text-lg">
+            {t("labels.question")} {card.order} {!filtersActive && ` / ${total}`}
+          </p>
+
+          {/* Save button */}
+          <button
+            onClick={() => toggleStatus(card.id, "save")}
+            className="
+              w-10 h-10 md:w-12 md:h-12
+              rounded-full
+              flex items-center justify-center
+              transition
+              hover:bg-gray-100
+            "
+            aria-label="Save question"
+            aria-pressed={!!cardStatus?.save}
+          >
+            {cardStatus?.save ? (
+              <IconSaveFilled size={28} color="#0D5C63" />
+            ) : (
+              <IconSaveOutline size={28} color="#0D5C63" />
+            )}
+          </button>
+        </div>
+
+        {/* ---------- Progress bar ---------- */}
+        <div className="mt-6 mb-6 md:mb-8">
           <div className="relative w-full h-4 md:h-6 bg-gray-200 rounded-full overflow-hidden shadow-inner">
             <div
               className="h-full bg-natly-teal transition-all"
               style={{ width: `${progress}%` }}
             />
-            <span className="absolute inset-0 flex items-center justify-center text-xs md:text-sm font-semibold text-white drop-shadow">
-              {progress}%
-            </span>
           </div>
         </div>
 
-        {/* ---------- Imagen + Pregunta ---------- */}
+        {/* ---------- Image + Question ---------- */}
         <div className="mt-4">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
-            
-            <img src={imgPath} className="w-100 rounded-2xl shadow-md" />
 
+            {/* Illustration */}
+            <img
+              src={imgPath}
+              className="w-100 rounded-2xl shadow-md"
+              alt="Question illustration"
+            />
+
+            {/* Question content */}
             <div className="flex-1">
-                {/* Español */}
-                {(langMode === "es" || langMode === "both") && (
+
+              {/* Spanish */}
+              {(langMode === "es" || langMode === "both") && (
                 <div className="flex justify-between items-start mb-4">
 
-                  {/* Texto Pregunta */}
                   <h2 className="text-left text-3xl md:text-[38px] font-bold text-natly-teal-dark leading-snug flex-1">
                     {card.languages.es.question}
                   </h2>
 
-                  {/* Botón Audio */}
+                  {/* Audio button */}
                   <button
                     onClick={() => setShowAudioPopup(true)}
                     className="
@@ -97,27 +137,25 @@ export default function FlashcardCard({
                       w-10 h-10 md:w-16 md:h-16 
                       rounded-full 
                       flex items-center justify-center
-                      text-white text-xl md:text-3xl 
-                      shadow-md ml-4 flex-shrink-0
+                      text-white shadow-md ml-4 flex-shrink-0
                     "
+                    aria-label="Play audio"
                   >
                     <IconAudio size={30} className="md:size-10" />
                     <audio src={audioSrc} />
                   </button>
-
                 </div>
               )}
 
-              {/* Inglés */}
+              {/* English */}
               {(langMode === "en" || langMode === "both") && (
                 <div className="flex justify-between items-start mb-4">
 
-                  {/* Texto Pregunta (EN) */}
                   <h2 className="text-left text-3xl md:text-[38px] font-bold text-natly-teal-dark leading-snug italic flex-1">
                     {card.languages.en.question}
                   </h2>
 
-                  {/* Botón Audio */}
+                  {/* Audio button */}
                   <button
                     onClick={() => setShowAudioPopup(true)}
                     className="
@@ -125,20 +163,19 @@ export default function FlashcardCard({
                       w-10 h-10 md:w-16 md:h-16 
                       rounded-full 
                       flex items-center justify-center
-                      text-white text-xl md:text-3xl 
-                      shadow-md ml-4 flex-shrink-0
+                      text-white shadow-md ml-4 flex-shrink-0
                     "
+                    aria-label="Play audio"
                   >
                     <IconAudio size={30} className="md:size-10" />
                     <audio src={audioSrc} />
                   </button>
-
                 </div>
               )}
             </div>
           </div>
 
-          {/* ---------- HINT ---------- */}
+          {/* ---------- Hint ---------- */}
           {showHint && (
             <div
               className="
@@ -149,44 +186,42 @@ export default function FlashcardCard({
                 rounded-xl shadow-sm
               "
             >
-
-              {/* ----------------- HINT ESPAÑOL ----------------- */}
+              {/* Spanish hint */}
               {(langMode === "es" || langMode === "both") && (
                 <>
                   <h3 className="text-lg font-bold text-natly-teal-dark mb-1">
                     Pista
                   </h3>
-
                   <p className="text-natly-blue text-base md:text-lg font-semibold mb-4">
                     {card.languages.es.hints[hintIndex]}
                   </p>
                 </>
               )}
 
-              {/* ----------------- HINT INGLÉS ----------------- */}
+              {/* English hint */}
               {(langMode === "en" || langMode === "both") && (
                 <>
                   <h3 className="text-lg font-bold text-natly-teal-dark mb-1">
                     Hint
                   </h3>
-
                   <p className="text-natly-blue text-base md:text-lg italic font-semibold">
                     {card.languages.en.hints[hintIndex]}
                   </p>
                 </>
               )}
 
-              {/* Contador de hints */}
+              {/* Hint counter */}
               <p className="text-sm text-natly-gray mt-3">
                 {hintIndex + 1} / {card.languages[primaryLang].hints.length}
               </p>
             </div>
           )}
 
-          {/* ---------- RESPUESTA ---------- */}
+          {/* ---------- Answer ---------- */}
           {showAnswer && (
             <div className="mt-10 p-6 bg-natly-cream border-l-4 border-natly-teal rounded-xl shadow-sm animate-slideDown">
 
+              {/* Spanish answer */}
               {(langMode === "es" || langMode === "both") && (
                 <div className="mb-4">
                   <h3 className="text-lg font-bold text-natly-blue mb-2">
@@ -194,13 +229,17 @@ export default function FlashcardCard({
                   </h3>
 
                   {card.languages.es.correct.map((ans: string, idx: number) => (
-                    <p key={idx} className="flex items-center gap-2 text-natly-blue text-xl font-semibold">
+                    <p
+                      key={idx}
+                      className="flex items-center gap-2 text-natly-blue text-xl font-semibold"
+                    >
                       <IconCheck size={20} className="md:size-8" /> {ans}
                     </p>
                   ))}
                 </div>
               )}
 
+              {/* English answer */}
               {(langMode === "en" || langMode === "both") && (
                 <div>
                   <h3 className="text-lg font-bold text-natly-teal-dark mb-2">
@@ -208,10 +247,10 @@ export default function FlashcardCard({
                   </h3>
 
                   {card.languages.en.correct.map((ans: string, idx: number) => (
-                    <p key={idx} className="
-                      flex items-center gap-2
-                      text-natly-teal-dark text-xl font-semibold
-                    ">
+                    <p
+                      key={idx}
+                      className="flex items-center gap-2 text-natly-teal-dark text-xl font-semibold"
+                    >
                       <IconCheck size={20} className="md:size-8" /> {ans}
                     </p>
                   ))}

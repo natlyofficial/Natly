@@ -35,6 +35,9 @@
     "like": "I know this",
     "dislike": "Hard for me",
     "favorite": "Favorite",
+    "save": "Save",
+    "next_question": "Next",
+    "previous_question": "Previous",
     "clear_all_statuses": "Clear All Statuses",
     "clear_search_question": "Clear"
   },
@@ -51,6 +54,7 @@
 
     "status_known": "I know this",
     "status_hard": "Hard for me",
-    "status_favorite": "Favorites"
+    "status_favorite": "Favorites",
+    "status_saved": "Saved"
   }
 }

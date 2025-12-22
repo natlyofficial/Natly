@@ -1,10 +1,17 @@
 import * as React from "react";
 
 type IconThumbDownProps = React.SVGProps<SVGSVGElement> & {
+  /** Size in px (width = height) */
   size?: number;
+  /** Stroke / fill color */
+  color?: string;
 };
 
-const IconThumbDown: React.FC<IconThumbDownProps> = ({ size = 120, ...props }) => {
+const IconThumbDown: React.FC<IconThumbDownProps> = ({
+  size = 120,
+  color = "#9C3A3A", // 🔴 DEFAULT = natly hard text
+  ...props
+}) => {
   return (
     <svg
       width={size}
@@ -30,7 +37,7 @@ const IconThumbDown: React.FC<IconThumbDownProps> = ({ size = 120, ...props }) =
           L40 56
           Z
         "
-        stroke="white"
+        stroke={color}
         strokeWidth="12"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -43,7 +50,7 @@ const IconThumbDown: React.FC<IconThumbDownProps> = ({ size = 120, ...props }) =
         width="20"
         height="36"
         rx="6"
-        fill="white"
+        fill={color}
       />
     </svg>
   );
