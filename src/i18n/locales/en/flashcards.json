@@ -15,6 +15,11 @@
   },
 
   "titles": {
-    "correct_answer": "Correct Answer"
+    "correct_answer": "Correct Answer",
+    "difficulty": "How difficult was it?"
+  },
+
+  "questions": {
+    "difficulty": "How difficult was it?"
   }
 }

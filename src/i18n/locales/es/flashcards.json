@@ -16,5 +16,9 @@
 
   "titles": {
     "correct_answer": "Respuesta correcta"
+  },
+
+  "questions": {
+    "difficulty": "¿Qué tan difícil fue?"
   }
 }
