@@ -36,4 +36,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           local-dir: dist/
-          server-dir: domains/natly.org/public_html/
+          server-dir: /
