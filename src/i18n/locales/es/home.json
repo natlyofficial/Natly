@@ -1,6 +1,6 @@
 {
   "welcome_title": "Bienvenido a Natly",
-  "welcome_subtitle": "Aprende las 120 preguntas del examen de la ciudadanía y supera tu entrevista. Tu camino hacia la ciudadanía comienza aquí: aprende paso a paso, gratis y en español.",
+  "welcome_subtitle": "Aprende las 120 y 128 preguntas del examen de la ciudadanía y supera tu entrevista. Tu camino hacia la ciudadanía comienza aquí: aprende paso a paso, gratis y en español.",
   "cta_start": "Comenzar ahora",
 
   "how_it_works_title": "Cómo funciona Natly",
@@ -25,7 +25,7 @@
   "feature_cards_title": "Tarjetas ilustradas",
   "feature_cards_desc": "Aprende cada pregunta con imágenes y audio, paso a paso.",
 
-  "feature_questions_title": "128 preguntas oficiales",
+  "feature_questions_title": "120 y 128 preguntas oficiales",
   "feature_questions_desc": "Practica exactamente lo que te preguntarán en tu entrevista.",
 
   "feature_quiz_title": "Cuestionario interactivo",

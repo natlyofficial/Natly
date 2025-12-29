@@ -1,6 +1,6 @@
 {
   "welcome_title": "Welcome to Natly",
-  "welcome_subtitle": "Learn the 120 questions of the U.S. citizenship exam and pass your interview. Your path to citizenship starts here: learn step by step, for free, and in English.",
+  "welcome_subtitle": "Learn the 120 and 128 questions of the U.S. citizenship exam and pass your interview. Your path to citizenship starts here: learn step by step, for free, and in English.",
   "cta_start": "Start Now",
 
   "how_it_works_title": "How Natly Works",
@@ -25,7 +25,7 @@
   "feature_cards_title": "Illustrated flashcards",
   "feature_cards_desc": "Learn each question with images and audio, step by step.",
 
-  "feature_questions_title": "128 official questions",
+  "feature_questions_title": "120 and 128 official questions",
   "feature_questions_desc": "Practice exactly what you will be asked during your interview.",
 
   "feature_quiz_title": "Interactive quiz",
