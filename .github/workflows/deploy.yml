@@ -24,6 +24,10 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Copy .htaccess into dist
+        run: |
+          if [ -f .htaccess ]; then cp .htaccess dist/.htaccess; fi
+
       - name: Upload via FTP to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -33,3 +37,4 @@ jobs:
           port: 21
           local-dir: dist/
           server-dir: domains/natly.org/public_html/
+          dangerous-clean-slate: true
