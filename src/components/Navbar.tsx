@@ -7,20 +7,29 @@ import LanguageIcon from "../assets/icon/language.png";
 import { IconClose, IconMenu } from "../natly-icons";
 
 export default function Navbar() {
+  // State to control language dropdown visibility
   const [langOpen, setLangOpen] = useState(false);
+
+  // State to control mobile menu visibility
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Translation hook (navbar namespace)
   const { t } = useTranslation("navbar");
 
+  // Ref to detect clicks outside the language selector
   const langRef = useRef<HTMLDivElement | null>(null);
+
+  // Current language code (ES / EN)
   const currentLang = (i18n.language || "es").slice(0, 2).toUpperCase();
 
-  // Cerrar menú de idioma al hacer clic afuera
+  // Close language menu when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (langRef.current && !langRef.current.contains(event.target as Node)) {
         setLangOpen(false);
       }
     }
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
@@ -34,12 +43,12 @@ export default function Navbar() {
             Natly
           </Link>
 
-          {/* CONTENEDOR DERECHA: menú, idioma, login, hamburguesa */}
+          {/* RIGHT CONTAINER: menu, language selector, login, hamburger */}
           <div className="flex items-center gap-4 ml-auto">
-            {/* MENÚ DESKTOP (solo >= lg) */}
+            {/* DESKTOP MENU (>= lg) */}
             <div className="hidden lg:flex gap-10 text-lg text-natly-blue mr-2">
               {[
-                  [t("home"), "/"],
+                [t("home"), "/"],
                 [t("cards"), "/flashcard"],
                 [t("quiz"), "/quiz"],
                 [t("donate"), "/donate"],
@@ -56,14 +65,14 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* SELECTOR DE IDIOMA (SIEMPRE VISIBLE) */}
+            {/* LANGUAGE SELECTOR (always visible) */}
             <div ref={langRef} className="relative flex items-center">
               <button
                 type="button"
                 onClick={() => setLangOpen(!langOpen)}
                 className="flex items-center gap-2 text-natly-blue"
               >
-                <img  
+                <img
                   src={LanguageIcon}
                   alt="Language selector"
                   className="w-7 h-7 object-contain"
@@ -95,7 +104,7 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* LOGIN DESKTOP (>= lg) */}
+            {/* DESKTOP LOGIN BUTTON (>= lg) */}
             <Link
               to="/login"
               className="hidden lg:block bg-natly-blue text-white px-5 py-3 rounded-full font-semibold hover:bg-natly-blue-dark transition"
@@ -103,7 +112,7 @@ export default function Navbar() {
               {t("login")}
             </Link>
 
-            {/* HAMBURGUESA MOBILE (< lg) */}
+            {/* MOBILE HAMBURGER BUTTON (< lg) */}
             <button
               type="button"
               className="lg:hidden text-natly-blue text-3xl"
@@ -115,7 +124,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MENÚ MOBILE (DROP-DOWN SIMPLE) */}
+      {/* MOBILE MENU (simple dropdown) */}
       {menuOpen && (
         <div className="lg:hidden bg-white border-t shadow-md p-4 space-y-4">
           {[
@@ -136,13 +145,13 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Login en mobile */}
+          {/* Mobile login button */}
           <Link
             to="/login"
             onClick={() => setMenuOpen(false)}
             className="block text-center bg-natly-blue text-white py-3 rounded-full font-semibold mt-4"
           >
-            Iniciar sesión
+            {t("login")}
           </Link>
         </div>
       )}
