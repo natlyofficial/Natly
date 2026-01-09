@@ -16,3 +16,4 @@ export { default as IconSearch } from "./Search";
 export { default as IconFilter } from "./Filter";
 export { default as IconClose } from "./Close";
 export { default as IconMenu } from "./Menu";
+export { default as IconSetting } from "./Setting";

@@ -1,0 +1,4803 @@
+[
+  {
+    "id": 1,
+    "order": 1,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question1.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the supreme law of the land?",
+        "correct": ["The Constitution"],
+        "distractors": [
+          "The Declaration of Independence",
+          "The Bill of Rights",
+          "Congress"
+        ],
+        "audioQuestion": "audio/2008/q1_en.mp3",
+        "audioAnswer": "audio/2008/a1_en.mp3",
+        "hints": [
+          "It establishes the framework of the government.",
+          "All laws must follow it."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es la ley suprema del país?",
+        "correct": ["La Constitución"],
+        "distractors": [
+          "La Declaración de Independencia",
+          "La Carta de Derechos",
+          "El Congreso"
+        ],
+        "audioQuestion": "audio/2008/q1_es.mp3",
+        "audioAnswer": "audio/2008/a1_es.mp3",
+        "hints": [
+          "Establece la estructura del gobierno.",
+          "Todas las leyes deben seguirla."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 2,
+    "order": 2,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question2.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What does the Constitution do?",
+        "correct": [
+          "Sets up the government",
+          "Defines the government",
+          "Protects basic rights of Americans"
+        ],
+        "distractors": [
+          "Elects the President",
+          "Declares war",
+          "Creates states"
+        ],
+        "audioQuestion": "audio/2008/q2_en.mp3",
+        "audioAnswer": "audio/2008/a2_en.mp3",
+        "hints": [
+          "It explains how the government works.",
+          "It protects rights."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hace la Constitución?",
+        "correct": [
+          "Establece el gobierno",
+          "Define el gobierno",
+          "Protege los derechos básicos de los estadounidenses"
+        ],
+        "distractors": [
+          "Elige al presidente",
+          "Declara la guerra",
+          "Crea estados"
+        ],
+        "audioQuestion": "audio/2008/q2_es.mp3",
+        "audioAnswer": "audio/2008/a2_es.mp3",
+        "hints": [
+          "Explica cómo funciona el gobierno.",
+          "Protege los derechos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 3,
+    "order": 3,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question3.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "The idea of self-government is in the first three words of the Constitution. What are these words?",
+        "correct": ["We the People"],
+        "distractors": [
+          "United States of America",
+          "Congress shall make",
+          "Bill of Rights"
+        ],
+        "audioQuestion": "audio/2008/q3_en.mp3",
+        "audioAnswer": "audio/2008/a3_en.mp3",
+        "hints": [
+          "They appear at the very beginning.",
+          "They show power comes from citizens."
+        ]
+      },
+      "es": {
+        "question": "La idea de autogobierno está en las primeras tres palabras de la Constitución. ¿Cuáles son?",
+        "correct": ["Nosotros el Pueblo"],
+        "distractors": [
+          "Estados Unidos de América",
+          "El Congreso deberá",
+          "Carta de Derechos"
+        ],
+        "audioQuestion": "audio/2008/q3_es.mp3",
+        "audioAnswer": "audio/2008/a3_es.mp3",
+        "hints": [
+          "Aparecen al inicio del documento.",
+          "Indican que el poder viene del pueblo."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 4,
+    "order": 4,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question4.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is an amendment?",
+        "correct": [
+          "A change to the Constitution",
+          "An addition to the Constitution"
+        ],
+        "distractors": [
+          "A court decision",
+          "A law passed by Congress",
+          "A presidential order"
+        ],
+        "audioQuestion": "audio/2008/q4_en.mp3",
+        "audioAnswer": "audio/2008/a4_en.mp3",
+        "hints": [
+          "There are 27 of them.",
+          "The Bill of Rights are amendments."
+        ]
+      },
+      "es": {
+        "question": "¿Qué es una enmienda?",
+        "correct": [
+          "Un cambio a la Constitución",
+          "Una adición a la Constitución"
+        ],
+        "distractors": [
+          "Una decisión judicial",
+          "Una ley del Congreso",
+          "Una orden presidencial"
+        ],
+        "audioQuestion": "audio/2008/q4_es.mp3",
+        "audioAnswer": "audio/2008/a4_es.mp3",
+        "hints": [
+          "Hay 27.",
+          "La Carta de Derechos son enmiendas."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 5,
+    "order": 5,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question5.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What do we call the first ten amendments to the Constitution?",
+        "correct": ["The Bill of Rights"],
+        "distractors": [
+          "The Articles of Confederation",
+          "The Declaration of Independence",
+          "The Preamble"
+        ],
+        "audioQuestion": "audio/2008/q5_en.mp3",
+        "audioAnswer": "audio/2008/a5_en.mp3",
+        "hints": [
+          "They protect individual freedoms.",
+          "They are the first ten amendments."
+        ]
+      },
+      "es": {
+        "question": "¿Cómo se llaman las primeras diez enmiendas de la Constitución?",
+        "correct": ["La Carta de Derechos"],
+        "distractors": [
+          "Los Artículos de la Confederación",
+          "La Declaración de Independencia",
+          "El Preámbulo"
+        ],
+        "audioQuestion": "audio/2008/q5_es.mp3",
+        "audioAnswer": "audio/2008/a5_es.mp3",
+        "hints": [
+          "Protegen las libertades individuales.",
+          "Son las primeras diez enmiendas."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 6,
+    "order": 6,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question6.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What is one right or freedom from the First Amendment?",
+        "correct": [
+          "Speech",
+          "Religion",
+          "Assembly",
+          "Press",
+          "Petition the government"
+        ],
+        "distractors": [
+          "To vote",
+          "To own land",
+          "To drive"
+        ],
+        "audioQuestion": "audio/2008/q6_en.mp3",
+        "audioAnswer": "audio/2008/a6_en.mp3",
+        "hints": [
+          "It protects personal freedoms.",
+          "It is part of the Bill of Rights."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es un derecho o libertad de la Primera Enmienda?",
+        "correct": [
+          "Expresión",
+          "Religión",
+          "Reunión",
+          "Prensa",
+          "Pedir al gobierno"
+        ],
+        "distractors": [
+          "Votar",
+          "Poseer tierras",
+          "Conducir"
+        ],
+        "audioQuestion": "audio/2008/q6_es.mp3",
+        "audioAnswer": "audio/2008/a6_es.mp3",
+        "hints": [
+          "Protege libertades personales.",
+          "Forma parte de la Carta de Derechos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 7,
+    "order": 7,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question7.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "How many amendments does the Constitution have?",
+        "correct": ["27"],
+        "distractors": [
+          "10",
+          "25",
+          "33"
+        ],
+        "audioQuestion": "audio/2008/q7_en.mp3",
+        "audioAnswer": "audio/2008/a7_en.mp3",
+        "hints": [
+          "It is more than the Bill of Rights.",
+          "It is less than 30."
+        ]
+      },
+      "es": {
+        "question": "¿Cuántas enmiendas tiene la Constitución?",
+        "correct": ["27"],
+        "distractors": [
+          "10",
+          "25",
+          "33"
+        ],
+        "audioQuestion": "audio/2008/q7_es.mp3",
+        "audioAnswer": "audio/2008/a7_es.mp3",
+        "hints": [
+          "Son más que la Carta de Derechos.",
+          "Son menos de 30."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 8,
+    "order": 8,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question8.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What did the Declaration of Independence do?",
+        "correct": [
+          "Announced our independence from Great Britain",
+          "Declared our independence",
+          "Said that the United States is free"
+        ],
+        "distractors": [
+          "Created the Constitution",
+          "Ended the Civil War",
+          "Formed the United Nations"
+        ],
+        "audioQuestion": "audio/2008/q8_en.mp3",
+        "audioAnswer": "audio/2008/a8_en.mp3",
+        "hints": [
+          "It happened in 1776.",
+          "It separated the colonies from Britain."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hizo la Declaración de Independencia?",
+        "correct": [
+          "Anunció nuestra independencia de Gran Bretaña",
+          "Declaró nuestra independencia",
+          "Dijo que los Estados Unidos son libres"
+        ],
+        "distractors": [
+          "Creó la Constitución",
+          "Terminó la Guerra Civil",
+          "Formó las Naciones Unidas"
+        ],
+        "audioQuestion": "audio/2008/q8_es.mp3",
+        "audioAnswer": "audio/2008/a8_es.mp3",
+        "hints": [
+          "Ocurrió en 1776.",
+          "Separó a las colonias de Gran Bretaña."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 9,
+    "order": 9,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question9.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What are two rights in the Declaration of Independence?",
+        "correct": [
+          "Life",
+          "Liberty",
+          "Pursuit of happiness"
+        ],
+        "distractors": [
+          "Right to vote",
+          "Freedom of religion",
+          "Right to bear arms"
+        ],
+        "audioQuestion": "audio/2008/q9_en.mp3",
+        "audioAnswer": "audio/2008/a9_en.mp3",
+        "hints": [
+          "They are natural rights.",
+          "They are written together."
+        ]
+      },
+      "es": {
+        "question": "¿Cuáles son dos derechos de la Declaración de Independencia?",
+        "correct": [
+          "La vida",
+          "La libertad",
+          "La búsqueda de la felicidad"
+        ],
+        "distractors": [
+          "El derecho a votar",
+          "La libertad de religión",
+          "El derecho a portar armas"
+        ],
+        "audioQuestion": "audio/2008/q9_es.mp3",
+        "audioAnswer": "audio/2008/a9_es.mp3",
+        "hints": [
+          "Son derechos naturales.",
+          "Están escritos juntos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 10,
+    "order": 10,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question10.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is freedom of religion?",
+        "correct": [
+          "You can practice any religion or not practice a religion"
+        ],
+        "distractors": [
+          "You must follow the government religion",
+          "You must attend church",
+          "Only one religion is allowed"
+        ],
+        "audioQuestion": "audio/2008/q10_en.mp3",
+        "audioAnswer": "audio/2008/a10_en.mp3",
+        "hints": [
+          "It is protected by the First Amendment.",
+          "It includes choosing not to practice."
+        ]
+      },
+      "es": {
+        "question": "¿Qué es la libertad de religión?",
+        "correct": [
+          "Puedes practicar cualquier religión o no practicar ninguna"
+        ],
+        "distractors": [
+          "Debes seguir la religión del gobierno",
+          "Debes asistir a una iglesia",
+          "Solo una religión es permitida"
+        ],
+        "audioQuestion": "audio/2008/q10_es.mp3",
+        "audioAnswer": "audio/2008/a10_es.mp3",
+        "hints": [
+          "Está protegida por la Primera Enmienda.",
+          "Incluye elegir no practicar."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 11,
+    "order": 11,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question11.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What is the economic system in the United States?",
+        "correct": ["Capitalist economy", "Market economy"],
+        "distractors": ["Communist economy", "Traditional economy", "Command economy"],
+        "audioQuestion": "audio/question11_en.mp3",
+        "audioAnswer": "audio/answer11_en.mp3",
+        "hints": ["Think about buying and selling.", "Prices and competition matter."]
+      },
+      "es": {
+        "question": "¿Cuál es el sistema económico en los Estados Unidos?",
+        "correct": ["Economía capitalista", "Economía de mercado"],
+        "distractors": ["Economía comunista", "Economía tradicional", "Economía planificada"],
+        "audioQuestion": "audio/question11_es.mp3",
+        "audioAnswer": "audio/answer11_es.mp3",
+        "hints": ["Piensa en comprar y vender.", "Importan los precios y la competencia."]
+      }
+    }
+  },
+  {
+    "id": 12,
+    "order": 12,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "principles_of_american_democracy",
+    "illustration": "question12.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the “rule of law”?",
+        "correct": [
+          "Everyone must follow the law.",
+          "Leaders must obey the law.",
+          "Government must obey the law.",
+          "No one is above the law."
+        ],
+        "distractors": [
+          "Leaders are above the law.",
+          "Only citizens must follow the law.",
+          "Laws apply only sometimes."
+        ],
+        "audioQuestion": "audio/question12_en.mp3",
+        "audioAnswer": "audio/answer12_en.mp3",
+        "hints": ["The law applies to everyone.", "No exceptions for powerful people."]
+      },
+      "es": {
+        "question": "¿Qué es el “estado de derecho”?",
+        "correct": [
+          "Todos deben seguir la ley.",
+          "Los líderes deben obedecer la ley.",
+          "El gobierno debe obedecer la ley.",
+          "Nadie está por encima de la ley."
+        ],
+        "distractors": [
+          "Los líderes están por encima de la ley.",
+          "Solo los ciudadanos deben seguir la ley.",
+          "Las leyes aplican solo a veces."
+        ],
+        "audioQuestion": "audio/question12_es.mp3",
+        "audioAnswer": "audio/answer12_es.mp3",
+        "hints": ["La ley aplica para todos.", "No hay excepciones para gente con poder."]
+      }
+    }
+  },
+
+  {
+    "id": 13,
+    "order": 13,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question13.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one branch or part of the government.",
+        "correct": [
+          "Congress",
+          "Legislative",
+          "President",
+          "Executive",
+          "The courts",
+          "Judicial"
+        ],
+        "distractors": [
+          "The media",
+          "The military",
+          "The states"
+        ],
+        "audioQuestion": "audio/2008/q13_en.mp3",
+        "audioAnswer": "audio/2008/a13_en.mp3",
+        "hints": [
+          "There are three branches.",
+          "Each has different powers."
+        ]
+      },
+      "es": {
+        "question": "Nombre una rama o parte del gobierno.",
+        "correct": [
+          "El Congreso",
+          "Legislativo",
+          "El Presidente",
+          "Ejecutivo",
+          "Los tribunales",
+          "Judicial"
+        ],
+        "distractors": [
+          "Los medios",
+          "El ejército",
+          "Los estados"
+        ],
+        "audioQuestion": "audio/2008/q13_es.mp3",
+        "audioAnswer": "audio/2008/a13_es.mp3",
+        "hints": [
+          "Hay tres ramas.",
+          "Cada una tiene diferentes poderes."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 14,
+    "order": 14,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question14.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What stops one branch of government from becoming too powerful?",
+        "correct": [
+          "Checks and balances",
+          "Separation of powers"
+        ],
+        "distractors": [
+          "The Constitution alone",
+          "The President",
+          "The Supreme Court only"
+        ],
+        "audioQuestion": "audio/2008/q14_en.mp3",
+        "audioAnswer": "audio/2008/a14_en.mp3",
+        "hints": [
+          "Each branch limits the others.",
+          "Power is divided."
+        ]
+      },
+      "es": {
+        "question": "¿Qué evita que una rama del gobierno se vuelva demasiado poderosa?",
+        "correct": [
+          "Pesos y contrapesos",
+          "Separación de poderes"
+        ],
+        "distractors": [
+          "Solo la Constitución",
+          "El Presidente",
+          "Solo la Corte Suprema"
+        ],
+        "audioQuestion": "audio/2008/q14_es.mp3",
+        "audioAnswer": "audio/2008/a14_es.mp3",
+        "hints": [
+          "Cada rama limita a las otras.",
+          "El poder está dividido."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 15,
+    "order": 15,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question15.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who is in charge of the executive branch?",
+        "correct": ["The President"],
+        "distractors": [
+          "Congress",
+          "The Supreme Court",
+          "The Vice President"
+        ],
+        "audioQuestion": "audio/2008/q15_en.mp3",
+        "audioAnswer": "audio/2008/a15_en.mp3",
+        "hints": [
+          "This person leads the executive branch.",
+          "Elected every four years."
+        ]
+      },
+      "es": {
+        "question": "¿Quién está a cargo de la rama ejecutiva?",
+        "correct": ["El Presidente"],
+        "distractors": [
+          "El Congreso",
+          "La Corte Suprema",
+          "El Vicepresidente"
+        ],
+        "audioQuestion": "audio/2008/q15_es.mp3",
+        "audioAnswer": "audio/2008/a15_es.mp3",
+        "hints": [
+          "Dirige la rama ejecutiva.",
+          "Es elegido cada cuatro años."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 16,
+    "order": 16,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question16.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who makes federal laws?",
+        "correct": [
+          "Congress",
+          "Senate and House (of Representatives)",
+          "U.S. legislature"
+        ],
+        "distractors": [
+          "The President",
+          "The Supreme Court",
+          "State governments"
+        ],
+        "audioQuestion": "audio/2008/q16_en.mp3",
+        "audioAnswer": "audio/2008/a16_en.mp3",
+        "hints": [
+          "It has two parts.",
+          "It is the legislative branch."
+        ]
+      },
+      "es": {
+        "question": "¿Quién hace las leyes federales?",
+        "correct": [
+          "El Congreso",
+          "El Senado y la Cámara de Representantes",
+          "La legislatura nacional"
+        ],
+        "distractors": [
+          "El Presidente",
+          "La Corte Suprema",
+          "Los gobiernos estatales"
+        ],
+        "audioQuestion": "audio/2008/q16_es.mp3",
+        "audioAnswer": "audio/2008/a16_es.mp3",
+        "hints": [
+          "Tiene dos partes.",
+          "Es la rama legislativa."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 17,
+    "order": 17,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question17.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What are the two parts of the U.S. Congress?",
+        "correct": [
+          "The Senate and House (of Representatives)"
+        ],
+        "distractors": [
+          "The President and Congress",
+          "The House and the Supreme Court",
+          "The Cabinet and the Senate"
+        ],
+        "audioQuestion": "audio/2008/q17_en.mp3",
+        "audioAnswer": "audio/2008/a17_en.mp3",
+        "hints": [
+          "One is smaller.",
+          "One is based on population."
+        ]
+      },
+      "es": {
+        "question": "¿Cuáles son las dos partes del Congreso de los Estados Unidos?",
+        "correct": [
+          "El Senado y la Cámara de Representantes"
+        ],
+        "distractors": [
+          "El Presidente y el Congreso",
+          "La Cámara y la Corte Suprema",
+          "El Gabinete y el Senado"
+        ],
+        "audioQuestion": "audio/2008/q17_es.mp3",
+        "audioAnswer": "audio/2008/a17_es.mp3",
+        "hints": [
+          "Una es más pequeña.",
+          "Una se basa en la población."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 18,
+    "order": 18,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question18.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "How many U.S. Senators are there?",
+        "correct": ["100"],
+        "distractors": [
+          "50",
+          "435",
+          "200"
+        ],
+        "audioQuestion": "audio/2008/q18_en.mp3",
+        "audioAnswer": "audio/2008/a18_en.mp3",
+        "hints": [
+          "Each state has two.",
+          "There are 50 states."
+        ]
+      },
+      "es": {
+        "question": "¿Cuántos senadores de los Estados Unidos hay?",
+        "correct": ["100"],
+        "distractors": [
+          "50",
+          "435",
+          "200"
+        ],
+        "audioQuestion": "audio/2008/q18_es.mp3",
+        "audioAnswer": "audio/2008/a18_es.mp3",
+        "hints": [
+          "Cada estado tiene dos.",
+          "Hay 50 estados."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 19,
+    "order": 19,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question19.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "We elect a U.S. Senator for how many years?",
+        "correct": ["6"],
+        "distractors": ["2", "4", "8"],
+        "audioQuestion": "audio/2008/q19_en.mp3",
+        "audioAnswer": "audio/2008/a19_en.mp3",
+        "hints": [
+          "It is longer than a House term.",
+          "It is less than a decade."
+        ]
+      },
+      "es": {
+        "question": "¿Por cuántos años elegimos a un senador de los Estados Unidos?",
+        "correct": ["6"],
+        "distractors": ["2", "4", "8"],
+        "audioQuestion": "audio/2008/q19_es.mp3",
+        "audioAnswer": "audio/2008/a19_es.mp3",
+        "hints": [
+          "Es más largo que el término de un representante.",
+          "Es menor a una década."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 20,
+    "order": 20,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question20.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who is one of your state's U.S. Senators now?",
+        "correct": ["Answers will vary"],
+        "distractors": [
+          "The President",
+          "The Governor",
+          "The Chief Justice"
+        ],
+        "audioQuestion": "audio/2008/q20_en.mp3",
+        "audioAnswer": "audio/2008/a20_en.mp3",
+        "hints": [
+          "It depends on your state.",
+          "There are two senators per state."
+        ]
+      },
+      "es": {
+        "question": "¿Quién es uno de los senadores de los Estados Unidos de su estado ahora?",
+        "correct": ["Las respuestas varían"],
+        "distractors": [
+          "El Presidente",
+          "El Gobernador",
+          "El Presidente de la Corte Suprema"
+        ],
+        "audioQuestion": "audio/2008/q20_es.mp3",
+        "audioAnswer": "audio/2008/a20_es.mp3",
+        "hints": [
+          "Depende de su estado.",
+          "Hay dos senadores por estado."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 21,
+    "order": 21,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question21.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "The House of Representatives has how many voting members?",
+        "correct": ["435"],
+        "distractors": ["100", "50", "538"],
+        "audioQuestion": "audio/2008/q21_en.mp3",
+        "audioAnswer": "audio/2008/a21_en.mp3",
+        "hints": [
+          "It is more than the Senate.",
+          "It is based on population."
+        ]
+      },
+      "es": {
+        "question": "¿Cuántos miembros votantes tiene la Cámara de Representantes?",
+        "correct": ["435"],
+        "distractors": ["100", "50", "538"],
+        "audioQuestion": "audio/2008/q21_es.mp3",
+        "audioAnswer": "audio/2008/a21_es.mp3",
+        "hints": [
+          "Es más grande que el Senado.",
+          "Se basa en la población."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 22,
+    "order": 22,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question22.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "We elect a U.S. Representative for how many years?",
+        "correct": ["2"],
+        "distractors": ["4", "6", "8"],
+        "audioQuestion": "audio/2008/q22_en.mp3",
+        "audioAnswer": "audio/2008/a22_en.mp3",
+        "hints": [
+          "It is the shortest federal term.",
+          "It is less than a Senator's term."
+        ]
+      },
+      "es": {
+        "question": "¿Por cuántos años elegimos a un representante de los Estados Unidos?",
+        "correct": ["2"],
+        "distractors": ["4", "6", "8"],
+        "audioQuestion": "audio/2008/q22_es.mp3",
+        "audioAnswer": "audio/2008/a22_es.mp3",
+        "hints": [
+          "Es el término federal más corto.",
+          "Es menor que el de un senador."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 23,
+    "order": 23,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question23.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name your U.S. Representative.",
+        "correct": ["Answers will vary"],
+        "distractors": [
+          "The President",
+          "Your Senator",
+          "The Governor"
+        ],
+        "audioQuestion": "audio/2008/q23_en.mp3",
+        "audioAnswer": "audio/2008/a23_en.mp3",
+        "hints": [
+          "It depends on where you live.",
+          "Each district has one."
+        ]
+      },
+      "es": {
+        "question": "Nombre a su representante de los Estados Unidos.",
+        "correct": ["Las respuestas varían"],
+        "distractors": [
+          "El Presidente",
+          "Su senador",
+          "El Gobernador"
+        ],
+        "audioQuestion": "audio/2008/q23_es.mp3",
+        "audioAnswer": "audio/2008/a23_es.mp3",
+        "hints": [
+          "Depende de dónde vive.",
+          "Cada distrito tiene uno."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 24,
+    "order": 24,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question24.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who does a U.S. Senator represent?",
+        "correct": ["All people of the state"],
+        "distractors": [
+          "Only citizens",
+          "Only voters",
+          "Only the governor"
+        ],
+        "audioQuestion": "audio/2008/q24_en.mp3",
+        "audioAnswer": "audio/2008/a24_en.mp3",
+        "hints": [
+          "They represent an entire state.",
+          "There are two per state."
+        ]
+      },
+      "es": {
+        "question": "¿A quién representa un senador de los Estados Unidos?",
+        "correct": ["A todas las personas del estado"],
+        "distractors": [
+          "Solo a los ciudadanos",
+          "Solo a los votantes",
+          "Solo al gobernador"
+        ],
+        "audioQuestion": "audio/2008/q24_es.mp3",
+        "audioAnswer": "audio/2008/a24_es.mp3",
+        "hints": [
+          "Representa a todo el estado.",
+          "Hay dos por estado."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 25,
+    "order": 25,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question25.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Why do some states have more Representatives than other states?",
+        "correct": [
+          "(Because of) the state’s population",
+          "(Because) they have more people",
+          "(Because) some states have more people"
+        ],
+        "distractors": [
+          "Because they have more cities",
+          "Because they are older states",
+          "Because they have more land"
+        ],
+        "audioQuestion": "audio/2008/q25_en.mp3",
+        "audioAnswer": "audio/2008/a25_en.mp3",
+        "hints": [
+          "Think about how many people live in each state.",
+          "Representation is based on population."
+        ]
+      },
+      "es": {
+        "question": "¿Por qué algunos estados tienen más representantes que otros estados?",
+        "correct": [
+          "(Por) la población del estado",
+          "(Porque) tienen más gente",
+          "(Porque) algunos estados tienen más gente"
+        ],
+        "distractors": [
+          "Porque tienen más ciudades",
+          "Porque son estados más antiguos",
+          "Porque tienen más territorio"
+        ],
+        "audioQuestion": "audio/2008/q25_es.mp3",
+        "audioAnswer": "audio/2008/a25_es.mp3",
+        "hints": [
+          "Piense en cuántas personas viven en cada estado.",
+          "La representación se basa en la población."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 26,
+    "order": 26,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question26.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "We elect a President for how many years?",
+        "correct": ["Four (4)"],
+        "distractors": [
+          "Two (2)",
+          "Six (6)",
+          "Eight (8)"
+        ],
+        "audioQuestion": "audio/2008/q26_en.mp3",
+        "audioAnswer": "audio/2008/a26_en.mp3",
+        "hints": [
+          "A presidential term is longer than a House term.",
+          "It is written in the Constitution."
+        ]
+      },
+      "es": {
+        "question": "¿Por cuántos años elegimos al Presidente?",
+        "correct": ["Cuatro (4)"],
+        "distractors": [
+          "Dos (2)",
+          "Seis (6)",
+          "Ocho (8)"
+        ],
+        "audioQuestion": "audio/2008/q26_es.mp3",
+        "audioAnswer": "audio/2008/a26_es.mp3",
+        "hints": [
+          "El mandato presidencial es más largo que el de un representante.",
+          "Está escrito en la Constitución."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 27,
+    "order": 27,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question27.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "In what month do we vote for President?",
+        "correct": ["November"],
+        "distractors": [
+          "January",
+          "July",
+          "October"
+        ],
+        "audioQuestion": "audio/2008/q27_en.mp3",
+        "audioAnswer": "audio/2008/a27_en.mp3",
+        "hints": [
+          "Election Day is in the fall.",
+          "It is after summer and before December."
+        ]
+      },
+      "es": {
+        "question": "¿En qué mes votamos por el Presidente?",
+        "correct": ["Noviembre"],
+        "distractors": [
+          "Enero",
+          "Julio",
+          "Octubre"
+        ],
+        "audioQuestion": "audio/2008/q27_es.mp3",
+        "audioAnswer": "audio/2008/a27_es.mp3",
+        "hints": [
+          "El día de elecciones es en otoño.",
+          "Es después del verano y antes de diciembre."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 28,
+    "order": 28,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question28.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What is the name of the President of the United States now?",
+        "correct": [
+          "Visit uscis.gov/citizenship/testupdates for the name of the President of the United States."
+        ],
+        "distractors": [
+          "The previous President",
+          "The Vice President",
+          "A former President"
+        ],
+        "audioQuestion": "audio/2008/q28_en.mp3",
+        "audioAnswer": "audio/2008/a28_en.mp3",
+        "hints": [
+          "This answer can change over time.",
+          "USCIS updates this information."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el nombre del Presidente de los Estados Unidos ahora?",
+        "correct": [
+          "Visite uscis.gov/citizenship/testupdates para conocer el nombre del Presidente de los Estados Unidos."
+        ],
+        "distractors": [
+          "El presidente anterior",
+          "El vicepresidente",
+          "Un expresidente"
+        ],
+        "audioQuestion": "audio/2008/q28_es.mp3",
+        "audioAnswer": "audio/2008/a28_es.mp3",
+        "hints": [
+          "Esta respuesta puede cambiar con el tiempo.",
+          "USCIS actualiza esta información."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 29,
+    "order": 29,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question29.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the name of the Vice President of the United States now?",
+        "correct": [
+          "Visit uscis.gov/citizenship/testupdates for the name of the Vice President of the United States."
+        ],
+        "distractors": [
+          "The President",
+          "The Speaker of the House",
+          "A former Vice President"
+        ],
+        "audioQuestion": "audio/2008/q29_en.mp3",
+        "audioAnswer": "audio/2008/a29_en.mp3",
+        "hints": [
+          "This position is second in the executive branch.",
+          "The answer may change over time."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el nombre del Vicepresidente de los Estados Unidos ahora?",
+        "correct": [
+          "Visite uscis.gov/citizenship/testupdates para conocer el nombre del Vicepresidente de los Estados Unidos."
+        ],
+        "distractors": [
+          "El presidente",
+          "El presidente de la Cámara",
+          "Un exvicepresidente"
+        ],
+        "audioQuestion": "audio/2008/q29_es.mp3",
+        "audioAnswer": "audio/2008/a29_es.mp3",
+        "hints": [
+          "Este cargo es el segundo en el poder ejecutivo.",
+          "La respuesta puede cambiar con el tiempo."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 30,
+    "order": 30,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question30.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "If the President can no longer serve, who becomes President?",
+        "correct": ["The Vice President"],
+        "distractors": [
+          "The Speaker of the House",
+          "The Secretary of State",
+          "The Chief Justice"
+        ],
+        "audioQuestion": "audio/2008/q30_en.mp3",
+        "audioAnswer": "audio/2008/a30_en.mp3",
+        "hints": [
+          "Think about the line of succession.",
+          "This person is elected with the President."
+        ]
+      },
+      "es": {
+        "question": "Si el Presidente ya no puede servir, ¿quién se convierte en Presidente?",
+        "correct": ["El Vicepresidente"],
+        "distractors": [
+          "El Presidente de la Cámara",
+          "El Secretario de Estado",
+          "El Presidente del Tribunal Supremo"
+        ],
+        "audioQuestion": "audio/2008/q30_es.mp3",
+        "audioAnswer": "audio/2008/a30_es.mp3",
+        "hints": [
+          "Piense en la línea de sucesión.",
+          "Esta persona es elegida junto con el Presidente."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 31,
+    "order": 31,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question31.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "If both the President and the Vice President can no longer serve, who becomes President?",
+        "correct": ["The Speaker of the House"],
+        "distractors": [
+          "The Secretary of State",
+          "The Senate Majority Leader",
+          "The Chief Justice"
+        ],
+        "audioQuestion": "audio/2008/q31_en.mp3",
+        "audioAnswer": "audio/2008/a31_en.mp3",
+        "hints": [
+          "This person leads the House of Representatives.",
+          "This role is part of the legislative branch."
+        ]
+      },
+      "es": {
+        "question": "Si el Presidente y el Vicepresidente ya no pueden servir, ¿quién se convierte en Presidente?",
+        "correct": ["El Presidente de la Cámara de Representantes"],
+        "distractors": [
+          "El Secretario de Estado",
+          "El líder del Senado",
+          "El Presidente del Tribunal Supremo"
+        ],
+        "audioQuestion": "audio/2008/q31_es.mp3",
+        "audioAnswer": "audio/2008/a31_es.mp3",
+        "hints": [
+          "Esta persona dirige la Cámara de Representantes.",
+          "Este cargo pertenece al poder legislativo."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 32,
+    "order": 32,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question32.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who is the Commander in Chief of the military?",
+        "correct": ["The President"],
+        "distractors": [
+          "The Vice President",
+          "The Secretary of Defense",
+          "The Chairman of the Joint Chiefs"
+        ],
+        "audioQuestion": "audio/2008/q32_en.mp3",
+        "audioAnswer": "audio/2008/a32_en.mp3",
+        "hints": [
+          "This role is part of the executive branch.",
+          "The Constitution gives this power."
+        ]
+      },
+      "es": {
+        "question": "¿Quién es el Comandante en Jefe de las fuerzas armadas?",
+        "correct": ["El Presidente"],
+        "distractors": [
+          "El Vicepresidente",
+          "El Secretario de Defensa",
+          "El Jefe del Estado Mayor"
+        ],
+        "audioQuestion": "audio/2008/q32_es.mp3",
+        "audioAnswer": "audio/2008/a32_es.mp3",
+        "hints": [
+          "Este cargo pertenece al poder ejecutivo.",
+          "La Constitución otorga esta autoridad."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 33,
+    "order": 33,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question33.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who signs bills to become laws?",
+        "correct": ["The President"],
+        "distractors": [
+          "The Vice President",
+          "The Speaker of the House",
+          "Congress"
+        ],
+        "audioQuestion": "audio/2008/q33_en.mp3",
+        "audioAnswer": "audio/2008/a33_en.mp3",
+        "hints": [
+          "This happens after Congress passes a bill.",
+          "This role is part of the executive branch."
+        ]
+      },
+      "es": {
+        "question": "¿Quién firma los proyectos de ley para que se conviertan en ley?",
+        "correct": ["El Presidente"],
+        "distractors": [
+          "El Vicepresidente",
+          "El Presidente de la Cámara",
+          "El Congreso"
+        ],
+        "audioQuestion": "audio/2008/q33_es.mp3",
+        "audioAnswer": "audio/2008/a33_es.mp3",
+        "hints": [
+          "Esto ocurre después de que el Congreso aprueba un proyecto.",
+          "Este cargo pertenece al poder ejecutivo."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 34,
+    "order": 34,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question34.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who vetoes bills?",
+        "correct": ["The President"],
+        "distractors": [
+          "Congress",
+          "The Supreme Court",
+          "The Vice President"
+        ],
+        "audioQuestion": "audio/2008/q34_en.mp3",
+        "audioAnswer": "audio/2008/a34_en.mp3",
+        "hints": [
+          "A veto is a rejection.",
+          "This power belongs to the executive branch."
+        ]
+      },
+      "es": {
+        "question": "¿Quién veta los proyectos de ley?",
+        "correct": ["El Presidente"],
+        "distractors": [
+          "El Congreso",
+          "La Corte Suprema",
+          "El Vicepresidente"
+        ],
+        "audioQuestion": "audio/2008/q34_es.mp3",
+        "audioAnswer": "audio/2008/a34_es.mp3",
+        "hints": [
+          "Un veto es un rechazo.",
+          "Este poder pertenece al poder ejecutivo."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 35,
+    "order": 35,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question35.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What does the President’s Cabinet do?",
+        "correct": ["Advises the President"],
+        "distractors": [
+          "Writes laws",
+          "Votes on bills",
+          "Controls the courts"
+        ],
+        "audioQuestion": "audio/2008/q35_en.mp3",
+        "audioAnswer": "audio/2008/a35_en.mp3",
+        "hints": [
+          "Cabinet members lead executive departments.",
+          "Their role is advisory."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hace el Gabinete del Presidente?",
+        "correct": ["Asesora al Presidente"],
+        "distractors": [
+          "Escribe las leyes",
+          "Vota los proyectos de ley",
+          "Controla los tribunales"
+        ],
+        "audioQuestion": "audio/2008/q35_es.mp3",
+        "audioAnswer": "audio/2008/a35_es.mp3",
+        "hints": [
+          "Los miembros del gabinete dirigen departamentos ejecutivos.",
+          "Su función es asesorar."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 36,
+    "order": 36,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question36.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What are two Cabinet-level positions?",
+        "correct": [
+          "Secretary of State",
+          "Secretary of Defense",
+          "Secretary of Treasury",
+          "Attorney General",
+          "Secretary of Education",
+          "Secretary of Homeland Security"
+        ],
+        "distractors": [
+          "Chief Justice",
+          "Speaker of the House",
+          "Senate Majority Leader"
+        ],
+        "audioQuestion": "audio/2008/q36_en.mp3",
+        "audioAnswer": "audio/2008/a36_en.mp3",
+        "hints": [
+          "Cabinet members lead executive departments.",
+          "They advise the President."
+        ]
+      },
+      "es": {
+        "question": "¿Cuáles son dos puestos a nivel de gabinete?",
+        "correct": [
+          "Secretario de Estado",
+          "Secretario de Defensa",
+          "Secretario del Tesoro",
+          "Fiscal General",
+          "Secretario de Educación",
+          "Secretario de Seguridad Nacional"
+        ],
+        "distractors": [
+          "Presidente del Tribunal Supremo",
+          "Presidente de la Cámara",
+          "Líder del Senado"
+        ],
+        "audioQuestion": "audio/2008/q36_es.mp3",
+        "audioAnswer": "audio/2008/a36_es.mp3",
+        "hints": [
+          "Los miembros del gabinete dirigen departamentos ejecutivos.",
+          "Asesoran al Presidente."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 37,
+    "order": 37,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question37.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What does the judicial branch do?",
+        "correct": [
+          "Reviews laws",
+          "Explains laws",
+          "Resolves disputes",
+          "Decides if a law goes against the Constitution"
+        ],
+        "distractors": [
+          "Writes laws",
+          "Enforces laws",
+          "Elects the President"
+        ],
+        "audioQuestion": "audio/2008/q37_en.mp3",
+        "audioAnswer": "audio/2008/a37_en.mp3",
+        "hints": [
+          "This branch includes the courts.",
+          "It interprets the law."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hace la rama judicial?",
+        "correct": [
+          "Revisa las leyes",
+          "Explica las leyes",
+          "Resuelve disputas",
+          "Decide si una ley va en contra de la Constitución"
+        ],
+        "distractors": [
+          "Escribe las leyes",
+          "Hace cumplir las leyes",
+          "Elige al Presidente"
+        ],
+        "audioQuestion": "audio/2008/q37_es.mp3",
+        "audioAnswer": "audio/2008/a37_es.mp3",
+        "hints": [
+          "Esta rama incluye a los tribunales.",
+          "Interpreta la ley."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 38,
+    "order": 38,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question38.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the highest court in the United States?",
+        "correct": ["The Supreme Court"],
+        "distractors": [
+          "The Federal Court",
+          "The Court of Appeals",
+          "The District Court"
+        ],
+        "audioQuestion": "audio/2008/q38_en.mp3",
+        "audioAnswer": "audio/2008/a38_en.mp3",
+        "hints": [
+          "It is the top court in the country.",
+          "It interprets the Constitution."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el tribunal más alto de los Estados Unidos?",
+        "correct": ["La Corte Suprema"],
+        "distractors": [
+          "El Tribunal Federal",
+          "La Corte de Apelaciones",
+          "El Tribunal de Distrito"
+        ],
+        "audioQuestion": "audio/2008/q38_es.mp3",
+        "audioAnswer": "audio/2008/a38_es.mp3",
+        "hints": [
+          "Es el tribunal más alto del país.",
+          "Interpreta la Constitución."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 39,
+    "order": 39,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question39.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "How many justices are on the Supreme Court?",
+        "correct": ["Nine (9)"],
+        "distractors": [
+          "Seven (7)",
+          "Ten (10)",
+          "Twelve (12)"
+        ],
+        "audioQuestion": "audio/2008/q39_en.mp3",
+        "audioAnswer": "audio/2008/a39_en.mp3",
+        "hints": [
+          "This number has been the same for many years.",
+          "Count the total members of the court."
+        ]
+      },
+      "es": {
+        "question": "¿Cuántos jueces hay en la Corte Suprema?",
+        "correct": ["Nueve (9)"],
+        "distractors": [
+          "Siete (7)",
+          "Diez (10)",
+          "Doce (12)"
+        ],
+        "audioQuestion": "audio/2008/q39_es.mp3",
+        "audioAnswer": "audio/2008/a39_es.mp3",
+        "hints": [
+          "Este número no ha cambiado en muchos años.",
+          "Cuenta el total de jueces del tribunal."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 40,
+    "order": 40,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question40.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who is the Chief Justice of the United States now?",
+        "correct": [
+          "Visit uscis.gov/citizenship/testupdates for the name of the Chief Justice of the United States."
+        ],
+        "distractors": [
+          "The President",
+          "The Vice President",
+          "The Speaker of the House"
+        ],
+        "audioQuestion": "audio/2008/q40_en.mp3",
+        "audioAnswer": "audio/2008/a40_en.mp3",
+        "hints": [
+          "This position can change.",
+          "The official name must be checked online."
+        ]
+      },
+      "es": {
+        "question": "¿Quién es el Presidente del Tribunal Supremo de los Estados Unidos ahora?",
+        "correct": [
+          "Visite uscis.gov/citizenship/testupdates para conocer el nombre del Presidente del Tribunal Supremo de los Estados Unidos."
+        ],
+        "distractors": [
+          "Economía comunista",
+          "El Vicepresidente",
+          "El Presidente de la Cámara"
+        ],
+        "audioQuestion": "audio/2008/q40_es.mp3",
+        "audioAnswer": "audio/2008/a40_es.mp3",
+        "hints": [
+          "Este cargo puede cambiar.",
+          "El nombre oficial se debe consultar en línea."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 41,
+    "order": 41,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question41.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?",
+        "correct": [
+          "To print money",
+          "To declare war",
+          "To create an army",
+          "To make treaties"
+        ],
+        "distractors": [
+          "To issue driver's licenses",
+          "To provide public education",
+          "To approve zoning laws"
+        ],
+        "audioQuestion": "audio/2008/q41_en.mp3",
+        "audioAnswer": "audio/2008/a41_en.mp3",
+        "hints": [
+          "This power belongs to the national government.",
+          "States do not have this authority."
+        ]
+      },
+      "es": {
+        "question": "Según nuestra Constitución, algunos poderes pertenecen al gobierno federal. ¿Cuál es un poder del gobierno federal?",
+        "correct": [
+          "Imprimir dinero",
+          "Declarar la guerra",
+          "Crear un ejército",
+          "Hacer tratados"
+        ],
+        "distractors": [
+          "Otorgar licencias de conducir",
+          "Proveer educación pública",
+          "Aprobar leyes de zonificación"
+        ],
+        "audioQuestion": "audio/2008/q41_es.mp3",
+        "audioAnswer": "audio/2008/a41_es.mp3",
+        "hints": [
+          "Este poder pertenece al gobierno nacional.",
+          "Los estados no tienen esta autoridad."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 42,
+    "order": 42,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question42.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "Under our Constitution, some powers belong to the states. What is one power of the states?",
+        "correct": [
+          "Provide schooling and education",
+          "Provide protection (police)",
+          "Provide safety (fire departments)",
+          "Give a driver's license",
+          "Approve zoning and land use"
+        ],
+        "distractors": [
+          "Declare war",
+          "Print money",
+          "Make treaties"
+        ],
+        "audioQuestion": "audio/2008/q42_en.mp3",
+        "audioAnswer": "audio/2008/a42_en.mp3",
+        "hints": [
+          "This power is handled at the state or local level.",
+          "It affects daily life in your state."
+        ]
+      },
+      "es": {
+        "question": "Según nuestra Constitución, algunos poderes pertenecen a los estados. ¿Cuál es un poder de los estados?",
+        "correct": [
+          "Proveer educación",
+          "Proveer protección (policía)",
+          "Proveer seguridad (bomberos)",
+          "Otorgar licencias de conducir",
+          "Aprobar zonificación y uso de tierras"
+        ],
+        "distractors": [
+          "Declarar la guerra",
+          "Imprimir dinero",
+          "Hacer tratados"
+        ],
+        "audioQuestion": "audio/2008/q42_es.mp3",
+        "audioAnswer": "audio/2008/a42_es.mp3",
+        "hints": [
+          "Este poder pertenece al gobierno estatal o local.",
+          "Afecta la vida diaria en tu estado."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 43,
+    "order": 43,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question43.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "Who is the Governor of your state now?",
+        "correct": ["Answers will vary"],
+        "distractors": [
+          "The President",
+          "The Vice President",
+          "The Chief Justice"
+        ],
+        "audioQuestion": "audio/2008/q43_en.mp3",
+        "audioAnswer": "audio/2008/a43_en.mp3",
+        "hints": [
+          "This answer depends on your state.",
+          "The governor is the leader of the state government."
+        ]
+      },
+      "es": {
+        "question": "¿Quién es el gobernador de su estado ahora?",
+        "correct": ["Las respuestas varían"],
+        "distractors": [
+          "El Presidente",
+          "El Vicepresidente",
+          "El Presidente del Tribunal Supremo"
+        ],
+        "audioQuestion": "audio/2008/q43_es.mp3",
+        "audioAnswer": "audio/2008/a43_es.mp3",
+        "hints": [
+          "La respuesta depende de su estado.",
+          "El gobernador dirige el gobierno estatal."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 44,
+    "order": 44,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question44.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What is the capital of your state?",
+        "correct": ["Answers will vary"],
+        "distractors": [
+          "Washington, D.C.",
+          "New York City",
+          "Los Angeles"
+        ],
+        "audioQuestion": "audio/2008/q44_en.mp3",
+        "audioAnswer": "audio/2008/a44_en.mp3",
+        "hints": [
+          "This depends on your state.",
+          "It is not always the largest city."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es la capital de su estado?",
+        "correct": ["Las respuestas varían"],
+        "distractors": [
+          "Washington, D.C.",
+          "Nueva York",
+          "Los Ángeles"
+        ],
+        "audioQuestion": "audio/2008/q44_es.mp3",
+        "audioAnswer": "audio/2008/a44_es.mp3",
+        "hints": [
+          "Depende de su estado.",
+          "No siempre es la ciudad más grande."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 45,
+    "order": 45,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question45.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What are the two major political parties in the United States?",
+        "correct": ["Democratic and Republican"],
+        "distractors": [
+          "Democratic and Green",
+          "Republican and Independent",
+          "Libertarian and Green"
+        ],
+        "audioQuestion": "audio/2008/q45_en.mp3",
+        "audioAnswer": "audio/2008/a45_en.mp3",
+        "hints": [
+          "These are the two main parties.",
+          "They dominate national elections."
+        ]
+      },
+      "es": {
+        "question": "¿Cuáles son los dos partidos políticos principales en los Estados Unidos?",
+        "correct": ["Demócrata y Republicano"],
+        "distractors": [
+          "Demócrata y Verde",
+          "Republicano e Independiente",
+          "Libertario y Verde"
+        ],
+        "audioQuestion": "audio/2008/q45_es.mp3",
+        "audioAnswer": "audio/2008/a45_es.mp3",
+        "hints": [
+          "Son los dos partidos principales.",
+          "Dominaron las elecciones nacionales."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 46,
+    "order": 46,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question46.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the political party of the President now?",
+        "correct": [
+          "Visit uscis.gov/citizenship/testupdates for the political party of the President."
+        ],
+        "distractors": [
+          "Democratic Party",
+          "Republican Party",
+          "Independent Party"
+        ],
+        "audioQuestion": "audio/2008/q46_en.mp3",
+        "audioAnswer": "audio/2008/a46_en.mp3",
+        "hints": [
+          "This answer can change over time.",
+          "Check the official USCIS website for updates."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el partido político del Presidente ahora?",
+        "correct": [
+          "Visite uscis.gov/citizenship/testupdates para conocer el partido político del Presidente."
+        ],
+        "distractors": [
+          "Partido Demócrata",
+          "Partido Republicano",
+          "Partido Independiente"
+        ],
+        "audioQuestion": "audio/2008/q46_es.mp3",
+        "audioAnswer": "audio/2008/a46_es.mp3",
+        "hints": [
+          "Esta respuesta puede cambiar con el tiempo.",
+          "Consulte el sitio oficial de USCIS para información actualizada."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 47,
+    "order": 47,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "system_of_government",
+    "illustration": "question47.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the name of the Speaker of the House of Representatives now?",
+        "correct": [
+          "Visit uscis.gov/citizenship/testupdates for the name of the Speaker of the House of Representatives."
+        ],
+        "distractors": [
+          "The Vice President",
+          "The Senate Majority Leader",
+          "The Chief Justice"
+        ],
+        "audioQuestion": "audio/2008/q47_en.mp3",
+        "audioAnswer": "audio/2008/a47_en.mp3",
+        "hints": [
+          "This person leads the House of Representatives.",
+          "The name can change over time."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el nombre del Presidente de la Cámara de Representantes ahora?",
+        "correct": [
+          "Visite uscis.gov/citizenship/testupdates para conocer el nombre del Presidente de la Cámara de Representantes."
+        ],
+        "distractors": [
+          "El Vicepresidente",
+          "El líder de la mayoría del Senado",
+          "El Presidente del Tribunal Supremo"
+        ],
+        "audioQuestion": "audio/2008/q47_es.mp3",
+        "audioAnswer": "audio/2008/a47_es.mp3",
+        "hints": [
+          "Esta persona dirige la Cámara de Representantes.",
+          "El nombre puede cambiar con el tiempo."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 48,
+    "order": 48,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question48.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "There are four amendments to the Constitution about who can vote. Describe one of them.",
+        "correct": [
+          "Citizens eighteen (18) and older can vote.",
+          "You don’t have to pay a poll tax to vote.",
+          "Any citizen can vote. (Women and men can vote.)",
+          "A male citizen of any race can vote."
+        ],
+        "distractors": [
+          "Only landowners can vote",
+          "Only men over 21 can vote",
+          "Only property owners can vote"
+        ],
+        "audioQuestion": "audio/2008/q48_en.mp3",
+        "audioAnswer": "audio/2008/a48_en.mp3",
+        "hints": [
+          "These amendments expanded voting rights.",
+          "They removed restrictions on who can vote."
+        ]
+      },
+      "es": {
+        "question": "Hay cuatro enmiendas a la Constitución sobre quién puede votar. Describa una de ellas.",
+        "correct": [
+          "Los ciudadanos de dieciocho (18) años o más pueden votar.",
+          "No se tiene que pagar un impuesto electoral para votar.",
+          "Cualquier ciudadano puede votar. (Hombres y mujeres pueden votar.)",
+          "Un ciudadano varón de cualquier raza puede votar."
+        ],
+        "distractors": [
+          "Solo los dueños de tierras pueden votar",
+          "Solo los hombres mayores de 21 pueden votar",
+          "Solo los propietarios pueden votar"
+        ],
+        "audioQuestion": "audio/2008/q48_es.mp3",
+        "audioAnswer": "audio/2008/a48_es.mp3",
+        "hints": [
+          "Estas enmiendas ampliaron el derecho al voto.",
+          "Eliminaron restricciones para votar."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 49,
+    "order": 49,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question49.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What is one responsibility that is only for United States citizens?",
+        "correct": [
+          "Serve on a jury",
+          "Vote in a federal election"
+        ],
+        "distractors": [
+          "Pay taxes",
+          "Obey the law",
+          "Apply for a driver's license"
+        ],
+        "audioQuestion": "audio/2008/q49_en.mp3",
+        "audioAnswer": "audio/2008/a49_en.mp3",
+        "hints": [
+          "This responsibility is not required of non-citizens.",
+          "It involves civic participation."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es una responsabilidad que es solo para los ciudadanos de los Estados Unidos?",
+        "correct": [
+          "Servir en un jurado",
+          "Votar en una elección federal"
+        ],
+        "distractors": [
+          "Pagar impuestos",
+          "Obedecer la ley",
+          "Solicitar una licencia de conducir"
+        ],
+        "audioQuestion": "audio/2008/q49_es.mp3",
+        "audioAnswer": "audio/2008/a49_es.mp3",
+        "hints": [
+          "Esta responsabilidad no es obligatoria para los no ciudadanos.",
+          "Implica participación cívica."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 50,
+    "order": 50,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question50.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one right only for United States citizens.",
+        "correct": [
+          "Vote in a federal election",
+          "Run for federal office"
+        ],
+        "distractors": [
+          "Freedom of speech",
+          "Freedom of religion",
+          "Freedom of assembly"
+        ],
+        "audioQuestion": "audio/2008/q50_en.mp3",
+        "audioAnswer": "audio/2008/a50_en.mp3",
+        "hints": [
+          "This right is limited to citizens.",
+          "Non-citizens do not have this right."
+        ]
+      },
+      "es": {
+        "question": "Nombre un derecho que es solo para los ciudadanos de los Estados Unidos.",
+        "correct": [
+          "Votar en una elección federal",
+          "Postularse para un cargo federal"
+        ],
+        "distractors": [
+          "Libertad de expresión",
+          "Libertad de religión",
+          "Libertad de reunión"
+        ],
+        "audioQuestion": "audio/2008/q50_es.mp3",
+        "audioAnswer": "audio/2008/a50_es.mp3",
+        "hints": [
+          "Este derecho está limitado a los ciudadanos.",
+          "Los no ciudadanos no lo tienen."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 51,
+    "order": 51,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question51.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What are two rights of everyone living in the United States?",
+        "correct": [
+          "Freedom of expression",
+          "Freedom of speech",
+          "Freedom of assembly",
+          "Freedom to petition the government",
+          "Freedom of religion",
+          "The right to bear arms"
+        ],
+        "distractors": [
+          "Vote in federal elections",
+          "Run for federal office",
+          "Serve on a jury"
+        ],
+        "audioQuestion": "audio/2008/q51_en.mp3",
+        "audioAnswer": "audio/2008/a51_en.mp3",
+        "hints": [
+          "These rights apply to everyone, not just citizens.",
+          "They are protected by the Constitution."
+        ]
+      },
+      "es": {
+        "question": "¿Cuáles son dos derechos de todas las personas que viven en los Estados Unidos?",
+        "correct": [
+          "Libertad de expresión",
+          "Libertad de palabra",
+          "Libertad de reunión",
+          "Libertad de pedir al gobierno",
+          "Libertad de religión",
+          "El derecho a portar armas"
+        ],
+        "distractors": [
+          "Votar en elecciones federales",
+          "Postularse para un cargo federal",
+          "Servir en un jurado"
+        ],
+        "audioQuestion": "audio/2008/q51_es.mp3",
+        "audioAnswer": "audio/2008/a51_es.mp3",
+        "hints": [
+          "Estos derechos aplican a todas las personas.",
+          "Están protegidos por la Constitución."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 52,
+    "order": 52,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question52.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What do we show loyalty to when we say the Pledge of Allegiance?",
+        "correct": [
+          "The United States",
+          "The flag"
+        ],
+        "distractors": [
+          "The President",
+          "The military",
+          "Congress"
+        ],
+        "audioQuestion": "audio/2008/q52_en.mp3",
+        "audioAnswer": "audio/2008/a52_en.mp3",
+        "hints": [
+          "It is said to honor the nation.",
+          "It includes a symbol of the country."
+        ]
+      },
+      "es": {
+        "question": "¿A qué mostramos lealtad cuando decimos el Juramento de Lealtad?",
+        "correct": [
+          "A los Estados Unidos",
+          "A la bandera"
+        ],
+        "distractors": [
+          "Al Presidente",
+          "A las fuerzas armadas",
+          "Al Congreso"
+        ],
+        "audioQuestion": "audio/2008/q52_es.mp3",
+        "audioAnswer": "audio/2008/a52_es.mp3",
+        "hints": [
+          "Se dice para honrar a la nación.",
+          "Incluye un símbolo del país."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 53,
+    "order": 53,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question53.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is one promise you make when you become a United States citizen?",
+        "correct": [
+          "Give up loyalty to other countries",
+          "Defend the Constitution and laws of the United States",
+          "Obey the laws of the United States",
+          "Serve in the U.S. military (if needed)",
+          "Serve (do important work for) the nation (if needed)",
+          "Be loyal to the United States"
+        ],
+        "distractors": [
+          "Pay no taxes",
+          "Vote in every election",
+          "Work for the government"
+        ],
+        "audioQuestion": "audio/2008/q53_en.mp3",
+        "audioAnswer": "audio/2008/a53_en.mp3",
+        "hints": [
+          "This promise is part of the Oath of Allegiance.",
+          "It shows commitment to the United States."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es una promesa que usted hace cuando se convierte en ciudadano de los Estados Unidos?",
+        "correct": [
+          "Renunciar a la lealtad a otros países",
+          "Defender la Constitución y las leyes de los Estados Unidos",
+          "Obedecer las leyes de los Estados Unidos",
+          "Servir en las fuerzas armadas de los Estados Unidos (si es necesario)",
+          "Servir a la nación (si es necesario)",
+          "Ser leal a los Estados Unidos"
+        ],
+        "distractors": [
+          "No pagar impuestos",
+          "Votar en todas las elecciones",
+          "Trabajar para el gobierno"
+        ],
+        "audioQuestion": "audio/2008/q53_es.mp3",
+        "audioAnswer": "audio/2008/a53_es.mp3",
+        "hints": [
+          "Esta promesa forma parte del Juramento de Lealtad.",
+          "Muestra compromiso con los Estados Unidos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 54,
+    "order": 54,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question54.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "How old do citizens have to be to vote for President?",
+        "correct": ["Eighteen (18) and older"],
+        "distractors": [
+          "Sixteen (16)",
+          "Twenty-one (21)",
+          "Twenty-five (25)"
+        ],
+        "audioQuestion": "audio/2008/q54_en.mp3",
+        "audioAnswer": "audio/2008/a54_en.mp3",
+        "hints": [
+          "This age was set by a constitutional amendment.",
+          "It applies to federal elections."
+        ]
+      },
+      "es": {
+        "question": "¿Cuántos años deben tener los ciudadanos para votar por el Presidente?",
+        "correct": ["Dieciocho (18) años o más"],
+        "distractors": [
+          "Dieciséis (16)",
+          "Veintiún (21)",
+          "Veinticinco (25)"
+        ],
+        "audioQuestion": "audio/2008/q54_es.mp3",
+        "audioAnswer": "audio/2008/a54_es.mp3",
+        "hints": [
+          "Esta edad fue establecida por una enmienda constitucional.",
+          "Aplica a elecciones federales."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 55,
+    "order": 55,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question55.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What are two ways that Americans can participate in their democracy?",
+        "correct": [
+          "Vote",
+          "Join a political party",
+          "Help with a campaign",
+          "Join a civic group",
+          "Join a community group",
+          "Give an elected official your opinion",
+          "Contact elected officials",
+          "Run for office",
+          "Write to a newspaper"
+        ],
+        "distractors": [
+          "Avoid elections",
+          "Ignore government decisions",
+          "Refuse to follow laws"
+        ],
+        "audioQuestion": "audio/2008/q55_en.mp3",
+        "audioAnswer": "audio/2008/a55_en.mp3",
+        "hints": [
+          "Participation helps shape government.",
+          "There are many ways besides voting."
+        ]
+      },
+      "es": {
+        "question": "¿Cuáles son dos maneras en que los estadounidenses pueden participar en su democracia?",
+        "correct": [
+          "Votar",
+          "Unirse a un partido político",
+          "Ayudar en una campaña",
+          "Unirse a un grupo cívico",
+          "Unirse a un grupo comunitario",
+          "Dar su opinión a un funcionario electo",
+          "Contactar a funcionarios electos",
+          "Postularse para un cargo",
+          "Escribir a un periódico"
+        ],
+        "distractors": [
+          "Evitar elecciones",
+          "Ignorar decisiones del gobierno",
+          "Negarse a obedecer las leyes"
+        ],
+        "audioQuestion": "audio/2008/q55_es.mp3",
+        "audioAnswer": "audio/2008/a55_es.mp3",
+        "hints": [
+          "La participación ayuda a dar forma al gobierno.",
+          "Hay muchas maneras además de votar."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 56,
+    "order": 56,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question56.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "When is the last day you can send in federal income tax forms?",
+        "correct": ["April 15"],
+        "distractors": [
+          "March 15",
+          "May 1",
+          "December 31"
+        ],
+        "audioQuestion": "audio/2008/q56_en.mp3",
+        "audioAnswer": "audio/2008/a56_en.mp3",
+        "hints": [
+          "This date is the same every year for most people.",
+          "It is in the spring."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el último día que puede enviar los formularios de impuestos federales sobre la renta?",
+        "correct": ["15 de abril"],
+        "distractors": [
+          "15 de marzo",
+          "1 de mayo",
+          "31 de diciembre"
+        ],
+        "audioQuestion": "audio/2008/q56_es.mp3",
+        "audioAnswer": "audio/2008/a56_es.mp3",
+        "hints": [
+          "Esta fecha es la misma cada año para la mayoría de las personas.",
+          "Es en la primavera."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 57,
+    "order": 57,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_government",
+    "subcategory": "rights_and_responsibilities",
+    "illustration": "question57.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "When must all men register for the Selective Service?",
+        "correct": [
+          "At age eighteen (18)",
+          "Between eighteen (18) and twenty-six (26)"
+        ],
+        "distractors": [
+          "At age sixteen (16)",
+          "After turning twenty-one (21)",
+          "Only during wartime"
+        ],
+        "audioQuestion": "audio/2008/q57_en.mp3",
+        "audioAnswer": "audio/2008/a57_en.mp3",
+        "hints": [
+          "This applies to young adult men.",
+          "It is required even during peacetime."
+        ]
+      },
+      "es": {
+        "question": "¿Cuándo deben todos los hombres registrarse en el Servicio Selectivo?",
+        "correct": [
+          "A los dieciocho (18) años",
+          "Entre los dieciocho (18) y veintiséis (26) años"
+        ],
+        "distractors": [
+          "A los dieciséis (16) años",
+          "Después de cumplir veintiún (21) años",
+          "Solo en tiempo de guerra"
+        ],
+        "audioQuestion": "audio/2008/q57_es.mp3",
+        "audioAnswer": "audio/2008/a57_es.mp3",
+        "hints": [
+          "Aplica a hombres adultos jóvenes.",
+          "Es obligatorio incluso en tiempos de paz."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 58,
+    "order": 58,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question58.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is one reason colonists came to America?",
+        "correct": [
+          "Freedom",
+          "Political liberty",
+          "Religious freedom",
+          "Economic opportunity",
+          "Practice their religion",
+          "Escape persecution"
+        ],
+        "distractors": [
+          "Free healthcare",
+          "Government jobs",
+          "Free land from the government"
+        ],
+        "audioQuestion": "audio/2008/q58_en.mp3",
+        "audioAnswer": "audio/2008/a58_en.mp3",
+        "hints": [
+          "Many were seeking liberty.",
+          "Some were escaping unfair treatment."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es una razón por la que los colonos vinieron a América?",
+        "correct": [
+          "Libertad",
+          "Libertad política",
+          "Libertad religiosa",
+          "Oportunidad económica",
+          "Practicar su religión",
+          "Escapar de la persecución"
+        ],
+        "distractors": [
+          "Atención médica gratuita",
+          "Empleos del gobierno",
+          "Tierras gratuitas del gobierno"
+        ],
+        "audioQuestion": "audio/2008/q58_es.mp3",
+        "audioAnswer": "audio/2008/a58_es.mp3",
+        "hints": [
+          "Muchos buscaban libertad.",
+          "Algunos huían de la persecución."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 59,
+    "order": 59,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question59.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who lived in America before the Europeans arrived?",
+        "correct": [
+          "American Indians",
+          "Native Americans"
+        ],
+        "distractors": [
+          "Europeans",
+          "Africans",
+          "Asian settlers"
+        ],
+        "audioQuestion": "audio/2008/q59_en.mp3",
+        "audioAnswer": "audio/2008/a59_en.mp3",
+        "hints": [
+          "They were the first inhabitants.",
+          "They lived here long before colonization."
+        ]
+      },
+      "es": {
+        "question": "¿Quiénes vivían en América antes de que llegaran los europeos?",
+        "correct": [
+          "Los indígenas americanos",
+          "Los nativos americanos"
+        ],
+        "distractors": [
+          "Los europeos",
+          "Los africanos",
+          "Colonos asiáticos"
+        ],
+        "audioQuestion": "audio/2008/q59_es.mp3",
+        "audioAnswer": "audio/2008/a59_es.mp3",
+        "hints": [
+          "Fueron los primeros habitantes.",
+          "Vivían aquí antes de la colonización."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 60,
+    "order": 60,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question60.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What group of people was taken to America and sold as slaves?",
+        "correct": [
+          "Africans",
+          "People from Africa"
+        ],
+        "distractors": [
+          "Europeans",
+          "Native Americans",
+          "People from Asia"
+        ],
+        "audioQuestion": "audio/2008/q60_en.mp3",
+        "audioAnswer": "audio/2008/a60_en.mp3",
+        "hints": [
+          "They were forced into slavery.",
+          "They were brought from another continent."
+        ]
+      },
+      "es": {
+        "question": "¿Qué grupo de personas fue traído a América y vendido como esclavos?",
+        "correct": [
+          "Africanos",
+          "Personas de África"
+        ],
+        "distractors": [
+          "Europeos",
+          "Nativos americanos",
+          "Personas de Asia"
+        ],
+        "audioQuestion": "audio/2008/q60_es.mp3",
+        "audioAnswer": "audio/2008/a60_es.mp3",
+        "hints": [
+          "Fueron forzados a la esclavitud.",
+          "Fueron traídos desde otro continente."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 61,
+    "order": 61,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question61.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Why did the colonists fight the British?",
+        "correct": [
+          "Because of high taxes (taxation without representation)",
+          "Because the British army stayed in their houses (boarding, quartering)",
+          "Because they did not have self-government"
+        ],
+        "distractors": [
+          "Because they wanted new land",
+          "Because of religious differences",
+          "Because Britain banned trade"
+        ],
+        "audioQuestion": "audio/2008/q61_en.mp3",
+        "audioAnswer": "audio/2008/a61_en.mp3",
+        "hints": [
+          "The colonists wanted more control over their government.",
+          "Taxes were a major issue."
+        ]
+      },
+      "es": {
+        "question": "¿Por qué los colonos lucharon contra los británicos?",
+        "correct": [
+          "Por los altos impuestos (impuestos sin representación)",
+          "Porque el ejército británico se alojaba en sus casas",
+          "Porque no tenían autogobierno"
+        ],
+        "distractors": [
+          "Porque querían nuevas tierras",
+          "Por diferencias religiosas",
+          "Porque Gran Bretaña prohibió el comercio"
+        ],
+        "audioQuestion": "audio/2008/q61_es.mp3",
+        "audioAnswer": "audio/2008/a61_es.mp3",
+        "hints": [
+          "Los colonos querían más control sobre su gobierno.",
+          "Los impuestos fueron un problema importante."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 62,
+    "order": 62,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question62.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who wrote the Declaration of Independence?",
+        "correct": ["Thomas Jefferson"],
+        "distractors": [
+          "George Washington",
+          "John Adams",
+          "Benjamin Franklin"
+        ],
+        "audioQuestion": "audio/2008/q62_en.mp3",
+        "audioAnswer": "audio/2008/a62_en.mp3",
+        "hints": [
+          "He was one of the Founding Fathers.",
+          "He later became President."
+        ]
+      },
+      "es": {
+        "question": "¿Quién escribió la Declaración de Independencia?",
+        "correct": ["Thomas Jefferson"],
+        "distractors": [
+          "George Washington",
+          "John Adams",
+          "Benjamin Franklin"
+        ],
+        "audioQuestion": "audio/2008/q62_es.mp3",
+        "audioAnswer": "audio/2008/a62_es.mp3",
+        "hints": [
+          "Fue uno de los Padres Fundadores.",
+          "Más tarde fue Presidente."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 63,
+    "order": 63,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question63.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "When was the Declaration of Independence adopted?",
+        "correct": ["July 4, 1776"],
+        "distractors": [
+          "July 2, 1776",
+          "June 4, 1775",
+          "July 4, 1787"
+        ],
+        "audioQuestion": "audio/2008/q63_en.mp3",
+        "audioAnswer": "audio/2008/a63_en.mp3",
+        "hints": [
+          "This date is celebrated every year.",
+          "It is a national holiday."
+        ]
+      },
+      "es": {
+        "question": "¿Cuándo se adoptó la Declaración de Independencia?",
+        "correct": ["4 de julio de 1776"],
+        "distractors": [
+          "2 de julio de 1776",
+          "4 de junio de 1775",
+          "4 de julio de 1787"
+        ],
+        "audioQuestion": "audio/2008/q63_es.mp3",
+        "audioAnswer": "audio/2008/a63_es.mp3",
+        "hints": [
+          "Esta fecha se celebra cada año.",
+          "Es un día feriado nacional."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 64,
+    "order": 64,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question64.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "There were 13 original states. Name three.",
+        "correct": [
+          "New Hampshire",
+          "Massachusetts",
+          "Rhode Island",
+          "Connecticut",
+          "New York",
+          "New Jersey",
+          "Pennsylvania",
+          "Delaware",
+          "Maryland",
+          "Virginia",
+          "North Carolina",
+          "South Carolina",
+          "Georgia"
+        ],
+        "distractors": [
+          "California",
+          "Texas",
+          "Florida"
+        ],
+        "audioQuestion": "audio/2008/q64_en.mp3",
+        "audioAnswer": "audio/2008/a64_en.mp3",
+        "hints": [
+          "These states existed at independence.",
+          "They were on the East Coast."
+        ]
+      },
+      "es": {
+        "question": "Había 13 estados originales. Nombre tres.",
+        "correct": [
+          "New Hampshire",
+          "Massachusetts",
+          "Rhode Island",
+          "Connecticut",
+          "New York",
+          "New Jersey",
+          "Pennsylvania",
+          "Delaware",
+          "Maryland",
+          "Virginia",
+          "North Carolina",
+          "South Carolina",
+          "Georgia"
+        ],
+        "distractors": [
+          "California",
+          "Texas",
+          "Florida"
+        ],
+        "audioQuestion": "audio/2008/q64_es.mp3",
+        "audioAnswer": "audio/2008/a64_es.mp3",
+        "hints": [
+          "Estos estados existían en la independencia.",
+          "Estaban en la costa este."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 65,
+    "order": 65,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question65.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What happened at the Constitutional Convention?",
+        "correct": [
+          "The Constitution was written",
+          "The Founding Fathers wrote the Constitution"
+        ],
+        "distractors": [
+          "The Bill of Rights was signed",
+          "The Declaration of Independence was written",
+          "The Civil War ended"
+        ],
+        "audioQuestion": "audio/2008/q65_en.mp3",
+        "audioAnswer": "audio/2008/a65_en.mp3",
+        "hints": [
+          "This meeting created a new system of government.",
+          "It happened in Philadelphia."
+        ]
+      },
+      "es": {
+        "question": "¿Qué sucedió en la Convención Constitucional?",
+        "correct": [
+          "Se escribió la Constitución",
+          "Los Padres Fundadores escribieron la Constitución"
+        ],
+        "distractors": [
+          "Se firmó la Carta de Derechos",
+          "Se escribió la Declaración de Independencia",
+          "Terminó la Guerra Civil"
+        ],
+        "audioQuestion": "audio/2008/q65_es.mp3",
+        "audioAnswer": "audio/2008/a65_es.mp3",
+        "hints": [
+          "Esta reunión creó un nuevo sistema de gobierno.",
+          "Ocurrió en Filadelfia."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 66,
+    "order": 66,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question66.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "When was the Constitution written?",
+        "correct": ["1787"],
+        "distractors": ["1776", "1781", "1791"],
+        "audioQuestion": "audio/2008/q66_en.mp3",
+        "audioAnswer": "audio/2008/a66_en.mp3",
+        "hints": [
+          "It was written after independence.",
+          "It was written before the Bill of Rights."
+        ]
+      },
+      "es": {
+        "question": "¿Cuándo se escribió la Constitución?",
+        "correct": ["1787"],
+        "distractors": ["1776", "1781", "1791"],
+        "audioQuestion": "audio/2008/q66_es.mp3",
+        "audioAnswer": "audio/2008/a66_es.mp3",
+        "hints": [
+          "Se escribió después de la independencia.",
+          "Fue antes de la Carta de Derechos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 67,
+    "order": 67,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question67.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers.",
+        "correct": [
+          "James Madison",
+          "Alexander Hamilton",
+          "John Jay",
+          "Publius"
+        ],
+        "distractors": [
+          "George Washington",
+          "Thomas Jefferson",
+          "Benjamin Franklin"
+        ],
+        "audioQuestion": "audio/2008/q67_en.mp3",
+        "audioAnswer": "audio/2008/a67_en.mp3",
+        "hints": [
+          "They used a pen name.",
+          "One author later became President."
+        ]
+      },
+      "es": {
+        "question": "Los Artículos Federalistas apoyaron la aprobación de la Constitución de los Estados Unidos. Nombre a uno de los autores.",
+        "correct": [
+          "James Madison",
+          "Alexander Hamilton",
+          "John Jay",
+          "Publius"
+        ],
+        "distractors": [
+          "George Washington",
+          "Thomas Jefferson",
+          "Benjamin Franklin"
+        ],
+        "audioQuestion": "audio/2008/q67_es.mp3",
+        "audioAnswer": "audio/2008/a67_es.mp3",
+        "hints": [
+          "Usaron un seudónimo.",
+          "Uno de ellos fue Presidente."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 68,
+    "order": 68,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question68.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is one thing Benjamin Franklin is famous for?",
+        "correct": [
+          "U.S. diplomat",
+          "Oldest member of the Constitutional Convention",
+          "First Postmaster General of the United States",
+          "Writer of Poor Richard’s Almanac",
+          "Started the first free libraries"
+        ],
+        "distractors": [
+          "First President of the United States",
+          "Author of the Constitution",
+          "Commander in Chief of the army"
+        ],
+        "audioQuestion": "audio/2008/q68_en.mp3",
+        "audioAnswer": "audio/2008/a68_en.mp3",
+        "hints": [
+          "He was not a President.",
+          "He was known for science and writing."
+        ]
+      },
+      "es": {
+        "question": "¿Por qué es famoso Benjamin Franklin?",
+        "correct": [
+          "Diplomático de los Estados Unidos",
+          "Miembro de mayor edad de la Convención Constitucional",
+          "Primer Director General de Correos de los Estados Unidos",
+          "Autor de Poor Richard’s Almanac",
+          "Fundó las primeras bibliotecas públicas"
+        ],
+        "distractors": [
+          "Primer Presidente de los Estados Unidos",
+          "Autor de la Constitución",
+          "Comandante en Jefe del ejército"
+        ],
+        "audioQuestion": "audio/2008/q68_es.mp3",
+        "audioAnswer": "audio/2008/a68_es.mp3",
+        "hints": [
+          "No fue Presidente.",
+          "Fue científico y escritor."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 69,
+    "order": 69,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question69.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who is the “Father of Our Country”?",
+        "correct": ["George Washington"],
+        "distractors": [
+          "Thomas Jefferson",
+          "Abraham Lincoln",
+          "Benjamin Franklin"
+        ],
+        "audioQuestion": "audio/2008/q69_en.mp3",
+        "audioAnswer": "audio/2008/a69_en.mp3",
+        "hints": [
+          "He led the Continental Army.",
+          "He was the first President."
+        ]
+      },
+      "es": {
+        "question": "¿Quién es el “Padre de Nuestra Nación”?",
+        "correct": ["George Washington"],
+        "distractors": [
+          "Thomas Jefferson",
+          "Abraham Lincoln",
+          "Benjamin Franklin"
+        ],
+        "audioQuestion": "audio/2008/q69_es.mp3",
+        "audioAnswer": "audio/2008/a69_es.mp3",
+        "hints": [
+          "Dirigió el Ejército Continental.",
+          "Fue el primer Presidente."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 70,
+    "order": 70,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "colonial_period_and_independence",
+    "illustration": "question70.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "Who was the first President?",
+        "correct": ["George Washington"],
+        "distractors": [
+          "John Adams",
+          "Thomas Jefferson",
+          "Abraham Lincoln"
+        ],
+        "audioQuestion": "audio/2008/q70_en.mp3",
+        "audioAnswer": "audio/2008/a70_en.mp3",
+        "hints": [
+          "He served two terms.",
+          "He is called the Father of Our Country."
+        ]
+      },
+      "es": {
+        "question": "¿Quién fue el primer Presidente?",
+        "correct": ["George Washington"],
+        "distractors": [
+          "John Adams",
+          "Thomas Jefferson",
+          "Abraham Lincoln"
+        ],
+        "audioQuestion": "audio/2008/q70_es.mp3",
+        "audioAnswer": "audio/2008/a70_es.mp3",
+        "hints": [
+          "Sirvió dos mandatos.",
+          "Es llamado el Padre de la Nación."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 71,
+    "order": 71,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question71.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What territory did the United States buy from France in 1803?",
+        "correct": ["The Louisiana Territory", "Louisiana"],
+        "distractors": [
+          "Florida",
+          "Texas",
+          "Alaska"
+        ],
+        "audioQuestion": "audio/2008/q71_en.mp3",
+        "audioAnswer": "audio/2008/a71_en.mp3",
+        "hints": [
+          "It was a large land purchase.",
+          "It doubled the size of the United States."
+        ]
+      },
+      "es": {
+        "question": "¿Qué territorio compraron los Estados Unidos a Francia en 1803?",
+        "correct": ["El Territorio de Luisiana", "Luisiana"],
+        "distractors": [
+          "Florida",
+          "Texas",
+          "Alaska"
+        ],
+        "audioQuestion": "audio/2008/q71_es.mp3",
+        "audioAnswer": "audio/2008/a71_es.mp3",
+        "hints": [
+          "Fue una gran compra de tierras.",
+          "Duplicó el tamaño de los Estados Unidos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 72,
+    "order": 72,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question72.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one war fought by the United States in the 1800s.",
+        "correct": [
+          "War of 1812",
+          "Mexican-American War",
+          "Civil War",
+          "Spanish-American War"
+        ],
+        "distractors": [
+          "World War I",
+          "World War II",
+          "Vietnam War"
+        ],
+        "audioQuestion": "audio/2008/q72_en.mp3",
+        "audioAnswer": "audio/2008/a72_en.mp3",
+        "hints": [
+          "It happened before 1900.",
+          "One war was fought between the North and the South."
+        ]
+      },
+      "es": {
+        "question": "Nombre una guerra que haya peleado los Estados Unidos en los años 1800.",
+        "correct": [
+          "La Guerra de 1812",
+          "La Guerra entre México y Estados Unidos",
+          "La Guerra Civil",
+          "La Guerra Hispanoamericana"
+        ],
+        "distractors": [
+          "La Primera Guerra Mundial",
+          "La Segunda Guerra Mundial",
+          "La Guerra de Vietnam"
+        ],
+        "audioQuestion": "audio/2008/q72_es.mp3",
+        "audioAnswer": "audio/2008/a72_es.mp3",
+        "hints": [
+          "Ocurrió antes de 1900.",
+          "Una guerra fue entre el Norte y el Sur."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 73,
+    "order": 73,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question73.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name the U.S. war between the North and the South.",
+        "correct": ["the Civil War", "the War between the States"],
+        "distractors": [
+          "War of 1812",
+          "Revolutionary War",
+          "Spanish-American War"
+        ],
+        "audioQuestion": "audio/2008/q73_en.mp3",
+        "audioAnswer": "audio/2008/a73_en.mp3",
+        "hints": [
+          "It was fought inside the United States.",
+          "It was about slavery and states’ rights."
+        ]
+      },
+      "es": {
+        "question": "¿Cómo se llamó la guerra entre el Norte y el Sur de los Estados Unidos?",
+        "correct": [
+          "La Guerra Civil", 
+          "La Guerra entre los Estados"
+        ],
+        "distractors": [
+          "La Guerra de 1812",
+          "La Guerra de Independencia",
+          "La Guerra Hispanoamericana"
+        ],
+        "audioQuestion": "audio/2008/q73_es.mp3",
+        "audioAnswer": "audio/2008/a73_es.mp3",
+        "hints": [
+          "Se peleó dentro de los Estados Unidos.",
+          "Tuvo que ver con la esclavitud y los derechos de los estados."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 74,
+    "order": 74,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question74.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one problem that led to the Civil War.",
+        "correct": [
+          "Slavery",
+          "Economic reasons",
+          "States’ rights"
+        ],
+        "distractors": [
+          "Foreign invasion",
+          "Religious differences",
+          "Immigration laws"
+        ],
+        "audioQuestion": "audio/2008/q74_en.mp3",
+        "audioAnswer": "audio/2008/a74_en.mp3",
+        "hints": [
+          "It was a disagreement between states.",
+          "One issue involved enslaved people."
+        ]
+      },
+      "es": {
+        "question": "Nombre un problema que condujo a la Guerra Civil.",
+        "correct": [
+          "La esclavitud",
+          "Razones económicas",
+          "Los derechos de los estados"
+        ],
+        "distractors": [
+          "Invasión extranjera",
+          "Diferencias religiosas",
+          "Leyes de inmigración"
+        ],
+        "audioQuestion": "audio/2008/q74_es.mp3",
+        "audioAnswer": "audio/2008/a74_es.mp3",
+        "hints": [
+          "Fue un desacuerdo entre estados.",
+          "Un tema importante fue la esclavitud."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 75,
+    "order": 75,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question75.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What was one important thing that Abraham Lincoln did?",
+        "correct": [
+          "Freed the slaves (Emancipation Proclamation)",
+          "Saved (or preserved) the Union",
+          "Led the United States during the Civil War"
+        ],
+        "distractors": [
+          "Wrote the Constitution",
+          "Was the first President",
+          "Bought the Louisiana Territory"
+        ],
+        "audioQuestion": "audio/2008/q75_en.mp3",
+        "audioAnswer": "audio/2008/a75_en.mp3",
+        "hints": [
+          "He was President during the Civil War.",
+          "He issued the Emancipation Proclamation."
+        ]
+      },
+      "es": {
+        "question": "¿Qué fue una cosa importante que hizo Abraham Lincoln?",
+        "correct": [
+          "Liberó a los esclavos (Proclamación de Emancipación)",
+          "Salvó (o preservó) la Unión",
+          "Dirigió a los Estados Unidos durante la Guerra Civil"
+        ],
+        "distractors": [
+          "Escribió la Constitución",
+          "Fue el primer Presidente",
+          "Compró el Territorio de Luisiana"
+        ],
+        "audioQuestion": "audio/2008/q75_es.mp3",
+        "audioAnswer": "audio/2008/a75_es.mp3",
+        "hints": [
+          "Fue Presidente durante la Guerra Civil.",
+          "Emitió la Proclamación de Emancipación."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 76,
+    "order": 76,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question76.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What did the Emancipation Proclamation do?",
+        "correct": [
+          "Freed the slaves",
+          "Freed slaves in the Confederacy",
+          "Freed slaves in the Confederate states",
+          "Freed slaves in most Southern states"
+        ],
+        "distractors": [
+          "Ended the Civil War",
+          "Gave women the right to vote",
+          "Abolished slavery in all states immediately"
+        ],
+        "audioQuestion": "audio/2008/q76_en.mp3",
+        "audioAnswer": "audio/2008/a76_en.mp3",
+        "hints": [
+          "It was issued by Abraham Lincoln.",
+          "It applied mainly to Southern states."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hizo la Proclamación de Emancipación?",
+        "correct": [
+          "Liberó a los esclavos",
+          "Liberó a los esclavos de la Confederación",
+          "Liberó a los esclavos de los estados confederados",
+          "Liberó a los esclavos en la mayoría de los estados del sur"
+        ],
+        "distractors": [
+          "Terminó la Guerra Civil",
+          "Dio el derecho al voto a las mujeres",
+          "Abolió la esclavitud en todos los estados inmediatamente"
+        ],
+        "audioQuestion": "audio/2008/q76_es.mp3",
+        "audioAnswer": "audio/2008/a76_es.mp3",
+        "hints": [
+          "Fue emitida por Abraham Lincoln.",
+          "Se aplicó principalmente a los estados del sur."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 77,
+    "order": 77,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "1800s",
+    "illustration": "question77.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What did Susan B. Anthony do?",
+        "correct": [
+          "Fought for women’s rights",
+          "Fought for civil rights"
+        ],
+        "distractors": [
+          "Was the first woman President",
+          "Wrote the Constitution",
+          "Fought in the Civil War"
+        ],
+        "audioQuestion": "audio/2008/q77_en.mp3",
+        "audioAnswer": "audio/2008/a77_en.mp3",
+        "hints": [
+          "She worked for women’s equality.",
+          "She supported the right to vote for women."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hizo Susan B. Anthony?",
+        "correct": [
+          "Luchó por los derechos de las mujeres",
+          "Luchó por los derechos civiles"
+        ],
+        "distractors": [
+          "Fue la primera presidenta",
+          "Escribió la Constitución",
+          "Peleó en la Guerra Civil"
+        ],
+        "audioQuestion": "audio/2008/q77_es.mp3",
+        "audioAnswer": "audio/2008/a77_es.mp3",
+        "hints": [
+          "Trabajó por la igualdad de las mujeres.",
+          "Apoyó el derecho al voto de las mujeres."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 78,
+    "order": 78,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question78.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one war fought by the United States in the 1900s.",
+        "correct": [
+          "World War I",
+          "World War II",
+          "Korean War",
+          "Vietnam War",
+          "Persian Gulf War"
+        ],
+        "distractors": [
+          "Civil War",
+          "War of 1812",
+          "Revolutionary War"
+        ],
+        "audioQuestion": "audio/2008/q78_en.mp3",
+        "audioAnswer": "audio/2008/a78_en.mp3",
+        "hints": [
+          "It happened in the 20th century.",
+          "Two wars involved many countries around the world."
+        ]
+      },
+      "es": {
+        "question": "Nombre una guerra que hayan peleado los Estados Unidos en los años 1900.",
+        "correct": [
+          "La Primera Guerra Mundial",
+          "La Segunda Guerra Mundial",
+          "La Guerra de Corea",
+          "La Guerra de Vietnam",
+          "La Guerra del Golfo Pérsico"
+        ],
+        "distractors": [
+          "La Guerra Civil",
+          "La Guerra de 1812",
+          "La Guerra de Independencia"
+        ],
+        "audioQuestion": "audio/2008/q78_es.mp3",
+        "audioAnswer": "audio/2008/a78_es.mp3",
+        "hints": [
+          "Ocurrió en el siglo XX.",
+          "Dos guerras fueron mundiales."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 79,
+    "order": 79,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question79.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who was President during World War I?",
+        "correct": ["Woodrow Wilson"],
+        "distractors": [
+          "Franklin Roosevelt",
+          "Theodore Roosevelt",
+          "Harry Truman"
+        ],
+        "audioQuestion": "audio/2008/q79_en.mp3",
+        "audioAnswer": "audio/2008/a79_en.mp3",
+        "hints": [
+          "He was President in the early 1900s.",
+          "World War I began in 1914."
+        ]
+      },
+      "es": {
+        "question": "¿Quién fue presidente durante la Primera Guerra Mundial?",
+        "correct": ["Woodrow Wilson"],
+        "distractors": [
+          "Franklin Roosevelt",
+          "Theodore Roosevelt",
+          "Harry Truman"
+        ],
+        "audioQuestion": "audio/2008/q79_es.mp3",
+        "audioAnswer": "audio/2008/a79_es.mp3",
+        "hints": [
+          "Fue presidente a principios del siglo XX.",
+          "La Primera Guerra Mundial comenzó en 1914."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 80,
+    "order": 80,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question80.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who was President during the Great Depression and World War II?",
+        "correct": ["Franklin Roosevelt"],
+        "distractors": [
+          "Woodrow Wilson",
+          "Herbert Hoover",
+          "Harry Truman"
+        ],
+        "audioQuestion": "audio/2008/q80_en.mp3",
+        "audioAnswer": "audio/2008/a80_en.mp3",
+        "hints": [
+          "He served more than two terms.",
+          "He led the country during a major economic crisis."
+        ]
+      },
+      "es": {
+        "question": "¿Quién fue presidente durante la Gran Depresión y la Segunda Guerra Mundial?",
+        "correct": ["Franklin Roosevelt"],
+        "distractors": [
+          "Woodrow Wilson",
+          "Herbert Hoover",
+          "Harry Truman"
+        ],
+        "audioQuestion": "audio/2008/q80_es.mp3",
+        "audioAnswer": "audio/2008/a80_es.mp3",
+        "hints": [
+          "Sirvió más de dos mandatos.",
+          "Dirigió el país durante una gran crisis económica."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 81,
+    "order": 81,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question81.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Who did the United States fight in World War II?",
+        "correct": ["Japan", "Germany", "Italy"],
+        "distractors": [
+          "Russia",
+          "China",
+          "Spain"
+        ],
+        "audioQuestion": "audio/2008/q81_en.mp3",
+        "audioAnswer": "audio/2008/a81_en.mp3",
+        "hints": [
+          "These countries were part of the Axis Powers.",
+          "The war took place in the 1940s."
+        ]
+      },
+      "es": {
+        "question": "¿Contra quiénes lucharon los Estados Unidos en la Segunda Guerra Mundial?",
+        "correct": ["Japón", "Alemania", "Italia"],
+        "distractors": [
+          "Rusia",
+          "China",
+          "España"
+        ],
+        "audioQuestion": "audio/2008/q81_es.mp3",
+        "audioAnswer": "audio/2008/a81_es.mp3",
+        "hints": [
+          "Estos países formaban parte de las Potencias del Eje.",
+          "La guerra ocurrió en los años 1940."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 82,
+    "order": 82,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question82.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Before he was President, Eisenhower was a general. What war was he in?",
+        "correct": ["World War II"],
+        "distractors": [
+          "World War I",
+          "Korean War",
+          "Vietnam War"
+        ],
+        "audioQuestion": "audio/2008/q82_en.mp3",
+        "audioAnswer": "audio/2008/a82_en.mp3",
+        "hints": [
+          "He led Allied forces in Europe.",
+          "This war ended in 1945."
+        ]
+      },
+      "es": {
+        "question": "Antes de ser presidente, Eisenhower fue general. ¿En qué guerra participó?",
+        "correct": ["La Segunda Guerra Mundial"],
+        "distractors": [
+          "La Primera Guerra Mundial",
+          "La Guerra de Corea",
+          "La Guerra de Vietnam"
+        ],
+        "audioQuestion": "audio/2008/q82_es.mp3",
+        "audioAnswer": "audio/2008/a82_es.mp3",
+        "hints": [
+          "Dirigió fuerzas aliadas en Europa.",
+          "Esta guerra terminó en 1945."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 83,
+    "order": 83,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question83.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "During the Cold War, what was the main concern of the United States?",
+        "correct": ["Communism"],
+        "distractors": [
+          "Capitalism",
+          "Colonialism",
+          "Industrialization"
+        ],
+        "audioQuestion": "audio/2008/q83_en.mp3",
+        "audioAnswer": "audio/2008/a83_en.mp3",
+        "hints": [
+          "It was an ideological conflict.",
+          "The Cold War involved the Soviet Union."
+        ]
+      },
+      "es": {
+        "question": "Durante la Guerra Fría, ¿cuál era la principal preocupación de los Estados Unidos?",
+        "correct": ["El comunismo"],
+        "distractors": [
+          "El capitalismo",
+          "El colonialismo",
+          "La industrialización"
+        ],
+        "audioQuestion": "audio/2008/q83_es.mp3",
+        "audioAnswer": "audio/2008/a83_es.mp3",
+        "hints": [
+          "Fue un conflicto ideológico.",
+          "La Guerra Fría involucró a la Unión Soviética."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 84,
+    "order": 84,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question84.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What movement tried to end racial discrimination?",
+        "correct": ["Civil rights movement"],
+        "distractors": [
+          "Women’s suffrage movement",
+          "Labor movement",
+          "Abolitionist movement"
+        ],
+        "audioQuestion": "audio/2008/q84_en.mp3",
+        "audioAnswer": "audio/2008/a84_en.mp3",
+        "hints": [
+          "It was active mainly in the 1950s and 1960s.",
+          "It focused on equality for African Americans."
+        ]
+      },
+      "es": {
+        "question": "¿Qué movimiento intentó poner fin a la discriminación racial?",
+        "correct": ["El movimiento por los derechos civiles"],
+        "distractors": [
+          "El movimiento sufragista",
+          "El movimiento obrero",
+          "El movimiento abolicionista"
+        ],
+        "audioQuestion": "audio/2008/q84_es.mp3",
+        "audioAnswer": "audio/2008/a84_es.mp3",
+        "hints": [
+          "Fue activo principalmente en las décadas de 1950 y 1960.",
+          "Se enfocó en la igualdad de los afroamericanos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 85,
+    "order": 85,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question85.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What did Martin Luther King, Jr. do?",
+        "correct": [
+          "Fought for civil rights",
+          "Worked for equality for all Americans"
+        ],
+        "distractors": [
+          "Was a U.S. President",
+          "Fought in World War II",
+          "Signed the Constitution"
+        ],
+        "audioQuestion": "audio/2008/q85_en.mp3",
+        "audioAnswer": "audio/2008/a85_en.mp3",
+        "hints": [
+          "He was a civil rights leader.",
+          "He is famous for peaceful protests."
+        ]
+      },
+      "es": {
+        "question": "¿Qué hizo Martin Luther King, Jr.?",
+        "correct": [
+          "Luchó por los derechos civiles",
+          "Trabajó por la igualdad de todos los estadounidenses"
+        ],
+        "distractors": [
+          "Fue presidente de los Estados Unidos",
+          "Peleó en la Segunda Guerra Mundial",
+          "Firmó la Constitución"
+        ],
+        "audioQuestion": "audio/2008/q85_es.mp3",
+        "audioAnswer": "audio/2008/a85_es.mp3",
+        "hints": [
+          "Fue un líder de los derechos civiles.",
+          "Es conocido por la protesta pacífica."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 86,
+    "order": 86,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question86.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What major event happened on September 11, 2001, in the United States?",
+        "correct": ["Terrorists attacked the United States"],
+        "distractors": [
+          "The Civil War ended",
+          "The Constitution was signed",
+          "The Great Depression began"
+        ],
+        "audioQuestion": "audio/2008/q86_en.mp3",
+        "audioAnswer": "audio/2008/a86_en.mp3",
+        "hints": [
+          "This event involved attacks in New York and Washington, D.C.",
+          "It is commonly referred to as 9/11."
+        ]
+      },
+      "es": {
+        "question": "¿Qué acontecimiento importante ocurrió el 11 de septiembre de 2001 en los Estados Unidos?",
+        "correct": ["Terroristas atacaron los Estados Unidos"],
+        "distractors": [
+          "Terminó la Guerra Civil",
+          "Se firmó la Constitución",
+          "Comenzó la Gran Depresión"
+        ],
+        "audioQuestion": "audio/2008/q86_es.mp3",
+        "audioAnswer": "audio/2008/a86_es.mp3",
+        "hints": [
+          "Este evento incluyó ataques en Nueva York y Washington, D.C.",
+          "Comúnmente se conoce como 9/11."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 87,
+    "order": 87,
+    "version": "2008-100",
+    "country": "US",
+    "category": "american_history",
+    "subcategory": "recent_american_history_and_other_important_historical_information",
+    "illustration": "question87.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one American Indian tribe in the United States.",
+        "correct": [
+          "Cherokee",
+          "Navajo",
+          "Sioux",
+          "Chippewa",
+          "Choctaw",
+          "Pueblo",
+          "Apache",
+          "Iroquois",
+          "Creek",
+          "Blackfeet",
+          "Seminole",
+          "Cheyenne",
+          "Arawak",
+          "Shawnee",
+          "Mohegan",
+          "Huron",
+          "Oneida",
+          "Lakota",
+          "Crow",
+          "Teton",
+          "Hopi",
+          "Inuit"
+        ],
+        "distractors": [
+          "Aztec",
+          "Maya",
+          "Inca"
+        ],
+        "audioQuestion": "audio/2008/q87_en.mp3",
+        "audioAnswer": "audio/2008/a87_en.mp3",
+        "hints": [
+          "These tribes are native to what is now the United States.",
+          "Civilizations from Central or South America are not correct."
+        ]
+      },
+      "es": {
+        "question": "Nombre una tribu indígena americana en los Estados Unidos.",
+        "correct": [
+          "Cherokee",
+          "Navajo",
+          "Sioux",
+          "Chippewa",
+          "Choctaw",
+          "Pueblo",
+          "Apache",
+          "Iroquois",
+          "Creek",
+          "Blackfeet",
+          "Seminole",
+          "Cheyenne",
+          "Arawak",
+          "Shawnee",
+          "Mohegan",
+          "Huron",
+          "Oneida",
+          "Lakota",
+          "Crow",
+          "Teton",
+          "Hopi",
+          "Inuit"
+        ],
+        "distractors": [
+          "Azteca",
+          "Maya",
+          "Inca"
+        ],
+        "audioQuestion": "audio/2008/q87_es.mp3",
+        "audioAnswer": "audio/2008/a87_es.mp3",
+        "hints": [
+          "Estas tribus son originarias de lo que hoy es Estados Unidos.",
+          "Las civilizaciones de Centro o Sudamérica no son correctas."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 88,
+    "order": 88,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question88.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one of the two longest rivers in the United States.",
+        "correct": [
+          "Missouri River",
+          "Mississippi River"
+        ],
+        "distractors": [
+          "Colorado River",
+          "Ohio River",
+          "Rio Grande"
+        ],
+        "audioQuestion": "audio/2008/q88_en.mp3",
+        "audioAnswer": "audio/2008/a88_en.mp3",
+        "hints": [
+          "One river flows through the central United States.",
+          "One river shares its name with a U.S. state."
+        ]
+      },
+      "es": {
+        "question": "Nombre uno de los dos ríos más largos de los Estados Unidos.",
+        "correct": [
+          "El río Misuri",
+          "El río Misisipi"
+        ],
+        "distractors": [
+          "El río Colorado",
+          "El río Ohio",
+          "El río Bravo"
+        ],
+        "audioQuestion": "audio/2008/q88_es.mp3",
+        "audioAnswer": "audio/2008/a88_es.mp3",
+        "hints": [
+          "Uno de los ríos cruza el centro de los Estados Unidos.",
+          "Uno de los ríos tiene el nombre de un estado."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 89,
+    "order": 89,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question89.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What ocean is on the West Coast of the United States?",
+        "correct": [
+          "Pacific Ocean"
+        ],
+        "distractors": [
+          "Atlantic Ocean",
+          "Indian Ocean",
+          "Arctic Ocean"
+        ],
+        "audioQuestion": "audio/2008/q89_en.mp3",
+        "audioAnswer": "audio/2008/a89_en.mp3",
+        "hints": [
+          "It is the largest ocean on Earth.",
+          "California borders this ocean."
+        ]
+      },
+      "es": {
+        "question": "¿Qué océano está en la costa oeste de los Estados Unidos?",
+        "correct": [
+          "El Océano Pacífico"
+        ],
+        "distractors": [
+          "El Océano Atlántico",
+          "El Océano Índico",
+          "El Océano Ártico"
+        ],
+        "audioQuestion": "audio/2008/q89_es.mp3",
+        "audioAnswer": "audio/2008/a89_es.mp3",
+        "hints": [
+          "Es el océano más grande del mundo.",
+          "California tiene costa en este océano."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 90,
+    "order": 90,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question90.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What ocean is on the East Coast of the United States?",
+        "correct": [
+          "Atlantic Ocean"
+        ],
+        "distractors": [
+          "Pacific Ocean",
+          "Indian Ocean",
+          "Southern Ocean"
+        ],
+        "audioQuestion": "audio/2008/q90_en.mp3",
+        "audioAnswer": "audio/2008/a90_en.mp3",
+        "hints": [
+          "New York and Florida border this ocean.",
+          "Europe is across this ocean."
+        ]
+      },
+      "es": {
+        "question": "¿Qué océano está en la costa este de los Estados Unidos?",
+        "correct": [
+          "El Océano Atlántico"
+        ],
+        "distractors": [
+          "El Océano Pacífico",
+          "El Océano Índico",
+          "El Océano Austral"
+        ],
+        "audioQuestion": "audio/2008/q90_es.mp3",
+        "audioAnswer": "audio/2008/a90_es.mp3",
+        "hints": [
+          "Nueva York y Florida están en esta costa.",
+          "Europa está al otro lado de este océano."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 91,
+    "order": 91,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question91.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one U.S. territory.",
+        "correct": [
+          "Puerto Rico",
+          "U.S. Virgin Islands",
+          "American Samoa",
+          "Northern Mariana Islands",
+          "Guam"
+        ],
+        "distractors": [
+          "Hawaii",
+          "Alaska",
+          "Washington, D.C."
+        ],
+        "audioQuestion": "audio/2008/q91_en.mp3",
+        "audioAnswer": "audio/2008/a91_en.mp3",
+        "hints": [
+          "It is not a state.",
+          "People born there are U.S. citizens (in most cases)."
+        ]
+      },
+      "es": {
+        "question": "Nombre un territorio de los Estados Unidos.",
+        "correct": [
+          "Puerto Rico",
+          "Las Islas Vírgenes de los Estados Unidos",
+          "Samoa Americana",
+          "Las Islas Marianas del Norte",
+          "Guam"
+        ],
+        "distractors": [
+          "Hawái",
+          "Alaska",
+          "Washington, D.C."
+        ],
+        "audioQuestion": "audio/2008/q91_es.mp3",
+        "audioAnswer": "audio/2008/a91_es.mp3",
+        "hints": [
+          "No es un estado.",
+          "Las personas nacidas allí suelen ser ciudadanos estadounidenses."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 92,
+    "order": 92,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question92.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one state that borders Canada.",
+        "correct": [
+          "Maine",
+          "New Hampshire",
+          "Vermont",
+          "New York",
+          "Pennsylvania",
+          "Ohio",
+          "Michigan",
+          "Minnesota",
+          "North Dakota",
+          "Montana",
+          "Idaho",
+          "Washington",
+          "Alaska"
+        ],
+        "distractors": [
+          "California",
+          "Texas",
+          "Florida"
+        ],
+        "audioQuestion": "audio/2008/q92_en.mp3",
+        "audioAnswer": "audio/2008/a92_en.mp3",
+        "hints": [
+          "Look at the northern border of the U.S.",
+          "Canada is north of the United States."
+        ]
+      },
+      "es": {
+        "question": "Nombre un estado que limita con Canadá.",
+        "correct": [
+          "Maine",
+          "New Hampshire",
+          "Vermont",
+          "New York",
+          "Pennsylvania",
+          "Ohio",
+          "Michigan",
+          "Minnesota",
+          "Dakota del Norte",
+          "Montana",
+          "Idaho",
+          "Washington",
+          "Alaska"
+        ],
+        "distractors": [
+          "California",
+          "Texas",
+          "Florida"
+        ],
+        "audioQuestion": "audio/2008/q92_es.mp3",
+        "audioAnswer": "audio/2008/a92_es.mp3",
+        "hints": [
+          "Mire el mapa del norte del país.",
+          "Canadá está al norte de los Estados Unidos."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 93,
+    "order": 93,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question93.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name one state that borders Mexico.",
+        "correct": [
+          "California",
+          "Arizona",
+          "New Mexico",
+          "Texas"
+        ],
+        "distractors": [
+          "Nevada",
+          "Utah",
+          "Oklahoma"
+        ],
+        "audioQuestion": "audio/2008/q93_en.mp3",
+        "audioAnswer": "audio/2008/a93_en.mp3",
+        "hints": [
+          "Mexico is south of the United States.",
+          "Think of the southwestern states."
+        ]
+      },
+      "es": {
+        "question": "Nombre un estado que limita con México.",
+        "correct": [
+          "California",
+          "Arizona",
+          "Nuevo México",
+          "Texas"
+        ],
+        "distractors": [
+          "Nevada",
+          "Utah",
+          "Oklahoma"
+        ],
+        "audioQuestion": "audio/2008/q93_es.mp3",
+        "audioAnswer": "audio/2008/a93_es.mp3",
+        "hints": [
+          "México está al sur de los Estados Unidos.",
+          "Piense en los estados del suroeste."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 94,
+    "order": 94,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question94.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "What is the capital of the United States?",
+        "correct": [
+          "Washington, D.C."
+        ],
+        "distractors": [
+          "New York City",
+          "Philadelphia",
+          "Boston"
+        ],
+        "audioQuestion": "audio/2008/q94_en.mp3",
+        "audioAnswer": "audio/2008/a94_en.mp3",
+        "hints": [
+          "It is not a state.",
+          "The White House is located there."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es la capital de los Estados Unidos?",
+        "correct": [
+          "Washington, D.C."
+        ],
+        "distractors": [
+          "Nueva York",
+          "Filadelfia",
+          "Boston"
+        ],
+        "audioQuestion": "audio/2008/q94_es.mp3",
+        "audioAnswer": "audio/2008/a94_es.mp3",
+        "hints": [
+          "No es un estado.",
+          "La Casa Blanca está ubicada allí."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 95,
+    "order": 95,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "geography",
+    "illustration": "question95.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "Where is the Statue of Liberty?",
+        "correct": [
+          "New York Harbor",
+          "Liberty Island"
+        ],
+        "distractors": [
+          "Washington, D.C.",
+          "Boston Harbor",
+          "Ellis Island"
+        ],
+        "audioQuestion": "audio/2008/q95_en.mp3",
+        "audioAnswer": "audio/2008/a95_en.mp3",
+        "hints": [
+          "It is in New York.",
+          "It was a gift from France."
+        ]
+      },
+      "es": {
+        "question": "¿Dónde está la Estatua de la Libertad?",
+        "correct": [
+          "El puerto de Nueva York",
+          "La Isla de la Libertad"
+        ],
+        "distractors": [
+          "Washington, D.C.",
+          "El puerto de Boston",
+          "La Isla Ellis"
+        ],
+        "audioQuestion": "audio/2008/q95_es.mp3",
+        "audioAnswer": "audio/2008/a95_es.mp3",
+        "hints": [
+          "Está en Nueva York.",
+          "Fue un regalo de Francia."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 96,
+    "order": 96,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "symbols",
+    "illustration": "question96.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Why does the flag have 13 stripes?",
+        "correct": [
+          "Because there were 13 original colonies"
+        ],
+        "distractors": [
+          "Because there are 13 states today",
+          "Because there are 13 amendments",
+          "Because there are 13 presidents"
+        ],
+        "audioQuestion": "audio/2008/q96_en.mp3",
+        "audioAnswer": "audio/2008/a96_en.mp3",
+        "hints": [
+          "Think about the original colonies.",
+          "The stripes represent early U.S. history."
+        ]
+      },
+      "es": {
+        "question": "¿Por qué la bandera tiene 13 franjas?",
+        "correct": [
+          "Porque había 13 colonias originales"
+        ],
+        "distractors": [
+          "Porque hoy hay 13 estados",
+          "Porque hay 13 enmiendas",
+          "Porque hay 13 presidentes"
+        ],
+        "audioQuestion": "audio/2008/q96_es.mp3",
+        "audioAnswer": "audio/2008/a96_es.mp3",
+        "hints": [
+          "Piense en las colonias originales.",
+          "Las franjas representan la historia temprana del país."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 97,
+    "order": 97,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "symbols",
+    "illustration": "question97.png",
+    "isSpecial65_20": true,
+    "languages": {
+      "en": {
+        "question": "Why does the flag have 50 stars?",
+        "correct": [
+          "Because there is one star for each state"
+        ],
+        "distractors": [
+          "Because there were 50 colonies",
+          "Because there are 50 senators",
+          "Because there are 50 amendments"
+        ],
+        "audioQuestion": "audio/2008/q97_en.mp3",
+        "audioAnswer": "audio/2008/a97_en.mp3",
+        "hints": [
+          "Each star represents a state.",
+          "Think about how many states the U.S. has today."
+        ]
+      },
+      "es": {
+        "question": "¿Por qué la bandera tiene 50 estrellas?",
+        "correct": [
+          "Porque hay una estrella por cada estado"
+        ],
+        "distractors": [
+          "Porque había 50 colonias",
+          "Porque hay 50 senadores",
+          "Porque hay 50 enmiendas"
+        ],
+        "audioQuestion": "audio/2008/q97_es.mp3",
+        "audioAnswer": "audio/2008/a97_es.mp3",
+        "hints": [
+          "Cada estrella representa un estado.",
+          "Piense en cuántos estados hay hoy."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 98,
+    "order": 98,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "symbols",
+    "illustration": "question98.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "What is the name of the national anthem?",
+        "correct": [
+          "The Star-Spangled Banner"
+        ],
+        "distractors": [
+          "America the Beautiful",
+          "God Bless America",
+          "My Country, ’Tis of Thee"
+        ],
+        "audioQuestion": "audio/2008/q98_en.mp3",
+        "audioAnswer": "audio/2008/a98_en.mp3",
+        "hints": [
+          "It is sung at many public events.",
+          "It mentions the flag."
+        ]
+      },
+      "es": {
+        "question": "¿Cuál es el nombre del himno nacional?",
+        "correct": [
+          "The Star-Spangled Banner"
+        ],
+        "distractors": [
+          "America the Beautiful",
+          "God Bless America",
+          "My Country, ’Tis of Thee"
+        ],
+        "audioQuestion": "audio/2008/q98_es.mp3",
+        "audioAnswer": "audio/2008/a98_es.mp3",
+        "hints": [
+          "Se canta en muchos eventos públicos.",
+          "Menciona la bandera."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 99,
+    "order": 99,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "holidays",
+    "illustration": "question99.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "When do we celebrate Independence Day?",
+        "correct": [
+          "July 4"
+        ],
+        "distractors": [
+          "July 2",
+          "June 14",
+          "September 17"
+        ],
+        "audioQuestion": "audio/2008/q99_en.mp3",
+        "audioAnswer": "audio/2008/a99_en.mp3",
+        "hints": [
+          "It celebrates the Declaration of Independence.",
+          "Fireworks are common on this day."
+        ]
+      },
+      "es": {
+        "question": "¿Cuándo celebramos el Día de la Independencia?",
+        "correct": [
+          "El 4 de julio"
+        ],
+        "distractors": [
+          "El 2 de julio",
+          "El 14 de junio",
+          "El 17 de septiembre"
+        ],
+        "audioQuestion": "audio/2008/q99_es.mp3",
+        "audioAnswer": "audio/2008/a99_es.mp3",
+        "hints": [
+          "Celebra la Declaración de Independencia.",
+          "Es común ver fuegos artificiales."
+        ]
+      }
+    }
+  },
+
+  {
+    "id": 100,
+    "order": 100,
+    "version": "2008-100",
+    "country": "US",
+    "category": "integrated_civics",
+    "subcategory": "holidays",
+    "illustration": "question100.png",
+    "isSpecial65_20": false,
+    "languages": {
+      "en": {
+        "question": "Name two national U.S. holidays.",
+        "correct": [
+          "New Year’s Day",
+          "Martin Luther King, Jr. Day",
+          "Presidents’ Day",
+          "Memorial Day",
+          "Independence Day",
+          "Labor Day",
+          "Columbus Day",
+          "Veterans Day",
+          "Thanksgiving",
+          "Christmas"
+        ],
+        "distractors": [
+          "Valentine’s Day",
+          "Halloween",
+          "Mother’s Day"
+        ],
+        "audioQuestion": "audio/2008/q100_en.mp3",
+        "audioAnswer": "audio/2008/a100_en.mp3",
+        "hints": [
+          "Think of federal holidays.",
+          "Some are in summer, others in winter."
+        ]
+      },
+      "es": {
+        "question": "Nombre dos días feriados nacionales de los Estados Unidos.",
+        "correct": [
+          "Año Nuevo",
+          "Día de Martin Luther King, Jr.",
+          "Día de los Presidentes",
+          "Día de los Caídos",
+          "Día de la Independencia",
+          "Día del Trabajo",
+          "Día de Colón",
+          "Día de los Veteranos",
+          "Acción de Gracias",
+          "Navidad"
+        ],
+        "distractors": [
+          "Día de San Valentín",
+          "Halloween",
+          "Día de la Madre"
+        ],
+        "audioQuestion": "audio/2008/q100_es.mp3",
+        "audioAnswer": "audio/2008/a100_es.mp3",
+        "hints": [
+          "Piense en feriados federales.",
+          "Algunos son en verano y otros en invierno."
+        ]
+      }
+    }
+  }
+]

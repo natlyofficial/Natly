@@ -1,20 +1,44 @@
 import { useState, useEffect, useRef } from "react";
 import { useFlashcardsLogic } from "../hooks/useFlashcardsLogic";
 
+/* Flashcards UI components */
 import TopBar from "../components/flashcards/TopBar";
 import SearchModal from "../components/flashcards/SearchModal";
-import FiltersModal from "../components/flashcards/FiltersModal";
 import FlashcardCard from "../components/flashcards/FlashcardCard";
 import FlashcardFooter from "../components/flashcards/FlashcardFooter";
 import LanguageSelector from "../components/flashcards/LanguageSelector";
-import FiltersDesktopPanel from "../components/flashcards/FiltersDesktopPanel";
 
-import Popup from "../components/Popup";
+/* Filters & Options */
+import FiltersDesktopPanel from "../components/flashcards/FiltersDesktopPanel";
+import OptionsDesktopPanel from "../components/flashcards/OptionsDesktopPanel";
+import FiltersMobilePanel from "../components/flashcards/FiltersMobilePanel";
+import OptionsMobilePanel from "../components/flashcards/OptionsMobilePanel";
+
+/* Popups */
+import AudioUnavailablePopup from "../components/AudioUnavailablePopup";
+import ExamVersionPopup from "../components/ExamVersionPopup";
+
+/* Other UI */
 import DonationBanner from "../components/DonationBanner";
 
 import { useTranslation } from "react-i18next";
 
+/* -----------------------------------------
+   Constants
+----------------------------------------- */
+const EXAM_VERSION_KEY = "natly_exam_version";
+
 export default function FlashcardsPage() {
+
+  /* -----------------------------------------
+     Exam version (state + persistence)
+  ----------------------------------------- */
+  const [examVersion, setExamVersion] = useState<"100" | "128">("128");
+  const [showExamPopup, setShowExamPopup] = useState(false);
+
+  /* -----------------------------------------
+     Flashcards business logic
+  ----------------------------------------- */
   const {
     card,
     index,
@@ -58,31 +82,60 @@ export default function FlashcardsPage() {
 
     cardStatus,
     toggleStatus,
-  } = useFlashcardsLogic();
+  } = useFlashcardsLogic(examVersion);
 
   const { t } = useTranslation("flashcards");
   const { t: tCommon } = useTranslation("common");
 
-  // -------------------------------------------------------
-  // DESKTOP FILTER PANEL (ESTADO + CLICK OUTSIDE)
-  // -------------------------------------------------------
+  /* -----------------------------------------
+     Desktop panels state
+  ----------------------------------------- */
   const [filterPanelOpen, setFilterPanelOpen] = useState(false);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const [optionsOpen, setOptionsOpen] = useState(false);
 
+  const filterRef = useRef<HTMLDivElement | null>(null);
+  const optionsRef = useRef<HTMLDivElement | null>(null);
+
+  /* -----------------------------------------
+     Mobile options state
+  ----------------------------------------- */
+  const [showMobileOptions, setShowMobileOptions] = useState(false);
+
+  /* -----------------------------------------
+     Close panels when clicking outside
+  ----------------------------------------- */
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setFilterPanelOpen(false);
+      const target = e.target as Node;
+
+      if (
+        (filterRef.current && filterRef.current.contains(target)) ||
+        (optionsRef.current && optionsRef.current.contains(target))
+      ) {
+        return;
       }
+
+      setFilterPanelOpen(false);
+      setOptionsOpen(false);
     }
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () =>
+      document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  /* -----------------------------------------
+     Close desktop panels on resize (mobile)
+  ----------------------------------------- */
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth >= 768) {
+        setShowMobileSearch(false);
+        setShowMobileFilters(false);
+        setShowMobileOptions(false);
+      } else {
         setFilterPanelOpen(false);
+        setOptionsOpen(false);
       }
     };
 
@@ -90,21 +143,56 @@ export default function FlashcardsPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  /* -----------------------------------------
+     Load exam version on first render
+  ----------------------------------------- */
+  useEffect(() => {
+    const storedVersion = localStorage.getItem(EXAM_VERSION_KEY) as
+      | "100"
+      | "128"
+      | null;
+
+    if (storedVersion) {
+      setExamVersion(storedVersion);
+    } else {
+      setShowExamPopup(true);
+    }
+  }, []);
+
+  const saveExamVersion = (version: "100" | "128") => {
+    localStorage.setItem(EXAM_VERSION_KEY, version);
+    setExamVersion(version);
+  };
+
+  const handleInitialExamSelect = (version: "100" | "128") => {
+    saveExamVersion(version);
+    setShowExamPopup(false);
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 pb-20">
 
-      {/* TOP BAR */}
       <TopBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         openSearchMobile={() => setShowMobileSearch(true)}
         openFiltersMobile={() => setShowMobileFilters(true)}
-        openFiltersDesktop={() => setFilterPanelOpen((v) => !v)}
+        openOptionsMobile={() => setShowMobileOptions(true)}
+        openFiltersDesktop={() => {
+          setOptionsOpen(false);
+          setFilterPanelOpen((v) => !v);
+        }}
+        openOptionsDesktop={() => {
+          if (!showExamPopup) {
+            setFilterPanelOpen(false);
+            setOptionsOpen((v) => !v);
+          }
+        }}
         tCommon={tCommon}
       />
 
       {filterPanelOpen && (
-        <div ref={ref} className="hidden md:block relative">
+        <div ref={filterRef} className="hidden md:block relative">
           <FiltersDesktopPanel
             filters={filters}
             setFilters={setFilters}
@@ -119,7 +207,24 @@ export default function FlashcardsPage() {
         </div>
       )}
 
-      {/* MOBILE SEARCH MODAL */}
+      {optionsOpen && (
+        <div ref={optionsRef} className="hidden md:block relative">
+          <OptionsDesktopPanel
+            examVersion={examVersion}
+            setExamVersion={saveExamVersion}
+            tCommon={tCommon}
+            close={() => setOptionsOpen(false)}
+          />
+        </div>
+      )}
+
+      {showExamPopup && (
+        <ExamVersionPopup
+          onSelect={handleInitialExamSelect}
+          tCommon={tCommon}
+        />
+      )}
+
       <SearchModal
         show={showMobileSearch}
         close={() => setShowMobileSearch(false)}
@@ -128,8 +233,7 @@ export default function FlashcardsPage() {
         tCommon={tCommon}
       />
 
-      {/* MOBILE FILTERS MODAL */}
-      <FiltersModal
+      <FiltersMobilePanel
         show={showMobileFilters}
         onClose={() => setShowMobileFilters(false)}
         filters={filters}
@@ -142,7 +246,14 @@ export default function FlashcardsPage() {
         tCommon={tCommon}
       />
 
-      {/* FLASHCARD */}
+      <OptionsMobilePanel
+        show={showMobileOptions}
+        onClose={() => setShowMobileOptions(false)}
+        examVersion={examVersion}
+        setExamVersion={saveExamVersion}
+        tCommon={tCommon}
+      />
+
       <FlashcardCard
         card={card}
         total={total}
@@ -161,7 +272,6 @@ export default function FlashcardsPage() {
         toggleStatus={toggleStatus}
       />
 
-      {/* FOOTER */}
       <FlashcardFooter
         index={index}
         total={total}
@@ -177,7 +287,6 @@ export default function FlashcardsPage() {
         toggleStatus={(status) => toggleStatus(card.id, status)}
       />
 
-      {/* LANGUAGE SELECTOR */}
       <LanguageSelector
         langMode={langMode}
         primaryLang={primaryLang}
@@ -188,9 +297,8 @@ export default function FlashcardsPage() {
 
       <DonationBanner />
 
-      {/* POPUP AUDIO */}
       {showAudioPopup && (
-        <Popup
+        <AudioUnavailablePopup
           title={tCommon("messages.feature_unavailable")}
           message={tCommon("messages.audio_unavailable")}
           onClose={() => setShowAudioPopup(false)}

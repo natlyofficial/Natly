@@ -5,7 +5,7 @@ interface PopupProps {
   buttonText?: string;
 }
 
-export default function Popup({
+export default function AudioUnavailablePopup({
   title,
   message,
   onClose,

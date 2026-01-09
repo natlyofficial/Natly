@@ -36,7 +36,7 @@ export default function FiltersDesktopPanel({
   return (
     <div
       className="
-        absolute right-0 mt-2
+        absolute right-0 
         w-72 bg-white border border-natly-teal 
         rounded-2xl shadow-xl p-5 z-50 animate-fadeIn
       "

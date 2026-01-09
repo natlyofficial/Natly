@@ -39,7 +39,8 @@
     "next_question": "Next",
     "previous_question": "Previous",
     "clear_all_statuses": "Clear All Statuses",
-    "clear_search_question": "Clear"
+    "clear_search_question": "Clear",
+    "options": "Options"
   },
 
   "filters": {
@@ -56,5 +57,34 @@
     "status_hard": "Hard for me",
     "status_favorite": "Favorites",
     "status_saved": "Saved"
+  },
+
+  "options": {
+    "choose_exam_version": "Choose your exam version",
+    "exam_version": "Exam Version",
+    "exam_version_100": "100 questions",
+    "exam_version_128": "128 questions",
+    "exam_version_recommended": "Recommended",
+    "exam_version_previous": "Previous version"
+  },
+
+  "categories": {
+    "american_government": "American Government",
+    "american_history": "American History",
+    "integrated_civics": "Integrated Civics",
+    "symbols_and_holidays": "Symbols and Holidays"
+  },
+  
+  "subcategories": {
+    "principles_of_democracy": "Principles of American Democracy",
+    "principles_of_government": "Principles of American Government",
+    "system_of_government": "System of Government",
+    "rights_and_responsibilities": "Rights and Responsibilities",
+    "colonial_and_independence": "Colonial Period and Independence",
+    "1800s": "1800s",
+    "recent_history": "Recent American History",
+    "geography": "Geography",
+    "symbols": "Symbols",
+    "holidays": "Holidays"
   }
 }

@@ -1,15 +1,58 @@
 import { useEffect, useState } from "react";
-import flashcards from "../data/flashcards.json";
+import civic100 from "../data/civic-100-questions-2008.json";
+import civic128 from "../data/civic-128-questions-2025.json";
+import { CIVIC_CATEGORIES } from "../data/civicCategories";
 import i18n from "../i18n";
 
 import defaultImg from "../assets/question/noimage.png";
 
+/* -----------------------------------------
+   Types
+----------------------------------------- */
+export type LanguageCode = "en" | "es";
+export type LangMode = LanguageCode | "both";
+
+interface LanguageBlock {
+  question: string;
+  correct: string[];
+  distractors: string[];
+  audioQuestion: string;
+  audioAnswer: string;
+  hints: string[];
+}
+
+interface Flashcard {
+  id: number;
+  order: number;
+  version: string;
+  country: string;
+  category: string;
+  subcategory: string;
+  illustration: string;
+  isSpecial65_20: boolean;
+  languages: Record<LanguageCode, LanguageBlock>;
+}
+
+type CardFlags = {
+  known: boolean;
+  hard: boolean;
+  save: boolean;
+};
+
+type CardStatusMap = Record<number, CardFlags>;
+
+/* -----------------------------------------
+   Assets
+----------------------------------------- */
 const illustrations = import.meta.glob("/src/assets/question/*", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
 
-const NO_RESULTS_CARD = {
+/* -----------------------------------------
+   Fallback card
+----------------------------------------- */
+const NO_RESULTS_CARD: Flashcard = {
   id: -1,
   order: 0,
   version: "none",
@@ -38,132 +81,163 @@ const NO_RESULTS_CARD = {
   },
 };
 
-type AvailableLang = keyof typeof flashcards[0]["languages"];
+const getCardStatusKey = (examVersion: "100" | "128") =>
+  `natly-card-status-${examVersion}`;
 
-export function useFlashcardsLogic() {
-  const [index, setIndex] = useState(0);
-  const [langMode, setLangMode] = useState<"es" | "en" | "both">("en");
+/* -----------------------------------------
+   Hook
+----------------------------------------- */
+export function useFlashcardsLogic(examVersion: "100" | "128") {
+  const flashcards: Flashcard[] =
+    examVersion === "128"
+      ? (civic128 as Flashcard[])
+      : (civic100 as Flashcard[]);
 
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [showHint, setShowHint] = useState(false);
-  const [hintIndex, setHintIndex] = useState(0);
+  const dynamicCategories = CIVIC_CATEGORIES[examVersion];
 
-  const [filteredCards, setFilteredCards] = useState(flashcards);
+  useEffect(() => {
+    const validCategoryIds = dynamicCategories.map(c => c.id);
 
-  const [showMobileSearch, setShowMobileSearch] = useState(false);
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
+    if (
+      filters.category !== "all" &&
+      !validCategoryIds.includes(filters.category)
+    ) {
+      setFilters({
+        category: "all",
+        subcategory: "all",
+        range: { min: 1, max: flashcards.length },
+      });
+    }
+  }, [examVersion, dynamicCategories]);
 
-  const [searchQuery, setSearchQuery] = useState("");
+  const [index, setIndex] = useState<number>(0);
+  const [langMode, setLangMode] = useState<LangMode>("en");
 
-  const [filters, setFilters] = useState({
+  const [showAnswer, setShowAnswer] = useState<boolean>(false);
+  const [showHint, setShowHint] = useState<boolean>(false);
+  const [hintIndex, setHintIndex] = useState<number>(0);
+
+  const [filteredCards, setFilteredCards] =
+    useState<Flashcard[]>(flashcards);
+
+  const [showMobileSearch, setShowMobileSearch] = useState<boolean>(false);
+  const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false);
+
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const [filters, setFilters] = useState<{
+    category: string;
+    subcategory: string;
+    range: { min: number; max: number };
+  }>({
     category: "all",
+    subcategory: "all",
     range: { min: 1, max: flashcards.length },
   });
 
-  const [statusFilters, setStatusFilters] = useState({
+  const [statusFilters, setStatusFilters] = useState<CardFlags>({
     known: false,
     hard: false,
     save: false,
   });
 
-  // 🔑 NEW: reset control
-  const [isResetting, setIsResetting] = useState(false);
+  const [isResetting, setIsResetting] = useState<boolean>(false);
 
-  const card = filteredCards[index];
-  const total = filteredCards.length;
+  const card: Flashcard =
+    filteredCards[index] ?? NO_RESULTS_CARD;
 
-  const [cardStatus, setCardStatus] = useState<Record<
-    number,
-    { known: boolean; hard: boolean; save: boolean }
-  >>(() => {
-    const saved = localStorage.getItem("natly-card-status");
-    return saved ? JSON.parse(saved) : {};
+  const total = Math.max(filteredCards.length, 1);
+
+  const [cardStatus, setCardStatus] = useState<CardStatusMap>(() => {
+    const saved = localStorage.getItem(getCardStatusKey(examVersion));
+    return saved ? (JSON.parse(saved) as CardStatusMap) : {};
   });
 
-  // Persist card status
+  /* -----------------------------------------
+     Persist status
+  ----------------------------------------- */
   useEffect(() => {
-    localStorage.setItem("natly-card-status", JSON.stringify(cardStatus));
+    localStorage.setItem(
+      getCardStatusKey(examVersion),
+      JSON.stringify(cardStatus)
+    );
   }, [cardStatus]);
 
-  // Toggle known / hard / save
+  useEffect(() => {
+    setCardStatus({});
+
+    const saved = localStorage.getItem(getCardStatusKey(examVersion));
+    if (saved) {
+      setCardStatus(JSON.parse(saved));
+    }
+  }, [examVersion]);
+
+  /* -----------------------------------------
+     Toggle status
+  ----------------------------------------- */
   const toggleStatus = (
     id: number,
-    status: "known" | "hard" | "save"
+    status: keyof CardFlags
   ) => {
     setCardStatus((prev) => {
-      const current = prev[id] || {
+      const current = prev[id] ?? {
         known: false,
         hard: false,
         save: false,
       };
 
-      // Mutual exclusion
       if (status === "known") current.hard = false;
       if (status === "hard") current.known = false;
 
-      const nextValue = !current[status];
+      const next = { ...current, [status]: !current[status] };
 
-      const nextStatus = {
-        ...current,
-        [status]: nextValue,
-      };
-
-      const nextCardStatus = {
-        ...prev,
-        [id]: nextStatus,
-      };
-
-      // Auto-disable filter only if no cards remain with that status
-      if (!nextValue && statusFilters[status]) {
-        const stillExists = Object.values(nextCardStatus).some(
-          (s) => s[status]
-        );
-
-        if (!stillExists) {
-          setStatusFilters((prevFilters) => ({
-            ...prevFilters,
-            [status]: false,
-          }));
-        }
-      }
-
-      return nextCardStatus;
+      return { ...prev, [id]: next };
     });
   };
 
-  // Language logic
-  const fallbackLang: AvailableLang = "en";
-  const systemLang = i18n.language;
+  /* -----------------------------------------
+     Language logic
+  ----------------------------------------- */
+  const systemLang = i18n.language.startsWith("es") ? "es" : "en";
+  const primaryLang: LanguageCode =
+    systemLang in card.languages ? systemLang : "en";
 
-  const primaryLang: AvailableLang =
-    systemLang in card.languages ? (systemLang as AvailableLang) : fallbackLang;
-
-  const languageOptions =
-    primaryLang === "en" ? ["en", "both"] : [primaryLang, "en", "both"];
+  const languageOptions: LangMode[] =
+    primaryLang === "en"
+      ? ["en", "both"]
+      : [primaryLang, "en", "both"];
 
   useEffect(() => {
     if (langMode !== primaryLang && langMode !== "both") {
       setLangMode(primaryLang);
     }
-  }, [i18n.language]);
+  }, [primaryLang]);
 
-  // Reset transient UI on card change
+  /* -----------------------------------------
+     Reset UI on card change
+  ----------------------------------------- */
   useEffect(() => {
     setShowHint(false);
     setHintIndex(0);
     setShowAnswer(false);
   }, [index]);
 
-  // Image resolution
-  const illustrationFile = card?.illustration || "";
-  const imgMatch = Object.values(illustrations).find((p) =>
-    p.endsWith(illustrationFile)
-  );
-  const imgPath = imgMatch || defaultImg;
+  /* -----------------------------------------
+     Image resolution
+  ----------------------------------------- */
+  const illustrationFile = card?.illustration ?? "";
+  const imgPath =
+    Object.values(illustrations).find((p) =>
+      p.endsWith(illustrationFile)
+    ) ?? defaultImg;
 
-  // Hint handler
+  /* -----------------------------------------
+     Hint handler
+  ----------------------------------------- */
   const handleHint = () => {
-    const totalHints = card.languages[primaryLang].hints.length;
+    const hints = card.languages[primaryLang].hints;
+
+    if (!hints.length) return;
 
     if (!showHint) {
       setShowHint(true);
@@ -171,27 +245,17 @@ export function useFlashcardsLogic() {
       return;
     }
 
-    if (hintIndex < totalHints - 1) {
-      setHintIndex((prev) => prev + 1);
+    if (hintIndex < hints.length - 1) {
+      setHintIndex((v) => v + 1);
     } else {
       setShowHint(false);
       setHintIndex(0);
     }
   };
 
-  // Reset when category changes
-  useEffect(() => {
-    setFilters((prev) => ({
-      ...prev,
-      range: { min: 1, max: flashcards.length },
-    }));
-
-    setSearchQuery("");
-    setStatusFilters({ known: false, hard: false, save: false });
-    setIndex(0);
-  }, [filters.category]);
-
-  // 🔥 CENTRAL FILTERING ENGINE (FINAL + SAFE)
+  /* -----------------------------------------
+     Filtering engine
+  ----------------------------------------- */
   useEffect(() => {
     let list = [...flashcards];
 
@@ -199,89 +263,97 @@ export function useFlashcardsLogic() {
       const q = searchQuery.toLowerCase();
       list = list.filter(
         (c) =>
-          c.languages.es.question.toLowerCase().includes(q) ||
-          c.languages.en.question.toLowerCase().includes(q)
+          c.languages.en.question.toLowerCase().includes(q) ||
+          c.languages.es.question.toLowerCase().includes(q)
       );
     }
 
     if (filters.category !== "all") {
       list = list.filter(
-        (c) =>
-          c.category === filters.category ||
-          c.subcategory === filters.category
+        (c) => c.category === filters.category
+      );
+    }
+
+    if (filters.subcategory !== "all") {
+      list = list.filter(
+        (c) => c.subcategory === filters.subcategory
       );
     }
 
     list = list.filter(
-      (c) => c.order >= filters.range.min && c.order <= filters.range.max
+      (c) =>
+        c.order >= filters.range.min &&
+        c.order <= filters.range.max
     );
 
-    if (statusFilters.known || statusFilters.hard || statusFilters.save) {
+    if (
+      statusFilters.known ||
+      statusFilters.hard ||
+      statusFilters.save
+    ) {
       list = list.filter((c) => {
-        const status = cardStatus[c.id] || {
-          known: false,
-          hard: false,
-          save: false,
-        };
-
+        const s = cardStatus[c.id];
         return (
-          (statusFilters.known && status.known) ||
-          (statusFilters.hard && status.hard) ||
-          (statusFilters.save && status.save)
+          (statusFilters.known && s?.known) ||
+          (statusFilters.hard && s?.hard) ||
+          (statusFilters.save && s?.save)
         );
       });
     }
 
-    if (list.length === 0) {
+    if (!list.length) {
       setFilteredCards([NO_RESULTS_CARD]);
       setIndex(0);
-      setIsResetting(false);
       return;
     }
 
     setFilteredCards(list);
-
-    // ✅ FIX: force index = 0 only on reset
     setIndex((prev) => {
       if (isResetting) return 0;
-      if (prev < list.length) return prev;
-      return Math.max(list.length - 1, 0);
+      if (list.length === 0) return 0;
+      return Math.min(prev, list.length - 1);
     });
 
     setIsResetting(false);
   }, [
+    examVersion,
     searchQuery,
     filters.category,
-    filters.range,
-    statusFilters,
+    filters.range.min,
+    filters.range.max,
+    statusFilters.known,
+    statusFilters.hard,
+    statusFilters.save,
     cardStatus,
     isResetting,
   ]);
 
-  const filtersActive =
-    filters.category !== "all" ||
-    filters.range.min !== 1 ||
-    filters.range.max !== flashcards.length ||
-    searchQuery.trim() !== "" ||
-    statusFilters.known ||
-    statusFilters.hard ||
-    statusFilters.save;
+  /* -----------------------------------------
+     Reset on exam version change
+  ----------------------------------------- */
+  useEffect(() => {
+    setIsResetting(true);
 
-  const dynamicCategories = [
-    { id: "all", labelKey: "filters.category_all" },
-    ...Array.from(new Set(flashcards.map((c) => c.category))).map((cat) => ({
-      id: cat,
-      labelKey: `filters.category_${cat}`,
-    })),
-  ];
+    setIndex(0);
+    setFilteredCards(flashcards);
 
-  const nextCard = () => {
-    if (index < total - 1) setIndex((prev) => prev + 1);
-  };
+    setFilters({
+      category: "all",
+      subcategory: "all",
+      range: { min: 1, max: flashcards.length },
+    });
 
-  const prevCard = () => {
-    if (index > 0) setIndex((prev) => prev - 1);
-  };
+    setStatusFilters({
+      known: false,
+      hard: false,
+      save: false,
+    });
+
+    setSearchQuery("");
+    setShowHint(false);
+    setHintIndex(0);
+    setShowAnswer(false);
+  }, [examVersion, flashcards]);
 
   const progress = Math.round(((index + 1) / total) * 100);
 
@@ -292,24 +364,27 @@ export function useFlashcardsLogic() {
 
   const [showAudioPopup, setShowAudioPopup] = useState(false);
 
-  // 🔄 FULL RESET (DESKTOP + MOBILE)
   const clearAllStatuses = () => {
     setIsResetting(true);
-
     setCardStatus({});
-    localStorage.removeItem("natly-card-status");
-
-    setStatusFilters({ known: false, hard: false, save: false });
+    localStorage.removeItem(getCardStatusKey(examVersion));
     setSearchQuery("");
     setFilters({
-      category: "all",
-      range: { min: 1, max: flashcards.length },
-    });
-
+    category: "all",
+    subcategory: "all",
+    range: { min: 1, max: flashcards.length },
+  });
     setIndex(0);
   };
 
-  const clearSearch = () => setSearchQuery("");
+   const filtersActive =
+    searchQuery.trim() !== "" ||
+    filters.category !== "all" ||
+    filters.range.min !== 1 ||
+    filters.range.max !== flashcards.length ||
+    statusFilters.known ||
+    statusFilters.hard ||
+    statusFilters.save;
 
   return {
     card,
@@ -320,18 +395,18 @@ export function useFlashcardsLogic() {
     primaryLang,
     langMode,
     setLangMode,
+    languageOptions,
 
     searchQuery,
     setSearchQuery,
 
     filters,
     setFilters,
+    filtersActive,
 
     statusFilters,
     setStatusFilters,
-
     dynamicCategories,
-    filtersActive,
 
     cardStatus,
     toggleStatus,
@@ -341,11 +416,10 @@ export function useFlashcardsLogic() {
     showMobileFilters,
     setShowMobileFilters,
 
-    nextCard,
-    prevCard,
+    nextCard: () => index < total - 1 && setIndex((v) => v + 1),
+    prevCard: () => index > 0 && setIndex((v) => v - 1),
 
     showHint,
-    setShowHint,
     hintIndex,
     handleHint,
     showAnswer,
@@ -357,9 +431,6 @@ export function useFlashcardsLogic() {
     showAudioPopup,
     setShowAudioPopup,
 
-    languageOptions,
-
     clearAllStatuses,
-    clearSearch,
   };
 }

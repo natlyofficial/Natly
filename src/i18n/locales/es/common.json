@@ -39,7 +39,8 @@
     "next_question": "Siguiente",
     "previous_question": "Pregunta",
     "clear_all_statuses": "Borrar todos los estados",
-    "clear_search_question": "Limpiar"
+    "clear_search_question": "Limpiar",
+    "options": "Opciones"
   },
 
   "filters": {
@@ -56,5 +57,34 @@
     "status_hard": "Me cuesta",
     "status_favorite": "Favoritas",
     "status_saved": "Guardadas"
+  },
+
+  "options": {
+    "choose_exam_version": "Elige tu versión del examen",
+    "exam_version": "Versión del examen",
+    "exam_version_100": "100 preguntas",
+    "exam_version_128": "128 preguntas",
+    "exam_version_recommended": "Recomendada",
+    "exam_version_previous": "Versión anterior"
+  },
+
+  "categories": {
+    "american_government": "Gobierno estadounidense",
+    "american_history": "Historia de Estados Unidos",
+    "integrated_civics": "Cívica integrada",
+    "symbols_and_holidays": "Símbolos y días festivos"
+  },
+  
+  "subcategories": {
+    "principles_of_democracy": "Principios de la democracia estadounidense",
+    "principles_of_government": "Principios del gobierno estadounidense",
+    "system_of_government": "Sistema de gobierno",
+    "rights_and_responsibilities": "Derechos y responsabilidades",
+    "colonial_and_independence": "Período colonial e independencia",
+    "1800s": "Siglo XIX",
+    "recent_history": "Historia reciente de Estados Unidos",
+    "geography": "Geografía",
+    "symbols": "Símbolos nacionales",
+    "holidays": "Días festivos"
   }
 }

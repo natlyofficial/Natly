@@ -29,7 +29,7 @@ interface FiltersModalProps {
   tCommon: (key: string) => string;
 }
 
-export default function FiltersModal({
+export default function FiltersMobilePanel({
   show,
   onClose,
   filters,
@@ -75,8 +75,8 @@ export default function FiltersModal({
               onClick={() => setFilters({ ...filters, category: cat.id })}
               className={`w-full flex justify-between items-center px-3 py-2 rounded-lg ${
                 filters.category === cat.id
-                  ? "bg-natly-teal text-white"
-                  : "bg-natly-cream"
+                  ? "bg-natly-teal border-natly-teal text-white"
+                  : "border-gray-200"
               }`}
             >
               {tCommon(cat.labelKey)}
