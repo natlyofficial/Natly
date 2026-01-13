@@ -19,7 +19,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
@@ -37,3 +37,4 @@ jobs:
           port: 21
           local-dir: dist/
           server-dir: /
+          dangerous-clean-slate: true
