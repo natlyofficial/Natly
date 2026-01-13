@@ -104,7 +104,6 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     ) {
       setFilters({
         category: "all",
-        subcategory: "all",
         range: { min: 1, max: flashcards.length },
       });
     }
@@ -127,11 +126,9 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
 
   const [filters, setFilters] = useState<{
     category: string;
-    subcategory: string;
     range: { min: number; max: number };
   }>({
     category: "all",
-    subcategory: "all",
     range: { min: 1, max: flashcards.length },
   });
 
@@ -141,10 +138,11 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     save: false,
   });
 
-  const [isResetting, setIsResetting] = useState<boolean>(false);
+  const hasResults = filteredCards.length > 0;
 
-  const card: Flashcard =
-    filteredCards[index] ?? NO_RESULTS_CARD;
+  const card: Flashcard = hasResults
+    ? filteredCards[index]
+    : NO_RESULTS_CARD;
 
   const total = Math.max(filteredCards.length, 1);
 
@@ -274,12 +272,6 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
       );
     }
 
-    if (filters.subcategory !== "all") {
-      list = list.filter(
-        (c) => c.subcategory === filters.subcategory
-      );
-    }
-
     list = list.filter(
       (c) =>
         c.order >= filters.range.min &&
@@ -301,20 +293,10 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
       });
     }
 
-    if (!list.length) {
-      setFilteredCards([NO_RESULTS_CARD]);
-      setIndex(0);
-      return;
-    }
-
     setFilteredCards(list);
-    setIndex((prev) => {
-      if (isResetting) return 0;
-      if (list.length === 0) return 0;
-      return Math.min(prev, list.length - 1);
-    });
-
-    setIsResetting(false);
+    setIndex((prev) =>
+    prev >= list.length ? 0 : prev
+  );
   }, [
     examVersion,
     searchQuery,
@@ -324,22 +306,19 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     statusFilters.known,
     statusFilters.hard,
     statusFilters.save,
-    cardStatus,
-    isResetting,
+    cardStatus
   ]);
 
   /* -----------------------------------------
      Reset on exam version change
   ----------------------------------------- */
   useEffect(() => {
-    setIsResetting(true);
 
     setIndex(0);
     setFilteredCards(flashcards);
 
     setFilters({
       category: "all",
-      subcategory: "all",
       range: { min: 1, max: flashcards.length },
     });
 
@@ -365,15 +344,24 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
   const [showAudioPopup, setShowAudioPopup] = useState(false);
 
   const clearAllStatuses = () => {
-    setIsResetting(true);
+
     setCardStatus({});
     localStorage.removeItem(getCardStatusKey(examVersion));
+
     setSearchQuery("");
+
     setFilters({
-    category: "all",
-    subcategory: "all",
-    range: { min: 1, max: flashcards.length },
-  });
+      category: "all",
+      range: { min: 1, max: flashcards.length },
+    });
+
+    setStatusFilters({
+      known: false,
+      hard: false,
+      save: false,
+    });
+
+    setFilteredCards(flashcards);
     setIndex(0);
   };
 
