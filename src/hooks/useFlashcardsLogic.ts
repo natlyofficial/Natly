@@ -42,14 +42,6 @@ type CardFlags = {
 type CardStatusMap = Record<number, CardFlags>;
 
 /* -----------------------------------------
-   Assets
------------------------------------------ */
-const illustrations = import.meta.glob("/src/assets/question/*", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
-
-/* -----------------------------------------
    Fallback card
 ----------------------------------------- */
 const NO_RESULTS_CARD: Flashcard = {
@@ -224,10 +216,20 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
      Image resolution
   ----------------------------------------- */
   const illustrationFile = card?.illustration ?? "";
-  const imgPath =
-    Object.values(illustrations).find((p) =>
-      p.endsWith(illustrationFile)
-    ) ?? defaultImg;
+
+  const examFolder =
+    card.version.startsWith("2008") ? "2008" :
+    card.version.startsWith("2025") ? "2025" :
+  "";
+
+  const questionImages = import.meta.glob(
+    "/src/assets/question/*/*.png",
+    { eager: true, import: "default" }
+  ) as Record<string, string>;
+
+  const imgKey = `/src/assets/question/${examFolder}/${illustrationFile}`;
+
+  const imgPath = questionImages[imgKey] ?? defaultImg;
 
   /* -----------------------------------------
      Hint handler
