@@ -285,10 +285,14 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
       });
     }
 
+    if (statusFilter && list.length === 0) {
+      setStatusFilter(null);
+      return;
+    }
+
     setFilteredCards(list);
-    setIndex((prev) =>
-    prev >= list.length ? 0 : prev
-  );
+    setIndex((prev) => (prev >= list.length ? 0 : prev));
+    
   }, [
     searchQuery,
     filters.category,
