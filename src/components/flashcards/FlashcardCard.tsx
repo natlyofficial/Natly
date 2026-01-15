@@ -92,15 +92,22 @@ export default function FlashcardCard({
                 </span>
 
                 <span
-                  className="
+                  className={`
                     inline-flex items-center gap-1
                     px-3 py-1
                     rounded-full
-                    bg-natly-teal/10
-                    text-natly-teal-dark
                     text-md
                     font-semibold
-                  "
+                    transition-colors
+
+                    ${
+                      statusFilter === "known"
+                        ? "bg-natly-known-soft text-natly-known-text"
+                        : statusFilter === "hard"
+                        ? "bg-natly-hard-soft text-natly-hard-text"
+                        : "bg-natly-teal/10 text-natly-teal-dark"
+                    }
+                  `}
                 >
                   {statusLabelMap[statusFilter]}
                   <span className="opacity-70">

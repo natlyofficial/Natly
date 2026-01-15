@@ -15,7 +15,7 @@ export default function LanguageSelector({
   t,
 }: Props) {
   return (
-    <div className="flex justify-center mt-4 gap-4 sm:gap-6">
+    <div className="flex justify-center mt-4 gap-6">
       {languageOptions.map((lm) => {
         const isDisabled = primaryLang === "en" && lm === "both";
 
@@ -25,7 +25,7 @@ export default function LanguageSelector({
             onClick={() => !isDisabled && onSelect(lm as any)}
             disabled={isDisabled}
             className={`
-              px-6 py-2 sm:px-8 sm:py-3 rounded-full border 
+              px-8 py-3 rounded-full border 
               text-sm sm:text-xl transition
               ${isDisabled ? "opacity-40 cursor-not-allowed" : ""}
               ${

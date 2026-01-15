@@ -108,7 +108,7 @@ export default function FlashcardFooter({
               onClick={() => toggleStatus("known")}
               className={`
                 flex items-center gap-2
-                px-3 py-2 sm:px-4 sm:py-3
+                px-4 py-3
                 rounded-full border transition-all whitespace-nowrap
                 ${cardStatus.known
                   ? "bg-natly-known-soft text-natly-known-text border-natly-known"
