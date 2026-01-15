@@ -10,12 +10,8 @@ interface FiltersModalProps {
   };
   setFilters: (value: any) => void;
 
-  statusFilters: {
-    known: boolean;
-    hard: boolean;
-    save: boolean;
-  };
-  setStatusFilters: (value: any) => void;
+  statusFilter: "known" | "hard" | "save" | null;
+  setStatusFilter: (v: "known" | "hard" | "save" | null) => void;
 
   dynamicCategories: Array<{ id: string; labelKey: string }>;
 
@@ -34,8 +30,8 @@ export default function FiltersMobilePanel({
   onClose,
   filters,
   setFilters,
-  statusFilters,
-  setStatusFilters,
+  statusFilter,
+  setStatusFilter,
   dynamicCategories,
   cardStatus,
   clearAllStatuses,
@@ -95,14 +91,10 @@ export default function FiltersMobilePanel({
           <label className="flex justify-between items-center cursor-pointer">
             <div className="flex items-center gap-2">
               <input
-                type="checkbox"
-                checked={statusFilters.known}
-                onChange={() =>
-                  setStatusFilters({
-                    ...statusFilters,
-                    known: !statusFilters.known,
-                  })
-                }
+                type="radio"
+                name="statusFilter"
+                checked={statusFilter === "known"}
+                onChange={() => setStatusFilter("known")}
               />
               {tCommon("actions.like")}
             </div>
@@ -114,14 +106,10 @@ export default function FiltersMobilePanel({
           <label className="flex justify-between items-center cursor-pointer">
             <div className="flex items-center gap-2">
               <input
-                type="checkbox"
-                checked={statusFilters.hard}
-                onChange={() =>
-                  setStatusFilters({
-                    ...statusFilters,
-                    hard: !statusFilters.hard,
-                  })
-                }
+                type="radio"
+                name="statusFilter"
+                checked={statusFilter === "hard"}
+                onChange={() => setStatusFilter("hard")}
               />
               {tCommon("actions.dislike")}
             </div>
@@ -133,14 +121,10 @@ export default function FiltersMobilePanel({
           <label className="flex justify-between items-center cursor-pointer">
             <div className="flex items-center gap-2">
               <input
-                type="checkbox"
-                checked={statusFilters.save}
-                onChange={() =>
-                  setStatusFilters({
-                    ...statusFilters,
-                    save: !statusFilters.save,
-                  })
-                }
+                type="radio"
+                name="statusFilter"
+                checked={statusFilter === "save"}
+                onChange={() => setStatusFilter("save")}
               />
               {tCommon("filters.status_saved")}
             </div>
@@ -192,11 +176,7 @@ export default function FiltersMobilePanel({
           <button
             onClick={() => {
               setFilters({ category: "all", range: { min: 1, max: 120 } });
-              setStatusFilters({
-                known: false,
-                hard: false,
-                save: false,
-              });
+              setStatusFilter(null);
             }}
             className="text-natly-teal underline"
           >

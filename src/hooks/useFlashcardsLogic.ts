@@ -33,6 +33,8 @@ interface Flashcard {
   languages: Record<LanguageCode, LanguageBlock>;
 }
 
+type StatusFilter = "known" | "hard" | "save" | null;
+
 type CardFlags = {
   known: boolean;
   hard: boolean;
@@ -87,6 +89,14 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
 
   const dynamicCategories = CIVIC_CATEGORIES[examVersion];
 
+  const [filters, setFilters] = useState<{
+    category: string;
+    range: { min: number; max: number };
+  }>({
+    category: "all",
+    range: { min: 1, max: flashcards.length },
+  });
+
   useEffect(() => {
     const validCategoryIds = dynamicCategories.map(c => c.id);
 
@@ -116,19 +126,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
 
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const [filters, setFilters] = useState<{
-    category: string;
-    range: { min: number; max: number };
-  }>({
-    category: "all",
-    range: { min: 1, max: flashcards.length },
-  });
-
-  const [statusFilters, setStatusFilters] = useState<CardFlags>({
-    known: false,
-    hard: false,
-    save: false,
-  });
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>(null);
 
   const hasResults = filteredCards.length > 0;
 
@@ -280,18 +278,10 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
         c.order <= filters.range.max
     );
 
-    if (
-      statusFilters.known ||
-      statusFilters.hard ||
-      statusFilters.save
-    ) {
+    if (statusFilter) {
       list = list.filter((c) => {
         const s = cardStatus[c.id];
-        return (
-          (statusFilters.known && s?.known) ||
-          (statusFilters.hard && s?.hard) ||
-          (statusFilters.save && s?.save)
-        );
+        return s?.[statusFilter];
       });
     }
 
@@ -300,14 +290,11 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     prev >= list.length ? 0 : prev
   );
   }, [
-    examVersion,
     searchQuery,
     filters.category,
     filters.range.min,
     filters.range.max,
-    statusFilters.known,
-    statusFilters.hard,
-    statusFilters.save,
+    statusFilter,
     cardStatus
   ]);
 
@@ -324,11 +311,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
       range: { min: 1, max: flashcards.length },
     });
 
-    setStatusFilters({
-      known: false,
-      hard: false,
-      save: false,
-    });
+    setStatusFilter(null);
 
     setSearchQuery("");
     setShowHint(false);
@@ -357,11 +340,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
       range: { min: 1, max: flashcards.length },
     });
 
-    setStatusFilters({
-      known: false,
-      hard: false,
-      save: false,
-    });
+    setStatusFilter(null);
 
     setFilteredCards(flashcards);
     setIndex(0);
@@ -372,9 +351,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     filters.category !== "all" ||
     filters.range.min !== 1 ||
     filters.range.max !== flashcards.length ||
-    statusFilters.known ||
-    statusFilters.hard ||
-    statusFilters.save;
+    statusFilter !== null;
 
   return {
     card,
@@ -394,8 +371,9 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     setFilters,
     filtersActive,
 
-    statusFilters,
-    setStatusFilters,
+    statusFilter,
+    setStatusFilter,
+
     dynamicCategories,
 
     cardStatus,

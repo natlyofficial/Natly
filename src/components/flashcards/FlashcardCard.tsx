@@ -22,6 +22,7 @@ interface FlashcardCardProps {
 
   // Translations
   t: any;
+  tCommon: (key: string) => string;
 
   // Progress
   progress: number;
@@ -31,7 +32,9 @@ interface FlashcardCardProps {
   setShowAudioPopup: Dispatch<SetStateAction<boolean>>;
 
   // Filters
-  filtersActive: boolean;
+  statusFilter: "known" | "hard" | "save" | null;
+  filteredIndex: number;
+  filteredTotal: number;
 
   // Save state
   cardStatus?: {
@@ -51,13 +54,22 @@ export default function FlashcardCard({
   langMode,
   primaryLang,
   t,
+  tCommon,
   progress,
   audioSrc,
   setShowAudioPopup,
-  filtersActive,
+  statusFilter,
+  filteredIndex,
+  filteredTotal,
   cardStatus,
   toggleStatus,
 }: FlashcardCardProps) {
+  const statusLabelMap: Record<"known" | "hard" | "save", string> = {
+    known: tCommon("actions.like"),
+    hard: tCommon("actions.dislike"),
+    save: tCommon("filters.status_saved"),
+  };
+
   return (
     <div className="relative flex justify-center">
       <div
@@ -72,8 +84,35 @@ export default function FlashcardCard({
         <div className="absolute top-4 right-4 flex items-center gap-3">
 
           {/* Question index */}
-          <p className="text-natly-gray text-sm md:text-lg">
-            {t("labels.question")} {card.order} {!filtersActive && ` / ${total}`}
+          <p className="flex flex-wrap items-center gap-2 text-sm md:text-lg text-natly-gray">
+            {statusFilter ? (
+              <>
+                <span className="font-semibold text-natly-teal-dark">
+                  {t("labels.question")} {card.order}
+                </span>
+
+                <span
+                  className="
+                    inline-flex items-center gap-1
+                    px-3 py-1
+                    rounded-full
+                    bg-natly-teal/10
+                    text-natly-teal-dark
+                    text-md
+                    font-semibold
+                  "
+                >
+                  {statusLabelMap[statusFilter]}
+                  <span className="opacity-70">
+                    {filteredIndex + 1} / {filteredTotal}
+                  </span>
+                </span>
+              </>
+            ) : (
+              <span className="font-semibold text-natly-teal-dark">
+                {t("labels.question")} {card.order} / {total}
+              </span>
+            )}
           </p>
 
           {/* Save button */}
@@ -98,7 +137,7 @@ export default function FlashcardCard({
         </div>
 
         {/* ---------- Progress bar ---------- */}
-        <div className="mt-6 mb-6 md:mb-8">
+        <div className="mt-10 mb-6 md:mb-8 md:mt-6">
           <div className="relative w-full h-4 md:h-6 bg-gray-200 rounded-full overflow-hidden shadow-inner">
             <div
               className="h-full bg-natly-teal transition-all"

@@ -2,8 +2,8 @@ interface FiltersDesktopPanelProps {
   filters: any;
   setFilters: (value: any) => void;
 
-  statusFilters: any;
-  setStatusFilters: (value: any) => void;
+  statusFilter: "known" | "hard" | "save" | null;
+  setStatusFilter: (v: "known" | "hard" | "save" | null) => void;
 
   dynamicCategories: Array<{ id: string; labelKey: string }>;
 
@@ -22,8 +22,8 @@ interface FiltersDesktopPanelProps {
 export default function FiltersDesktopPanel({
   filters,
   setFilters,
-  statusFilters,
-  setStatusFilters,
+  statusFilter,
+  setStatusFilter,
   dynamicCategories,
   cardStatus,
   clearAllStatuses,
@@ -70,14 +70,10 @@ export default function FiltersDesktopPanel({
       <div className="space-y-3 mb-4">
         <label className="flex items-center gap-2 text-natly-teal cursor-pointer">
           <input
-            type="checkbox"
-            checked={statusFilters.known}
-            onChange={() =>
-              setStatusFilters({
-                ...statusFilters,
-                known: !statusFilters.known,
-              })
-            }
+            type="radio"
+            name="statusFilter"
+            checked={statusFilter === "known"}
+            onChange={() => setStatusFilter("known")}
           />
           {tCommon("actions.like")}
           <span className="font-bold">({knownCount})</span>
@@ -85,30 +81,24 @@ export default function FiltersDesktopPanel({
 
         <label className="flex items-center gap-2 text-natly-teal cursor-pointer">
           <input
-            type="checkbox"
-            checked={statusFilters.hard}
-            onChange={() =>
-              setStatusFilters({
-                ...statusFilters,
-                hard: !statusFilters.hard,
-              })
-            }
+            type="radio"
+            name="statusFilter"
+            checked={statusFilter === "hard"}
+            onChange={() => setStatusFilter("hard")}
           />
+
           {tCommon("actions.dislike")}
           <span className="font-bold">({hardCount})</span>
         </label>
 
         <label className="flex items-center gap-2 text-natly-teal cursor-pointer">
           <input
-            type="checkbox"
-            checked={statusFilters.save}
-            onChange={() =>
-              setStatusFilters({
-                ...statusFilters,
-                save: !statusFilters.save,
-              })
-            }
+            type="radio"
+            name="statusFilter"
+            checked={statusFilter === "save"}
+            onChange={() => setStatusFilter("save")}
           />
+
           {tCommon("filters.status_saved")}
           <span className="font-bold">({saveCount})</span>
         </label>
@@ -166,11 +156,7 @@ export default function FiltersDesktopPanel({
               category: "all",
               range: { min: 1, max: filters.range.max },
             });
-            setStatusFilters({
-              known: false,
-              hard: false,
-              favorite: false,
-            });
+            setStatusFilter(null);
           }}
           className="text-natly-teal underline"
         >

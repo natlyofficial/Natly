@@ -51,10 +51,10 @@ export default function FlashcardsPage() {
     searchQuery,
     setSearchQuery,
     filters,
-    filtersActive,
+    statusFilter,
+    setStatusFilter,
     setFilters,
-    statusFilters,
-    setStatusFilters,
+    
     dynamicCategories,
     clearAllStatuses,
 
@@ -196,8 +196,8 @@ export default function FlashcardsPage() {
           <FiltersDesktopPanel
             filters={filters}
             setFilters={setFilters}
-            statusFilters={statusFilters}
-            setStatusFilters={setStatusFilters}
+            statusFilter={statusFilter}
+            setStatusFilter={setStatusFilter}
             dynamicCategories={dynamicCategories}
             cardStatus={cardStatus}
             clearAllStatuses={clearAllStatuses}
@@ -238,8 +238,8 @@ export default function FlashcardsPage() {
         onClose={() => setShowMobileFilters(false)}
         filters={filters}
         setFilters={setFilters}
-        statusFilters={statusFilters}
-        setStatusFilters={setStatusFilters}
+        statusFilter={statusFilter}
+        setStatusFilter={setStatusFilter}
         dynamicCategories={dynamicCategories}
         cardStatus={cardStatus}
         clearAllStatuses={clearAllStatuses}
@@ -264,10 +264,13 @@ export default function FlashcardsPage() {
         langMode={langMode}
         primaryLang={primaryLang}
         t={t}
+        tCommon={tCommon}
         progress={progress}
         audioSrc={audioSrc}
         setShowAudioPopup={setShowAudioPopup}
-        filtersActive={filtersActive}
+        statusFilter={statusFilter}
+        filteredIndex={index}
+        filteredTotal={total}
         cardStatus={cardStatus[card.id]}
         toggleStatus={toggleStatus}
       />
