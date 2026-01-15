@@ -1,32 +1,42 @@
-import mascot from "../assets/mascota-natly.png";
-import devices from "../assets/devices.jpeg";
-import flashcard from "../assets/flashcard.png";
-import officialquestion from "../assets/officialquestion.png";
-import quiz from "../assets/quiz.png";
-import mascotheart from "../assets/mascota-natly-heart.png";
+import mascot from "../assets/mascota-natly.webp";
+import deviceses from "../assets/deviceses.webp";
+import devicesen from "../assets/devicesen.webp";
+import flashcardes from "../assets/flashcardes.webp";
+import flashcarden from "../assets/flashcarden.webp";
+import officialquestionen from "../assets/officialquestionen.webp";
+import officialquestiones from "../assets/officialquestiones.webp";
+import quizen from "../assets/quizen.webp";
+import quizes from "../assets/quizes.webp";
+import mascotheart from "../assets/mascota-natly-heart.webp";
 import { useNavigate } from "react-router-dom";
 import { IconChecklist, IconGrowth, IconPlay } from "../natly-icons";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const { t } = useTranslation("home");
+  const { t, i18n } = useTranslation("home");
   const navigate = useNavigate();
+
+  const devicesImage = i18n.language === "es" ? deviceses : devicesen;
+  const flashcardImage = i18n.language === "es" ? flashcardes : flashcarden;
+  const officialQuestionImage = i18n.language === "es" ? officialquestiones : officialquestionen;
+  const quizImage = i18n.language === "es" ? quizes : quizen;
+
   const exploreItems = [
     {
-      img: flashcard,
+      img: flashcardImage,
       titleKey: "feature_cards_title",
       descKey: "feature_cards_desc",
       size: "w-80 sm:w-66"
     },
     {
-      img: officialquestion,
+      img: officialQuestionImage,
       titleKey: "feature_questions_title",
       descKey: "feature_questions_desc",
       size: "w-24 sm:w-30"
     },
     {
-      img: quiz,
+      img: quizImage,
       titleKey: "feature_quiz_title",
       descKey: "feature_quiz_desc",
       size: "w-24 sm:w-30"
@@ -155,7 +165,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="flex justify-center"
           >
-            <img src={devices} className="w-full max-w-md" />
+            <img src={devicesImage} className="w-full max-w-md" />
           </motion.div>
         </div>
       </motion.div>
@@ -195,10 +205,10 @@ export default function Home() {
                 whileHover={{ y: -8 }}
                 className="group bg-white rounded-3xl p-6 border-4 border-natly-yellow shadow-sm hover:shadow-lg transition text-center flex flex-col items-center"
               >
-                <div className="mb-5 flex justify-center items-center h-36">
+                <div className="mb-5 flex justify-center items-center h-36 ">
                   <img
                     src={item.img}
-                    className={`h-auto ${item.size}`}
+                    className={`h-auto ${item.size} rounded-xl`}
                   />
                 </div>
 

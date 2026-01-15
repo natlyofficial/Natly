@@ -1,10 +1,15 @@
-import underConstructionMobile from "../assets/underconstrucionmobile.png";
-import underConstructionDesktop from "../assets/underconstrucion.png";
+import underConstructionMobileEs from "../assets/underconstrucionmobilees.webp";
+import underConstructionDesktopEs from "../assets/underconstruciones.webp";
+import underConstructionMobileEn from "../assets/underconstrucionmobileen.webp";
+import underConstructionDesktopEn from "../assets/underconstrucionen.webp";
 import { useTranslation } from "react-i18next";
 
 export default function UnderConstruction() {
   
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
+
+  const underConstructionMobile = i18n.language === "es" ? underConstructionMobileEs : underConstructionMobileEn;
+  const underConstructionDesktop = i18n.language === "es" ? underConstructionDesktopEs : underConstructionDesktopEn;
   
   return (
     <div

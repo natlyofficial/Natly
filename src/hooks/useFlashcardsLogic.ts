@@ -4,7 +4,7 @@ import civic128 from "../data/civic-128-questions-2025.json";
 import { CIVIC_CATEGORIES } from "../data/civicCategories";
 import i18n from "../i18n";
 
-import defaultImg from "../assets/question/noimage.png";
+import defaultImg from "../assets/question/noimage.webp";
 
 /* -----------------------------------------
    Types
@@ -223,7 +223,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
   "";
 
   const questionImages = import.meta.glob(
-    "/src/assets/question/*/*.png",
+    "/src/assets/question/*/*.webp",
     { eager: true, import: "default" }
   ) as Record<string, string>;
 

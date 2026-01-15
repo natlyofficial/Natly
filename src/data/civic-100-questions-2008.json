@@ -6,7 +6,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question1.png",
+    "illustration": "question1.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -49,7 +49,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question2.png",
+    "illustration": "question2.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -100,7 +100,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question3.png",
+    "illustration": "question3.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -143,7 +143,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question4.png",
+    "illustration": "question4.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -192,7 +192,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question5.png",
+    "illustration": "question5.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -235,7 +235,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question6.png",
+    "illustration": "question6.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -290,7 +290,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question7.png",
+    "illustration": "question7.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -333,7 +333,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question8.png",
+    "illustration": "question8.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -384,7 +384,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question9.png",
+    "illustration": "question9.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -435,7 +435,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question10.png",
+    "illustration": "question10.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -482,7 +482,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question11.png",
+    "illustration": "question11.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -510,7 +510,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "principles_of_american_democracy",
-    "illustration": "question12.png",
+    "illustration": "question12.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -557,7 +557,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question13.png",
+    "illustration": "question13.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -614,7 +614,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question14.png",
+    "illustration": "question14.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -663,7 +663,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question15.png",
+    "illustration": "question15.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -706,7 +706,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question16.png",
+    "illustration": "question16.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -757,7 +757,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question17.png",
+    "illustration": "question17.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -804,7 +804,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question18.png",
+    "illustration": "question18.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -847,7 +847,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question19.png",
+    "illustration": "question19.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -882,7 +882,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question20.png",
+    "illustration": "question20.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -925,7 +925,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question21.png",
+    "illustration": "question21.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -960,7 +960,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question22.png",
+    "illustration": "question22.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -995,7 +995,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question23.png",
+    "illustration": "question23.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1038,7 +1038,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question24.png",
+    "illustration": "question24.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1081,7 +1081,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question25.png",
+    "illustration": "question25.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1132,7 +1132,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question26.png",
+    "illustration": "question26.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1175,7 +1175,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question27.png",
+    "illustration": "question27.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1218,7 +1218,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question28.png",
+    "illustration": "question28.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1265,7 +1265,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question29.png",
+    "illustration": "question29.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1312,7 +1312,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question30.png",
+    "illustration": "question30.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1355,7 +1355,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question31.png",
+    "illustration": "question31.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1398,7 +1398,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question32.png",
+    "illustration": "question32.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1441,7 +1441,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question33.png",
+    "illustration": "question33.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1484,7 +1484,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question34.png",
+    "illustration": "question34.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1527,7 +1527,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question35.png",
+    "illustration": "question35.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1570,7 +1570,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question36.png",
+    "illustration": "question36.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1627,7 +1627,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question37.png",
+    "illustration": "question37.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1680,7 +1680,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question38.png",
+    "illustration": "question38.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1723,7 +1723,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question39.png",
+    "illustration": "question39.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1766,7 +1766,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question40.png",
+    "illustration": "question40.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -1813,7 +1813,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question41.png",
+    "illustration": "question41.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1866,7 +1866,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question42.png",
+    "illustration": "question42.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1921,7 +1921,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question43.png",
+    "illustration": "question43.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -1964,7 +1964,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question44.png",
+    "illustration": "question44.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -2007,7 +2007,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question45.png",
+    "illustration": "question45.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -2050,7 +2050,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question46.png",
+    "illustration": "question46.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2097,7 +2097,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "system_of_government",
-    "illustration": "question47.png",
+    "illustration": "question47.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2144,7 +2144,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question48.png",
+    "illustration": "question48.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2197,7 +2197,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question49.png",
+    "illustration": "question49.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -2246,7 +2246,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question50.png",
+    "illustration": "question50.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2295,7 +2295,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question51.png",
+    "illustration": "question51.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2352,7 +2352,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question52.png",
+    "illustration": "question52.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2401,7 +2401,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question53.png",
+    "illustration": "question53.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2458,7 +2458,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question54.png",
+    "illustration": "question54.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -2501,7 +2501,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question55.png",
+    "illustration": "question55.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2564,7 +2564,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question56.png",
+    "illustration": "question56.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -2607,7 +2607,7 @@
     "country": "US",
     "category": "american_government",
     "subcategory": "rights_and_responsibilities",
-    "illustration": "question57.png",
+    "illustration": "question57.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2656,7 +2656,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question58.png",
+    "illustration": "question58.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2713,7 +2713,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question59.png",
+    "illustration": "question59.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2762,7 +2762,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question60.png",
+    "illustration": "question60.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2811,7 +2811,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question61.png",
+    "illustration": "question61.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2862,7 +2862,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question62.png",
+    "illustration": "question62.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2905,7 +2905,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question63.png",
+    "illustration": "question63.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -2948,7 +2948,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question64.png",
+    "illustration": "question64.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3019,7 +3019,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question65.png",
+    "illustration": "question65.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3068,7 +3068,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question66.png",
+    "illustration": "question66.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3103,7 +3103,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question67.png",
+    "illustration": "question67.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3156,7 +3156,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question68.png",
+    "illustration": "question68.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3211,7 +3211,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question69.png",
+    "illustration": "question69.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3254,7 +3254,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "colonial_period_and_independence",
-    "illustration": "question70.png",
+    "illustration": "question70.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -3297,7 +3297,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question71.png",
+    "illustration": "question71.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3340,7 +3340,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question72.png",
+    "illustration": "question72.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3393,7 +3393,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question73.png",
+    "illustration": "question73.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3439,7 +3439,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question74.png",
+    "illustration": "question74.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3490,7 +3490,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question75.png",
+    "illustration": "question75.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -3541,7 +3541,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question76.png",
+    "illustration": "question76.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3594,7 +3594,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "1800s",
-    "illustration": "question77.png",
+    "illustration": "question77.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3643,7 +3643,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question78.png",
+    "illustration": "question78.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3698,7 +3698,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question79.png",
+    "illustration": "question79.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3741,7 +3741,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question80.png",
+    "illustration": "question80.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3784,7 +3784,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question81.png",
+    "illustration": "question81.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3827,7 +3827,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question82.png",
+    "illustration": "question82.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3870,7 +3870,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question83.png",
+    "illustration": "question83.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3913,7 +3913,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question84.png",
+    "illustration": "question84.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -3956,7 +3956,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question85.png",
+    "illustration": "question85.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4005,7 +4005,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question86.png",
+    "illustration": "question86.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4048,7 +4048,7 @@
     "country": "US",
     "category": "american_history",
     "subcategory": "recent_american_history_and_other_important_historical_information",
-    "illustration": "question87.png",
+    "illustration": "question87.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4137,7 +4137,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question88.png",
+    "illustration": "question88.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4186,7 +4186,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question89.png",
+    "illustration": "question89.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4233,7 +4233,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question90.png",
+    "illustration": "question90.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4280,7 +4280,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question91.png",
+    "illustration": "question91.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4335,7 +4335,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question92.png",
+    "illustration": "question92.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4406,7 +4406,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question93.png",
+    "illustration": "question93.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4459,7 +4459,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question94.png",
+    "illustration": "question94.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -4506,7 +4506,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "geography",
-    "illustration": "question95.png",
+    "illustration": "question95.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -4555,7 +4555,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "symbols",
-    "illustration": "question96.png",
+    "illustration": "question96.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4602,7 +4602,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "symbols",
-    "illustration": "question97.png",
+    "illustration": "question97.webp",
     "isSpecial65_20": true,
     "languages": {
       "en": {
@@ -4649,7 +4649,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "symbols",
-    "illustration": "question98.png",
+    "illustration": "question98.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4696,7 +4696,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "holidays",
-    "illustration": "question99.png",
+    "illustration": "question99.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
@@ -4743,7 +4743,7 @@
     "country": "US",
     "category": "integrated_civics",
     "subcategory": "holidays",
-    "illustration": "question100.png",
+    "illustration": "question100.webp",
     "isSpecial65_20": false,
     "languages": {
       "en": {
