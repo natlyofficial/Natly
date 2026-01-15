@@ -54,6 +54,7 @@ export default function FlashcardsPage() {
     statusFilter,
     setStatusFilter,
     setFilters,
+    filtersActive,
     
     dynamicCategories,
     clearAllStatuses,
@@ -271,6 +272,7 @@ export default function FlashcardsPage() {
         statusFilter={statusFilter}
         filteredIndex={index}
         filteredTotal={total}
+        filtersActive={filtersActive}
         cardStatus={cardStatus[card.id]}
         toggleStatus={toggleStatus}
       />

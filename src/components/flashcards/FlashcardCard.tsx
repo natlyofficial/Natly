@@ -35,6 +35,7 @@ interface FlashcardCardProps {
   statusFilter: "known" | "hard" | "save" | null;
   filteredIndex: number;
   filteredTotal: number;
+  filtersActive: boolean;
 
   // Save state
   cardStatus?: {
@@ -61,6 +62,7 @@ export default function FlashcardCard({
   statusFilter,
   filteredIndex,
   filteredTotal,
+  filtersActive,
   cardStatus,
   toggleStatus,
 }: FlashcardCardProps) {
@@ -69,6 +71,10 @@ export default function FlashcardCard({
     hard: tCommon("actions.dislike"),
     save: tCommon("filters.status_saved"),
   };
+
+  const contextLabel = statusFilter
+    ? statusLabelMap[statusFilter]
+    : tCommon("filters.category") || "Category";
 
   return (
     <div className="relative flex justify-center">
@@ -85,12 +91,14 @@ export default function FlashcardCard({
 
           {/* Question index */}
           <p className="flex flex-wrap items-center gap-2 text-sm md:text-lg text-natly-gray">
-            {statusFilter ? (
+            {filtersActive ? (
               <>
+                {/* Global exam question number */}
                 <span className="font-semibold text-natly-teal-dark">
                   {t("labels.question")} {card.order}
                 </span>
 
+                {/* Context badge (category / saved / known / hard) */}
                 <span
                   className={`
                     inline-flex items-center gap-1
@@ -99,20 +107,22 @@ export default function FlashcardCard({
                     text-md
                     font-semibold
                     transition-colors
-
                     ${
                       statusFilter === "known"
                         ? "bg-natly-known-soft text-natly-known-text"
                         : statusFilter === "hard"
                         ? "bg-natly-hard-soft text-natly-hard-text"
-                        : "bg-natly-teal/10 text-natly-teal-dark"
+                        : statusFilter === "save"
+                        ? "bg-natly-teal/10 text-natly-teal-dark"
+                        : "bg-gray-100 text-natly-gray"
                     }
                   `}
                 >
-                  {statusLabelMap[statusFilter]}
-                  <span className="opacity-70">
+                  
+                  <span className="opacity-70 whitespace-nowrap">
                     {filteredIndex + 1} / {filteredTotal}
                   </span>
+                  <span className="whitespace-nowrap">{contextLabel}</span>
                 </span>
               </>
             ) : (

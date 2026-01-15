@@ -292,7 +292,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
 
     setFilteredCards(list);
     setIndex((prev) => (prev >= list.length ? 0 : prev));
-    
+
   }, [
     searchQuery,
     filters.category,
