@@ -9,6 +9,8 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { initAnalytics } from "./lib/analytics";
 import { initEmail } from "./lib/email";
 
+import LoadingSpinner from "./components/LoadingSpinner";
+
 initAnalytics();
 initEmail();
 
@@ -31,7 +33,7 @@ createRoot(document.getElementById("root")!).render(
       scriptProps={{ async: true, defer: true }}
     >
       <BrowserRouter>
-        <Suspense fallback={<div>Cargando...</div>}>
+        <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Home />} />

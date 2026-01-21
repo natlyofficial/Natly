@@ -88,5 +88,9 @@
     "geography": "Geography",
     "symbols": "Symbols",
     "holidays": "Holidays"
+  },
+
+  "loading": {
+    "message": "Preparing your journey to U.S. citizenship..."
   }
 }

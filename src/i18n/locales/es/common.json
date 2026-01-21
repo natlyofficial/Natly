@@ -88,5 +88,9 @@
     "geography": "Geografía",
     "symbols": "Símbolos nacionales",
     "holidays": "Días festivos"
+  },
+
+  "loading": {
+    "message": "Preparando tu camino hacia la ciudadanía estadounidense..."
   }
 }
