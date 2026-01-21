@@ -1,6 +1,7 @@
 import { type Dispatch, type SetStateAction } from "react";
 import { IconAudio, IconSaveFilled, IconSaveOutline } from "../../natly-icons";
 import IconCheck from "./Check";
+import type { Category } from "../../data/civicCategories";
 
 interface FlashcardCardProps {
   card: {
@@ -36,6 +37,12 @@ interface FlashcardCardProps {
   filteredIndex: number;
   filteredTotal: number;
   filtersActive: boolean;
+  searchQuery: string;
+  filters: {
+    category: string;
+  };
+
+  dynamicCategories: Category[];
 
   // Save state
   cardStatus?: {
@@ -63,18 +70,32 @@ export default function FlashcardCard({
   filteredIndex,
   filteredTotal,
   filtersActive,
+  searchQuery,
+  filters,
+  dynamicCategories,
   cardStatus,
   toggleStatus,
 }: FlashcardCardProps) {
+
   const statusLabelMap: Record<"known" | "hard" | "save", string> = {
     known: tCommon("actions.like"),
     hard: tCommon("actions.dislike"),
     save: tCommon("filters.status_saved"),
   };
 
-  const contextLabel = statusFilter
-    ? statusLabelMap[statusFilter]
-    : tCommon("filters.category") || "Category";
+  const categoryLabel =
+    filters.category !== "all"
+      ? tCommon(
+          dynamicCategories.find(c => c.id === filters.category)?.labelKey ?? ""
+        )
+      : null;
+
+  const contextLabel = (() => {
+    if (statusFilter) return statusLabelMap[statusFilter];
+    if (searchQuery.trim()) return tCommon("filters.search");
+    if (categoryLabel) return `${tCommon("filters.category")} ${categoryLabel}`;
+    return "";
+  })();
 
   return (
     <div className="relative flex justify-center">
@@ -86,19 +107,31 @@ export default function FlashcardCard({
           relative border-4 border-natly-teal
         "
       >
-        {/* ---------- Question number + Save action ---------- */}
-        <div className="absolute top-4 right-4 flex items-center gap-3">
 
-          {/* Question index */}
-          <p className="flex flex-wrap items-center gap-2 text-sm md:text-lg text-natly-gray">
+        {/* 
+          HEADER BEHAVIOR (KEY FIX)
+          - Mobile: stays in normal flow, aligned to the card width
+          - Desktop: returns to your original absolute top-right layout
+        */}
+        <div
+          className="
+            relative w-full mx-auto
+            md:absolute md:top-4 md:right-4 
+            md:w-auto md:mb-0 md:px-0 md:mx-0
+            flex items-center gap-3
+            justify-end
+          "
+        >
+
+          <p className="flex flex-wrap items-center gap-2 text-xs sm:text-sm md:text-lg text-natly-gray">
+
             {filtersActive ? (
               <>
-                {/* Global exam question number */}
                 <span className="font-semibold text-natly-teal-dark">
                   {t("labels.question")} {card.order}
                 </span>
 
-                {/* Context badge (category / saved / known / hard) */}
+                {/* Context badge */}
                 <span
                   className={`
                     inline-flex items-center gap-1
@@ -118,15 +151,17 @@ export default function FlashcardCard({
                     }
                   `}
                 >
-                  
                   <span className="opacity-70 whitespace-nowrap">
                     {filteredIndex + 1} / {filteredTotal}
                   </span>
-                  <span className="whitespace-nowrap">{contextLabel}</span>
+                  {contextLabel && (
+                    <span className="whitespace-nowrap">{contextLabel}</span>
+                  )}
                 </span>
               </>
             ) : (
-              <span className="font-semibold text-natly-teal-dark">
+              /* Prevent line break when there is NO filter */
+              <span className="font-semibold text-natly-teal-dark whitespace-nowrap">
                 {t("labels.question")} {card.order} / {total}
               </span>
             )}
@@ -154,7 +189,7 @@ export default function FlashcardCard({
         </div>
 
         {/* ---------- Progress bar ---------- */}
-        <div className="mt-10 mb-6 md:mb-8 md:mt-6">
+        <div className="mt-4 mb-4 md:mb-8 md:mt-6">
           <div className="relative w-full h-4 md:h-6 bg-gray-200 rounded-full overflow-hidden shadow-inner">
             <div
               className="h-full bg-natly-teal transition-all"
@@ -165,27 +200,25 @@ export default function FlashcardCard({
 
         {/* ---------- Image + Question ---------- */}
         <div className="mt-4">
-          <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center md:items-start">
+          <div className="flex flex-col md:flex-row md:gap-6 xl:gap-10 items-center md:items-start">
 
             {/* Illustration */}
             <img
               src={imgPath}
-              className="w-100 rounded-2xl shadow-md"
+              className="w-100 md:w-70 lg:w-100 xl:w-100 rounded-2xl shadow-md"
               alt="Question illustration"
             />
 
             {/* Question content */}
-            <div className="flex-1">
+            <div className="flex-1 mt-6 md:mt-0 w-full">
 
               {/* Spanish */}
               {(langMode === "es" || langMode === "both") && (
                 <div className="flex justify-between items-start mb-4">
-
-                  <h2 className="text-left text-3xl md:text-[38px] font-bold text-natly-teal-dark leading-snug flex-1">
+                  <h2 className="text-left text-3xl lg:text-[38px] font-bold text-natly-teal-dark leading-snug flex-1">
                     {card.languages.es.question}
                   </h2>
 
-                  {/* Audio button */}
                   <button
                     onClick={() => setShowAudioPopup(true)}
                     className="
@@ -206,12 +239,10 @@ export default function FlashcardCard({
               {/* English */}
               {(langMode === "en" || langMode === "both") && (
                 <div className="flex justify-between items-start mb-4">
-
                   <h2 className="text-left text-3xl md:text-[38px] font-bold text-natly-teal-dark leading-snug italic flex-1">
                     {card.languages.en.question}
                   </h2>
 
-                  {/* Audio button */}
                   <button
                     onClick={() => setShowAudioPopup(true)}
                     className="
@@ -242,7 +273,6 @@ export default function FlashcardCard({
                 rounded-xl shadow-sm
               "
             >
-              {/* Spanish hint */}
               {(langMode === "es" || langMode === "both") && (
                 <>
                   <h3 className="text-lg font-bold text-natly-teal-dark mb-1">
@@ -254,7 +284,6 @@ export default function FlashcardCard({
                 </>
               )}
 
-              {/* English hint */}
               {(langMode === "en" || langMode === "both") && (
                 <>
                   <h3 className="text-lg font-bold text-natly-teal-dark mb-1">
@@ -266,7 +295,6 @@ export default function FlashcardCard({
                 </>
               )}
 
-              {/* Hint counter */}
               <p className="text-sm text-natly-gray mt-3">
                 {hintIndex + 1} / {card.languages[primaryLang].hints.length}
               </p>
@@ -277,7 +305,6 @@ export default function FlashcardCard({
           {showAnswer && (
             <div className="mt-10 p-6 bg-natly-cream border-l-4 border-natly-teal rounded-xl shadow-sm animate-slideDown">
 
-              {/* Spanish answer */}
               {(langMode === "es" || langMode === "both") && (
                 <div className="mb-4">
                   <h3 className="text-lg font-bold text-natly-blue mb-2">
@@ -295,7 +322,6 @@ export default function FlashcardCard({
                 </div>
               )}
 
-              {/* English answer */}
               {(langMode === "en" || langMode === "both") && (
                 <div>
                   <h3 className="text-lg font-bold text-natly-teal-dark mb-2">

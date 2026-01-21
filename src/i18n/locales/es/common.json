@@ -47,7 +47,8 @@
     "categories": "Categorías",
     "status": "Estado",
     "range": "Rango de preguntas",
-    "category" : "en esta categoría",
+    "category" : "Categoría",
+    "search": "en esta búsqueda",
 
     "category_all": "Todas las categorías",
     "category_american_government": "Gobierno de América",
@@ -70,7 +71,7 @@
   },
 
   "categories": {
-    "american_government": "Gobierno estadounidense",
+    "american_government": "Gobierno Estadounidense",
     "american_history": "Historia de Estados Unidos",
     "integrated_civics": "Cívica integrada",
     "symbols_and_holidays": "Símbolos y días festivos"

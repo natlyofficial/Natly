@@ -132,7 +132,11 @@ export default function FiltersMobilePanel({
             <span className="font-bold">({saveCount})</span>
           </label>
 
-          <button onClick={clearAllStatuses}
+          <button
+            onClick={() => {
+              clearAllStatuses();
+              close();
+            }}
             className="text-natly-teal underline">
             {tCommon("actions.clear_all_statuses")}
           </button>
@@ -175,7 +179,10 @@ export default function FiltersMobilePanel({
         <div className="flex justify-between">
           <button
             onClick={() => {
-              setFilters({ category: "all", range: { min: 1, max: 120 } });
+              setFilters({
+                category: "all",
+                range: { min: 1, max: filters.range.max },
+              });
               setStatusFilter(null);
             }}
             className="text-natly-teal underline"

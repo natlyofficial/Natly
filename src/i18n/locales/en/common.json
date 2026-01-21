@@ -47,7 +47,8 @@
     "categories": "Categories",
     "status": "Status",
     "range": "Question range",
-    "category" : "in this category",
+    "category" : "Category",
+    "search": "in this search",
     
     "category_all": "All categories",
     "category_american_government": "America Government",

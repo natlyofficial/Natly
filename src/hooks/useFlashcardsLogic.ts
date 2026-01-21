@@ -87,7 +87,8 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
       ? (civic128 as Flashcard[])
       : (civic100 as Flashcard[]);
 
-  const dynamicCategories = CIVIC_CATEGORIES[examVersion];
+  const dynamicCategories =
+    CIVIC_CATEGORIES[examVersion] ?? [];
 
   const [filters, setFilters] = useState<{
     category: string;

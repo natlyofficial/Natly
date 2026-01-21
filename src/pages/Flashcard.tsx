@@ -273,6 +273,9 @@ export default function FlashcardsPage() {
         filteredIndex={index}
         filteredTotal={total}
         filtersActive={filtersActive}
+        searchQuery={searchQuery}
+        filters={filters}
+        dynamicCategories={dynamicCategories}
         cardStatus={cardStatus[card.id]}
         toggleStatus={toggleStatus}
       />
