@@ -53,7 +53,7 @@ const NO_RESULTS_CARD: Flashcard = {
   country: "none",
   category: "none",
   subcategory: "none",
-  illustration: "noimage.png",
+  illustration: "noimage.webp",
   isSpecial65_20: false,
   languages: {
     en: {

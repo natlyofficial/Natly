@@ -1,7 +1,7 @@
-import facebookIcon from "../assets//icon//facebook.png";
-import tiktokIcon from "../assets//icon//tiktok.png";
-import youtubeIcon from "../assets//icon//youtube.png";
-import instagramIcon from "../assets//icon//instagram.png";
+import facebookIcon from "../assets//icon//facebook.webp";
+import tiktokIcon from "../assets//icon//tiktok.webp";
+import youtubeIcon from "../assets//icon//youtube.webp";
+import instagramIcon from "../assets//icon//instagram.webp";
 
 import { useTranslation } from "react-i18next";
 

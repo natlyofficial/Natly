@@ -1,4 +1,4 @@
-import mascotdonation from "../assets/donation.png";
+import mascotdonation from "../assets/donation.webp";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 

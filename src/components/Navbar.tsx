@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 
-import LanguageIcon from "../assets/icon/language.png";
+import LanguageIcon from "../assets/icon/language.webp";
 import { IconClose, IconMenu } from "../natly-icons";
 
 export default function Navbar() {
