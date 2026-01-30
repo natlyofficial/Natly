@@ -4,10 +4,12 @@
 @theme {
   --color-natly-blue: #0A3A78;
   --color-natly-blue-dark: #052859;
+  --color-natly-blue-soft: #5089ba;
   --color-natly-teal: #0A6A73;
   --color-natly-teal-dark: #064A52;
   --color-natly-yellow: #F4B000;
   --color-natly-yellow-dark: #D99A00;
+  --color-natly-yellow-soft: #ffe070;
   --color-natly-cream: #FFF8EF;
   --color-natly-gray: #4A4A4A;
   --color-natly-deep: #0B162A; 

@@ -1,0 +1,43 @@
+{
+  "headlines": {
+    "main": "Empieza hoy. Avanza a tu ritmo. Aprueba con confianza."
+  },
+
+  "steps": {
+    "step_1": "Paso 1",
+    "step_2": "Paso 2",
+    "step_3": "Paso 3"
+  },
+
+  "sections": {
+    "exam_mode": {
+      "title": "MODO EXAMEN",
+      "subtitle": "Selecciona una modalidad"
+    }
+  },
+
+  "modes": {
+    "easy": {
+      "tag": "Recomendado para empezar",
+      "title": "FÁCIL",
+      "description": "Opción múltiple"
+    },
+    "hard": {
+      "title": "DIFÍCIL",
+      "description": "Escribe o usa tu voz",
+      "level": "Para usuarios avanzados"
+    },
+    "interview": {
+      "title": "ENTREVISTA",
+      "description": "Simulación de entrevista",
+      "cta": "Iniciar entrevista",
+      "included": "Incluido en Natly+"
+    }
+  },
+
+  "navigation": {
+    "progress": "Ver progreso",
+    "plan": "Mi plan",
+    "history": "Historial"
+  }
+}

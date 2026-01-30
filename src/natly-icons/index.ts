@@ -17,3 +17,6 @@ export { default as IconFilter } from "./Filter";
 export { default as IconClose } from "./Close";
 export { default as IconMenu } from "./Menu";
 export { default as IconSetting } from "./Setting";
+export { default as IconMicrophone } from "./Microphone";
+export { default as IconHappyFace } from "./HappyFace";
+export { default as IconSeriousQuestion } from "./IconSerious";

@@ -2,6 +2,7 @@
   "messages": {
     "audio_unavailable": "La reproducción de audio estará disponible muy pronto. ¡Gracias por tu paciencia!",
     "feature_unavailable": "Esta función aún no está habilitada.",
+    "exam_mode_unavailable": "Este modo de examen aún no está disponible. Estamos trabajando en ello.",
     "coming_soon": "Próximamente.",
     "under_construction": "Estamos trabajando en esta sección. ¡Estará lista muy pronto!"
   },

@@ -7,6 +7,7 @@ import es from "./locales/es/common.json";
 import esNavbar from "./locales/es/navbar.json";
 import esHome from "./locales/es/home.json";
 import esFlashcards from "./locales/es/flashcards.json";
+import esQuiz from "./locales/es/quiz.json";
 import esDonate from "./locales/es/donation.json";
 import esAbout from "./locales/es/about.json";
 import esContact from "./locales/es/contact.json";
@@ -16,10 +17,12 @@ import en from "./locales/en/common.json";
 import enNavbar from "./locales/en/navbar.json";
 import enHome from "./locales/en/home.json";
 import enFlashcards from "./locales/en/flashcards.json";
+import enQuiz from "./locales/en/quiz.json";
 import enDonate from "./locales/en/donation.json";
 import enAbout from "./locales/en/about.json";
 import enContact from "./locales/en/contact.json";
 import enFooter from "./locales/en/footer.json";
+import { q } from "framer-motion/client";
 
 i18n
   .use(LanguageDetector)
@@ -31,6 +34,7 @@ i18n
         navbar : enNavbar,
         home: enHome,
         flashcards: enFlashcards,
+        quiz: enQuiz,
         donate: enDonate,
         about: enAbout,
         contact: enContact,
@@ -41,6 +45,7 @@ i18n
         navbar: esNavbar,
         home: esHome,
         flashcards: esFlashcards,
+        quiz: esQuiz,
         donate: esDonate,
         about: esAbout,
         contact: esContact,

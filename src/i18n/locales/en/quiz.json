@@ -1,0 +1,43 @@
+{
+  "headlines": {
+    "main": "Start today. Go at your pace. Pass with confidence."
+  },
+
+  "steps": {
+    "step_1": "Step 1",
+    "step_2": "Step 2",
+    "step_3": "Step 3"
+  },
+
+  "sections": {
+    "exam_mode": {
+      "title": "EXAM MODE",
+      "subtitle": "Select a mode"
+    }
+  },
+
+  "modes": {
+    "easy": {
+      "tag": "Recommended to start",
+      "title": "EASY",
+      "description": "Multiple choice"
+    },
+    "hard": {
+      "title": "HARD",
+      "description": "Type or use your voice",
+      "level": "For advanced users"
+    },
+    "interview": {
+      "title": "INTERVIEW",
+      "description": "Interview Simulation",
+      "cta": "Start Interview",
+      "included": "Included in Natly+"
+    }
+  },
+
+  "navigation": {
+    "progress": "View progress",
+    "plan": "My plan",
+    "history": "History"
+  }
+}

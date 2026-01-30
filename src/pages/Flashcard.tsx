@@ -15,8 +15,8 @@ import FiltersMobilePanel from "../components/flashcards/FiltersMobilePanel";
 import OptionsMobilePanel from "../components/flashcards/OptionsMobilePanel";
 
 /* Popups */
-import AudioUnavailablePopup from "../components/AudioUnavailablePopup";
 import ExamVersionPopup from "../components/ExamVersionPopup";
+import GenericPopup from "../components/ui/Popup";
 
 /* Other UI */
 import DonationBanner from "../components/DonationBanner";
@@ -306,7 +306,7 @@ export default function FlashcardsPage() {
       <DonationBanner />
 
       {showAudioPopup && (
-        <AudioUnavailablePopup
+        <GenericPopup
           title={tCommon("messages.feature_unavailable")}
           message={tCommon("messages.audio_unavailable")}
           onClose={() => setShowAudioPopup(false)}
