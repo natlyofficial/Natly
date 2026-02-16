@@ -4,8 +4,8 @@ interface OptionsMobilePanelProps {
   show: boolean;
   onClose: () => void;
 
-  examVersion: "100" | "128";
-  setExamVersion: (v: "100" | "128") => void;
+  examVersion: "exam_2008_100" | "exam_2025_128";
+  setExamVersion: (v: "exam_2008_100" | "exam_2025_128") => void;
 
   tCommon: (key: string) => string;
 }
@@ -43,11 +43,11 @@ export default function OptionsMobilePanel({
 
           {/* 128 – Recommended */}
           <button
-            onClick={() => setExamVersion("128")}
+            onClick={() => setExamVersion("exam_2025_128")}
             className={`
               w-full text-left px-4 py-3 rounded-xl border
               ${
-                examVersion === "128"
+                examVersion === "exam_2025_128"
                   ? "border-natly-teal bg-natly-teal/10 text-natly-teal"
                   : "border-gray-200 bg-white text-natly-blue"
               }
@@ -63,11 +63,11 @@ export default function OptionsMobilePanel({
 
           {/* 100 – Previous */}
           <button
-            onClick={() => setExamVersion("100")}
+            onClick={() => setExamVersion("exam_2008_100")}
             className={`
               w-full text-left px-4 py-3 rounded-xl border
               ${
-                examVersion === "100"
+                examVersion === "exam_2008_100"
                   ? "border-natly-teal bg-natly-teal/10 text-natly-teal"
                   : "border-gray-200 bg-white text-natly-blue"
               }

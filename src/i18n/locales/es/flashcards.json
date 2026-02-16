@@ -1,11 +1,4 @@
 {
-  "actions": {
-    "show_answer": "Mostrar respuesta",
-    "hide_answer": "Ocultar respuesta",
-    "hint": "Pista",
-    "next": "Siguiente",
-    "previous": "Anterior"
-  },
 
   "labels": {
     "question": "Pregunta",

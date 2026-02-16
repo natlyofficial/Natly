@@ -20,3 +20,5 @@ export { default as IconSetting } from "./Setting";
 export { default as IconMicrophone } from "./Microphone";
 export { default as IconHappyFace } from "./HappyFace";
 export { default as IconSeriousQuestion } from "./IconSerious";
+export { default as IconCheck } from "./Check";
+export { default as IconBars } from "./Bars";

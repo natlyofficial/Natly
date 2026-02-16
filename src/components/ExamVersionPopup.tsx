@@ -1,5 +1,5 @@
 interface ExamVersionPopupProps {
-  onSelect: (v: "100" | "128") => void;
+  onSelect: (v: "exam_2008_100" | "exam_2025_128") => void;
   tCommon: (key: string) => string;
 }
 
@@ -17,7 +17,7 @@ export default function ExamVersionPopup({
 
         {/* 128 */}
         <button
-          onClick={() => onSelect("128")}
+          onClick={() => onSelect("exam_2025_128")}
           className="
             w-full mb-3 p-4 rounded-xl border
             border-natly-teal bg-natly-teal/10
@@ -34,7 +34,7 @@ export default function ExamVersionPopup({
 
         {/* 100 */}
         <button
-          onClick={() => onSelect("100")}
+          onClick={() => onSelect("exam_2008_100")}
           className="
             w-full p-4 rounded-xl border
             border-natly-teal text-left

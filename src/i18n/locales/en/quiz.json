@@ -1,4 +1,13 @@
 {
+  "actions": {
+    "finish_quiz": "Finish Quiz"
+  },
+
+  "config": {
+    "title": "Quiz Configuration",
+    "subtitle": "Select your exam version and language"
+  },
+  
   "headlines": {
     "main": "Start today. Go at your pace. Pass with confidence."
   },
@@ -12,7 +21,9 @@
   "sections": {
     "exam_mode": {
       "title": "EXAM MODE",
-      "subtitle": "Select a mode"
+      "subtitle_mode": "Select a mode",
+      "subtitle_version": "Select a version",
+      "subtitle_language": "Select a language"
     }
   },
 
@@ -24,13 +35,11 @@
     },
     "hard": {
       "title": "HARD",
-      "description": "Type or use your voice",
-      "level": "For advanced users"
+      "description": "Type or use your voice"
     },
     "interview": {
       "title": "INTERVIEW",
       "description": "Interview Simulation",
-      "cta": "Start Interview",
       "included": "Included in Natly+"
     }
   },
@@ -39,5 +48,116 @@
     "progress": "View progress",
     "plan": "My plan",
     "history": "History"
+  },
+
+  "easy_options": {
+    "title": "Easy Mode — Multiple Choice Practice",
+    "subtitle": "Choose how you want to practice",
+
+    "guided": {
+      "title": "Guided Practice",
+      "description": "Answer questions with hints and real-time feedback.",
+      "action": "Start practice"
+    },
+
+    "quick": {
+      "title": "Quick Test",
+      "description": "10 random questions without help to measure your level.",
+      "action": "Start test"
+    },
+
+    "topics": {
+      "title": "By Topic",
+      "description": "Practice only Government, History, or Rights.",
+      "action": "View topics"
+    },
+
+    "footer": "You can change modes at any time from the top menu."
+  },
+
+  "quiz_progress": {
+    "question": "Question {{current}} of {{total}}"
+  },
+
+  "hints": {
+    "quiz_language_info": "Choose the language for quiz questions"
+  },
+
+  "feedback": {
+    "correct": "Correct! (+1 pt)",
+    "incorrect": "Incorrect (0 pts)",
+    "answer_revealed": "Answer revealed (0 pts)"
+  },
+  
+  "results": {
+    "title": "Quiz Results",
+    "subtitle": "Here's how you did",
+    "loading": "Loading results...",
+    
+    "correct_answers": "Correct",
+    "incorrect_answers": "Incorrect",
+    "unanswered": "Skipped",
+    "time_taken": "Time",
+    
+    "questions_to_review": "Questions to Review",
+    "question_number": "Question",
+    "click_to_review": "Click to review in flashcards",
+    "review": "Review",
+    "more_to_review": "more questions to review",
+    
+    "overall_progress": "Overall Progress",
+    "sessions": "Sessions",
+    "known": "Known",
+    "hard": "Hard",
+    "streak": "Best Streak",
+    
+    "retry_quiz": "Retry Quiz",
+    "back_to_home": "Back to Home",
+    "progress_saved": "Your results have been saved",
+    "accuracy": "Accuracy",
+    "performance": {
+      "excellent": "Excellent",
+      "very_good": "Very Good",
+      "good": "Good",
+      "acceptable": "Acceptable",
+      "fair": "Fair",
+      "low": "Low",
+      "very_low": "Very Low"
+    }
+  },
+  
+  "motivational": {
+    "no_attempt": {
+      "title": "We're here to help",
+      "subtitle": "You didn't answer any questions this time, and that's okay..."
+    },
+    "very_low": {
+      "title": "Don't worry, it's part of the process",
+      "subtitle": "Learning takes time..."
+    },
+    "low": {
+      "title": "Every attempt gets you closer",
+      "subtitle": "You're learning, and that's what matters..."
+    },
+    "fair": {
+      "title": "You're on the right track!",
+      "subtitle": "You passed, but you can do even better..."
+    },
+    "acceptable": {
+      "title": "Good job!",
+      "subtitle": "You're showing a solid understanding..."
+    },
+    "good": {
+      "title": "Great progress!",
+      "subtitle": "Your effort is paying off..."
+    },
+    "very_good": {
+      "title": "Amazing work!",
+      "subtitle": "You're almost ready for the real test..."
+    },
+    "excellent": {
+      "title": "Perfect! You're ready",
+      "subtitle": "Your knowledge is outstanding..."
+    }
   }
 }

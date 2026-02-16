@@ -9,8 +9,8 @@ export type Category = {
   subcategories: SubCategory[];
 };
 
-export const CIVIC_CATEGORIES: Record<"100" | "128", Category[]> = {
-  "100": [
+export const CIVIC_CATEGORIES: Record<"exam_2008_100" | "exam_2025_128", Category[]> = {
+  "exam_2008_100": [
     {
       id: "american_government",
       labelKey: "categories.american_government",
@@ -58,7 +58,7 @@ export const CIVIC_CATEGORIES: Record<"100" | "128", Category[]> = {
     },
   ],
 
-  "128": [
+  "exam_2025_128": [
     {
       id: "american_government",
       labelKey: "categories.american_government",

@@ -75,7 +75,7 @@ export default function FlashcardFooter({
               <IconShowAnswer size={32} color="#1F6F73" />
             )}
             <span className="font-semibold text-lg whitespace-nowrap">
-              {showAnswer ? t("actions.hide_answer") : t("actions.show_answer")}
+              {showAnswer ? tCommon("actions.hide_answer") : tCommon("actions.show_answer")}
             </span>
           </button>
 
@@ -93,7 +93,7 @@ export default function FlashcardFooter({
           >
             <IconHint size={32} color={showHint ? "#FFFFFF" : "#f5af00"} />
             <span className="font-semibold text-lg whitespace-nowrap">
-              {t("actions.hint")}
+              {tCommon("actions.hint")}
             </span>
           </button>
 

@@ -1,6 +1,6 @@
 interface OptionsDesktopPanelProps {
-  examVersion: "100" | "128";
-  setExamVersion: (v: "100" | "128") => void;
+  examVersion: "exam_2008_100" | "exam_2025_128";
+  setExamVersion: (v: "exam_2008_100" | "exam_2025_128") => void;
 
   tCommon: (key: string) => string;
   close: () => void;
@@ -32,7 +32,7 @@ export default function OptionsDesktopPanel({
           className={`
             flex items-center gap-3 cursor-pointer rounded-lg px-3 py-2
             ${
-              examVersion === "128"
+              examVersion === "exam_2025_128"
                 ? "bg-natly-teal/10 text-natly-teal font-semibold"
                 : "hover:bg-natly-teal/5 text-natly-blue"
             }
@@ -40,11 +40,11 @@ export default function OptionsDesktopPanel({
         >
           <input
             type="checkbox"
-            checked={examVersion === "128"}
+            checked={examVersion === "exam_2025_128"}
             onChange={() => {
               // 128 is default: if already selected, do nothing
-              if (examVersion !== "128") {
-                setExamVersion("128");
+              if (examVersion !== "exam_2025_128") {
+                setExamVersion("exam_2025_128");
               }
             }}
             className="accent-natly-teal"
@@ -62,7 +62,7 @@ export default function OptionsDesktopPanel({
           className={`
             flex items-center gap-3 cursor-pointer rounded-lg px-3 py-2
             ${
-              examVersion === "100"
+              examVersion === "exam_2008_100"
                 ? "bg-natly-teal/10 text-natly-teal font-semibold"
                 : "hover:bg-natly-teal/5 text-natly-blue"
             }
@@ -70,11 +70,11 @@ export default function OptionsDesktopPanel({
         >
           <input
             type="checkbox"
-            checked={examVersion === "100"}
+            checked={examVersion === "exam_2008_100"}
             onChange={() => {
               // switching to previous version must be explicit
-              if (examVersion !== "100") {
-                setExamVersion("100");
+              if (examVersion !== "exam_2008_100") {
+                setExamVersion("exam_2008_100");
               }
             }}
             className="accent-natly-teal"

@@ -19,7 +19,8 @@
     "continue": "Continuar",
     "apply": "Aplicar",
     "reset": "Restablecer",
-    "donate": "Apoyar con una donación"
+    "donate": "Apoyar con una donación",
+    "back": "Atrás"
   },
 
   "donation": {
@@ -32,7 +33,7 @@
     "filters": "Filtros",
     "show_answer": "Mostrar respuesta",
     "hide_answer": "Ocultar respuesta",
-    "hint": "Pista",
+    "hint": "Mostrar pista",
     "like": "Ya me la sé",
     "dislike": "Me cuesta",
     "favorite": "Favorita",
@@ -41,7 +42,8 @@
     "previous_question": "Pregunta",
     "clear_all_statuses": "Borrar todos los estados",
     "clear_search_question": "Limpiar",
-    "options": "Opciones"
+    "options": "Opciones",
+    "finish": "Terminar"
   },
 
   "filters": {
@@ -65,6 +67,10 @@
   "options": {
     "choose_exam_version": "Elige tu versión del examen",
     "exam_version": "Versión del examen",
+    "exam_version_2025": "Versión del examen 2025",
+    "exam_version_2008": "Versión del examen 2008",
+    "exam_version_2025_subtitle": "Practica las 128 preguntas (Nueva versión)",
+    "exam_version_2008_subtitle": "Practica las 100 preguntas",
     "exam_version_100": "100 preguntas",
     "exam_version_128": "128 preguntas",
     "exam_version_recommended": "Recomendada",
@@ -93,5 +99,27 @@
 
   "loading": {
     "message": "Preparando tu camino hacia la ciudadanía estadounidense..."
+  },
+
+  "natlyplus": {
+    "badge": "PLUS",
+    "upgrade": {
+      "title": "Mejora a Natly Plus",
+      "cta": "Saber Más"
+    },
+    "features": {
+      "quiz": {
+        "title": "Rastrea Todas las Preguntas Incorrectas",
+        "description": "¡Ve TODAS las preguntas que has respondido incorrectamente en todas las sesiones, rastrea tu progreso y domínalas una por una!"
+      }
+    },
+    "feature_locked": "Función Premium",
+    "unlock_progress": {
+      "title": "Rastrea Tu Progreso",
+      "message": "¡Has dominado {{known}} preguntas y {{hard}} necesitan más práctica!\n\nMejora a Natly Plus para:\n✨ Ver qué preguntas has dominado\n✨ Identificar preguntas difíciles\n✨ Estudiar mejor con recomendaciones de IA",
+      "upgrade_button": "Mejorar a Natly Plus",
+      "dismiss_button": "Tal Vez Después"
+    },
+    "click_to_unlock": "Clic para desbloquear"
   }
 }

@@ -1,4 +1,13 @@
 {
+  "actions": {
+    "finish_quiz": "Terminar cuestionario"
+  },
+
+  "config": {
+    "title": "Configuración del cuestionario",
+    "subtitle": "Selecciona tu versión de examen y idioma"
+  },
+
   "headlines": {
     "main": "Empieza hoy. Avanza a tu ritmo. Aprueba con confianza."
   },
@@ -12,7 +21,9 @@
   "sections": {
     "exam_mode": {
       "title": "MODO EXAMEN",
-      "subtitle": "Selecciona una modalidad"
+      "subtitle_mode": "Selecciona un modo",
+      "subtitle_version": "Selecciona una versión",
+      "subtitle_language": "Selecciona un idioma"
     }
   },
 
@@ -24,13 +35,11 @@
     },
     "hard": {
       "title": "DIFÍCIL",
-      "description": "Escribe o usa tu voz",
-      "level": "Para usuarios avanzados"
+      "description": "Escribe o usa tu voz"
     },
     "interview": {
       "title": "ENTREVISTA",
       "description": "Simulación de entrevista",
-      "cta": "Iniciar entrevista",
       "included": "Incluido en Natly+"
     }
   },
@@ -39,5 +48,117 @@
     "progress": "Ver progreso",
     "plan": "Mi plan",
     "history": "Historial"
+  },
+
+  "easy_options": {
+    "title": "Modo Fácil — Práctica de opción múltiple",
+    "subtitle": "Elige cómo quieres practicar",
+
+    "guided": {
+      "title": "Práctica guiada",
+      "description": "Responde preguntas con pistas y retroalimentación en tiempo real.",
+      "action": "Iniciar práctica"
+    },
+
+    "quick": {
+      "title": "Prueba rápida",
+      "description": "10 preguntas aleatorias sin ayuda para medir tu nivel.",
+      "action": "Iniciar prueba"
+    },
+
+    "topics": {
+      "title": "Por tema",
+      "description": "Practica solo Gobierno, Historia o Derechos.",
+      "action": "Ver temas"
+    },
+
+    "footer": "Puedes cambiar de modo en cualquier momento desde el menú superior."
+
+  },
+
+  "quiz_progress": {
+    "question": "Pregunta {{current}} de {{total}}"
+  },
+
+  "hints": {
+    "quiz_language_info": "Selecciona el idioma para las preguntas del cuestionario"
+  },
+
+  "feedback": {
+    "correct": "¡Correcto! (+1 pt)",
+    "incorrect": "Incorrecto (0 pts)",
+    "answer_revealed": "Respuesta revelada (0 pts)"
+  },
+
+  "results": {
+    "title": "Resultados del Quiz",
+    "subtitle": "Así te fue",
+    "loading": "Cargando resultados...",
+    
+    "correct_answers": "Correctas",
+    "incorrect_answers": "Incorrectas",
+    "unanswered": "Omitidas",
+    "time_taken": "Tiempo",
+    
+    "questions_to_review": "Preguntas para Repasar",
+    "question_number": "Pregunta",
+    "click_to_review": "Haz clic para repasar en flashcards",
+    "review": "Repasar",
+    "more_to_review": "preguntas más para repasar",
+    
+    "overall_progress": "Progreso General",
+    "sessions": "Sesiones",
+    "known": "Dominadas",
+    "hard": "Difíciles",
+    "streak": "Mejor Racha",
+    
+    "retry_quiz": "Repetir Quiz",
+    "back_to_home": "Volver al Inicio",
+    "progress_saved": "Tus resultados han sido guardados",
+    "accuracy": "Precisión",
+    "performance": {
+      "excellent": "Excelente",
+      "very_good": "Muy Bien",
+      "good": "Bien",
+      "acceptable": "Aceptable",
+      "fair": "Justo",
+      "low": "Bajo",
+      "very_low": "Muy Bajo"
+    }
+  },
+
+  "motivational": {
+    "no_attempt": {
+      "title": "Estamos aquí para ayudarte",
+      "subtitle": "No respondiste ninguna pregunta esta vez, pero eso está bien..."
+    },
+    "very_low": {
+      "title": "No te preocupes, es parte del proceso",
+      "subtitle": "Aprender lleva tiempo..."
+    },
+    "low": {
+      "title": "Cada intento te acerca más",
+      "subtitle": "Estás en proceso de aprendizaje..."
+    },
+    "fair": {
+      "title": "¡Vas por buen camino!",
+      "subtitle": "Aprobaste, pero sabemos que puedes dar más..."
+    },
+    "acceptable": {
+      "title": "¡Buen trabajo!",
+      "subtitle": "Estás demostrando un buen entendimiento..."
+    },
+    "good": {
+      "title": "¡Excelente progreso!",
+      "subtitle": "Tu dedicación está dando frutos..."
+    },
+    "very_good": {
+      "title": "¡Increíble trabajo!",
+      "subtitle": "Demuestras un dominio sobresaliente..."
+    },
+    "excellent": {
+      "title": "¡Perfecto! Estás listo",
+      "subtitle": "Tu dominio del material es excepcional..."
+    }
   }
 }

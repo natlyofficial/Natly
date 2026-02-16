@@ -19,7 +19,8 @@
     "continue": "Continue",
     "apply": "Apply",
     "reset": "Reset",
-    "donate": "Support with a donation"
+    "donate": "Support with a donation",
+    "back": "Back"
   },
 
   "donation": {
@@ -32,7 +33,7 @@
     "filters": "Filters",
     "show_answer": "Show answer",
     "hide_answer": "Hide answer",
-    "hint": "Hint",
+    "hint": "Show hint",
     "like": "I know this",
     "dislike": "Hard for me",
     "favorite": "Favorite",
@@ -41,7 +42,8 @@
     "previous_question": "Previous",
     "clear_all_statuses": "Clear All Statuses",
     "clear_search_question": "Clear",
-    "options": "Options"
+    "options": "Options",
+    "finish": "Finish"
   },
 
   "filters": {
@@ -65,6 +67,10 @@
   "options": {
     "choose_exam_version": "Choose your exam version",
     "exam_version": "Exam Version",
+    "exam_version_2025": "2025 Exam Version",
+    "exam_version_2008": "2008 Exam Version",
+    "exam_version_2025_subtitle": "Practice the 128 questions (New version)",
+    "exam_version_2008_subtitle": "Practice the 100 questions",
     "exam_version_100": "100 questions",
     "exam_version_128": "128 questions",
     "exam_version_recommended": "Recommended",
@@ -93,5 +99,27 @@
 
   "loading": {
     "message": "Preparing your journey to U.S. citizenship..."
+  },
+
+  "natlyplus": {
+    "badge": "PLUS",
+    "upgrade": {
+      "title": "Upgrade to Natly Plus",
+      "cta": "Learn More"
+    },
+    "features": {
+      "quiz": {
+        "title": "Track All Incorrect Questions",
+        "description": "See ALL questions you've answered incorrectly across all sessions, track your progress, and master them one by one!"
+      }
+    },
+    "feature_locked": "Premium Feature",
+    "unlock_progress": {
+      "title": "Track Your Progress",
+      "message": "You've mastered {{known}} questions and {{hard}} need more practice!\n\nUpgrade to Natly Plus to:\n✨ See which questions you've mastered\n✨ Identify difficult questions\n✨ Study smarter with AI-powered recommendations",
+      "upgrade_button": "Upgrade to Natly Plus",
+      "dismiss_button": "Maybe Later"
+    },
+    "click_to_unlock": "Click to unlock"
   }
 }

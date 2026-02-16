@@ -23,17 +23,18 @@ import DonationBanner from "../components/DonationBanner";
 
 import { useTranslation } from "react-i18next";
 
+import { useExamVersion } from "../utils/useExamVersion";
+
 /* -----------------------------------------
    Constants
 ----------------------------------------- */
-const EXAM_VERSION_KEY = "natly_exam_version";
 
 export default function FlashcardsPage() {
 
   /* -----------------------------------------
      Exam version (state + persistence)
   ----------------------------------------- */
-  const [examVersion, setExamVersion] = useState<"100" | "128">("128");
+  const { examVersion, setExamVersion } = useExamVersion();
   const [showExamPopup, setShowExamPopup] = useState(false);
 
   /* -----------------------------------------
@@ -148,25 +149,17 @@ export default function FlashcardsPage() {
      Load exam version on first render
   ----------------------------------------- */
   useEffect(() => {
-    const storedVersion = localStorage.getItem(EXAM_VERSION_KEY) as
-      | "100"
-      | "128"
-      | null;
-
-    if (storedVersion) {
-      setExamVersion(storedVersion);
-    } else {
+    if (!localStorage.getItem("natly_exam_version")) {
       setShowExamPopup(true);
     }
   }, []);
 
-  const saveExamVersion = (version: "100" | "128") => {
-    localStorage.setItem(EXAM_VERSION_KEY, version);
+  const saveExamVersion = (version: "exam_2008_100" | "exam_2025_128") => {
     setExamVersion(version);
   };
 
-  const handleInitialExamSelect = (version: "100" | "128") => {
-    saveExamVersion(version);
+  const handleInitialExamSelect = (version: "exam_2008_100" | "exam_2025_128") => {
+    setExamVersion(version);
     setShowExamPopup(false);
   };
 

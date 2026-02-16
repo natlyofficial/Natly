@@ -22,7 +22,6 @@ import enDonate from "./locales/en/donation.json";
 import enAbout from "./locales/en/about.json";
 import enContact from "./locales/en/contact.json";
 import enFooter from "./locales/en/footer.json";
-import { q } from "framer-motion/client";
 
 i18n
   .use(LanguageDetector)

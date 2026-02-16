@@ -5,6 +5,9 @@ import { CIVIC_CATEGORIES } from "../data/civicCategories";
 import i18n from "../i18n";
 
 import defaultImg from "../assets/question/noimage.webp";
+import { useQuestionFlags } from "./useQuestionFlags";
+import type { QuestionFlags } from "../types/quizData";
+import { clearAllData } from "../services/quizStorage";
 
 /* -----------------------------------------
    Types
@@ -34,14 +37,6 @@ interface Flashcard {
 }
 
 type StatusFilter = "known" | "hard" | "save" | null;
-
-type CardFlags = {
-  known: boolean;
-  hard: boolean;
-  save: boolean;
-};
-
-type CardStatusMap = Record<number, CardFlags>;
 
 /* -----------------------------------------
    Fallback card
@@ -75,15 +70,12 @@ const NO_RESULTS_CARD: Flashcard = {
   },
 };
 
-const getCardStatusKey = (examVersion: "100" | "128") =>
-  `natly-card-status-${examVersion}`;
-
 /* -----------------------------------------
    Hook
 ----------------------------------------- */
-export function useFlashcardsLogic(examVersion: "100" | "128") {
+export function useFlashcardsLogic(examVersion: "exam_2008_100" | "exam_2025_128") {
   const flashcards: Flashcard[] =
-    examVersion === "128"
+    examVersion === "exam_2025_128"
       ? (civic128 as Flashcard[])
       : (civic100 as Flashcard[]);
 
@@ -137,51 +129,16 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
 
   const total = Math.max(filteredCards.length, 1);
 
-  const [cardStatus, setCardStatus] = useState<CardStatusMap>(() => {
-    const saved = localStorage.getItem(getCardStatusKey(examVersion));
-    return saved ? (JSON.parse(saved) as CardStatusMap) : {};
-  });
-
   /* -----------------------------------------
-     Persist status
+     Question flags (from centralized storage)
   ----------------------------------------- */
-  useEffect(() => {
-    localStorage.setItem(
-      getCardStatusKey(examVersion),
-      JSON.stringify(cardStatus)
-    );
-  }, [cardStatus]);
-
-  useEffect(() => {
-    setCardStatus({});
-
-    const saved = localStorage.getItem(getCardStatusKey(examVersion));
-    if (saved) {
-      setCardStatus(JSON.parse(saved));
-    }
-  }, [examVersion]);
+  const { flags: cardStatus, toggleFlag } = useQuestionFlags(examVersion);
 
   /* -----------------------------------------
      Toggle status
   ----------------------------------------- */
-  const toggleStatus = (
-    id: number,
-    status: keyof CardFlags
-  ) => {
-    setCardStatus((prev) => {
-      const current = prev[id] ?? {
-        known: false,
-        hard: false,
-        save: false,
-      };
-
-      if (status === "known") current.hard = false;
-      if (status === "hard") current.known = false;
-
-      const next = { ...current, [status]: !current[status] };
-
-      return { ...prev, [id]: next };
-    });
+  const toggleStatus = (id: number, status: keyof QuestionFlags) => {
+    toggleFlag(id, status);
   };
 
   /* -----------------------------------------
@@ -307,7 +264,6 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
      Reset on exam version change
   ----------------------------------------- */
   useEffect(() => {
-
     setIndex(0);
     setFilteredCards(flashcards);
 
@@ -333,10 +289,11 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
 
   const [showAudioPopup, setShowAudioPopup] = useState(false);
 
+  /* -----------------------------------------
+     Clear all data
+  ----------------------------------------- */
   const clearAllStatuses = () => {
-
-    setCardStatus({});
-    localStorage.removeItem(getCardStatusKey(examVersion));
+    clearAllData(examVersion);
 
     setSearchQuery("");
 
@@ -351,7 +308,7 @@ export function useFlashcardsLogic(examVersion: "100" | "128") {
     setIndex(0);
   };
 
-   const filtersActive =
+  const filtersActive =
     searchQuery.trim() !== "" ||
     filters.category !== "all" ||
     filters.range.min !== 1 ||
