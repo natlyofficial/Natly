@@ -1200,7 +1200,7 @@
     "languages": {
       "en": {
         "question": "What is the name of the Speaker of the House of Representatives now?",
-        "correct": ["Visit uscis.gov/citizenship/testupdates for the current Speaker"],
+        "correct": ["Mike Johnson"],
         "distractors": [
           "The Vice President",
           "The Chief Justice",
@@ -1212,7 +1212,7 @@
       },
       "es": {
         "question": "¿Cuál es el nombre del presidente de la Cámara de Representantes ahora?",
-        "correct": ["Visite uscis.gov/citizenship/testupdates para el presidente actual"],
+        "correct": ["Mike Johnson"],
         "distractors": [
           "El vicepresidente",
           "El juez presidente",
@@ -1510,10 +1510,13 @@
     "subcategory": "system_of_government",
     "illustration": "question38.webp",
     "isSpecial65_20": true,
+    "requires_update": true,
+    "last_updated": "2026-02-16",
+    "update_frequency": "presidential_term",
     "languages": {
       "en": {
         "question": "What is the name of the President of the United States now?",
-        "correct": ["Visit uscis.gov/citizenship/testupdates for the current President"],
+        "correct": ["Donald J. Trump"],
         "distractors": [
           "The Vice President",
           "The Speaker of the House",
@@ -1525,7 +1528,7 @@
       },
       "es": {
         "question": "¿Cuál es el nombre del presidente de los Estados Unidos ahora?",
-        "correct": ["Visite uscis.gov/citizenship/testupdates para el presidente actual"],
+        "correct": ["Donald J. Trump"],
         "distractors": [
           "El vicepresidente",
           "El presidente de la Cámara",
@@ -1546,10 +1549,13 @@
     "subcategory": "system_of_government",
     "illustration": "question39.webp",
     "isSpecial65_20": true,
+    "requires_update": true,
+    "last_updated": "2026-02-16",
+    "update_frequency": "presidential_term",    
     "languages": {
       "en": {
         "question": "What is the name of the Vice President of the United States now?",
-        "correct": ["Visit uscis.gov/citizenship/testupdates for the current Vice President"],
+        "correct": ["JD Vance"],
         "distractors": [
           "The President",
           "The Speaker of the House",
@@ -1561,7 +1567,7 @@
       },
       "es": {
         "question": "¿Cuál es el nombre del vicepresidente de los Estados Unidos ahora?",
-        "correct": ["Visite uscis.gov/citizenship/testupdates para el vicepresidente actual"],
+        "correct": ["JD Vance"],
         "distractors": [
           "El presidente",
           "El presidente de la Cámara",
@@ -2299,10 +2305,13 @@
     "subcategory": "system_of_government",
     "illustration": "question57.webp",
     "isSpecial65_20": false,
+    "requires_update": true,
+    "last_updated": "2026-02-16",
+    "update_frequency": "lifetime_appointment",
     "languages": {
       "en": {
         "question": "Who is the Chief Justice of the United States now?",
-        "correct": ["Visit uscis.gov/citizenship/testupdates for the current Chief Justice"],
+        "correct": ["John Roberts"],
         "distractors": [
           "The President",
           "The Vice President",
@@ -2314,7 +2323,7 @@
       },
       "es": {
         "question": "¿Quién es el juez presidente de los Estados Unidos ahora?",
-        "correct": ["Visite uscis.gov/citizenship/testupdates para el juez presidente actual"],
+        "correct": ["John Roberts"],
         "distractors": [
           "El presidente",
           "El vicepresidente",
