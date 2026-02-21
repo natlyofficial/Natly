@@ -96,7 +96,8 @@ export function quizReducer(
     case "RESTART_QUIZ":
       return {
         ...state,
-        step: "easy-options", // Go back to practice type selection
+        step: "easy-guide", // Go back to practice type selection
+        sessionId: Date.now() // New session ID to reset question selection
       };
 
     // 🆕 Reset entire flow (back to start)

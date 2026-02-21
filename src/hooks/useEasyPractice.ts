@@ -9,7 +9,8 @@ function shuffle<T>(arr: T[]) {
 }
 
 export function useEasyPractice(
-  examVersion: "exam_2008_100" | "exam_2025_128"
+  examVersion: "exam_2008_100" | "exam_2025_128",
+  sessionId?: number
 ) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [index, setIndex] = useState(0);
@@ -24,7 +25,7 @@ export function useEasyPractice(
 
     setQuestions(selected);
     setIndex(0);
-  }, [examVersion]);
+  }, [examVersion, sessionId]);
 
   const next = () => {
     if (index < 9) {

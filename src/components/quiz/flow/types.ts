@@ -34,4 +34,5 @@ export type QuizState = {
   ui: {
     showLockedPopup: boolean;
   };
+  sessionId: number;
 };

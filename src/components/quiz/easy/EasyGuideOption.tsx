@@ -16,7 +16,8 @@ export default function EasyGuideOption() {
   const { state, continueFlow } = useQuizFlow();
 
   const { current, index, next, total, done } = useEasyPractice(
-    state.selections.version
+    state.selections.version,
+    state.sessionId
   );
 
   // Get selected language from state
