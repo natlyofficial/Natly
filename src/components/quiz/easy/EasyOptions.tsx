@@ -25,15 +25,16 @@ export default function EasyOptions() {
 
   /* ---------------- shared styles ---------------- */
   const cardBase = `
-    relative flex flex-col justify-between
-    rounded-2xl border-4 border-natly-blue-soft
-    overflow-hidden
-    bg-white shadow-sm
-    min-h-[380px] sm:min-h-[470px]
-    cursor-pointer
-    transition-transform duration-700 ease-in-out
-    hover:-translate-y-3 hover:shadow-lg hover:border-natly-blue
-  `;
+  relative flex flex-col justify-between
+  rounded-xl border-3
+  overflow-hidden
+  bg-white shadow-sm
+  min-h-[420px]
+  cursor-pointer
+  transition-all duration-300
+  hover:-translate-y-2 hover:shadow-xl hover:border-natly-blue
+  border-natly-blue-soft
+`;
 
   const { goBack, continueFlow } = useQuizFlow();
 
@@ -56,7 +57,7 @@ export default function EasyOptions() {
       </button>
 
       {/* Header */}
-      <div className="text-center">
+      <div className="text-center mt-6">
         <h1 className="text-2xl sm:text-4xl font-extrabold text-natly-blue-dark">
           {t("easy_options.title")}
         </h1>
@@ -70,7 +71,7 @@ export default function EasyOptions() {
       <QuizSteps current={3} />
 
       {/* Options */}
-      <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {/* Guided */}
         <div onClick={continueFlow} className={cardBase}>
           <img
@@ -81,7 +82,7 @@ export default function EasyOptions() {
 
           <div className="absolute inset-0 bg-white/10" />
 
-          <div className="relative z-10 flex h-full flex-col p-4 text-center">
+          <div className="relative z-10 flex h-full flex-col p-1 md:p-6 text-center">
             <h3 className="mt-4 text-lg font-extrabold text-natly-blue-dark md:mt-2">
               {t("easy_options.guided.title")}
             </h3>
@@ -115,7 +116,7 @@ export default function EasyOptions() {
 
           <div className="absolute inset-0 bg-white/10" />
 
-          <div className="relative z-10 flex h-full flex-col p-4 text-center">
+          <div className="relative z-10 flex h-full flex-col p-2 md:p-6 text-center">
             <h3 className="mt-4 text-lg font-extrabold text-natly-blue-dark md:mt-2">
               {t("easy_options.quick.title")}
             </h3>
@@ -142,7 +143,7 @@ export default function EasyOptions() {
 
           <div className="absolute inset-0 bg-white/10" />
 
-          <div className="relative z-10 flex h-full flex-col p-4 text-center">
+          <div className="relative z-10 flex h-full flex-col p-1 md:p-6 text-center">
             <h3 className="mt-6 text-lg font-extrabold text-natly-blue-dark md:mt-2">
               {t("easy_options.topics.title")}
             </h3>
