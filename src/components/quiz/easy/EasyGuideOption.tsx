@@ -9,11 +9,24 @@ import { updateQuestionStats } from "../../../services/quizStorage";
 
 import { useState, useEffect } from "react";
 
+import { 
+  trackQuizStarted, 
+  trackQuestionAnswered, 
+  trackQuizCompleted,
+  trackHintUsed,
+  trackAnswerRevealed,
+  updateQuestionPerformance
+} from "../../../lib/analyticsEvents";
+
+import { useQuizTracking } from "../../../hooks/useAnalytics";
+
 export default function EasyGuideOption() {
   const { t } = useTranslation("quiz");
   const { t: tCommon } = useTranslation("common");
 
   const { state, continueFlow } = useQuizFlow();
+
+  const { startQuestion, getQuestionTime } = useQuizTracking();
 
   const { current, index, next, total, done } = useEasyPractice(
     state.selections.version,
@@ -46,6 +59,18 @@ export default function EasyGuideOption() {
   const [hintUsed, setHintUsed] = useState(false);
   const [answerRevealed, setAnswerRevealed] = useState(false);
   const [eliminatedOptions, setEliminatedOptions] = useState<string[]>([]);
+
+  /* ===============================
+    Track quiz started
+  =============================== */
+
+  useEffect(() => {
+    trackQuizStarted({
+      mode: state.selections.mode,
+      version: state.selections.version,
+      language: state.selections.quizLanguage,
+    });
+  }, []); 
 
   /* ===============================
      Build options ONCE per question
@@ -94,6 +119,7 @@ export default function EasyGuideOption() {
     setHintUsed(false);
     setAnswerRevealed(false);
     setEliminatedOptions([]);
+    startQuestion(); 
   }, [index]);
 
   /* ===============================
@@ -120,6 +146,23 @@ export default function EasyGuideOption() {
     // Record in session
     recordAnswer(current.id, option.correct);
 
+    const timeSpent = getQuestionTime();
+
+    trackQuestionAnswered({
+      questionId: current.id,
+      correct: option.correct,
+      timeSpent,
+      hintUsed,
+      answerRevealed,
+      examVersion: state.selections.version,
+    });
+    
+    updateQuestionPerformance({
+      questionId: current.id,
+      correct: option.correct,
+      timeSpent,
+    });
+
     // Update UI score
     if (option.correct) {
       setScore(v => v + 1);
@@ -143,6 +186,11 @@ export default function EasyGuideOption() {
 
     setEliminatedOptions(toEliminate);
     setHintUsed(true);
+
+    trackHintUsed({
+      questionId: current.id,
+      examVersion: state.selections.version,
+    });
   };
 
   /* ===============================
@@ -171,6 +219,11 @@ export default function EasyGuideOption() {
 
       // Record in session as incorrect
       recordAnswer(current.id, false);
+
+      trackAnswerRevealed({
+        questionId: current.id,
+        examVersion: state.selections.version,
+      });
     }
   };
 
@@ -179,6 +232,20 @@ export default function EasyGuideOption() {
   =============================== */
 
   const handleFinish = () => {
+    // Calculate stats for tracking
+    const totalQuestions = 10;
+    const correctAnswers = score;
+    const incorrectAnswers = totalQuestions - score;
+
+    trackQuizCompleted({
+      mode: state.selections.mode,
+      version: state.selections.version,
+      score,
+      totalQuestions,
+      timeSpent: 0,
+      correctAnswers,
+      incorrectAnswers,
+    });
     finishSession();
     continueFlow(); // Navigate to results screen
   };
