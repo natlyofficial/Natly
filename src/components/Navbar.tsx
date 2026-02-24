@@ -4,6 +4,8 @@ import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 
 import LanguageIcon from "../assets/icon/language.webp";
+import MexicanFlagIcon from "../assets/icon/flags/mexico.webp";
+import USAFlagIcon from "../assets/icon/flags/usa.webp";
 import { IconClose, IconMenu } from "../natly-icons";
 
 export default function Navbar() {
@@ -83,10 +85,10 @@ export default function Navbar() {
               </button>
 
               {langOpen && (
-                <div className="absolute right-0 top-full mt-2 w-36 bg-white shadow-lg rounded-md border border-gray-200 py-2 z-50">
+                <div className="absolute right-0 top-full mt-2 w-38 bg-white shadow-lg rounded-md border border-gray-200 py-2 z-50">
                   {[
-                    { code: "es", label: "Español" },
-                    { code: "en", label: "English" },
+                    { code: "es", label: "Español", flag: MexicanFlagIcon },
+                    { code: "en", label: "English", flag: USAFlagIcon },
                   ].map((lang) => (
                     <button
                       key={lang.code}
@@ -95,8 +97,13 @@ export default function Navbar() {
                         i18n.changeLanguage(lang.code);
                         setLangOpen(false);
                       }}
-                      className="w-full text-left px-4 py-2 text-natly-blue hover:text-black hover:underline transition"
+                      className="w-full text-left px-4 py-2 text-natly-blue flex items-center gap-2 rounded-md transition-all duration-300 hover:bg-gradient-to-r hover:from-natly-blue-soft/10 hover:to-natly-teal-dark/10 hover:scale-105 hover:shadow-md hover:text-natly-blue-dark"
                     >
+                      <img 
+                        src={lang.flag} 
+                        alt={`${lang.label} flag`}
+                        className="w-5 h-5 object-contain"
+                      />
                       {lang.label}
                     </button>
                   ))}
