@@ -1,15 +1,19 @@
 import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import useAnalytics from "../hooks/useAnalytics";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-
-<GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
-  <Outlet />
-</GoogleReCaptchaProvider>
+import { usePageTracking } from "../hooks/useAnalytics";
+import { startSession } from "../lib/analytics";
 
 export default function MainLayout() {
-  useAnalytics();
+  // Auto-track all page views and engagement
+  usePageTracking();
+  
+  // Start analytics session on mount
+  useEffect(() => {
+    startSession();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
