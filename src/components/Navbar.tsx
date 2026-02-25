@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 
-import LanguageIcon from "../assets/icon/language.webp";
 import MexicanFlagIcon from "../assets/icon/flags/mexico.webp";
 import USAFlagIcon from "../assets/icon/flags/usa.webp";
 import { IconClose, IconMenu } from "../natly-icons";
