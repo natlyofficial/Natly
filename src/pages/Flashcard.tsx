@@ -25,6 +25,13 @@ import { useTranslation } from "react-i18next";
 
 import { useExamVersion } from "../utils/useExamVersion";
 
+import { 
+  trackFlashcardViewed,
+  trackFlashcardFlipped,
+  trackFlashcardMarked,
+  trackAudioPlayed 
+} from "../lib/analyticsEvents";
+
 /* -----------------------------------------
    Constants
 ----------------------------------------- */
@@ -163,6 +170,64 @@ export default function FlashcardsPage() {
     setShowExamPopup(false);
   };
 
+  /* -----------------------------------------
+    Track flashcard viewed
+  ----------------------------------------- */
+  useEffect(() => {
+    if (card) {
+      trackFlashcardViewed({
+        questionId: card.id,
+        examVersion: examVersion,
+        language: langMode,
+      });
+    }
+  }, [card?.id, examVersion, langMode]);
+
+  /* -----------------------------------------
+    Handle status toggle with tracking
+  ----------------------------------------- */
+  const handleToggleStatus = (id: number, status: "known" | "hard" | "save") => {
+    // Only track known/hard (save is just bookmarking)
+    if (status === "known" || status === "hard") {
+      trackFlashcardMarked({
+        questionId: id,
+        status,
+        examVersion: examVersion,
+      });
+    }
+    
+    // Call original function
+    toggleStatus(id, status);
+  };
+
+  /* -----------------------------------------
+    Handle show answer with tracking
+  ----------------------------------------- */
+  const handleShowAnswer = () => {
+    if (!showAnswer) {
+      // Track flip (only when showing answer for first time)
+      trackFlashcardFlipped({
+        questionId: card.id,
+        timeSpent: 0, // We'll improve this later with timer
+      });
+    }
+    
+    setShowAnswer((v) => !v);
+  };
+
+  /* -----------------------------------------
+    Handle audio click with tracking
+  ----------------------------------------- */
+  const handleAudioClick = () => {
+    trackAudioPlayed({
+      questionId: card.id,
+      audioType: "question",
+      language: primaryLang,
+    });
+    
+    setShowAudioPopup(true);
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 pb-20">
 
@@ -261,7 +326,6 @@ export default function FlashcardsPage() {
         tCommon={tCommon}
         progress={progress}
         audioSrc={audioSrc}
-        setShowAudioPopup={setShowAudioPopup}
         statusFilter={statusFilter}
         filteredIndex={index}
         filteredTotal={total}
@@ -270,7 +334,8 @@ export default function FlashcardsPage() {
         filters={filters}
         dynamicCategories={dynamicCategories}
         cardStatus={cardStatus[card.id]}
-        toggleStatus={toggleStatus}
+        setShowAudioPopup={handleAudioClick}
+        toggleStatus={handleToggleStatus}
       />
 
       <FlashcardFooter
@@ -280,12 +345,12 @@ export default function FlashcardsPage() {
         showHint={showHint}
         onPrev={prevCard}
         onNext={nextCard}
-        onToggleAnswer={() => setShowAnswer((v) => !v)}
         onHint={handleHint}
         t={t}
         tCommon={tCommon}
         cardStatus={cardStatus[card.id] || {}}
-        toggleStatus={(status) => toggleStatus(card.id, status)}
+        onToggleAnswer={handleShowAnswer}
+        toggleStatus={(status) => handleToggleStatus(card.id, status)}
       />
 
       <LanguageSelector
