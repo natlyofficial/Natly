@@ -10,6 +10,8 @@ import { getTruncatedQuestionText, getCorrectAnswer } from "../../../utils/quest
 import bgResult from "../../../assets/backgroundresult.webp";
 import Popup from "../../ui/Popup";
 
+import { trackQuizRetried } from "../../../lib/analyticsEvents";
+
 export default function ResultsScreen() {
   const { t } = useTranslation("quiz");
   const { t: tCommon } = useTranslation("common");
@@ -596,7 +598,16 @@ export default function ResultsScreen() {
       <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4">
         
         <button 
-          onClick={restartQuiz}
+          onClick={() => {
+            // Track retry event with previous performance
+            trackQuizRetried({
+              previousScore: score,
+              mode: state.selections.mode,
+            });
+            
+            // Restart the quiz
+            restartQuiz();
+          }}
           className="w-full px-8 py-4 rounded-xl bg-natly-yellow text-natly-blue-dark font-bold shadow-lg hover:bg-amber-500 hover:-translate-y-1 transition-all"
         >
           {t("results.retry_quiz")}
