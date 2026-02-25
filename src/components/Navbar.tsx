@@ -74,12 +74,12 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-2 text-natly-blue"
+                className="flex items-center gap-2 text-natly-blue border border-gray-300 rounded-full px-4 py-2.5 hover:border-natly-blue hover:bg-natly-blue-soft/10 transition-all duration-300"
               >
                 <img
-                  src={LanguageIcon}
-                  alt="Language selector"
-                  className="w-7 h-7 object-contain"
+                  src={currentLang === "ES" ? MexicanFlagIcon : USAFlagIcon}
+                  alt={`${currentLang} flag`}
+                  className="w-6 h-6 object-contain rounded-sm"
                 />
                 <span className="font-bold text-base lg:text-lg">
                   {currentLang}
