@@ -8,6 +8,8 @@ import MexicanFlagIcon from "../assets/icon/flags/mexico.webp";
 import USAFlagIcon from "../assets/icon/flags/usa.webp";
 import { IconClose, IconMenu } from "../natly-icons";
 
+import { trackLanguageChanged } from "../lib/analyticsEvents";
+
 export default function Navbar() {
   // State to control language dropdown visibility
   const [langOpen, setLangOpen] = useState(false);
@@ -94,6 +96,16 @@ export default function Navbar() {
                       key={lang.code}
                       type="button"
                       onClick={() => {
+                        const previousLang = i18n.language;
+                        
+                        // Track language change
+                        trackLanguageChanged({
+                          from: previousLang,
+                          to: lang.code,
+                          context: "navbar",
+                        });
+                        
+                        // Change language
                         i18n.changeLanguage(lang.code);
                         setLangOpen(false);
                       }}
