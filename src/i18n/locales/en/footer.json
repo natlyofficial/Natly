@@ -1,3 +1,14 @@
 {
-  "rights": "© 2025 Natly. All rights reserved."
+  "rights": "© 2025 Natly. All rights reserved.",
+  "newsletter": {
+    "title": "Fly High on Your Exam!",
+    "subtitle": "Subscribe to receive news and updates",
+    "placeholder": "your@email.com",
+    "button": "Subscribe Free",
+    "sending": "Sending...",
+    "success": "Subscribed!",
+    "successMessage": "Great! Check your email to confirm your subscription.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "socialProof": "Join 500+ people preparing for citizenship"
+  }
 }

@@ -1,3 +1,14 @@
 {
-  "rights": "© 2025 Natly. Todos los derechos reservados."
+  "rights": "© 2025 Natly. Todos los derechos reservados.",
+  "newsletter": {
+    "title": "¡Vuela Alto en tu Examen!",
+    "subtitle": "Suscríbete para recibir noticias y actualizaciones",
+    "placeholder": "tu@email.com",
+    "button": "Suscribirme Gratis",
+    "sending": "Enviando...",
+    "success": "¡Suscrito!",
+    "successMessage": "¡Genial! Revisa tu email para confirmar tu suscripción.",
+    "errorMessage": "Algo salió mal. Por favor intenta de nuevo.",
+    "socialProof": "Únete a más de 500 personas preparándose para la ciudadanía"
+  }
 }
