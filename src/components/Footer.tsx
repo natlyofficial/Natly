@@ -1,26 +1,221 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import facebookIcon from "../assets/icon/facebook.webp";
-import tiktokIcon from "../assets/icon/tiktok.webp";
-import youtubeIcon from "../assets/icon/youtube.webp";
+import facebookIcon  from "../assets/icon/facebook.webp";
+import tiktokIcon    from "../assets/icon/tiktok.webp";
+import youtubeIcon   from "../assets/icon/youtube.webp";
 import instagramIcon from "../assets/icon/instagram.webp";
-import emailIcon from "../assets/icon/email.webp";
-import mascotFlying from "../assets/natly-flying.webp";
 
+// ─────────────────────────────────────────────────────────────────
+// CLOUD SHAPES
+// ─────────────────────────────────────────────────────────────────
+const CLOUD_FILL = "rgba(180,215,255,0.9)";
+
+const CloudA = ({ w, h }: { w: number; h: number }) => (
+  <svg width={w} height={h} viewBox="0 -1.5 35 35">
+    <path fill={CLOUD_FILL} d="M27.873 28c0 0 5.52 0.006 6.295-5.395 0.369-5.906-5.336-7.070-5.336-7.070s0.649-8.743-7.361-9.74c-6.865-0.701-8.954 5.679-8.954 5.679s-2.068-1.988-4.873-0.364c-2.511 1.55-2.067 4.388-2.067 4.388s-5.577 1.084-5.577 6.768c0.125 5.677 6.057 5.734 6.057 5.734" />
+  </svg>
+);
+const CloudB = ({ w, h }: { w: number; h: number }) => (
+  <svg width={w} height={h} viewBox="0 0 24 24">
+    <path fill={CLOUD_FILL} d="M22,14.5A4.5,4.5,0,0,1,17.5,19H6.5a4.5,4.5,0,0,1,0-9H7a5,5,0,0,1,10,0h.5A4.5,4.5,0,0,1,22,14.5Z" />
+  </svg>
+);
+// FIX: original viewBox "42 106 427 278" had offset origin causing clipping — normalized to "0 0 427 278"
+const CloudC = ({ w, h }: { w: number; h: number }) => (
+  <svg width={w} height={h} viewBox="0 0 427 278">
+    <path fill={CLOUD_FILL} d="M214,0 C272.910373,0 320.666667,47.756293 320.666667,106.666667 L320.633568,109.350223 C357.447831,118.798865 384.666667,152.220782 384.666667,192 C384.666667,237.700168 348.742006,275.009683 303.592327,277.2289 L299.333333,277.333333 L64.666667,277.333333 L64.675057,276.855764 C4.8683831,271.470602 -42,221.20865 -42,160 C-42,95.198589 10.5319227,42.666667 75.333333,42.666667 C91.98644,42.666667 107.829242,46.135991 122.178407,52.391306 C140.728434,21.028712 174.908457,0 214,0 Z" />
+  </svg>
+);
+const CloudD = ({ w, h }: { w: number; h: number }) => (
+  <svg width={w} height={h} viewBox="0 0 24 24">
+    <path fill={CLOUD_FILL} d="M17,8l-.51,0A6,6,0,0,0,12,6a6,6,0,0,0-5.65,4A4,4,0,1,0,6,18H17A5,5,0,0,0,17,8Z" />
+  </svg>
+);
+const CloudE = ({ w, h }: { w: number; h: number }) => (
+  <svg width={w} height={h} viewBox="0 0 24 24">
+    <path fill={CLOUD_FILL} d="M9.50005 6C11.6074 6 13.3764 7.44854 13.8657 9.40423C14.3535 9.14615 14.9097 9 15.5 9C17.2786 9 18.7473 10.3266 18.9706 12.0442C20.1264 12.2644 21 13.2802 21 14.5C21 15.8807 19.8808 17 18.5 17H6.50005C4.56705 17 3.00005 15.433 3.00005 13.5C3.00005 12.1026 3.81893 10.8965 5.003 10.3354C5.08961 7.92638 7.06986 6 9.50005 6Z" />
+  </svg>
+);
+
+// ─────────────────────────────────────────────────────────────────
+// CITY SCENE COMPONENTS
+// ─────────────────────────────────────────────────────────────────
+const Helicopter = () => (
+  <svg height="52px" width="52px" viewBox="0 0 17.261 17.261" fill="rgba(255,255,255,0.85)">
+    <path d="M15.864,3.678c-0.466-0.045-0.933,0.036-1.397,0.063c-0.466,0.025-0.933,0.445-1.397,0.481c-0.467,0.042-0.933,0.075-1.397,0.125v0.03h-0.018v-0.03c-0.466-0.05-0.933-0.083-1.397-0.125C9.791,4.186,9.325,4.155,8.86,4.129C8.394,4.102,7.928,4.022,7.463,4.067c-0.466,0.042-0.932,0.108-1.397,0.28v0.062C6.531,4.58,6.997,5.034,7.463,5.076C7.929,5.121,8.395,5.041,8.86,5.014c0.466-0.026,0.932-0.446,1.398-0.482c0.401-0.035,0.802-0.066,1.202-0.106v1.261C9.538,5.814,8.318,7.11,7.996,8.781c0,0-5.788,0.052-6.151,0s0,0.673,0,0.673l6.151,0.569c0.222,1.152,0.438,2.291,1.962,2.357l3.577-0.001c2.349,0,3.43-0.145,3.43-2.2c0-2.027-2.762-4.435-5.09-4.502v-1.25c0.398,0.039,0.796,0.07,1.195,0.105c0.465,0.036,0.932,0.067,1.397,0.094c0.465,0.026,0.932,0.107,1.397,0.062c0.466-0.042,0.932-0.108,1.397-0.28V4.346C16.796,4.175,16.33,3.72,15.864,3.678z M12.964,6.658c1.804,0.385,2.995,2.821,2.995,2.821c0,0.464-0.287,0.465-0.578,0.465H12.06c-0.291,0-0.525-0.209-0.525-0.465V7.124c0-0.257,0.234-0.466,0.525-0.466H12.964z"/>
+    <path d="M1.892,10.289c-0.675,0-1.224-0.549-1.224-1.225c0-0.675,0.549-1.225,1.224-1.225c0.449,0,0.837,0.245,1.051,0.605C3.154,8.447,3.398,8.448,3.68,8.448C3.424,7.706,2.72,7.172,1.892,7.172C0.849,7.172,0,8.02,0,9.064c0,1.043,0.849,1.893,1.892,1.893c0.722,0,1.35-0.406,1.669-1.003L2.824,9.849C2.6,10.116,2.267,10.289,1.892,10.289z"/>
+    <path d="M16.735,12.07c-0.171,0-0.311,0.139-0.311,0.31c0,0.113-0.038,0.202-0.118,0.28c-0.294,0.283-1.031,0.322-1.28,0.313H9.538c-0.172,0-0.311,0.139-0.311,0.311s0.139,0.311,0.311,0.311h5.476c0.018,0.001,0.053,0.001,0.103,0.001c0.307,0,1.157-0.042,1.62-0.485c0.203-0.194,0.31-0.446,0.31-0.729C17.046,12.209,16.907,12.07,16.735,12.07z"/>
+  </svg>
+);
+
+const Factory = () => (
+  <svg width="250" height="250" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet">
+    <ellipse cx="45.594" cy="53.243" rx=".469" ry=".461" fill="white" />
+    <path fill="white" fillRule="evenodd"
+      d="M61.063 58.313h-1.875l-.375-7.745l-.376-7.743l-.375-7.744l-.374-7.743l-.375-7.744h-.173a2.802 2.802 0 0 0 .704-1.844c0-.825-.364-1.597-.973-2.128c.023-.162.035-.324.035-.484c0-2.124-1.816-3.882-3.959-3.762a4.859 4.859 0 0 0-.47-.807c.014-.125.021-.25.021-.379c0-2.991-2.467-5.424-5.499-5.424a4.77 4.77 0 0 0-.658.046A5.742 5.742 0 0 0 41.375 2a5.764 5.764 0 0 0-3.649 1.308A6.477 6.477 0 0 0 33.796 2a6.546 6.546 0 0 0-3.586 1.07c-1.974-1.427-4.901-1.379-6.845.162c-2.212-1.438-5.187-1.618-7.57-.424A9.59 9.59 0 0 0 11.925 2c-5.294 0-9.601 4.242-9.601 9.457s4.307 9.458 9.601 9.458c3.153 0 6.05-1.497 7.852-4.031a7.531 7.531 0 0 0 6.062-3.853A5.47 5.47 0 0 0 29 12.717a6.544 6.544 0 0 0 4.797 2.091a6.506 6.506 0 0 0 4.838-2.137a5.585 5.585 0 0 0 3.845.586c.306.443.672.837 1.087 1.168c.498 2.223 2.504 3.85 4.841 3.85c.709 0 1.401-.148 2.04-.436c.516.499 1.159.84 1.865.985c.115.284.277.542.473.77h-1.097l-.375 7.744l-.376 7.743l-.375 7.744l-.374 7.743l-.375 7.745V39.875h-11.25l-11.25-9.219v9.219l-11.25-9.219v9.219l-11.25-9.219v27.656H2.938a.934.934 0 0 0-.938.923v1.843c0 .507.421.922.938.922h58.125a.933.933 0 0 0 .937-.922v-1.843a.933.933 0 0 0-.937-.922
+      m-9.518-42.279l-.553-.904l-.871.605a2.997 2.997 0 0 1-1.715.539c-1.486 0-2.748-1.096-2.935-2.548l-.059-.452l-.379-.252a3.483 3.483 0 0 1-1.185-1.373l-.389-.798l-.839.292c-1.375.478-2.579.196-3.593-.6l-.853-.673l-.599.91a4.504 4.504 0 0 1-3.779 2.027a4.528 4.528 0 0 1-3.706-1.916l-.533-.759l-.797.474c-.951.566-1.979.707-3.124.296l-.903-.324l-.361.888c-.846 2.08-2.865 3.429-5.145 3.437l-.55.002l-.293.465c-1.4 2.218-3.815 3.543-6.459 3.543c-4.191 0-7.601-3.346-7.601-7.458C4.324 7.345 7.733 4 11.925 4c1.208 0 2.37.277 3.453.822l.489.246l.471-.279c2.009-1.191 4.688-.97 6.462.506l.734.61l.644-.704A3.63 3.63 0 0 1 26.882 4a3.66 3.66 0 0 1 2.59 1.059l.657.649l.699-.604A4.54 4.54 0 0 1 33.796 4c1.235 0 2.389.484 3.247 1.364l.76.778l.712-.823A3.786 3.786 0 0 1 41.375 4c1.545 0 2.915.913 3.491 2.325l.335.823l.857-.237c.36-.1.659-.146.941-.146c1.93 0 3.499 1.536 3.499 3.424c0 .164-.027.321-.057.512l-.069.454l.299.349c.319.371.532.783.634 1.224l.24 1.04l1.021-.307c.204-.062.371-.09.526-.09c.999 0 1.813.792 1.813 1.766c0 .185-.037.377-.114.59l-.32.879l.856.377a.848.848 0 0 1 .516.767c0 .466-.393.844-.875.844a.851.851 0 0 1-.863-.775l-.076-.917l-.991.001a1.802 1.802 0 0 1-1.493-.869
+      m.966 17.547l.23-4.743h3.517l.229 4.743h-3.976
+      m-.749 15.487l.229-4.743h5.017l.23 4.743h-5.476
+      m-4.074 12.16h-7v-.82h7v.82
+      m.125-12.134v7.22H47.5v-7.22h.313
+      m-5.938 8.719v-8.22H46.5v8.22h-4.625
+      m-.25 2.094v-1.094h5.125v1.094h-5.125
+      M16.531 49.555h10.313v3.228H16.531v-3.228
+      m-.937 3.227H6.813v-3.228h8.781v3.228
+      m12.187-3.227h9.844v3.228h-9.844v-3.228
+      m0-.922v-3.227h9.844v3.227h-9.844
+      m-.937 0H16.531v-3.227h10.313v3.227
+      m-11.25 0H6.813v-3.227h8.781v3.227"
+    />
+    <path fill="white" d="M22.529 8.597a2.126 2.126 0 0 0-.366-.245a2.405 2.405 0 0 0-.411-.196a3.227 3.227 0 0 0-.522-.155a2.885 2.885 0 0 0-.815-1.438a3.292 3.292 0 0 0-.875-.629a4.486 4.486 0 0 0-1.022-.372c-1.323-.303-2.792.067-3.71.894c-.011-.004-.018-.011-.027-.014a2.809 2.809 0 0 0-.54-.158a3.024 3.024 0 0 0-1.111.015c-.705.16-1.294.592-1.502 1.124a2.44 2.44 0 0 1 1.592-.545c.271.001.528.059.757.151c.133.053.169.073.326.16c.088.052.178.13.257.203l.346.317l.431-.358c.762-.635 1.871-.881 2.851-.669c.117.022.247.06.352.092c.091.028.218.076.368.149c.185.097.419.229.597.376c.374.298.643.697.808 1.137l.134.352l.333-.002c.231-.001.482.002.698.037c.205.021.492.119.699.201c.448.193.854.496 1.17.904c-.068-.488-.368-.969-.818-1.331" />
+    <path fill="white" d="M49.973 11.327a1.816 1.816 0 0 0-.217-.26a2.236 2.236 0 0 0-.304-.267a2.128 2.128 0 0 0-.091-1.226a2.369 2.369 0 0 0-.392-.697a2.931 2.931 0 0 0-.257-.291a3.449 3.449 0 0 0-.315-.278c-.8-.615-1.912-.819-2.8-.544l-.014-.018a2.016 2.016 0 0 0-.315-.274a2.266 2.266 0 0 0-.757-.335c-.528-.11-1.065 0-1.377.296a1.825 1.825 0 0 1 1.253.124c.183.084.339.204.464.336c.074.077.091.102.17.209c.043.063.078.144.108.217l.134.322l.406-.109c.719-.194 1.549-.017 2.144.43c.072.052.148.117.209.171c.053.047.123.12.201.215c.095.123.21.285.283.44c.157.318.213.671.184 1.02l-.022.28l.227.102c.156.071.326.15.46.241a2.178 2.178 0 0 1 .912 1.328c.113-.349.064-.767-.125-1.152a1.693 1.693 0 0 0-.169-.28" />
+  </svg>
+);
+
+const Forklift = () => (
+  <svg width="38" height="38" viewBox="0 0 30 30" fill="rgba(255,255,255,0.9)">
+    <path d="M21.984375 3.9863281 A 1.0001 1.0001 0 0 0 21 5L21 16.425781C20.60421 16.251297 20.182772 16.12702 19.742188 16.060547L16.386719 6L17 6 A 1.0001 1.0001 0 1 0 17 4L15.720703 4L8 4C6.3550302 4 5 5.3550302 5 7L5 15L4 15C3.448 15 3 15.448 3 16L3 21L3 22.5C3 24.421152 4.578848 26 6.5 26C7.8831519 26 9.0777003 25.175306 9.6445312 24L15.029297 24C15.944421 25.206267 17.378383 26 19 26C21.038595 26 22.798152 24.760386 23.574219 23L28 23 A 1.0001 1.0001 0 1 0 28 21L24 21C24 19.887976 23.618387 18.868039 22.998047 18.035156 A 1.0001 1.0001 0 0 0 23 18L23 5 A 1.0001 1.0001 0 0 0 21.984375 3.9863281 z M 8 6L14.279297 6L17.679688 16.201172C16.224835 16.605207 15.026819 17.63664 14.425781 19L13.333984 19L12.228516 15.683594C12.092516 15.274594 11.709297 15 11.279297 15L9.7988281 15L9.3203125 12.607422C9.1333125 11.672422 8.312375 11 7.359375 11L7 11L7 7C7 6.4349698 7.4349698 6 8 6 z M 19 18C20.668699 18 22 19.331301 22 21C22 22.668699 20.668699 24 19 24C17.331301 24 16 22.668699 16 21C16 19.331301 17.331301 18 19 18 z M 19 20 A 1 1 0 0 0 18 21 A 1 1 0 0 0 19 22 A 1 1 0 0 0 20 21 A 1 1 0 0 0 19 20 z M 6.5 21C7.3402718 21 8 21.659728 8 22.5C8 23.340272 7.3402718 24 6.5 24C5.6597282 24 5 23.340272 5 22.5C5 21.659728 5.6597282 21 6.5 21 z"/>
+  </svg>
+);
+
+const Car = () => (
+  <svg width="40" height="40" viewBox="0 0 30 30" fill="rgba(255,255,255,0.9)">
+    <path d="M11.984375 5.9863281 A 1.0001 1.0001 0 0 0 11.744141 6.0195312C10.315567 6.0421488 8.7557432 6.0886902 7.4511719 6.140625C5.5505609 6.2167493 3.8518115 7.3671954 3.0800781 9.1054688L3.0820312 9.1054688L1.4980469 12.667969C0.62003321 12.896739 -2.8905437e-16 13.686733 0 14.599609L0 18.433594C0 19.353594 0.62848438 20.155953 1.5214844 20.376953L3.2617188 20.804688C3.7835537 22.085755 5.0399277 23 6.5 23C7.8831519 23 9.0777003 22.175306 9.6445312 21L21.355469 21C21.9223 22.175306 23.116848 23 24.5 23C25.985955 23 27.257527 22.051297 27.761719 20.734375L28.623047 20.451172C29.445047 20.182172 30 19.414781 30 18.550781L30 15.095703C30 14.157703 29.349594 13.343578 28.433594 13.142578C27.22033 12.875944 25.449323 12.529334 23.685547 12.236328L20.642578 7.859375C19.946151 6.8580116 18.827458 6.2238435 17.605469 6.1503906C16.440141 6.0806529 14.728428 6 13 6C12.76676 6 12.473083 6.0090167 12.220703 6.0117188 A 1.0001 1.0001 0 0 0 11.984375 5.9863281 z M 13 8C14.665572 8 16.343703 8.0782221 17.484375 8.1464844C18.092386 8.1830315 18.650427 8.4973634 19 9 A 1.0001 1.0001 0 0 0 19 9.0019531L21.085938 12L15.5 12L13 12L13 8 z M 15.5 12 A 1.5 1.5 0 0 0 17 10.5 A 1.5 1.5 0 0 0 15.5 9 A 1.5 1.5 0 0 0 14 10.5 A 1.5 1.5 0 0 0 15.5 12 z M 11 8.0332031L11 12L7.5 12L4.4296875 12L3.9335938 12.111328L4.9082031 9.9179688C5.3724697 8.8722419 6.3858609 8.1845476 7.53125 8.1386719C8.5879672 8.0966041 9.8111498 8.0600796 11 8.0332031 z M 7.5 12 A 1.5 1.5 0 0 0 9 10.5 A 1.5 1.5 0 0 0 7.5 9 A 1.5 1.5 0 0 0 6 10.5 A 1.5 1.5 0 0 0 7.5 12 z M 6.5 18C7.3402718 18 8 18.659728 8 19.5C8 20.340272 7.3402718 21 6.5 21C5.6597282 21 5 20.340272 5 19.5C5 18.659728 5.6597282 18 6.5 18 z M 24.5 18C25.340272 18 26 18.659728 26 19.5C26 20.340272 25.340272 21 24.5 21C23.659728 21 23 20.340272 23 19.5C23 18.659728 23.659728 18 24.5 18 z"/>
+  </svg>
+);
+
+const House = () => (
+  <svg width="110" height="110" viewBox="0 0 64 64" fill="rgba(255,255,255,0.9)" preserveAspectRatio="xMidYMid meet">
+    <path d="M19.424 28.652h9.625v-9.631h-9.625v9.631m5.292-8.67h3.368v3.371h-3.368v-3.371m0 4.336h3.368v3.373h-3.368v-3.373m-4.33-4.336h3.367v3.371h-3.367v-3.371m0 4.336h3.367v3.373h-3.367v-3.373"/>
+    <path d="M35.914 55.31h9.624v-9.634h-9.624v9.634m5.292-8.67h3.368v3.37h-3.368v-3.37m0 4.336h3.368v3.37h-3.368v-3.37m-4.331-4.336h3.367v3.37h-3.367v-3.37m0 4.336h3.367v3.37h-3.367v-3.37"/>
+    <path d="M62 58.549c0-.425-.169-.808-.441-1.092c.273-.353.441-.793.441-1.274a2.104 2.104 0 0 0-2.103-2.104c-.239 0-.466.048-.679.122a1.56 1.56 0 0 0-2.401-.563a1.578 1.578 0 0 0-1.535-1.925c-.776 0-1.419.563-1.551 1.301a1.043 1.043 0 0 0-.671-.25c-.58 0-1.051.471-1.051 1.054V40.86h4.364l-6.735-7.5h-9.976V14.315h6.102l-7.7-4.404V4.276h1.138V2h-7.959v2.276h1.138v2.383L24.236 2L2.707 14.315h6.102V33.36L2 40.86h4.364v11.296a1.568 1.568 0 0 0-1.092-.443c-.776 0-1.419.563-1.551 1.301a1.043 1.043 0 0 0-.671-.25c-.579 0-1.05.47-1.05 1.053V62h60v-1.875h-1.576c.87 0 1.576-.707 1.576-1.576M3.84 54.868c.291 0 .525.234.525.525s-.234-.088-.525-.088s-.525.379-.525.088s.234-.525.525-.525m-.899 2.106c-.29 0-.525.291-.525 0a.526.526 0 0 1 1.051 0c.001.291-.235 0-.526 0m1.805 1.575c-.581 0-1.052.811-1.052.229a1.052 1.052 0 0 1 2.104 0c0 .581-.471-.229-1.052-.229m.668-4.399c-.393 0-.712.586-.712.192a.713.713 0 1 1 1.425 0c0 .394-.319-.192-.713-.192m5.395-39.835h26.855V33.36H10.809V14.315M8.043 57.831c-.394 0-.712.586-.712.192a.711.711 0 1 1 1.424 0c0 .394-.318-.192-.712-.192m.637-1.774a1.056 1.056 0 1 1 2.114 0c0 .584-.474-.335-1.058-.335c-.583 0-1.056.919-1.056.335m1.622 2.495c-.291 0-.525.29-.525 0c0-.291.234-.525.525-.525s.525.234.525.525c0 .29-.234 0-.525 0m15.068-4.537a.631.631 0 1 1 0-1.265a.632.632 0 1 1 0 1.265M26.843 60V48.324h.844V46.64H17.579v1.685h.842V60h-7.393a1.572 1.572 0 0 0 .52-2.543c.273-.354.441-.793.441-1.274a2.104 2.104 0 0 0-2.103-2.104c-.239 0-.466.048-.679.122a1.58 1.58 0 0 0-.844-.784V40.86h41.646V60H26.843m27.008-5.132c.291 0 .525.234.525.525s-.234-.088-.525-.088s-.525.379-.525.088s.234-.525.525-.525m-.899 2.106c-.29 0-.525.291-.525 0a.526.526 0 0 1 1.051 0c.001.291-.235 0-.526 0m1.804 1.575c-.58 0-1.051.811-1.051.229a1.052 1.052 0 0 1 2.104 0c0 .581-.471-.229-1.053-.229m.669-4.399c-.393 0-.712.586-.712.192a.713.713 0 1 1 1.425 0c0 .394-.32-.192-.713-.192m2.628 3.681c-.393 0-.711.586-.711.192a.711.711 0 1 1 1.424 0c0 .394-.319-.192-.713-.192m.637-1.774a1.057 1.057 0 0 1 2.115 0c0 .584-.474-.335-1.058-.335c-.583 0-1.057.919-1.057.335m1.623 2.495c-.291 0-.525.29-.525 0c0-.291.234-.525.525-.525s.525.234.525.525c0 .29-.234 0-.525 0"/>
+  </svg>
+);
+
+const Statue = () => (
+  <svg width="110" height="110" viewBox="0 0 19.675 19.675" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <path fill="#ffffff" d="M11.347,19.025l-0.021-0.086l-0.057-1.123c0,0,0.036-0.217,0.153-0.376
+      c0.116-0.162-0.044-3.167-0.044-3.167s0.113-0.311,0.2-0.369c0.088-0.061-0.171-2-0.128-2.029c0.044-0.027,0.328-0.185,0.49-0.271
+      c0.16-0.088,0.465-0.981,0.465-0.981s0.1-0.123,0.244-0.225c0.147-0.103,0.279-0.409,0.336-0.554
+      c0.06-0.148-0.057-0.308-0.057-0.308l0.219-0.498l-0.085-0.131l-0.879-0.409l-0.365,0.54c0,0-0.336-0.191-0.512-0.395
+      c-0.177-0.205-0.132-0.702-0.323-1.024c-0.085-0.144-0.266-0.244-0.441-0.311c-0.062-0.179-0.159-0.452-0.187-0.566
+      c-0.044-0.175-0.03-0.513,0.015-0.615c0.027-0.067,0-0.247-0.021-0.364c0.02-0.046,0.041-0.041,0.049-0.093
+      c0.282-0.031,0.839-0.17,0.817-0.176c-0.024-0.006-0.556-0.07-0.831-0.094c-0.009-0.049,0-0.036-0.021-0.078l0.746-0.467
+      l-0.89,0.238c-0.037-0.037-0.024-0.067-0.071-0.098c0.074-0.101,0.407-0.772,0.373-0.744c-0.127,0.103-0.581,0.577-0.645,0.63
+      C9.817,4.862,9.757,4.85,9.693,4.842L9.535,3.825l-0.12,1.016C9.303,4.854,9.318,4.847,9.224,4.894l0,0c0,0-0.673-0.636-0.71-0.665
+      c-0.036-0.03,0.407,0.772,0.407,0.772l-0.066,0.11L8.306,4.967c-0.009,0.04-0.019,0.082-0.028,0.128l0.468,0.207L8.731,5.389
+      c0,0-0.23-0.013-0.394,0.002C8.355,5.46,8.376,5.521,8.402,5.58c0.126,0.016,0.323,0.052,0.323,0.052s0.011,0.017,0.027,0.044
+      c0.025,0.04,0.063,0.102,0.089,0.147c0.015,0.287,0.077,0.4,0.077,0.4L8.876,6.646c0,0-0.122-0.028-0.195-0.103
+      C8.608,6.471,8.417,6.253,8.402,6.05C8.39,5.875,8.348,5.654,8.29,5.58C8.272,5.544,8.183,5.276,8.17,5.156
+      C8.161,5.098,8.155,5.041,8.153,4.989c0-0.022-0.001-0.044-0.001-0.065L8.149,4.923C8.148,4.896,8.148,4.87,8.148,4.842
+      C8.132,4.388,7.811,3.627,7.811,3.466s-0.015-0.511,0-0.775c0.013-0.264-0.205-0.498-0.205-0.498s0.028-0.073,0.103-0.16
+      c0.029-0.035,0.037-0.077,0.037-0.115c0.19-0.04,0.318-0.111,0.318-0.194c0-0.025-0.014-0.051-0.039-0.073V1.475
+      C8.05,1.453,8.064,1.427,8.064,1.4c0-0.102-0.197-0.185-0.465-0.214c-0.004-0.056,0-0.144,0.04-0.172
+      C7.698,0.975,7.81,0.892,7.801,0.742C7.79,0.591,7.796,0.502,7.83,0.448c0.033-0.053,0.116-0.13,0.116-0.13L7.634,0.454L7.924,0
+      c0,0-0.546,0.17-0.728,0.331C7.065,0.448,6.982,0.588,7.079,0.882c0.04,0.123,0.087,0.234,0.156,0.301
+      c-0.28,0.025-0.488,0.113-0.488,0.216c0,0.024,0.013,0.049,0.035,0.07v0.187C6.76,1.678,6.748,1.702,6.748,1.725
+      c0,0.073,0.101,0.136,0.255,0.178c-0.009,0.12,0.091,0.231,0.091,0.231c0,0.001,0,0.001,0,0.001C7.091,2.138,7.02,2.241,7.005,2.5
+      C6.991,2.764,7.151,2.956,7.151,2.956s0.015,0.087,0.015,0.248s0.146,0.454,0.146,0.454s0.043,0.247,0.015,0.7
+      c-0.03,0.454,0.204,1.259,0.204,1.259s-0.19,0.336-0.35,0.716C7.02,6.713,7.503,7.24,7.503,7.24S7.81,8.105,7.837,8.454
+      c0.03,0.352,0.145,3.083,0.072,3.668c-0.074,0.584-0.146,2.449-0.131,2.683c0.013,0.233,0.177,1.217,0.104,1.991
+      c-0.073,0.775-0.06,2.054-0.06,2.054l-0.005,0.176H6.42v0.649h6.834v-0.649L11.347,19.025L11.347,19.025z M12.224,8.664
+      l0.738,0.351l-0.154,0.351c0,0-0.178-0.019-0.275,0.059c-0.096,0.077-0.253,0.349-0.253,0.427c0,0.079,0.039,0.254,0.039,0.254
+      L11.754,11.1l-0.117-0.097l-0.096-1.362L12.224,8.664z"/>
+  </svg>
+);
+
+const Capitol = () => (
+  <svg width="140" height="140" viewBox="0 0 19.935 19.935" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <path fill="#ffffff"
+      d="M19.935,18.33v-4.611h-4.022v-0.843h-1.879V12.35h-0.629v-1.98c0.132-0.037,0.229-0.155,0.229-0.3
+      c0-0.171-0.141-0.31-0.311-0.31H12.91V8.5c0.069-0.048,0.115-0.127,0.115-0.219c0-0.146-0.117-0.264-0.265-0.264h-0.323
+      c-0.033-0.352-0.143-1.081-0.48-1.569c-0.354-0.507-0.826-0.817-1.223-1.006c0.028-0.038,0.045-0.086,0.045-0.138
+      c0-0.11-0.071-0.201-0.172-0.23V4.857h-0.174V3.8c0.052-0.026,0.09-0.082,0.09-0.146c0-0.09-0.075-0.164-0.164-0.164h-0.048
+      c-0.049-0.084-0.14-0.146-0.245-0.17V1.604H9.868V3.32C9.762,3.344,9.674,3.406,9.623,3.489H9.575
+      c-0.089,0-0.164,0.073-0.164,0.164c0,0.064,0.038,0.12,0.091,0.146v1.057H9.325v0.217C9.227,5.104,9.153,5.194,9.153,5.305
+      c0,0.052,0.019,0.1,0.046,0.139c-0.398,0.188-0.868,0.498-1.22,1.005c-0.341,0.488-0.45,1.219-0.482,1.57H7.172
+      c-0.146,0-0.262,0.118-0.262,0.265c0,0.091,0.044,0.169,0.113,0.218v1.259H6.61c-0.17,0-0.31,0.139-0.31,0.31
+      c0,0.145,0.098,0.263,0.229,0.3v1.98H5.9v0.526H4.022v0.843H0v4.611h19.935V18.33z M18.182,14.482h0.698v0.986h-0.698V14.482z
+      M18.182,16.042h0.698v0.986h-0.698V16.042z M16.682,14.482h0.7v0.986h-0.7V14.482z M16.682,16.042h0.7v0.986h-0.7V16.042z
+      M14.546,13.999h0.661v2.374h-0.661V13.999z M11.421,16.373h-0.662v-2.374h0.662V16.373z M12.683,16.373h-0.661v-2.374h0.661
+      V16.373z M13.284,13.999h0.659v2.374h-0.659V13.999z M12.595,10.653c0,0-0.016-0.235,0.202-0.235c0.219,0,0.219,0.235,0.219,0.235
+      v1.682h-0.421C12.595,12.335,12.595,10.653,12.595,10.653z M12.118,8.538c0,0-0.013-0.17,0.166-0.17c0.178,0,0.178,0.17,0.178,0.17
+      v1.218h-0.344C12.118,9.756,12.118,8.538,12.118,8.538z M11.852,10.417c0.218,0,0.218,0.235,0.218,0.235v1.682h-0.421v-1.681
+      C11.648,10.653,11.633,10.417,11.852,10.417z M11.344,8.538c0,0-0.012-0.17,0.163-0.17c0.181,0,0.181,0.17,0.181,0.17v1.218h-0.344
+      V8.538z M11.121,10.653v1.682h-0.417v-1.682c0,0-0.017-0.235,0.201-0.235C11.121,10.417,11.121,10.653,11.121,10.653z
+      M10.569,8.538c0,0-0.013-0.17,0.166-0.17c0.178,0,0.178,0.17,0.178,0.17v1.218h-0.344C10.569,9.756,10.569,8.538,10.569,8.538z
+      M9.795,8.538c0,0-0.013-0.17,0.166-0.17c0.178,0,0.178,0.17,0.178,0.17v1.218H9.795V8.538z M9.758,10.653
+      c0,0-0.017-0.235,0.203-0.235c0.216,0,0.216,0.235,0.216,0.235v1.682H9.758V10.653z M9.615,15.121c0,0,0.075-0.243,0.354-0.243
+      c0.278,0,0.35,0.243,0.35,0.243v1.251H9.615V15.121z M7.911,16.373H7.252v-2.374h0.659V16.373z M9.176,16.373H8.513v-2.374h0.662
+      v2.374H9.176z M9.021,8.538c0,0-0.014-0.17,0.165-0.17c0.177,0,0.177,0.17,0.177,0.17v1.218H9.021V8.538z M8.812,10.653
+      c0,0-0.016-0.235,0.201-0.235c0.218,0,0.218,0.235,0.218,0.235v1.682H8.812V10.653z M8.247,8.538c0,0-0.013-0.17,0.165-0.17
+      c0.177,0,0.177,0.17,0.177,0.17v1.218H8.247V8.538z M7.865,10.653c0,0-0.015-0.235,0.203-0.235c0.216,0,0.216,0.235,0.216,0.235
+      v1.682H7.865V10.653z M7.473,8.538c0,0-0.014-0.17,0.166-0.17c0.176,0,0.176,0.17,0.176,0.17v1.218H7.473V8.538z M6.919,10.653
+      c0,0-0.015-0.235,0.203-0.235s0.218,0.235,0.218,0.235v1.682H6.919V10.653z M5.989,13.999H6.65v2.374H5.989V13.999z
+      M4.728,13.999h0.661v2.374H4.728V13.999z M2.445,14.482h0.702v0.986H2.445V14.482z M2.445,16.042h0.702v0.986H2.445V16.042z
+      M0.947,14.482h0.702v0.986H0.947V14.482z M0.947,16.042h0.702v0.986H0.947V16.042z"
+    />
+  </svg>
+);
+
+// ─────────────────────────────────────────────────────────────────
+// CLOUD DATA
+// ─────────────────────────────────────────────────────────────────
+type CloudDef = {
+  id: number; top: string; opacity: number;
+  duration: string; delay: string;
+  w: number; h: number; Type: typeof CloudA;
+};
+
+const svgClouds: CloudDef[] = [
+  { id: 1,  top: "5%",  opacity: 0.50, duration: "40s", delay: "0s",   w: 95,  h: 40, Type: CloudA },
+  { id: 2,  top: "8%",  opacity: 0.42, duration: "48s", delay: "-8s",  w: 75,  h: 37, Type: CloudB },
+  { id: 3,  top: "12%", opacity: 0.45, duration: "44s", delay: "-20s", w: 110, h: 52, Type: CloudC },
+  { id: 4,  top: "3%",  opacity: 0.40, duration: "52s", delay: "-33s", w: 80,  h: 38, Type: CloudA },
+  { id: 5,  top: "18%", opacity: 0.38, duration: "36s", delay: "-44s", w: 90,  h: 42, Type: CloudD },
+  { id: 6,  top: "25%", opacity: 0.35, duration: "41s", delay: "-12s", w: 85,  h: 40, Type: CloudE },
+  { id: 7,  top: "30%", opacity: 0.32, duration: "42s", delay: "-26s", w: 72,  h: 36, Type: CloudB },
+  { id: 8,  top: "35%", opacity: 0.28, duration: "46s", delay: "-5s",  w: 68,  h: 35, Type: CloudD },
+  { id: 9,  top: "42%", opacity: 0.25, duration: "50s", delay: "-14s", w: 58,  h: 32, Type: CloudE },
+  { id: 10, top: "48%", opacity: 0.22, duration: "55s", delay: "-38s", w: 69,  h: 38, Type: CloudC },
+  { id: 11, top: "55%", opacity: 0.20, duration: "39s", delay: "-7s",  w: 55,  h: 30, Type: CloudA },
+  { id: 12, top: "62%", opacity: 0.18, duration: "53s", delay: "-31s", w: 50,  h: 28, Type: CloudB },
+];
+
+// ─────────────────────────────────────────────────────────────────
+// SOCIAL LINKS
+// ─────────────────────────────────────────────────────────────────
+const socialLinks = [
+  { icon: tiktokIcon,    href: "https://www.tiktok.com/@natlyofficial",     label: "TikTok"    },
+  { icon: facebookIcon,  href: "https://www.facebook.com/natlyofficial/",   label: "Facebook"  },
+  { icon: youtubeIcon,   href: "https://www.youtube.com/@NatlyOfficial",    label: "YouTube"   },
+  { icon: instagramIcon, href: "https://www.instagram.com/natly.official/", label: "Instagram" },
+];
+
+// ─────────────────────────────────────────────────────────────────
+// FOOTER
+// ─────────────────────────────────────────────────────────────────
 export default function Footer() {
   const { t } = useTranslation("footer");
-  const [email, setEmail] = useState("");
+  const [email, setEmail]   = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
+    // Get honeypot value
+    const formData = new FormData(e.target as HTMLFormElement);
+    const honeypot = formData.get('honeypot');
+
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch("/.netlify/functions/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ 
+          email,
+          honeypot // Bots will fill this
+        }),
       });
 
       if (response.ok) {
@@ -36,351 +231,269 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden">
-      
-      {/* Sky Background - Natly Blue */}
-      <div 
-        className="relative pt-20 pb-12"
-        style={{
-          background: 'linear-gradient(to bottom, #0a3978 0%, #1e5fa8 50%, #e0f2fe 100%)'
-        }}
-      >
-        
-        {/* 20 Animated Clouds - Moving left to right */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Layer 1 - Large clouds */}
-          <div className="absolute top-8 text-8xl opacity-40 animate-cloud-1">☁️</div>
-          <div className="absolute top-12 text-7xl opacity-35 animate-cloud-2">☁️</div>
-          <div className="absolute top-16 text-9xl opacity-30 animate-cloud-3">☁️</div>
-          <div className="absolute top-20 text-7xl opacity-35 animate-cloud-4">☁️</div>
-          
-          {/* Layer 2 - Medium clouds */}
-          <div className="absolute top-24 text-6xl opacity-30 animate-cloud-5">☁️</div>
-          <div className="absolute top-28 text-5xl opacity-25 animate-cloud-6">☁️</div>
-          <div className="absolute top-32 text-6xl opacity-35 animate-cloud-7">☁️</div>
-          <div className="absolute top-36 text-7xl opacity-30 animate-cloud-8">☁️</div>
-          <div className="absolute top-40 text-5xl opacity-25 animate-cloud-9">☁️</div>
-          
-          {/* Layer 3 - Small clouds */}
-          <div className="absolute top-44 text-4xl opacity-20 animate-cloud-10">☁️</div>
-          <div className="absolute top-48 text-5xl opacity-25 animate-cloud-11">☁️</div>
-          <div className="absolute top-52 text-4xl opacity-20 animate-cloud-12">☁️</div>
-          <div className="absolute top-56 text-6xl opacity-30 animate-cloud-13">☁️</div>
-          
-          {/* Layer 4 - Bottom clouds */}
-          <div className="absolute top-60 text-7xl opacity-25 animate-cloud-14">☁️</div>
-          <div className="absolute top-64 text-5xl opacity-20 animate-cloud-15">☁️</div>
-          <div className="absolute top-68 text-6xl opacity-25 animate-cloud-16">☁️</div>
-          <div className="absolute top-72 text-4xl opacity-15 animate-cloud-17">☁️</div>
-          
-          {/* Layer 5 - Extra clouds */}
-          <div className="absolute top-76 text-8xl opacity-30 animate-cloud-18">☁️</div>
-          <div className="absolute top-80 text-5xl opacity-20 animate-cloud-19">☁️</div>
-          <div className="absolute top-84 text-7xl opacity-25 animate-cloud-20">☁️</div>
-        </div>
+    <footer style={{ background: "#0a3978", overflow: "hidden" }}>
 
-        {/* Flying Natly - BEHIND text (z-index lower) */}
-        <div className="absolute top-16 left-0 w-full h-32 pointer-events-none z-0 overflow-visible">
-          <div className="natly-flying-smooth">
-            <img 
-              src={mascotFlying} 
-              alt="Natly Flying" 
-              className="w-20 md:w-32 h-auto drop-shadow-2xl"
-            />
-          </div>
-        </div>
+      {/* ── MIDDLE BAND ── */}
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)" }}>
+        <div className="w-full max-w-4xl mx-auto px-10 py-6">
 
-        {/* Newsletter Content - IN FRONT of mascot (z-index higher) */}
-        <div className="relative z-10 max-w-4xl mx-auto px-4 overflow-visible">
-          
-          {/* Main Title - White text */}
-          <div className="text-center mb-8">
-            <h3 className="text-4xl sm:text-5xl font-black text-white mb-3 drop-shadow-lg">
-              {t("newsletter.title", "¡Vuela Alto en tu Examen!")}
-            </h3>
-            <p className="text-xl text-white/90 font-semibold">
-              {t("newsletter.subtitle", "Suscríbete para recibir noticias y actualizaciones")}
-            </p>
+          {/* Social icons */}
+          <div className="flex gap-6 sm:gap-8 justify-center mb-5">
+            {socialLinks.map(({ icon, href, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="social-circle-btn">
+                <img src={icon} className="social-circle-img" alt={label} />
+              </a>
+            ))}
           </div>
 
-          {/* Newsletter Form */}
-          <div className="relative">
-            <form 
-              onSubmit={handleSubmit}
-              className="relative bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border-4 border-natly-yellow transform hover:scale-[1.02] transition-all duration-300"
-            >
-              
-              {/* Decorative Envelope Icon */}
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-natly-yellow rounded-full p-5 shadow-lg">
-                <img src={emailIcon} alt="Email Icon" className="w-12 h-8" />
-              </div>
+          {/* Social proof */}
+          <p className="text-center text-white/50 text-xs mb-6">
+            {t("newsletter.socialProof")}
+          </p>
 
-              <div className="mt-4">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  
-                  {/* Email Input */}
-                  <div className="flex-1 relative group">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder={t("newsletter.placeholder", "tu@email.com")}
-                      required
-                      disabled={status === "loading" || status === "success"}
-                      className="w-full px-6 py-4 rounded-2xl border-3 border-natly-blue-soft text-natly-blue-dark text-lg font-semibold focus:outline-none focus:border-natly-blue focus:ring-4 focus:ring-natly-blue/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed group-hover:border-natly-blue"
-                    />
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                      <span className="text-2xl animate-bounce">✨</span>
-                    </div>
-                  </div>
+          {/* Newsletter + copyright */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 w-full mt-2">
 
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={status === "loading" || status === "success"}
-                    className="relative px-8 sm:px-10 py-4 rounded-2xl bg-gradient-to-r from-natly-yellow to-amber-400 text-natly-blue-dark text-lg font-black shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group"
-                  >
-                    {/* Button shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 transform -skew-x-12 group-hover:translate-x-full transition-all duration-700"></div>
-                    
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      {status === "loading" 
-                        ? <>
-                            <span className="animate-spin">⏳</span>
-                            {t("newsletter.sending", "Enviando...")}
-                          </>
-                        : status === "success"
-                        ? <>
-                            <span className="animate-bounce">🎉</span>
-                            {t("newsletter.success", "¡Suscrito!")}
-                          </>
-                        : <>
-                            {t("newsletter.button", "Suscribirme Gratis")}
-                            <span className="group-hover:translate-x-1 transition-transform">→</span>
-                          </>
-                      }
-                    </span>
+            <div className="flex flex-col items-center sm:items-start gap-2 w-full sm:flex-1 sm:max-w-lg">
+              <p className="text-white font-bold text-xl tracking-tight">
+                {t("newsletter.title")}
+              </p>
+              <p className="text-white/55 text-sm text-center sm:text-left">
+                {t("newsletter.subtitle")}
+              </p>
+
+              {status === "success" ? (
+                <p className="text-green-300 text-sm font-medium text-center sm:text-left">
+                  ✓ {t("newsletter.successMessage")}
+                </p>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex w-full gap-2 mt-1">
+                  {/* Honeypot - hidden field for bots */}
+                  <input 
+                    type="text" 
+                    name="honeypot" 
+                    style={{ display: 'none' }} 
+                    tabIndex={-1} 
+                    autoComplete="off"
+                  />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={t("newsletter.placeholder")}
+                    required
+                    className="newsletter-input flex-1 min-w-0"
+                  />
+                  <button type="submit" disabled={status === "loading"} className="newsletter-btn">
+                    {status === "loading" ? t("newsletter.sending") : t("newsletter.button")}
                   </button>
-                </div>
+                </form>
+              )}
 
-                {/* Status Messages */}
-                {status === "success" && (
-                  <div className="mt-4 p-4 bg-green-50 border-2 border-green-500 rounded-xl animate-slide-up">
-                    <p className="text-center text-green-700 font-bold flex items-center justify-center gap-2">
-                      <span className="text-2xl animate-bounce">🎊</span>
-                      {t("newsletter.successMessage", "¡Genial! Revisa tu email para confirmar.")}
-                      <span className="text-2xl animate-bounce animation-delay-100">🎊</span>
-                    </p>
-                  </div>
-                )}
-                
-                {status === "error" && (
-                  <div className="mt-4 p-4 bg-red-50 border-2 border-red-500 rounded-xl animate-shake">
-                    <p className="text-center text-red-700 font-bold">
-                      ❌ {t("newsletter.errorMessage", "Algo salió mal. Intenta de nuevo.")}
-                    </p>
-                  </div>
-                )}
+              {status === "error" && (
+                <p className="text-red-300 text-xs">{t("newsletter.errorMessage")}</p>
+              )}
+            </div>
 
-                {/* Trust Badges */}
-                <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-6 text-sm font-semibold text-natly-blue">
-                  <div className="flex items-center gap-2 bg-natly-blue-soft/20 px-3 sm:px-4 py-2 rounded-full hover:bg-natly-blue-soft/30 transition-colors">
-                    <span className="text-lg">✓</span>
-                    <span className="text-xs sm:text-sm">100% Gratis</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-natly-blue-soft/20 px-3 sm:px-4 py-2 rounded-full hover:bg-natly-blue-soft/30 transition-colors">
-                    <span className="text-lg">✓</span>
-                    <span className="text-xs sm:text-sm">Sin Spam</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-natly-blue-soft/20 px-3 sm:px-4 py-2 rounded-full hover:bg-natly-blue-soft/30 transition-colors">
-                    <span className="text-lg">✓</span>
-                    <span className="text-xs sm:text-sm">Cancela Cuando Quieras</span>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+            <div className="hidden sm:block h-30 w-px bg-white/15 flex-shrink-0" />
 
-          {/* Social Proof - YELLOW text */}
-          <div className="text-center mt-8 mb-2">
-            <p className="text-black font-bold text-base sm:text-lg drop-shadow">
-              {t("newsletter.socialProof", "Únete a más de 500 personas preparándose para la ciudadanía")}
+            <p className="text-center text-sm font-bold text-white/50 sm:self-center">
+              {t("rights")}
             </p>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── CITY ZONE ──
+          z-index layers:
+            1 = clouds  (behind buildings)
+            2 = helicopter (behind buildings)
+            4 = buildings / ground items (in front)
+            8 = horizon line
+            9 = ground strip
+      */}
+      <div style={{ position: "relative", height: "280px", overflow: "hidden" }}>
+
+        {/* Clouds — z:1, behind buildings */}
+        <div className="pointer-events-none" style={{ position: "absolute", inset: 0, zIndex: 1 }}>
+          {svgClouds.map(({ id, top, opacity, duration, delay, w, h, Type }) => (
+            <div key={id} className="absolute" style={{ top, opacity, animation: `svg-cloud-loop ${duration} linear infinite`, animationDelay: delay }}>
+              <Type w={w} h={h} />
+            </div>
+          ))}
+        </div>
+
+        {/* Helicopter — z:2, behind buildings */}
+        <div className="pointer-events-none helicopter-fly" style={{ position: "absolute", top: "70px", zIndex: 2 }}>
+          <Helicopter />
+        </div>
+
+        {/* Road Sign */}
+        <div className="ground-item sign-item" style={{ bottom: "7px", left: "1%", zIndex: 4 }}>
+          <div className="relative">
+            <svg fill="white" height="100px" width="100px" viewBox="0 0 500.784 500.784">
+              <path d="M109.36,0.39H93.736c-2.156,0-3.908,1.748-3.908,3.908v15.624c0,2.16,1.752,3.908,3.908,3.908h15.624c2.16,0,3.908-1.748,3.908-3.908V4.298C113.268,2.138,111.52,0.39,109.36,0.39z" />
+              <path d="M257.8,0.39h-15.624c-2.156,0-3.908,1.748-3.908,3.908v15.624c0,2.16,1.752,3.908,3.908,3.908H257.8c2.16,0,3.908-1.748,3.908-3.908V4.298C261.708,2.138,259.96,0.39,257.8,0.39z" />
+              <path d="M406.236,0.39h-15.624c-2.156,0-3.908,1.748-3.908,3.908v15.624c0,2.16,1.752,3.908,3.908,3.908h15.624c2.16,0,3.908-1.748,3.908-3.908V4.298C410.144,2.138,408.396,0.39,406.236,0.39z" />
+              <path d="M492.176,175.474V34.55c0-2.16-2.06-2.912-4.22-2.912H11.724c-2.156,0-3.92,0.752-3.92,2.912v141.22C3.896,177.382,0,182.238,0,187.334c0,6.472,5.248,12.276,11.728,12.276h82.016v277.344H62.1c-6.472,0-11.72,5.248-11.72,11.72c0,6.476,5.248,11.72,11.72,11.72h35.404h31.248h35.4c6.476,0,11.72-5.244,11.72-11.72c0-6.468-5.244-11.72-11.72-11.72h-31.344V199.61h356.104c6.468,0,11.872-5.804,11.872-12.276C500.776,181.886,496.08,176.794,492.176,175.474z" />
+            </svg>
+            <div className="absolute text-center uppercase leading-tight" style={{
+              top: "14px", left: 0, right: 0,
+              fontFamily: "'Nunito', sans-serif", fontWeight: 900,
+              fontSize: "0.5rem", letterSpacing: "0.06em",
+              color: "#0a3978", padding: "0 6px",
+            }}>
+              WELCOME<br />TO USA
+            </div>
           </div>
         </div>
 
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-          <svg viewBox="0 0 1440 120" className="w-full h-16 sm:h-20 fill-white">
-            <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+        {/* Person */}
+        <div className="ground-item person-sign" style={{ bottom: "7px", left: "5%", zIndex: 4 }}>
+          <svg width="30" height="30" viewBox="-0.24 -0.24 24.48 24.48" fill="#ffffff" style={{ marginBottom: "2px" }}>
+            <path d="M13.9 2.999A1.9 1.9 0 1 1 12 1.1a1.9 1.9 0 0 1 1.9 1.899zM13.544 6h-3.088a1.855 1.855 0 0 0-1.8 1.405l-1.662 6.652a.667.667 0 0 0 .14.573.873.873 0 0 0 .665.33.718.718 0 0 0 .653-.445L10 9.1V13l-.922 9.219a.71.71 0 0 0 .707.781h.074a.69.69 0 0 0 .678-.563L12 14.583l1.463 7.854a.69.69 0 0 0 .678.563h.074a.71.71 0 0 0 .707-.781L14 13V9.1l1.548 5.415a.718.718 0 0 0 .653.444.873.873 0 0 0 .665-.329.667.667 0 0 0 .14-.573l-1.662-6.652A1.855 1.855 0 0 0 13.544 6z" />
           </svg>
         </div>
-      </div>
 
-      {/* Bottom Section */}
-      <div className="bg-white pb-6">
-        
-        {/* Social Icons - NO drop-shadow */}
-        <div className="flex gap-4 sm:gap-6 justify-center mb-6">
-          <a 
-            href="https://www.tiktok.com/@natlyofficial" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="transform hover:scale-125 hover:-rotate-12 transition-all duration-300"
-          >
-            <img src={tiktokIcon} className="w-14 sm:w-16" alt="TikTok" />
-          </a>
-          <a 
-            href="https://www.facebook.com/natlyofficial/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="transform hover:scale-125 hover:rotate-12 transition-all duration-300"
-          >
-            <img src={facebookIcon} className="w-14 sm:w-16" alt="Facebook" />
-          </a>
-          <a 
-            href="https://www.youtube.com/@NatlyOfficial" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="transform hover:scale-125 hover:-rotate-12 transition-all duration-300"
-          >
-            <img src={youtubeIcon} className="w-14 sm:w-16" alt="YouTube" />
-          </a>
-          <a 
-            href="https://www.instagram.com/natly.official/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="transform hover:scale-125 hover:rotate-12 transition-all duration-300"
-          >
-            <img src={instagramIcon} className="w-14 sm:w-16" alt="Instagram" />
-          </a>
+        {/* Forklift — desktop only */}
+        <div className="ground-item desktop-only" style={{ bottom: "7px", left: "10%", zIndex: 4 }}>
+          <Forklift />
         </div>
 
-        {/* Copyright */}
-        <p className="text-center text-base sm:text-lg font-bold text-natly-gray">
-          {t("rights", "© 2025 Natly. Todos los derechos reservados.")}
-        </p>
+        {/* Factory — desktop only */}
+        <div className="ground-item desktop-only" style={{ bottom: "0px", left: "13%", zIndex: 4 }}>
+          <Factory />
+        </div>
+
+        {/* Car — desktop only */}
+        <div className="ground-item desktop-only" style={{ bottom: "0px", left: "38%", zIndex: 4 }}>
+          <Car />
+        </div>
+
+        {/* House — desktop only */}
+        <div className="ground-item desktop-only" style={{ bottom: "0px", left: "50%", zIndex: 4 }}>
+          <House />
+        </div>
+
+        {/* Statue — always visible */}
+        <div className="ground-item statue-item" style={{ bottom: "7px", left: "65%", zIndex: 4 }}>
+          <Statue />
+        </div>
+
+        {/* Capitol — always visible */}
+        <div className="ground-item capitol-item" style={{ bottom: "-3px", left: "83%", zIndex: 4 }}>
+          <Capitol />
+        </div>
+
+        {/* Horizon line */}
+        <div style={{ position: "absolute", bottom: "5px", left: 0, right: 0, height: "2.5px", background: "rgba(255,255,255,0.6)", zIndex: 8 }} />
+
+        {/* Ground strip */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "5px", background: "#061f3d", zIndex: 9 }} />
+
       </div>
 
-      {/* CSS Animations */}
+      {/* ── STYLES ── */}
       <style>{`
-        /* Natly Flying - Smooth bidirectional flight */
-        .natly-flying-smooth {
-          animation: fly-wave 35s ease-in-out infinite;
+        .ground-item {
+          position: absolute;
+          display: flex;
+          align-items: flex-end;
+          line-height: 0;
         }
 
-        @keyframes fly-wave {
-          0% {
-            transform: translateX(0vw) translateY(0) scaleX(1);
-          }
-          10% {
-            transform: translateX(15vw) translateY(-45px) scaleX(1);
-          }
-          20% {
-            transform: translateX(30vw) translateY(50px) scaleX(1);
-          }
-          30% {
-            transform: translateX(46vw) translateY(-55px) scaleX(1);
-          }
-          40% {
-            transform: translateX(66vw) translateY(5px) scaleX(1);
-          }
-          45% {
-            transform: translateX(78vw) translateY(-30px) scaleX(1);
-          }
-          50% {
-            transform: translateX(93vw) translateY(25px) scaleX(1);
-          }
-          55% {
-            transform: translateX(100vw) translateY(20px) scaleX(-1);
-          }
-          60% {
-            transform: translateX(0vw) translateY(15px) scaleX(-1);
-          }
-          70% {
-            transform: translateX(-15vw) translateY(-20px) scaleX(-1);
-          }
-          80% {
-            transform: translateX(-27vw) translateY(20px) scaleX(-1);
-          }
-          85% {
-            transform: translateX(-46vw) translateY(-35px) scaleX(-1);
-          }
-          90% {
-            transform: translateX(-66vw) translateY(25px) scaleX(-1);
-          }
-          95% {
-            transform: translateX(-86vw) translateY(-25px) scaleX(-1);
-          }
-          100% {
-            transform: translateX(-100vw) translateY(0) scaleX(-1);
-          }
+        @media (max-width: 639px) {
+          .sign-item    { left: 2%  !important; }
+          .person-sign  { left: 16% !important; }
+          .statue-item  { left: 38% !important; }
+          .capitol-item { left: 62% !important; }
+          .desktop-only { display: none !important; }
         }
 
-        /* Cloud animations - Continuous loop */
-        @keyframes cloud-loop {
-          0% {
-            transform: translateX(-15%);
-            opacity: 0;
-          }
-          5% {
-            opacity: var(--cloud-opacity);
-          }
-          95% {
-            opacity: var(--cloud-opacity);
-          }
-          100% {
-            transform: translateX(115vw);
-            opacity: 0;
-          }
+        .social-circle-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 62px;
+          height: 62px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.07);
+          border: 1.5px solid rgba(255,255,255,0.18);
+          box-shadow: 0 0 0 4px rgba(255,255,255,0.04), 0 2px 12px rgba(0,0,0,0.25);
+          transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+        .social-circle-btn:hover {
+          background: rgba(255,255,255,0.14);
+          box-shadow: 0 0 0 5px rgba(255,255,255,0.10), 0 4px 18px rgba(0,0,0,0.3);
+          transform: translateY(-3px) scale(1.08);
+        }
+        .social-circle-img {
+          width: 30px;
+          height: 30px;
+          object-fit: contain;
+          filter: brightness(0) invert(1);
         }
 
-        /* Individual cloud animations */
-        .animate-cloud-1 { animation: cloud-loop 40s linear infinite; --cloud-opacity: 0.4; }
-        .animate-cloud-2 { animation: cloud-loop 45s linear infinite; --cloud-opacity: 0.35; animation-delay: -5s; }
-        .animate-cloud-3 { animation: cloud-loop 50s linear infinite; --cloud-opacity: 0.3; animation-delay: -10s; }
-        .animate-cloud-4 { animation: cloud-loop 42s linear infinite; --cloud-opacity: 0.35; animation-delay: -15s; }
-        .animate-cloud-5 { animation: cloud-loop 48s linear infinite; --cloud-opacity: 0.3; animation-delay: -20s; }
-        .animate-cloud-6 { animation: cloud-loop 52s linear infinite; --cloud-opacity: 0.25; animation-delay: -25s; }
-        .animate-cloud-7 { animation: cloud-loop 44s linear infinite; --cloud-opacity: 0.35; animation-delay: -30s; }
-        .animate-cloud-8 { animation: cloud-loop 49s linear infinite; --cloud-opacity: 0.3; animation-delay: -35s; }
-        .animate-cloud-9 { animation: cloud-loop 55s linear infinite; --cloud-opacity: 0.25; animation-delay: -40s; }
-        .animate-cloud-10 { animation: cloud-loop 41s linear infinite; --cloud-opacity: 0.2; animation-delay: -2s; }
-        .animate-cloud-11 { animation: cloud-loop 47s linear infinite; --cloud-opacity: 0.25; animation-delay: -7s; }
-        .animate-cloud-12 { animation: cloud-loop 43s linear infinite; --cloud-opacity: 0.2; animation-delay: -12s; }
-        .animate-cloud-13 { animation: cloud-loop 51s linear infinite; --cloud-opacity: 0.3; animation-delay: -17s; }
-        .animate-cloud-14 { animation: cloud-loop 46s linear infinite; --cloud-opacity: 0.25; animation-delay: -22s; }
-        .animate-cloud-15 { animation: cloud-loop 53s linear infinite; --cloud-opacity: 0.2; animation-delay: -27s; }
-        .animate-cloud-16 { animation: cloud-loop 39s linear infinite; --cloud-opacity: 0.25; animation-delay: -32s; }
-        .animate-cloud-17 { animation: cloud-loop 54s linear infinite; --cloud-opacity: 0.15; animation-delay: -37s; }
-        .animate-cloud-18 { animation: cloud-loop 38s linear infinite; --cloud-opacity: 0.3; animation-delay: -42s; }
-        .animate-cloud-19 { animation: cloud-loop 56s linear infinite; --cloud-opacity: 0.2; animation-delay: -4s; }
-        .animate-cloud-20 { animation: cloud-loop 57s linear infinite; --cloud-opacity: 0.25; animation-delay: -9s; }
-
-        /* Success/Error animations */
-        @keyframes slide-up {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+        .newsletter-input {
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 6px;
+          padding: 8px 12px;
+          color: white;
+          font-size: 0.8rem;
+          outline: none;
+          transition: border-color 0.2s, background 0.2s;
+        }
+        .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
+        .newsletter-input:focus {
+          border-color: rgba(255,255,255,0.5);
+          background: rgba(255,255,255,0.12);
         }
 
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-          20%, 40%, 60%, 80% { transform: translateX(5px); }
+        .newsletter-btn {
+          background: rgba(255,255,255,0.15);
+          border: 1px solid rgba(255,255,255,0.3);
+          border-radius: 6px;
+          padding: 8px 14px;
+          color: white;
+          font-size: 0.78rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: background 0.2s, transform 0.15s;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .newsletter-btn:hover {
+          background: rgba(255,255,255,0.25);
+          transform: translateY(-1px);
+        }
+        .newsletter-btn:disabled { opacity: 0.6; cursor: default; }
+
+        @keyframes svg-cloud-loop {
+          0%   { transform: translateX(-300px); opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { transform: translateX(115vw);  opacity: 0; }
         }
 
-        .animate-slide-up {
-          animation: slide-up 0.5s ease-out;
+        @keyframes heli-fly {
+          0%   { transform: translateX(-80px)  translateY(0px);   opacity: 0; }
+          3%   { opacity: 1; }
+          25%  { transform: translateX(25vw)   translateY(-18px); }
+          50%  { transform: translateX(55vw)   translateY(12px);  }
+          75%  { transform: translateX(80vw)   translateY(-12px); }
+          97%  { opacity: 1; }
+          100% { transform: translateX(110vw)  translateY(0px);   opacity: 0; }
         }
-
-        .animate-shake {
-          animation: shake 0.6s ease-out;
-        }
-
-        .animation-delay-100 {
-          animation-delay: 0.1s;
+        .helicopter-fly {
+          animation: heli-fly 28s ease-in-out infinite;
+          animation-delay: -6s;
         }
       `}</style>
+
     </footer>
   );
 }
