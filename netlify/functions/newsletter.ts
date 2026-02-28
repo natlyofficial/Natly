@@ -1,19 +1,16 @@
 import { Handler, HandlerEvent } from '@netlify/functions';
 
-// Mailchimp config from environment variables
+// Mailchimp config
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
 const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
 const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
 
-// Security: Email validation regex
+// Security
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-// Security: Rate limiting (in-memory)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const MAX_REQUESTS = 3; // 3 attempts per minute per IP
+const RATE_LIMIT_WINDOW = 60 * 1000;
+const MAX_REQUESTS = 3;
 
-// Helper: Check rate limit
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const userLimit = rateLimitMap.get(ip);
@@ -32,20 +29,17 @@ function checkRateLimit(ip: string): boolean {
 }
 
 export const handler: Handler = async (event: HandlerEvent) => {
-  // Security: CORS headers
   const headers = {
-    'Access-Control-Allow-Origin': '*', // TODO: Change to your domain when deployed
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json',
   };
 
-  // Security: Handle preflight
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 200, headers, body: '' };
   }
 
-  // Security: Only POST allowed
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -55,7 +49,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
   }
 
   try {
-    // Security: Rate limiting by IP
     const clientIP = event.headers['x-forwarded-for'] || event.headers['client-ip'] || 'unknown';
     
     if (!checkRateLimit(clientIP)) {
@@ -68,7 +61,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
       };
     }
 
-    // Security: Parse and validate body
     const body = event.body;
     if (!body) {
       return {
@@ -78,11 +70,10 @@ export const handler: Handler = async (event: HandlerEvent) => {
       };
     }
 
-    const { email, honeypot } = JSON.parse(body);
+    const { email, honeypot, language } = JSON.parse(body);
 
-    // Security: Honeypot check (anti-bot)
+    // Honeypot check
     if (honeypot) {
-      // Bot detected - return success but don't actually subscribe
       console.log('Bot detected:', clientIP);
       return {
         statusCode: 200,
@@ -91,7 +82,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       };
     }
 
-    // Security: Email validation
+    // Email validation
     if (!email || typeof email !== 'string') {
       return {
         statusCode: 400,
@@ -108,7 +99,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
       };
     }
 
-    // Security: Email length check
     if (email.length > 254) {
       return {
         statusCode: 400,
@@ -117,7 +107,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       };
     }
 
-    // Security: Validate environment variables
+    // Validate environment variables
     if (!MAILCHIMP_API_KEY || !MAILCHIMP_SERVER_PREFIX || !MAILCHIMP_AUDIENCE_ID) {
       console.error('Missing Mailchimp configuration');
       return {
@@ -126,6 +116,9 @@ export const handler: Handler = async (event: HandlerEvent) => {
         body: JSON.stringify({ error: 'Server configuration error' }),
       };
     }
+
+    // Determine tag and merge field based on language
+    const languageTag = language === 'es' ? 'Spanish' : 'English';
 
     // Mailchimp API call
     const mailchimpUrl = `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`;
@@ -138,19 +131,19 @@ export const handler: Handler = async (event: HandlerEvent) => {
       },
       body: JSON.stringify({
         email_address: email.toLowerCase().trim(),
-        status: 'pending', // Security: Double opt-in required
-        tags: ['Natly Newsletter'],
+        status: 'pending',
+        tags: [languageTag],
+        merge_fields: {
+          LANGUAGE: languageTag
+        }
       }),
     });
 
     const data = await response.json();
 
-    // Handle Mailchimp errors
     if (!response.ok) {
-      // Security: Don't expose internal errors to user
       console.error('Mailchimp error:', data);
 
-      // User-friendly error messages
       if (data.title === 'Member Exists') {
         return {
           statusCode: 400,
@@ -191,7 +184,6 @@ export const handler: Handler = async (event: HandlerEvent) => {
     };
 
   } catch (error) {
-    // Security: Log error but don't expose details
     console.error('Newsletter function error:', error);
     
     return {
