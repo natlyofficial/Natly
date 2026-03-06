@@ -196,7 +196,7 @@ const socialLinks = [
 // FOOTER
 // ─────────────────────────────────────────────────────────────────
 export default function Footer() {
-  const { t } = useTranslation("footer");
+  const { t, i18n } = useTranslation("footer");
   const [email, setEmail]   = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -207,6 +207,7 @@ export default function Footer() {
     // Get honeypot value
     const formData = new FormData(e.target as HTMLFormElement);
     const honeypot = formData.get('honeypot');
+    const currentLanguage = i18n.language;
 
     try {
       const response = await fetch("/.netlify/functions/newsletter", {
@@ -214,7 +215,8 @@ export default function Footer() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           email,
-          honeypot // Bots will fill this
+          honeypot, // Bots will fill this
+          language: currentLanguage
         }),
       });
 
