@@ -210,7 +210,7 @@ export default function Footer() {
     const currentLanguage = i18n.language;
 
     try {
-      const response = await fetch("/.netlify/functions/newsletter", {
+      const response = await fetch("https://api-natly.netlify.app/.netlify/functions/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
