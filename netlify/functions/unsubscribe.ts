@@ -11,7 +11,8 @@ import jwt from 'jsonwebtoken';
 // CLOUDINARY ASSETS
 // ───────────────────────────────────────────────────────────────
 
-const LOGO = "https://res.cloudinary.com/dxtaji00x/image/upload/natly-logo_gnuy2h.png";
+const LOGO_LIGHT = "https://res.cloudinary.com/dxtaji00x/image/upload/natly-logo_gnuy2h.png";
+const LOGO_DARK = "https://res.cloudinary.com/dxtaji00x/image/upload/v1772844721/natly-logo-dark_ddgjfu.png";
 const WAVE = "https://res.cloudinary.com/dxtaji00x/image/upload/wave-footer_vmjxqu.png";
 
 // ───────────────────────────────────────────────────────────────
@@ -78,6 +79,12 @@ p{line-height:18px;}
 .text{font-size:14px!important;line-height:22px!important;}
 .logo{width:200px!important;height:auto!important;}
 }
+.dark-logo{display:none;max-height:0;overflow:hidden;opacity:0;}
+.light-logo{display:block;}
+@media (prefers-color-scheme:dark){
+  .light-logo{display:none!important;max-height:0!important;overflow:hidden!important;opacity:0!important;}
+  .dark-logo{display:block!important;max-height:none!important;overflow:visible!important;opacity:1!important;}
+}
 </style>
 </head>
 <body bgcolor="#f5f7fa" style="margin:0;padding:0;background:#f5f7fa;">
@@ -91,7 +98,10 @@ p{line-height:18px;}
 <!-- Logo -->
 <tr>
 <td align="center" style="padding:28px 24px 10px;">
-<img src="${LOGO}" width="240" class="logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
+<img src="${LOGO_LIGHT}" width="240" class="logo light-logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
+<div class="dark-logo" style="display:none;">
+  <img src="${LOGO_DARK}" width="240" class="logo" alt="Natly" style="display:block;border:0;outline:none;text-decoration:none;">
+</div>
 </td>
 </tr>
 
@@ -201,6 +211,12 @@ p{line-height:18px;}
 .text{font-size:14px!important;line-height:22px!important;}
 .logo{width:200px!important;height:auto!important;}
 }
+.dark-logo{display:none;max-height:0;overflow:hidden;opacity:0;}
+.light-logo{display:block;}
+@media (prefers-color-scheme:dark){
+  .light-logo{display:none!important;max-height:0!important;overflow:hidden!important;opacity:0!important;}
+  .dark-logo{display:block!important;max-height:none!important;overflow:visible!important;opacity:1!important;}
+}
 </style>
 </head>
 <body bgcolor="#f5f7fa" style="margin:0;padding:0;background:#f5f7fa;">
@@ -214,7 +230,10 @@ p{line-height:18px;}
 <!-- Logo -->
 <tr>
 <td align="center" style="padding:28px 24px 10px;">
-<img src="${LOGO}" width="240" class="logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
+<img src="${LOGO_LIGHT}" width="240" class="logo light-logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
+<div class="dark-logo" style="display:none;">
+  <img src="${LOGO_DARK}" width="240" class="logo" alt="Natly" style="display:block;border:0;outline:none;text-decoration:none;">
+</div>
 </td>
 </tr>
 

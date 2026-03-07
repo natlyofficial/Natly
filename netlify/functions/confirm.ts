@@ -11,7 +11,8 @@ import jwt from 'jsonwebtoken';
 // CLOUDINARY ASSETS
 // ───────────────────────────────────────────────────────────────
 
-const LOGO = "https://res.cloudinary.com/dxtaji00x/image/upload/natly-logo_gnuy2h.png";
+const LOGO_LIGHT = "https://res.cloudinary.com/dxtaji00x/image/upload/natly-logo_gnuy2h.png";
+const LOGO_DARK = "https://res.cloudinary.com/dxtaji00x/image/upload/v1772844721/natly-logo-dark_ddgjfu.png";
 const WAVE = "https://res.cloudinary.com/dxtaji00x/image/upload/wave-footer_vmjxqu.png";
 const ICON_NEWS = "https://res.cloudinary.com/dxtaji00x/image/upload/news-icon_uzk1cq.png";
 const ICON_RESOURCES = "https://res.cloudinary.com/dxtaji00x/image/upload/resource-icon_bdcmjx.png";
@@ -109,6 +110,12 @@ h1{color:#ffffff!important;}
 h1{font-size:26px;line-height:32px;}
 .btn{width:100%;justify-content:center;}
 }
+.dark-logo{display:none;max-height:0;overflow:hidden;opacity:0;}
+.light-logo{display:block;}
+@media (prefers-color-scheme:dark){
+  .light-logo{display:none!important;max-height:0!important;overflow:hidden!important;opacity:0!important;}
+  .dark-logo{display:block!important;max-height:none!important;overflow:visible!important;opacity:1!important;}
+}
 </style>
 </head>
 <body>
@@ -116,7 +123,10 @@ h1{font-size:26px;line-height:32px;}
 <div class="card">
 <div class="content">
 
-<img class="logo" src="${LOGO}" alt="Natly">
+<img src="${LOGO_LIGHT}" width="240" class="logo light-logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
+<div class="dark-logo" style="display:none;">
+  <img src="${LOGO_DARK}" width="240" class="logo" alt="Natly" style="display:block;border:0;outline:none;text-decoration:none;">
+</div>
 
 <h1>Suscripción confirmada</h1>
 <p class="subtitle">Tu suscripción a nuestra lista ha sido confirmada.</p>
@@ -261,6 +271,12 @@ h1{color:#ffffff!important;}
 h1{font-size:26px;line-height:32px;}
 .btn{width:100%;justify-content:center;}
 }
+.dark-logo{display:none;max-height:0;overflow:hidden;opacity:0;}
+.light-logo{display:block;}
+@media (prefers-color-scheme:dark){
+  .light-logo{display:none!important;max-height:0!important;overflow:hidden!important;opacity:0!important;}
+  .dark-logo{display:block!important;max-height:none!important;overflow:visible!important;opacity:1!important;}
+}
 </style>
 </head>
 <body>
@@ -268,7 +284,10 @@ h1{font-size:26px;line-height:32px;}
 <div class="card">
 <div class="content">
 
-<img class="logo" src="${LOGO}" alt="Natly">
+<img src="${LOGO_LIGHT}" width="240" class="logo light-logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
+<div class="dark-logo" style="display:none;">
+  <img src="${LOGO_DARK}" width="240" class="logo" alt="Natly" style="display:block;border:0;outline:none;text-decoration:none;">
+</div>
 
 <h1>Subscription confirmed</h1>
 <p class="subtitle">Your subscription to our list has been confirmed.</p>
