@@ -1,9 +1,98 @@
+// ═══════════════════════════════════════════════════════════════
+//  NEWSLETTER SUBSCRIPTION - Guarda en Supabase y envía email
+// ═══════════════════════════════════════════════════════════════
+
+import type { Handler } from '@netlify/functions';
+import { createClient } from '@supabase/supabase-js';
+import { Resend } from 'resend';
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
+
 // ───────────────────────────────────────────────────────────────
 // CLOUDINARY ASSETS
 // ───────────────────────────────────────────────────────────────
 
 const LOGO = "https://res.cloudinary.com/dxtaji00x/image/upload/natly-logo_gnuy2h.png";
 const WAVE = "https://res.cloudinary.com/dxtaji00x/image/upload/wave-footer_vmjxqu.png";
+
+// ───────────────────────────────────────────────────────────────
+// INITIALIZE CLIENTS
+// ───────────────────────────────────────────────────────────────
+
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
+const resend = new Resend(process.env.RESEND_API_KEY!);
+
+// ───────────────────────────────────────────────────────────────
+// RATE LIMITING (in-memory, per IP)
+// ───────────────────────────────────────────────────────────────
+
+const rateLimitMap = new Map<string, number[]>();
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
+const RATE_LIMIT_MAX = 3; // 3 signups per hour
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = rateLimitMap.get(ip) || [];
+  
+  const recentTimestamps = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW);
+  
+  if (recentTimestamps.length >= RATE_LIMIT_MAX) {
+    return false;
+  }
+  
+  recentTimestamps.push(now);
+  rateLimitMap.set(ip, recentTimestamps);
+  return true;
+}
+
+// ───────────────────────────────────────────────────────────────
+// TOKEN GENERATION
+// ───────────────────────────────────────────────────────────────
+
+function generateDbToken(): string {
+  return crypto.randomBytes(16).toString('hex');
+}
+
+function generateJWT(email: string, dbToken: string, type: 'confirmation' | 'unsubscribe'): string {
+  return jwt.sign(
+    { email, dbToken, type },
+    process.env.JWT_SECRET!,
+    { expiresIn: '24h' }
+  );
+}
+
+// ───────────────────────────────────────────────────────────────
+// SEND CONFIRMATION EMAIL
+// ───────────────────────────────────────────────────────────────
+
+async function sendConfirmationEmail(
+  email: string,
+  language: string,
+  jwtToken: string
+): Promise<void> {
+  const isSpanish = language === 'es';
+  const confirmUrl = `https://natly.org/confirm?token=${jwtToken}`;
+
+  const subject = isSpanish
+    ? '✉️ Confirma tu suscripción a Natly'
+    : '✉️ Confirm your Natly subscription';
+
+  const html = isSpanish
+    ? getSpanishConfirmationEmail(confirmUrl)
+    : getEnglishConfirmationEmail(confirmUrl);
+
+  await resend.emails.send({
+    from: 'Natly <hello@mail.natly.org>',
+    to: email,
+    subject,
+    html,
+    replyTo: 'contact@natly.org',
+  });
+}
 
 // ───────────────────────────────────────────────────────────────
 // EMAIL TEMPLATES - CONFIRMATION (simple, con botón)
@@ -23,12 +112,6 @@ function getSpanishConfirmationEmail(confirmUrl: string): string {
 body,td{font-family:Verdana,Geneva,Arial,sans-serif;font-size:12px;}
 p{line-height:18px;}
 .small{font-size:11px;line-height:16px;color:#667085;}
-.dark-logo{display:none;max-height:0;overflow:hidden;opacity:0;}
-.light-logo{display:block;}
-@media (prefers-color-scheme:dark){
-.light-logo{display:none!important;max-height:0!important;overflow:hidden!important;opacity:0!important;}
-.dark-logo{display:block!important;max-height:none!important;overflow:visible!important;opacity:1!important;}
-}
 @media only screen and (max-width:600px){
 .container{width:100%!important;}
 .pad{padding-left:20px!important;padding-right:20px!important;}
@@ -46,17 +129,12 @@ p{line-height:18px;}
 
 <table width="600" cellspacing="0" cellpadding="0" border="0" class="container" style="width:600px;max-width:600px;background:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(5,40,89,0.10);">
 
-<!-- Logo -->
 <tr>
 <td align="center" style="padding:28px 24px 10px;">
-<img src="${LOGO}" width="240" class="logo light-logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
-<div class="dark-logo">
-<img src="${LOGO}" width="240" class="logo" alt="Natly" style="display:block;border:0;outline:none;text-decoration:none;">
-</div>
+<img src="${LOGO}" width="240" class="logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
 </td>
 </tr>
 
-<!-- Title -->
 <tr>
 <td align="center" class="pad" style="padding:0 24px 6px;">
 <div class="title" style="font-family:Verdana,Geneva,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:bold;color:#052859;">
@@ -65,7 +143,6 @@ Confirma tu suscripción
 </td>
 </tr>
 
-<!-- Message -->
 <tr>
 <td align="center" class="pad" style="padding:0 24px 14px;">
 <div class="text" style="font-family:Verdana,Geneva,Arial,sans-serif;font-size:14px;line-height:22px;color:#2b3648;">
@@ -81,7 +158,6 @@ Haz clic para confirmar:
 </td>
 </tr>
 
-<!-- Button -->
 <tr>
 <td align="center" style="padding:6px 24px 22px;">
 <table cellspacing="0" cellpadding="0" border="0">
@@ -104,7 +180,6 @@ Si no das clic, no quedarás suscrito.
 </td>
 </tr>
 
-<!-- Help -->
 <tr>
 <td align="center" class="pad" style="padding:0 28px 14px;">
 <p class="small" style="margin:0 0 10px;">
@@ -117,7 +192,6 @@ Si recibiste este correo por error, ignóralo o elimínalo. Tu suscripción solo
 </td>
 </tr>
 
-<!-- Wave -->
 <tr>
 <td style="padding:0;margin:0;line-height:0;font-size:0;">
 <img src="${WAVE}" width="600" alt="" style="display:block;width:100%;height:auto;margin:0;padding:0;border:0;outline:none;text-decoration:none;">
@@ -148,12 +222,6 @@ function getEnglishConfirmationEmail(confirmUrl: string): string {
 body,td{font-family:Verdana,Geneva,Arial,sans-serif;font-size:12px;}
 p{line-height:18px;}
 .small{font-size:11px;line-height:16px;color:#667085;}
-.dark-logo{display:none;max-height:0;overflow:hidden;opacity:0;}
-.light-logo{display:block;}
-@media (prefers-color-scheme:dark){
-.light-logo{display:none!important;max-height:0!important;overflow:hidden!important;opacity:0!important;}
-.dark-logo{display:block!important;max-height:none!important;overflow:visible!important;opacity:1!important;}
-}
 @media only screen and (max-width:600px){
 .container{width:100%!important;}
 .pad{padding-left:20px!important;padding-right:20px!important;}
@@ -171,17 +239,12 @@ p{line-height:18px;}
 
 <table width="600" cellspacing="0" cellpadding="0" border="0" class="container" style="width:600px;max-width:600px;background:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(5,40,89,0.10);">
 
-<!-- Logo -->
 <tr>
 <td align="center" style="padding:28px 24px 10px;">
-<img src="${LOGO}" width="240" class="logo light-logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
-<div class="dark-logo">
-<img src="${LOGO}" width="240" class="logo" alt="Natly" style="display:block;border:0;outline:none;text-decoration:none;">
-</div>
+<img src="${LOGO}" width="240" class="logo" alt="Natly" style="border:0;outline:none;text-decoration:none;">
 </td>
 </tr>
 
-<!-- Title -->
 <tr>
 <td align="center" class="pad" style="padding:0 24px 6px;">
 <div class="title" style="font-family:Verdana,Geneva,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:bold;color:#052859;">
@@ -190,7 +253,6 @@ Confirm your subscription
 </td>
 </tr>
 
-<!-- Message -->
 <tr>
 <td align="center" class="pad" style="padding:0 24px 14px;">
 <div class="text" style="font-family:Verdana,Geneva,Arial,sans-serif;font-size:14px;line-height:22px;color:#2b3648;">
@@ -206,7 +268,6 @@ Click to confirm:
 </td>
 </tr>
 
-<!-- Button -->
 <tr>
 <td align="center" style="padding:6px 24px 22px;">
 <table cellspacing="0" cellpadding="0" border="0">
@@ -229,7 +290,6 @@ You won't be subscribed unless you confirm.
 </td>
 </tr>
 
-<!-- Help -->
 <tr>
 <td align="center" class="pad" style="padding:0 28px 14px;">
 <p class="small" style="margin:0 0 10px;">
@@ -242,7 +302,6 @@ Questions? Contact:<br>
 </td>
 </tr>
 
-<!-- Wave -->
 <tr>
 <td style="padding:0;margin:0;line-height:0;font-size:0;">
 <img src="${WAVE}" width="600" alt="" style="display:block;width:100%;height:auto;margin:0;padding:0;border:0;outline:none;text-decoration:none;">
@@ -258,3 +317,132 @@ Questions? Contact:<br>
 </html>
   `;
 }
+
+// ═══════════════════════════════════════════════════════════════
+//  MAIN HANDLER
+// ═══════════════════════════════════════════════════════════════
+
+export const handler: Handler = async (event) => {
+  const headers = {
+    'Access-Control-Allow-Origin': 'https://natly.org',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json',
+  };
+
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 200, headers, body: '' };
+  }
+
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    };
+  }
+
+  try {
+    const { email, honeypot, language } = JSON.parse(event.body || '{}');
+
+    // Honeypot check
+    if (honeypot) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ success: true, message: 'Subscription successful' }),
+      };
+    }
+
+    // Email validation
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/;
+    if (!email || !emailRegex.test(email)) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: 'Invalid email address' }),
+      };
+    }
+
+    // Rate limiting
+    const ip = event.headers['x-forwarded-for'] || event.headers['client-ip'] || 'unknown';
+    if (!checkRateLimit(ip)) {
+      return {
+        statusCode: 429,
+        headers,
+        body: JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+      };
+    }
+
+    // Check if already exists
+    const { data: existing } = await supabase
+      .from('subscribers')
+      .select('status')
+      .eq('email', email)
+      .single();
+
+    if (existing) {
+      if (existing.status === 'confirmed') {
+        return {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({ success: true, message: 'Already subscribed' }),
+        };
+      }
+    }
+
+    // Generate tokens
+    const dbToken = generateDbToken();
+    const jwtToken = generateJWT(email, dbToken, 'confirmation');
+
+    // Insert or update subscriber
+    const { error: upsertError } = await supabase
+      .from('subscribers')
+      .upsert({
+        email,
+        language: language || 'en',
+        status: 'pending',
+        confirmation_token: dbToken,
+        unsubscribe_token: generateDbToken(),
+        ip_address: ip,
+        source: 'footer',
+      }, {
+        onConflict: 'email'
+      });
+
+    if (upsertError) {
+      console.error('Supabase upsert error:', upsertError);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'Failed to save subscription' }),
+      };
+    }
+
+    // Send confirmation email
+    try {
+      await sendConfirmationEmail(email, language || 'en', jwtToken);
+    } catch (emailError) {
+      console.error('Email send error:', emailError);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'Failed to send confirmation email' }),
+      };
+    }
+
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ success: true, message: 'Confirmation email sent' }),
+    };
+
+  } catch (error) {
+    console.error('Newsletter error:', error);
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ error: 'Internal server error' }),
+    };
+  }
+};
