@@ -1,0 +1,33 @@
+{
+  "loading": "Procesando...",
+  "idle": {
+    "title": "¿Seguro que quieres irte?",
+    "message": "Lamentamos verte partir. Ya no recibirás emails de Natly, pero siempre podrás volver cuando quieras.",
+    "confirmButton": "Sí, darme de baja",
+    "reasonButton": "Darme de baja y dar feedback",
+    "cancelButton": "No, quiero quedarme",
+    "reasonPlaceholder": "¿Nos ayudas a mejorar? Cuéntanos por qué te vas (opcional)",
+    "submitButton": "Enviar y darme de baja",
+    "backButton": "Volver"
+  },
+  "success": {
+    "title": "Te diste de baja",
+    "message": "Tu suscripción ha sido cancelada exitosamente.",
+    "subtitle": "Ya no recibirás más emails de nuestra parte.",
+    "button": "Seguir practicando",
+    "resubscribe": "¿Cambiaste de opinión? Vuelve a suscribirte en"
+  },
+  "already": {
+    "title": "Ya dado de baja",
+    "message": "Ya habías cancelado tu suscripción anteriormente.",
+    "button": "Volver al inicio"
+  },
+  "error": {
+    "title": "Error",
+    "message": "No pudimos procesar tu solicitud. El link puede haber expirado.",
+    "button": "Volver al inicio"
+  },
+  "footer": {
+    "help": "¿Problemas? Escríbenos a"
+  }
+}

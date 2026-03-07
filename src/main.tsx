@@ -24,6 +24,8 @@ const Quiz = lazy(() => import("./pages/Quiz"));
 const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
 const Profile = lazy(() => import("./pages/Profile"));
+const Confirm = lazy(() => import("./pages/Confirm"));
+const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const Error404 = lazy(() => import("./pages/Error404"));
 
 createRoot(document.getElementById("root")!).render(
@@ -46,6 +48,8 @@ createRoot(document.getElementById("root")!).render(
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="confirm" element={<Confirm />} />
+              <Route path="unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<Error404 />} />
             </Route>
           </Routes>

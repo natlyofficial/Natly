@@ -1,0 +1,33 @@
+{
+  "loading": "Processing...",
+  "idle": {
+    "title": "Are you sure you want to leave?",
+    "message": "We're sorry to see you go. You won't receive emails from Natly anymore, but you can always come back whenever you want.",
+    "confirmButton": "Yes, unsubscribe me",
+    "reasonButton": "Unsubscribe and give feedback",
+    "cancelButton": "No, I want to stay",
+    "reasonPlaceholder": "Help us improve! Tell us why you're leaving (optional)",
+    "submitButton": "Submit and unsubscribe",
+    "backButton": "Go back"
+  },
+  "success": {
+    "title": "You've been unsubscribed",
+    "message": "Your subscription has been successfully canceled.",
+    "subtitle": "You won't receive any more emails from us.",
+    "button": "Keep practicing",
+    "resubscribe": "Changed your mind? Resubscribe at"
+  },
+  "already": {
+    "title": "Already unsubscribed",
+    "message": "You had already canceled your subscription previously.",
+    "button": "Back to home"
+  },
+  "error": {
+    "title": "Error",
+    "message": "We couldn't process your request. The link may have expired.",
+    "button": "Back to home"
+  },
+  "footer": {
+    "help": "Problems? Email us at"
+  }
+}

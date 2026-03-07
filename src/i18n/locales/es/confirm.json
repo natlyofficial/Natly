@@ -1,0 +1,24 @@
+{
+  "loading": "Confirmando...",
+  "loadingSubtitle": "Estamos verificando tu suscripción",
+  "success": {
+    "title": "¡Confirmado!",
+    "message": "Tu suscripción ha sido confirmada exitosamente. Revisa tu email de bienvenida con todos los detalles.",
+    "button": "Empezar a practicar",
+    "checkEmail": "📬 Revisa tu bandeja de entrada"
+  },
+  "already": {
+    "title": "Ya confirmado",
+    "message": "Tu email ya estaba confirmado anteriormente.",
+    "button": "Ir a practicar"
+  },
+  "error": {
+    "title": "Error",
+    "message": "No pudimos confirmar tu suscripción.",
+    "help": "El link puede haber expirado o ya fue usado.",
+    "button": "Volver al inicio"
+  },
+  "footer": {
+    "help": "¿Problemas? Escríbenos a"
+  }
+}

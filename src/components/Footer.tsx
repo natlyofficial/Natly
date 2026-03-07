@@ -215,7 +215,7 @@ export default function Footer() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
           email,
-          honeypot, // Bots will fill this
+          honeypot,
           language: currentLanguage
         }),
       });
@@ -223,12 +223,15 @@ export default function Footer() {
       if (response.ok) {
         setStatus("success");
         setEmail("");
-        setTimeout(() => setStatus("idle"), 3000);
+        setTimeout(() => setStatus("idle"), 5000); // 5 segundos para leer mensaje
       } else {
         setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
       }
     } catch (error) {
+      console.error('Newsletter error:', error);
       setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 

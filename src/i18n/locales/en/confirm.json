@@ -1,0 +1,24 @@
+{
+  "loading": "Confirming...",
+  "loadingSubtitle": "We're verifying your subscription",
+  "success": {
+    "title": "Confirmed!",
+    "message": "Your subscription has been successfully confirmed. Check your welcome email for all the details.",
+    "button": "Start practicing",
+    "checkEmail": "📬 Check your inbox"
+  },
+  "already": {
+    "title": "Already confirmed",
+    "message": "Your email was already confirmed previously.",
+    "button": "Go to practice"
+  },
+  "error": {
+    "title": "Error",
+    "message": "We couldn't confirm your subscription.",
+    "help": "The link may have expired or was already used.",
+    "button": "Back to home"
+  },
+  "footer": {
+    "help": "Problems? Email us at"
+  }
+}
