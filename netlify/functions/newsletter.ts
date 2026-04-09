@@ -87,7 +87,7 @@ async function sendConfirmationEmail(
     : getEnglishConfirmationEmail(confirmUrl);
 
   await resend.emails.send({
-    from: 'Natly <hello@mail.natly.org>',
+    from: 'Natly <newsletter@mail.natly.org>',
     to: email,
     subject,
     html,

@@ -46,7 +46,7 @@ async function sendGoodbyeEmail(
     : getEnglishGoodbyeEmail(reason);
 
   await resend.emails.send({
-    from: 'Natly <hello@mail.natly.org>',
+    from: 'Natly <unsubscribe@mail.natly.org>',
     to: email,
     subject,
     html,

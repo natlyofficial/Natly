@@ -46,7 +46,7 @@ async function sendWelcomeEmail(email: string, language: string): Promise<void> 
     : getEnglishWelcomeEmail();
 
   await resend.emails.send({
-    from: 'Natly <hello@mail.natly.org>',
+    from: 'Natly <confirm@mail.natly.org>',
     to: email,
     subject,
     html,
