@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import facebookIcon  from "../assets/icon/facebook.webp";
 import tiktokIcon    from "../assets/icon/tiktok.webp";
@@ -221,7 +220,7 @@ export default function Footer() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 w-full mt-2">
-            
+
             <NewsletterForm />
 
             <div className="hidden sm:block h-30 w-px bg-white/15 flex-shrink-0" />
