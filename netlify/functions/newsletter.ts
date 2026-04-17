@@ -423,14 +423,16 @@ export const handler: Handler = async (event) => {
     const jwtToken = generateJWT(email, dbToken, 'confirmation');
 
     // Insert or update subscriber
+    const unsubToken = generateDbToken();
+
     const { error: upsertError } = await supabase
       .from('subscribers')
       .upsert({
         email,
         language: (language || 'en').padEnd(2, ' '),
         status: 'pending',
-        confirmation_token: dbToken,
-        unsubscribe_token: generateDbToken(),
+        confirmation_token: dbToken.padEnd(32, ' '),
+        unsubscribe_token: unsubToken.padEnd(32, ' '),
         ip_address: ip,
         source: 'footer',
       }, {
