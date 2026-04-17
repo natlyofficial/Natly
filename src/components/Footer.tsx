@@ -4,6 +4,7 @@ import facebookIcon  from "../assets/icon/facebook.webp";
 import tiktokIcon    from "../assets/icon/tiktok.webp";
 import youtubeIcon   from "../assets/icon/youtube.webp";
 import instagramIcon from "../assets/icon/instagram.webp";
+import NewsletterForm from "../features/newsletter/components/NewsletterForm";
 
 // ─────────────────────────────────────────────────────────────────
 // CLOUD SHAPES
@@ -196,44 +197,7 @@ const socialLinks = [
 // FOOTER
 // ─────────────────────────────────────────────────────────────────
 export default function Footer() {
-  const { t, i18n } = useTranslation("footer");
-  const [email, setEmail]   = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    // Get honeypot value
-    const formData = new FormData(e.target as HTMLFormElement);
-    const honeypot = formData.get('honeypot');
-    const currentLanguage = i18n.language;
-
-    try {
-      const response = await fetch("https://api-natly.netlify.app/.netlify/functions/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          email,
-          honeypot,
-          language: currentLanguage
-        }),
-      });
-
-      if (response.ok) {
-        setStatus("success");
-        setEmail("");
-        setTimeout(() => setStatus("idle"), 5000); // 5 segundos para leer mensaje
-      } else {
-        setStatus("error");
-        setTimeout(() => setStatus("idle"), 5000);
-      }
-    } catch (error) {
-      console.error('Newsletter error:', error);
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 5000);
-    }
-  };
+  const { t } = useTranslation("footer");
 
   return (
     <footer style={{ background: "#0a3978", overflow: "hidden" }}>
@@ -256,49 +220,9 @@ export default function Footer() {
             {t("newsletter.socialProof")}
           </p>
 
-          {/* Newsletter + copyright */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 w-full mt-2">
-
-            <div className="flex flex-col items-center sm:items-start gap-2 w-full sm:flex-1 sm:max-w-lg">
-              <p className="text-white font-bold text-xl tracking-tight">
-                {t("newsletter.title")}
-              </p>
-              <p className="text-white/55 text-sm text-center sm:text-left">
-                {t("newsletter.subtitle")}
-              </p>
-
-              {status === "success" ? (
-                <p className="text-green-300 text-sm font-medium text-center sm:text-left">
-                  ✓ {t("newsletter.successMessage")}
-                </p>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex w-full gap-2 mt-1">
-                  {/* Honeypot - hidden field for bots */}
-                  <input 
-                    type="text" 
-                    name="honeypot" 
-                    style={{ display: 'none' }} 
-                    tabIndex={-1} 
-                    autoComplete="off"
-                  />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t("newsletter.placeholder")}
-                    required
-                    className="newsletter-input flex-1 min-w-0"
-                  />
-                  <button type="submit" disabled={status === "loading"} className="newsletter-btn">
-                    {status === "loading" ? t("newsletter.sending") : t("newsletter.button")}
-                  </button>
-                </form>
-              )}
-
-              {status === "error" && (
-                <p className="text-red-300 text-xs">{t("newsletter.errorMessage")}</p>
-              )}
-            </div>
+            
+            <NewsletterForm />
 
             <div className="hidden sm:block h-30 w-px bg-white/15 flex-shrink-0" />
 

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer.tsx";
 import { usePageTracking } from "../hooks/useAnalytics";
 import { startSession } from "../lib/analytics";
 
