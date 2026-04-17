@@ -345,7 +345,9 @@ export const handler: Handler = async (event) => {
   const allowedOrigins = [
     "https://natly.org",
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "http://localhost:8888",
+    "http://127.0.0.1:8888" 
   ];
 
   const origin = event.headers.origin || "";
@@ -424,20 +426,33 @@ export const handler: Handler = async (event) => {
 
     // Insert or update subscriber
     const unsubToken = generateDbToken();
+    
+    const dataToInsert = {
+      email,
+      language: (language || 'en').padEnd(2, ' '),
+      status: 'pending',
+      confirmation_token: dbToken.padEnd(32, ' '),
+      unsubscribe_token: unsubToken.padEnd(32, ' '),
+      ip_address: ip,
+      source: 'footer',
+    };
+
+    console.log('=== DATA TO INSERT ===');
+    console.log('email:', email);
+    console.log('language:', JSON.stringify(dataToInsert.language), 'length:', dataToInsert.language.length);
+    console.log('confirmation_token:', JSON.stringify(dataToInsert.confirmation_token), 'length:', dataToInsert.confirmation_token.length);
+    console.log('unsubscribe_token:', JSON.stringify(dataToInsert.unsubscribe_token), 'length:', dataToInsert.unsubscribe_token.length);
+    console.log('status:', dataToInsert.status);
+    console.log('source:', dataToInsert.source);
+    console.log('======================');
 
     const { error: upsertError } = await supabase
       .from('subscribers')
-      .upsert({
-        email,
-        language: (language || 'en').padEnd(2, ' '),
-        status: 'pending',
-        confirmation_token: dbToken.padEnd(32, ' '),
-        unsubscribe_token: unsubToken.padEnd(32, ' '),
-        ip_address: ip,
-        source: 'footer',
-      }, {
+      .upsert(dataToInsert, {
         onConflict: 'email'
       });
+
+    
 
     if (upsertError) {
       console.error('Supabase upsert error:', upsertError);
