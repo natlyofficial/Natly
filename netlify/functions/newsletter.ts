@@ -427,7 +427,7 @@ export const handler: Handler = async (event) => {
       .from('subscribers')
       .upsert({
         email,
-        language: language || 'en',
+        language: (language || 'en').padEnd(2, ' '),
         status: 'pending',
         confirmation_token: dbToken,
         unsubscribe_token: generateDbToken(),
