@@ -342,11 +342,19 @@ Questions? Contact:<br>
 // ═══════════════════════════════════════════════════════════════
 
 export const handler: Handler = async (event) => {
+  const allowedOrigins = [
+    "https://natly.org",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173"
+  ];
+
+  const origin = event.headers.origin || "";
   const headers = {
-    'Access-Control-Allow-Origin': 'https://natly.org',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Content-Type': 'application/json',
+    "Access-Control-Allow-Origin": allowedOrigins.includes(origin) 
+      ? origin 
+      : "https://natly.org",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
   };
 
   if (event.httpMethod === 'OPTIONS') {
