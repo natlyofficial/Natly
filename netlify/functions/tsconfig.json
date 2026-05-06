@@ -12,8 +12,7 @@
     "types": ["node"],
     "outDir": "./dist",
     "rootDir": ".",
-    "noEmit": true,
-    "ignoreDeprecations": "6.0"
+    "noEmit": true
   },
   "include": ["./**/*.ts"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
