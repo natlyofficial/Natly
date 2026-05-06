@@ -22,6 +22,17 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build project
+        env:
+            # Public keys (safe - from .env.production)
+            VITE_SUPABASE_URL: https://etutawclisojjdxtuctk.supabase.co
+            VITE_SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV0dXRhd2NsaXNvampkeHR1Y3RrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4MjE5NTAsImV4cCI6MjA4ODM5Nzk1MH0.Gx1bywNSfxwuJMbwRv1cPQMDljowa-hHn1JLNCcCXP0
+            VITE_API_URL: https://api-natly.netlify.app
+            VITE_RECAPTCHA_SITE_KEY: 6LcxCyssAAAAANQIaK8EKDr_fh8rdjJbwQw8FPl7
+            VITE_GA_MEASUREMENT_ID: G-09PP3594P5
+            # Semi-private keys (from GitHub Secrets)
+            VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+            VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+            VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
         run: npm run build
 
       - name: Copy .htaccess into dist
