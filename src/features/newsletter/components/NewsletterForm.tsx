@@ -11,8 +11,36 @@ export default function NewsletterForm() {
   const [status, setStatus] = useState<LoadingState>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Email validation regex
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Validate email format before submitting
+    if (!email.trim()) {
+      setErrorMessage(t('newsletter.errorEmpty') || 'Email is required');
+      setStatus('error');
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 3000);
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setErrorMessage(t('newsletter.errorInvalid') || 'Invalid email format');
+      setStatus('error');
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 3000);
+      return;
+    }
+
     setStatus('loading');
     setErrorMessage('');
 
@@ -35,7 +63,10 @@ export default function NewsletterForm() {
       const apiError = handleApiError(error);
       setErrorMessage(apiError.error || NEWSLETTER_CONSTANTS.MESSAGES.ERROR.GENERIC_EN);
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
+      setTimeout(() => {
+        setStatus('idle');
+        setErrorMessage('');
+      }, 5000);
     }
   };
 
@@ -53,7 +84,7 @@ export default function NewsletterForm() {
           ✓ {t('newsletter.successMessage')}
         </p>
       ) : (
-        <form onSubmit={handleSubmit} className="flex w-full gap-2 mt-1">
+        <form onSubmit={handleSubmit} className="flex w-full gap-2 mt-1" noValidate>
           {/* Honeypot */}
           <input
             type="text"
@@ -83,6 +114,7 @@ export default function NewsletterForm() {
         </form>
       )}
 
+      {/* ⬅Show error message for both 'error' status */}
       {status === 'error' && errorMessage && (
         <p className="text-red-300 text-xs">{errorMessage}</p>
       )}
