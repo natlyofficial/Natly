@@ -3,7 +3,8 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" },
-    { "path": "./netlify/functions/tsconfig.json" }
+    { "path": "./netlify/functions/tsconfig.json" },
+    { "path": "./tsconfig.test.json" }
   ],
   "compilerOptions": {
     "target": "ES2020",
