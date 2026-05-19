@@ -98,11 +98,6 @@ describe('fetchApi helper', () => {
   });
 
   it('preserves NewsletterError when thrown', async () => {
-    const customError = new NewsletterError(
-      'Custom error',
-      ERROR_CODES.RATE_LIMIT_EXCEEDED,
-      429
-    );
 
     mockFetch.mockResolvedValueOnce({
       ok: false,
