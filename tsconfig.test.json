@@ -1,12 +1,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "vitest/globals", "@testing-library/jest-dom"]
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom", "vite/client"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"]
   },
   "include": [
     "tests/**/*.ts",
+    "tests/**/*.tsx",
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
-    "netlify/functions/**/*.test.ts"
+    "netlify/functions/**/*.test.ts",
+    "src/vite-env.d.ts"
   ]
 }
