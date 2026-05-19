@@ -28,11 +28,23 @@ export class NewsletterError extends Error {
 
 // Error codes
 export const ERROR_CODES = {
+  // Validation
   INVALID_EMAIL: 'INVALID_EMAIL',
+  VALIDATION_ERROR: 'VALIDATION_ERROR',
+  
+  // Rate limiting
   RATE_LIMIT: 'RATE_LIMIT_EXCEEDED',
+  RATE_LIMIT_EXCEEDED: 'RATE_LIMIT_EXCEEDED',
+  
+  // Network & Server
   NETWORK_ERROR: 'NETWORK_ERROR',
   SERVER_ERROR: 'SERVER_ERROR',
+  
+  // Token & Auth
   INVALID_TOKEN: 'INVALID_TOKEN',
+  
+  // Subscription states
   ALREADY_SUBSCRIBED: 'ALREADY_SUBSCRIBED',
+  ALREADY_CONFIRMED: 'ALREADY_CONFIRMED',
   NOT_FOUND: 'NOT_FOUND',
-};
+} as const;
