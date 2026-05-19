@@ -69,7 +69,7 @@ describe('Newsletter Integration - Full Flow', () => {
   });
 
   it('rejects bot submission (honeypot filled)', () => {
-    const userEmail = 'bot@spam.com';
+    //const _userEmail = 'bot@spam.com';
     const honeypot = 'I am a bot';
 
     // Bot detection
@@ -197,7 +197,7 @@ describe('Newsletter Integration - Unsubscribe Flow', () => {
 
 describe('Newsletter Integration - Multi-language', () => {
   it('handles English subscriber', () => {
-    const email = 'english@natly.org';
+    //const email = 'english@natly.org';
     const language = 'en-US';
 
     const normalized = normalizeLanguage(language);
@@ -209,7 +209,7 @@ describe('Newsletter Integration - Multi-language', () => {
   });
 
   it('handles Spanish subscriber', () => {
-    const email = 'spanish@natly.org';
+    //const email = 'spanish@natly.org';
     const language = 'es-MX';
 
     const normalized = normalizeLanguage(language);
