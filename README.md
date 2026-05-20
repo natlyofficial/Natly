@@ -1,3 +1,64 @@
+# Natly - U.S. Citizenship Preparation Platform
+
+![Tests](https://img.shields.io/badge/tests-97%20passing-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-89%25-brightgreen)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)
+
+> Bilingual (English/Spanish) platform helping immigrants prepare for U.S. citizenship naturalization.
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in UI mode
+npm run test:ui
+```
+
+### Test Coverage
+
+- **97 tests** covering backend, frontend, and integration
+- **89% overall coverage** with the following breakdown:
+  - Backend Utils: 100%
+  - API Client: 100%
+  - Components: 85%
+  - Error Handling: 75%
+
+### Coverage Thresholds
+
+The project enforces minimum coverage thresholds:
+- Lines: 85%
+- Functions: 80%
+- Branches: 75%
+- Statements: 85%
+
+Build will fail if coverage drops below these thresholds.
+
+---
+
+## 🏗️ Project Structure
+
+natly/
+├── src/
+│   ├── features/newsletter/          # Newsletter feature
+│   │   ├── api/                      # API client (100% coverage)
+│   │   ├── components/               # React components (85% coverage)
+│   │   └── types/                    # TypeScript types
+│   └── lib/errors/                   # Error handling utilities
+├── netlify/functions/                # Serverless functions
+│   └── newsletter/utils/             # Backend utilities (100% coverage)
+├── tests/
+│   ├── integration/                  # Integration tests
+│   └── setup.ts                      # Test configuration
+└── coverage/                         # Coverage reports (generated)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

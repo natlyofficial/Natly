@@ -35,6 +35,12 @@ export default defineConfig({
         'vite.config.ts',
         'netlify/functions/ping.ts',
       ],
+      thresholds: {
+        lines: 85,
+        functions: 80,
+        branches: 75,
+        statements: 85,
+      }
     },
   },
 })
