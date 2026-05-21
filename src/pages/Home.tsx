@@ -88,7 +88,7 @@ export default function Home() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="flex justify-center md:justify-end"
         >
-          <img src={mascot} className="w-64 md:w-80" />
+          <img src={mascot} alt="Natly mascot" className="w-64 md:w-80" />
         </motion.div>
       </div>
 
@@ -165,7 +165,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="flex justify-center"
           >
-            <img src={devicesImage} className="w-full max-w-md" />
+            <img src={devicesImage} alt="Natly on multiple devices" className="w-full max-w-md" />
           </motion.div>
         </div>
       </motion.div>
@@ -208,6 +208,7 @@ export default function Home() {
                 <div className="mb-5 flex justify-center items-center h-36 ">
                   <img
                     src={item.img}
+                    alt={t(item.titleKey)}
                     className={`h-auto ${item.size} rounded-xl`}
                   />
                 </div>
@@ -241,7 +242,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="bg-white p-10 text-center shadow-2xl"
         >
-          <img src={mascotheart} className="w-40 mx-auto mb-6" />
+          <img src={mascotheart} alt="Natly mascot with heart" className="w-40 mx-auto mb-6" />
 
           <h3 className="text-2xl font-bold text-natly-blue mb-4">
             {t("community_title")}
