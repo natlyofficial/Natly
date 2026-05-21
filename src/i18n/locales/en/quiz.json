@@ -1,6 +1,7 @@
 {
   "actions": {
-    "finish_quiz": "Finish Quiz"
+    "finish_quiz": "Finish Quiz",
+    "next_question": "Next Question"
   },
 
   "config": {

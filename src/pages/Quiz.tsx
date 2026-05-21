@@ -2,6 +2,7 @@ import QuizModeScreen from "../components/quiz/screens/QuizModeScreen";
 import ConfigScreen from "../components/quiz/screens/ConfigScreen";
 import EasyOptions from "../components/quiz/easy/EasyOptions";
 import EasyGuideOption from "../components/quiz/easy/EasyGuideOption";
+import EasyQuickExamOption from "@/components/quiz/easy/EasyQuickExamOption";
 import ResultsScreen from "../components/quiz/screens/ResultsScreen";
 
 import {
@@ -28,6 +29,9 @@ function QuizRouter() {
 
     case "easy-guide":
       return <EasyGuideOption />;
+
+    case "easy-quickexam":
+      return <EasyQuickExamOption />;
 
     case "results":
       return <ResultsScreen />;

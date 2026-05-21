@@ -8,5 +8,6 @@ export type QuizAction =
   | { type: "BACK" }
   | { type: "CLOSE_LOCKED_POPUP" }
   | { type: "START_EASY" }
+  | { type: "START_QUICKEXAM" }
   | { type: "RESTART_QUIZ" }
   | { type: "RESET_FLOW" };

@@ -11,6 +11,7 @@ export type QuizStep =
   | "config"
   | "easy-options"
   | "easy-guide"
+  | "easy-quickexam"
   | "results";
 // futuro:
 // | "hard-options"
@@ -25,7 +26,7 @@ export type QuizContext = {
 export type QuizSelections = {
   version: ExamVersion;
   mode: ExamMode;
-  quizLanguage: QuizLanguage; // 🆕 Language for quiz questions
+  quizLanguage: QuizLanguage;
 };
 
 export type QuizState = {
@@ -35,4 +36,5 @@ export type QuizState = {
     showLockedPopup: boolean;
   };
   sessionId: number;
+  lastQuizStep: "easy-guide" | "easy-quickexam" | null;
 };

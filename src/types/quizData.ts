@@ -87,7 +87,7 @@ export type PracticeSession = {
   endTime: string | null;
   
   /** Quiz mode used */
-  mode: "easy-guide" | "quick-test" | "by-topic" | "flashcards";
+  mode: "easy-guide" | "easy-quickexam" | "by-topic" | "flashcards";
   
   /** Number of questions attempted in this session */
   questionsAttempted: number;

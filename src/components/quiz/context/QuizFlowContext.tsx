@@ -24,13 +24,14 @@ type QuizFlowContextType = {
   selectLanguage: (l: QuizLanguage) => void;
 
   continueFlow: () => void;
+
   startEasy: () => void;
+  startQuickExam: () => void;
 
   goBack: () => void;
 
   closePopup: () => void;
-  
-  // 🆕 New actions
+
   restartQuiz: () => void;
   resetFlow: () => void;
 };
@@ -103,6 +104,10 @@ export function QuizFlowProvider({
     dispatch({ type: "START_EASY" });
   };
 
+  const startQuickExam = () => {
+    dispatch({ type: "START_QUICKEXAM" });
+  }
+
   const goBack = () => {
     dispatch({ type: "BACK" });
   };
@@ -143,6 +148,7 @@ export function QuizFlowProvider({
 
         continueFlow,
         startEasy,
+        startQuickExam,
 
         goBack,
 

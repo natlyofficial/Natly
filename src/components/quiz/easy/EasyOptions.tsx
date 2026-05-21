@@ -36,7 +36,7 @@ export default function EasyOptions() {
   border-natly-blue-soft
 `;
 
-  const { goBack, continueFlow } = useQuizFlow();
+  const { goBack, continueFlow, startQuickExam } = useQuizFlow();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
@@ -107,7 +107,7 @@ export default function EasyOptions() {
         </div>
 
         {/* Quick */}
-        <div onClick={handleUnavailable} className={cardBase}>
+        <div onClick={startQuickExam} className={cardBase}>
           <img
             src={easyquizquick}
             alt="Quick test"

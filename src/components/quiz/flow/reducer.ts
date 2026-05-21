@@ -53,6 +53,9 @@ export function quizReducer(
         ui: { ...state.ui, showLockedPopup: false },
       };
 
+    case "START_QUICKEXAM":
+      return { ...state, step: "easy-quickexam", lastQuizStep: "easy-quickexam", sessionId: Date.now() };
+
     case "CONTINUE": {
       switch (state.step) {
         case "mode":
@@ -65,10 +68,12 @@ export function quizReducer(
           return state;
 
         case "easy-options":
-          return { ...state, step: "easy-guide" };
+          return { ...state, step: "easy-guide", lastQuizStep: "easy-guide" };
 
         case "easy-guide":
-          // Quiz finished, go to results
+          return { ...state, step: "results" };
+
+        case "easy-quickexam":
           return { ...state, step: "results" };
 
         default:
@@ -77,13 +82,14 @@ export function quizReducer(
     }
 
     case "BACK": {
-      // centralized back behavior
       switch (state.step) {
         case "config":
           return { ...state, step: "mode" };
         case "easy-options":
           return { ...state, step: "config" };
         case "easy-guide":
+          return { ...state, step: "easy-options" };
+        case "easy-quickexam":
           return { ...state, step: "easy-options" };
         case "results":
           return { ...state, step: "mode" };
@@ -92,11 +98,10 @@ export function quizReducer(
       }
     }
 
-    // 🆕 Restart quiz (same settings, new session)
     case "RESTART_QUIZ":
       return {
         ...state,
-        step: "easy-guide", // Go back to practice type selection
+        step: state.lastQuizStep ?? "easy-options", // Go back to practice type selection
         sessionId: Date.now() // New session ID to reset question selection
       };
 

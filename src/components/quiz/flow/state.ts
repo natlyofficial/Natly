@@ -28,6 +28,7 @@ export const createInitialQuizState = (
     ui: {
       showLockedPopup: false,
     },
-    sessionId: Date.now()
+    sessionId: Date.now(),
+    lastQuizStep: null,
   };
 };

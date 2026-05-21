@@ -1,6 +1,7 @@
 {
   "actions": {
-    "finish_quiz": "Terminar cuestionario"
+    "finish_quiz": "Terminar cuestionario",
+    "next_question": "Siguiente pregunta"
   },
 
   "config": {
