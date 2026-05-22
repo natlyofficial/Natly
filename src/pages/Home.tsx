@@ -82,14 +82,14 @@ export default function Home() {
           </motion.button>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="flex justify-center md:justify-end"
-        >
-          <img src={mascot} alt="Natly mascot" className="w-64 md:w-80" />
-        </motion.div>
+        <div className="flex justify-center md:justify-end animate-fade-in">
+          <img
+            src={mascot}
+            alt="Natly mascot"
+            className="w-64 md:w-80"
+            fetchPriority="high"
+          />
+        </div>
       </div>
 
       {/* HOW IT WORKS */}
