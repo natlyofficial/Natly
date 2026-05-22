@@ -135,6 +135,8 @@ export default function Navbar() {
               type="button"
               className="lg:hidden text-natly-blue text-3xl"
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? t("menu_close") : t("menu_open")}
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <IconClose size={24} /> : <IconMenu size={24} />}
             </button>

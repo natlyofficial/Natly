@@ -75,7 +75,7 @@ export default function NewsletterForm() {
       <p className="text-white font-bold text-xl tracking-tight">
         {t('newsletter.title')}
       </p>
-      <p className="text-white/55 text-sm text-center sm:text-left">
+      <p className="text-white/70 text-sm text-center sm:text-left">
         {t('newsletter.subtitle')}
       </p>
 

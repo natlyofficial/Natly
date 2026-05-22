@@ -5,5 +5,7 @@
   "donate": "Donaciones",
   "about": "Conócenos",
   "contact": "Contacto",
-  "login": "Iniciar sesión"
+  "login": "Iniciar sesión",
+  "menu_open": "Abrir menú de navegación",
+  "menu_close": "Cerrar menú de navegación"
 }

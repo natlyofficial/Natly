@@ -215,7 +215,7 @@ export default function Footer() {
           </div>
 
           {/* Social proof */}
-          <p className="text-center text-white/50 text-xs mb-6">
+          <p className="text-center text-white/70 text-xs mb-6">
             {t("newsletter.socialProof")}
           </p>
 
@@ -225,7 +225,7 @@ export default function Footer() {
 
             <div className="hidden sm:block h-30 w-px bg-white/15 flex-shrink-0" />
 
-            <p className="text-center text-sm font-bold text-white/50 sm:self-center">
+            <p className="text-center text-sm font-bold text-white/70 sm:self-center">
               {t("rights")}
             </p>
 
